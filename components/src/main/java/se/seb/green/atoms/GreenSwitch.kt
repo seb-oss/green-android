@@ -1,8 +1,6 @@
 package se.seb.green.atoms
 
 import android.content.res.Configuration
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -21,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import se.seb.green.icons.SebIcons
 import se.seb.green.theme.GreenTheme
 
@@ -30,16 +27,17 @@ import se.seb.green.theme.GreenTheme
 fun GreenSwitch(
     modifier: Modifier = Modifier,
     checked: Boolean,
-    colors: SwitchColors = GreenSwitchDefaults.sebColors(),
+    colors: SwitchColors = GreenSwitchDefaults.defaultColors(),
     enabled: Boolean = true,
-    rippleColor: Color = colors.checkedTrackColor,
     checkedIcon: ImageVector = SebIcons.Check,
     onCheckedChanged: (Boolean) -> Unit
 ) {
-    CompositionLocalProvider(LocalRippleConfiguration provides RippleConfiguration(
-        color = rippleColor,
-        rippleAlpha = RippleAlpha(0.4f, 0.4f, 0.4f, 0.4f)
-    )) {
+    CompositionLocalProvider(
+        LocalRippleConfiguration provides RippleConfiguration(
+            color = colors.checkedTrackColor,
+            rippleAlpha = RippleAlpha(0.16f, 0.1f, 0.08f, 0.1f)
+        )
+    ) {
         Switch(
             modifier = modifier,
             checked = checked,
@@ -57,7 +55,7 @@ fun GreenSwitch(
 
 object GreenSwitchDefaults {
     @Composable
-    fun sebColors(): SwitchColors {
+    fun defaultColors(): SwitchColors {
         return SwitchDefaults.colors(
             checkedThumbColor = Color.White,
             checkedTrackColor = GreenTheme.colors.level3Colors.levelL3BackgroundPositive,
@@ -68,7 +66,7 @@ object GreenSwitchDefaults {
     }
 
     @Composable
-    fun seb2016Colors(): SwitchColors {
+    fun legacyColors(): SwitchColors {
         return SwitchDefaults.colors(
             checkedThumbColor = Color.White,
             checkedTrackColor = GreenTheme.legacyColors.DarkBlue1,
@@ -101,7 +99,7 @@ private fun GreenSwitchPreview() {
         GreenSwitch(
             checked = checked,
             onCheckedChanged = { checked = it },
-            colors = GreenSwitchDefaults.sebColors()
+            colors = GreenSwitchDefaults.defaultColors()
         )
     }
 }

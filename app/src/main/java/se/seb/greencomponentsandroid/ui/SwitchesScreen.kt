@@ -2,10 +2,8 @@ package se.seb.greencomponentsandroid.ui
 
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -38,7 +36,7 @@ fun SwitchesScreen(scrollState: ScrollState) {
         SwitchRow(
             title = "Green 2016",
             checked = legacyChecked,
-            colors = GreenSwitchDefaults.seb2016Colors(),
+            colors = GreenSwitchDefaults.legacyColors(),
             onCheckedChanged = { legacyChecked = it },
         )
     }

@@ -111,9 +111,7 @@ internal fun DesignLibraryScreen(
 
                 LibraryScreen.FONTS -> FontsScreen(scrollState = scrollState)
                 LibraryScreen.SWITCHES -> SwitchesScreen(scrollState = scrollState)
-                LibraryScreen.BUTTONS -> {
-                    Box(modifier = Modifier.fillMaxSize())
-                }
+                LibraryScreen.BUTTONS -> ButtonsScreen(scrollState = scrollState)
             }
 
         }

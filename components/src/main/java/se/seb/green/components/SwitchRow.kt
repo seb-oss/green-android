@@ -31,7 +31,7 @@ fun SwitchRow(
     checked: Boolean,
     modifier: Modifier = Modifier,
     subtitle: String? = null,
-    colors: SwitchColors = GreenSwitchDefaults.sebColors(),
+    colors: SwitchColors = GreenSwitchDefaults.defaultColors(),
     onCheckedChanged: (Boolean) -> Unit = {},
     checkedIcon: ImageVector = SebIcons.Check,
     enabled: Boolean = true,
@@ -49,7 +49,7 @@ fun SwitchRow(
     ) {
         Text(
             modifier = Modifier.weight(1f),
-            style = GreenTheme.typography.Body,
+            style = GreenTheme.typography.Headline,
             text = title
         )
         GreenSwitch(
@@ -80,7 +80,7 @@ private fun SwitchRowPreview() {
                 modifier = Modifier.padding(16.dp),
                 title = "Green 2016",
                 checked = legacyChecked,
-                colors = GreenSwitchDefaults.seb2016Colors(),
+                colors = GreenSwitchDefaults.legacyColors(),
                 onCheckedChanged = { legacyChecked = it },
             )
         }

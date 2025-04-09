@@ -14,14 +14,19 @@ private val GreenSansSerif = FontFamily(
     Font(R.font.seb_sans_serif_bold, FontWeight.Bold),
 )
 
+private val GreenSansSerifBook = FontFamily(
+    Font(R.font.seb_sans_serif_book, FontWeight.Normal)
+)
+
 private fun createTextStyle(
+    fontFamily: FontFamily = GreenSansSerif,
     fontSize: TextUnit,
     lineHeight: TextUnit,
     fontWeight: FontWeight,
     letterSpacing: TextUnit = TextUnit.Unspecified,
 ): TextStyle =
     TextStyle(
-        fontFamily = GreenSansSerif,
+        fontFamily = fontFamily,
         letterSpacing = letterSpacing,
         fontSize = fontSize,
         lineHeight = lineHeight,
@@ -78,6 +83,7 @@ object GreenTypography {
         fontWeight = FontWeight.Bold,
     )
     val Headline = createTextStyle(
+        fontFamily = GreenSansSerifBook,
         fontSize = 17.sp,
         lineHeight = 21.25.sp,
         letterSpacing = 0.2.sp,

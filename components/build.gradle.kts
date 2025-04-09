@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -43,13 +45,24 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    debugImplementation(libs.androidx.ui.tooling)
 }
 
 val versionName: String
-    get() = "0.0.1"
+    get() = "0.0.2"
 
 val libraryArtifactId: String
     get() = "components"
+
+val localProperties = Properties().apply {
+    file("local.properties").takeIf { it.exists() }?.inputStream()?.use { load(it) }
+}
+
+// Task to create a source JAR
+val sourceJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("sources")
+    from(android.sourceSets["main"].java.srcDirs)
+}
 
 publishing {
     publications {
@@ -58,6 +71,7 @@ publishing {
             artifactId = libraryArtifactId
             version = versionName
             artifact("build/outputs/aar/${libraryArtifactId}-release.aar")
+            artifact(sourceJar.get()) // Add the source JAR
         }
     }
 
@@ -67,8 +81,8 @@ publishing {
             name = "GithubPackages"
             url = uri("https://maven.pkg.github.com/seb-oss/green-android")
             credentials {
-                username = System.getenv("GPR_USER") ?: ""
-                password = System.getenv("GPR_TOKEN") ?: ""
+                username = System.getenv("GPR_USER") ?: localProperties.getProperty("gpr.user", "")
+                password = System.getenv("GPR_TOKEN") ?: localProperties.getProperty("gpr.token", "")
             }
         }
     }
