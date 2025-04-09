@@ -45,13 +45,31 @@ dependencies {
     implementation(libs.androidx.material3)
 }
 
+val versionName: String
+    get() = "0.0.1"
+
+val libraryArtifactId: String
+    get() = "components"
+
 publishing {
     publications {
         register<MavenPublication>("release") {
-            from(components["release"])
             groupId = "se.seb.green"
-            artifactId = "components"
-            version = "1.0.0"
+            artifactId = libraryArtifactId
+            version = versionName
+            artifact("build/outputs/aar/${libraryArtifactId}-release.aar")
+        }
+    }
+
+    repositories {
+        // Setup Github Packages publication
+        maven {
+            name = "GithubPackages"
+            url = uri("https://maven.pkg.github.com/seb-oss/green-android")
+            credentials {
+                username = System.getenv("GPR_USER") ?: ""
+                password = System.getenv("GPR_TOKEN") ?: ""
+            }
         }
     }
 }
