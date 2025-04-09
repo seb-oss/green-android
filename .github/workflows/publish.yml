@@ -29,6 +29,12 @@ jobs:
       - name: Build the library
         run: ./gradlew components:assembleRelease
 
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: components/build/outputs/aar/
+
   publish:
     name: Publish to GitHub Packages
     needs: build
@@ -43,6 +49,12 @@ jobs:
         with:
           java-version: 17
           distribution: temurin
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: components/build/outputs/aar/
 
       - name: Publish to GitHub Packages
         env:
