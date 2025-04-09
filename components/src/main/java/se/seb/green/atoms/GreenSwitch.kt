@@ -32,24 +32,26 @@ fun GreenSwitch(
     checkedIcon: ImageVector = SebIcons.Check,
     onCheckedChanged: (Boolean) -> Unit
 ) {
-    CompositionLocalProvider(
-        LocalRippleConfiguration provides RippleConfiguration(
-            color = colors.checkedTrackColor,
-            rippleAlpha = RippleAlpha(0.16f, 0.1f, 0.08f, 0.1f)
-        )
-    ) {
-        Switch(
-            modifier = modifier,
-            checked = checked,
-            enabled = enabled,
-            onCheckedChange = onCheckedChanged,
-            colors = colors,
-            thumbContent = {
-                if (checked) {
-                    Icon(imageVector = checkedIcon, contentDescription = null)
-                }
-            },
-        )
+    GreenTheme {
+        CompositionLocalProvider(
+            LocalRippleConfiguration provides RippleConfiguration(
+                color = colors.checkedTrackColor,
+                rippleAlpha = RippleAlpha(0.16f, 0.1f, 0.08f, 0.1f)
+            )
+        ) {
+            Switch(
+                modifier = modifier,
+                checked = checked,
+                enabled = enabled,
+                onCheckedChange = onCheckedChanged,
+                colors = colors,
+                thumbContent = {
+                    if (checked) {
+                        Icon(imageVector = checkedIcon, contentDescription = null)
+                    }
+                },
+            )
+        }
     }
 }
 

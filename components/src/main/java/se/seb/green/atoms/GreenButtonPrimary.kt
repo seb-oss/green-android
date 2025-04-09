@@ -32,15 +32,17 @@ fun GreenButtonPrimary(
         ButtonWidthType.Full -> modifier.fillMaxWidth()
     }
 
-    Button(
-        modifier = modifier
-            .then(widthModifier)
-            .heightIn(min = style.size.buttonHeight),
-        colors = style.colors,
-        shape = style.shape,
-        onClick = onClick
-    ) {
-        Text(title, style = GreenTheme.typography.Headline)
+    GreenTheme {
+        Button(
+            modifier = modifier
+                .then(widthModifier)
+                .heightIn(min = style.size.buttonHeight),
+            colors = style.colors,
+            shape = style.shape,
+            onClick = onClick
+        ) {
+            Text(title, style = GreenTheme.typography.Headline)
+        }
     }
 }
 
