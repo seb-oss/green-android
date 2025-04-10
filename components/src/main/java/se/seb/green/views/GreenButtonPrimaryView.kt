@@ -34,11 +34,14 @@ class GreenButtonPrimaryView @JvmOverloads constructor(
         }
 
     private var _isEnabled by mutableStateOf(true)
-    var isEnabled: Boolean
-        get() = _isEnabled
-        set(value) {
-            _isEnabled = value
-        }
+
+    override fun isEnabled(): Boolean {
+        return _isEnabled
+    }
+
+    override fun setEnabled(enabled: Boolean) {
+        _isEnabled = enabled
+    }
 
     var onClickListener: (() -> Unit)? = null
 
@@ -59,7 +62,7 @@ class GreenButtonPrimaryView @JvmOverloads constructor(
         GreenButtonPrimary(
             title = title,
             style = buttonStyle,
-            enabled = isEnabled,
+            enabled = _isEnabled,
             onClick = { onClickListener?.invoke() }
         )
     }

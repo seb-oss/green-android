@@ -38,11 +38,14 @@ class GreenSwitchView @JvmOverloads constructor(
         }
 
     private var _isEnabled by mutableStateOf(true)
-    var isEnabled: Boolean
-        get() = _isEnabled
-        set(value) {
-            _isEnabled = value
-        }
+
+    override fun isEnabled(): Boolean {
+        return _isEnabled
+    }
+
+    override fun setEnabled(enabled: Boolean) {
+        _isEnabled = enabled
+    }
 
     var onCheckedChangedListener: ((Boolean) -> Unit)? = null
 
@@ -62,7 +65,7 @@ class GreenSwitchView @JvmOverloads constructor(
         }
         GreenSwitch(
             checked = checked,
-            enabled = isEnabled,
+            enabled = _isEnabled,
             onCheckedChanged = { isChecked ->
                 onCheckedChangedListener?.invoke(isChecked)
             },
