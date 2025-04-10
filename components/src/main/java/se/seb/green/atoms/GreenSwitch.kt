@@ -24,6 +24,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import se.seb.green.icons.SebIcons
 import se.seb.green.theme.GreenTheme
 
+/**
+ * A customizable switch component that can be toggled on and off,
+ * with support for different styles, states, and behaviors.
+ *
+ * @param modifier The [Modifier] to be applied to this switch.
+ * @param checked Whether the switch is checked or not.
+ * @param style The style of the switch. See [GreenSwitchDefaults] for default styles.
+ * @param enabled Whether the switch is enabled or not.
+ * @param onCheckedChanged Callback invoked when the checked state changes.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GreenSwitch(
@@ -60,6 +70,25 @@ fun GreenSwitch(
     }
 }
 
+/**
+ * Represents the visual style configuration for a "Green" themed switch.
+ *
+ * This data class encapsulates the various visual aspects of a switch component,
+ * specifically tailored for a green theme, including its colors, thumb visibility,
+ * and checked icon.
+ *
+ * @property colors The color scheme for the switch. This includes colors for the track,
+ *   thumb, and other elements in different states (checked, unchecked, disabled).
+ *   Typically, this will be an instance of [SwitchColors] configured for a green
+ *   appearance.
+ * @property alwaysShowThumb Specifies whether the thumb should always be shown as expanded,
+ *   regardless of the checked state. If `true`, the thumb will always be expanded.
+ *   If `false`, the thumb's size may be dependent on the checked state (e.g.,
+ *   small when unchecked).
+ * @property checkedIcon An optional icon to display inside the thumb when the switch is
+ *   in the checked state. If `null`, no icon will be displayed in the checked thumb.
+ *   This should be a [ImageVector].
+ */
 data class GreenSwitchStyle(
     val colors: SwitchColors,
     val alwaysShowThumb: Boolean,

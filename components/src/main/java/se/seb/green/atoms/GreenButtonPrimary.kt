@@ -19,10 +19,37 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import se.seb.green.theme.GreenTheme
 
+
+/**
+ * A primary green button composable.
+ *
+ * This composable creates a button with a green theme, customizable size, and styling.
+ *
+ * @param modifier The modifier to be applied to the button.
+ * @param title The text displayed on the button.
+ * @param enabled Controls the enabled state of the button. When `false`, this button will not be clickable.
+ * @param style The styling to be applied to the button, including colors, shape, and size. Defaults to `GreenButtonDefaults.defaultStyle()`.
+ * @param onClick The callback to be invoked when the button is clicked.
+ *
+ * Example usage:
+ * ```
+ * GreenButtonPrimary(
+ *     title = "Click Me",
+ *     onClick = { println("Button clicked!") }
+ * )
+ *
+ * GreenButtonPrimary(
+ *     title = "Fixed Width Button",
+ *     style = GreenButtonDefaults.legacyStyle().copy(
+ *         size = GreenButtonSize.legacy(ButtonWidthType.Fixed(200.dp))
+ *     )
+ * )
+ */
 @Composable
 fun GreenButtonPrimary(
     modifier: Modifier = Modifier,
     title: String,
+    enabled: Boolean = true,
     style: GreenButtonStyle = GreenButtonDefaults.defaultStyle(),
     onClick: () -> Unit,
 ) {
@@ -39,6 +66,7 @@ fun GreenButtonPrimary(
                 .heightIn(min = style.size.buttonHeight),
             colors = style.colors,
             shape = style.shape,
+            enabled = enabled,
             onClick = onClick
         ) {
             Text(title, style = GreenTheme.typography.Headline)
@@ -46,34 +74,78 @@ fun GreenButtonPrimary(
     }
 }
 
+/**
+ * Represents the styling options for a "Green Button".
+ *
+ * This data class encapsulates the visual properties of a button, allowing you to customize its
+ * size, shape, and colors.  It provides a structured way to define the appearance of
+ * buttons consistently throughout your application.
+ *
+ * @property size The [GreenButtonSize] enum that determines the overall size (e.g., small, medium, large) of the button.
+ * @property shape The [Shape] that defines the button's outline, such as rounded corners or a pill shape.
+ * @property colors The [ButtonColors] that dictate the button's colors for various states (e.g., enabled, disabled, pressed).
+ *
+ * Example usage:
+ *
+ * ```
+ * val myButtonStyle = GreenButtonStyle(
+ *     size = GreenButtonSize.Medium,
+ *     shape = RoundedCornerShape(8.dp),
+ *     colors = ButtonDefaults.buttonColors(
+ *         backgroundColor = Color.Green,
+ *         contentColor = Color.White,
+ *         disabledBackgroundColor = Color.LightGray,
+ *         disabledContentColor = Color.Gray
+ *     )
+ * )
+ * ```
+ */
 data class GreenButtonStyle(
     val size: GreenButtonSize,
     val shape: Shape,
     val colors: ButtonColors
 )
 
+/**
+ * Represents the different types of width that a button can have.
+ *
+ * A button's width can be:
+ * - Full: The button will expand to fill the available horizontal space.
+ * - Dynamic: The button's width will adjust based on its content.
+ * - Fixed: The button will have a specific, predetermined width.
+ */
 sealed class ButtonWidthType {
     data object Full : ButtonWidthType()
     data object Dynamic : ButtonWidthType()
     data class Fixed(val width: Dp) : ButtonWidthType()
 }
 
+/**
+ * Represents the size configuration for a Green Button.
+ *
+ * This sealed class defines different size variants for a Green Button,
+ * specifying both the width and height. Each variant is a data class, allowing for
+ * easy comparison and usage in composables.
+ *
+ * @property buttonWidth The width configuration for the button. Can be either [ButtonWidthType.Fixed] or [ButtonWidthType.Full].
+ * @property buttonHeight The height of the button, represented as a [Dp] value.
+ */
 sealed class GreenButtonSize(val buttonWidth: ButtonWidthType, val buttonHeight: Dp) {
-    data class size2023(val width: ButtonWidthType) : GreenButtonSize(width, 48.dp)
-    data class size2016(val width: ButtonWidthType) : GreenButtonSize(width, 50.dp)
+    data class Default(val width: ButtonWidthType) : GreenButtonSize(width, 48.dp)
+    data class Legacy(val width: ButtonWidthType) : GreenButtonSize(width, 50.dp)
 }
 
 object GreenButtonDefaults {
     @Composable
     fun defaultStyle() = GreenButtonStyle(
-        size = GreenButtonSize.size2023(ButtonWidthType.Full),
+        size = GreenButtonSize.Default(ButtonWidthType.Full),
         shape = sebShape(),
         colors = defaultColors()
     )
 
     @Composable
     fun legacyStyle() = GreenButtonStyle(
-        size = GreenButtonSize.size2016(ButtonWidthType.Full),
+        size = GreenButtonSize.Legacy(ButtonWidthType.Full),
         shape = seb2016Shape(),
         colors = legacyColors()
     )
@@ -139,7 +211,9 @@ private fun GreenButtonPrimaryPreview() {
 private fun GreenButton2016PrimaryPreview() {
     GreenTheme {
         GreenButtonPrimary(
-            style = GreenButtonDefaults.legacyStyle(),
+            style = GreenButtonDefaults.legacyStyle().copy(
+                size = GreenButtonSize.Legacy(ButtonWidthType.Fixed(200.dp))
+            ),
             title = "Button",
             onClick = {}
         )

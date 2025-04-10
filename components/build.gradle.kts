@@ -49,7 +49,7 @@ dependencies {
 }
 
 val versionName: String
-    get() = "0.0.3"
+    get() = "0.0.4"
 
 val libraryArtifactId: String
     get() = "components"

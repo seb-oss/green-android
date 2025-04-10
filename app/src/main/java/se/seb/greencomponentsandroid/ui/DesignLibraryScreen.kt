@@ -28,7 +28,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -43,7 +43,7 @@ internal fun DesignLibraryScreen(
     legacyColors: List<Pair<String, ColorMapping>> = emptyList(),
 ) {
     val scrollState = rememberScrollState(0)
-    var currentScreen: LibraryScreen by remember { mutableStateOf(LibraryScreen.LIBRARY) }
+    var currentScreen: LibraryScreen by rememberSaveable { mutableStateOf(LibraryScreen.LIBRARY) }
 
     BackHandler(enabled = currentScreen != LibraryScreen.LIBRARY) {
         currentScreen = LibraryScreen.LIBRARY
@@ -56,7 +56,7 @@ internal fun DesignLibraryScreen(
                     containerColor = GreenTheme.colors.level1Colors.levelL1BackgroundSecondary,
                     titleContentColor = GreenTheme.colors.level2Colors.levelL2ContentPrimary
                 ),
-                title = { Text(text = currentScreen.name) },
+                title = { Text(text = currentScreen.name, style = GreenTheme.typography.Headline) },
                 navigationIcon = {
                     if (currentScreen != LibraryScreen.LIBRARY) {
                         IconButton(onClick = { currentScreen = LibraryScreen.LIBRARY }) {
