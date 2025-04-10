@@ -36,8 +36,16 @@ fun SwitchesScreen(scrollState: ScrollState) {
         SwitchRow(
             title = "Green 2016",
             checked = legacyChecked,
-            colors = GreenSwitchDefaults.legacyColors(),
+            style = GreenSwitchDefaults.legacyStyle(),
             onCheckedChanged = { legacyChecked = it },
+        )
+
+        var neoChecked by remember { mutableStateOf(false) }
+        SwitchRow(
+            title = "Neo",
+            checked = neoChecked,
+            style = GreenSwitchDefaults.neoStyle(),
+            onCheckedChanged = { neoChecked = it },
         )
     }
 }

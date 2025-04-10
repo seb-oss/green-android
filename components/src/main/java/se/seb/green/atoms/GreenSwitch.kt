@@ -1,6 +1,8 @@
 package se.seb.green.atoms
 
 import android.content.res.Configuration
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -27,15 +29,14 @@ import se.seb.green.theme.GreenTheme
 fun GreenSwitch(
     modifier: Modifier = Modifier,
     checked: Boolean,
-    colors: SwitchColors = GreenSwitchDefaults.defaultColors(),
+    style: GreenSwitchStyle = GreenSwitchDefaults.defaultStyle(),
     enabled: Boolean = true,
-    checkedIcon: ImageVector = SebIcons.Check,
     onCheckedChanged: (Boolean) -> Unit
 ) {
     GreenTheme {
         CompositionLocalProvider(
             LocalRippleConfiguration provides RippleConfiguration(
-                color = colors.checkedTrackColor,
+                color = style.colors.checkedTrackColor,
                 rippleAlpha = RippleAlpha(0.16f, 0.1f, 0.08f, 0.1f)
             )
         ) {
@@ -44,10 +45,14 @@ fun GreenSwitch(
                 checked = checked,
                 enabled = enabled,
                 onCheckedChange = onCheckedChanged,
-                colors = colors,
+                colors = style.colors,
                 thumbContent = {
-                    if (checked) {
-                        Icon(imageVector = checkedIcon, contentDescription = null)
+                    if (checked || style.alwaysShowThumb) {
+                        if (style.checkedIcon != null) {
+                            Icon(imageVector = style.checkedIcon, contentDescription = null)
+                        } else if (style.alwaysShowThumb) {
+                            Box(modifier = Modifier.size(SwitchDefaults.IconSize))
+                        }
                     }
                 },
             )
@@ -55,7 +60,35 @@ fun GreenSwitch(
     }
 }
 
+data class GreenSwitchStyle(
+    val colors: SwitchColors,
+    val alwaysShowThumb: Boolean,
+    val checkedIcon: ImageVector?
+)
+
 object GreenSwitchDefaults {
+
+    @Composable
+    fun defaultStyle() = GreenSwitchStyle(
+        colors = defaultColors(),
+        alwaysShowThumb = false,
+        checkedIcon = SebIcons.Check
+    )
+
+    @Composable
+    fun legacyStyle() = GreenSwitchStyle(
+        colors = legacyColors(),
+        alwaysShowThumb = false,
+        checkedIcon = SebIcons.Check
+    )
+
+    @Composable
+    fun neoStyle() = GreenSwitchStyle(
+        colors = neoColors(),
+        alwaysShowThumb = true,
+        checkedIcon = null
+    )
+
     @Composable
     fun defaultColors(): SwitchColors {
         return SwitchDefaults.colors(
@@ -76,6 +109,19 @@ object GreenSwitchDefaults {
             uncheckedTrackColor = Color.Transparent,
             uncheckedBorderColor = GreenTheme.legacyColors.switchUncheckedTrackColor,
             checkedIconColor = GreenTheme.legacyColors.DarkBlue1
+        )
+    }
+
+    @Composable
+    fun neoColors(): SwitchColors {
+        return SwitchDefaults.colors(
+            checkedThumbColor = Color.White,
+            checkedTrackColor = Color(0xFF26BD3F),
+            uncheckedThumbColor = Color.White,
+            uncheckedTrackColor = Color(0xFFABABAB),
+            checkedIconColor = Color.Transparent,
+            checkedBorderColor = Color.Transparent,
+            uncheckedBorderColor = Color.Transparent,
         )
     }
 }
@@ -101,7 +147,7 @@ private fun GreenSwitchPreview() {
         GreenSwitch(
             checked = checked,
             onCheckedChanged = { checked = it },
-            colors = GreenSwitchDefaults.defaultColors()
+            style = GreenSwitchDefaults.defaultStyle()
         )
     }
 }

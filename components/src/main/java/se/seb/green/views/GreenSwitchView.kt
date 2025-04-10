@@ -25,7 +25,7 @@ class GreenSwitchView @JvmOverloads constructor(
             onCheckedChanged = { isChecked ->
                 onCheckedChanged?.invoke(isChecked)
             },
-            colors = GreenSwitchDefaults.defaultColors()
+            style = GreenSwitchDefaults.defaultStyle(),
         )
     }
 }
