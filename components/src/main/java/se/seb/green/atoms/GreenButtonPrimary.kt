@@ -1,22 +1,29 @@
 package se.seb.green.atoms
 
 import android.content.res.Configuration
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import se.seb.green.icons.SebIcons
 import se.seb.green.theme.GreenTheme
 
 
@@ -48,8 +55,9 @@ import se.seb.green.theme.GreenTheme
 @Composable
 fun GreenButtonPrimary(
     modifier: Modifier = Modifier,
-    title: String,
+    title: String? = null,
     enabled: Boolean = true,
+    icon: ImageVector? = null,
     style: GreenButtonStyle = GreenButtonDefaults.defaultStyle(),
     onClick: () -> Unit,
 ) {
@@ -57,6 +65,12 @@ fun GreenButtonPrimary(
         ButtonWidthType.Dynamic -> modifier
         is ButtonWidthType.Fixed -> modifier.width(style.size.buttonWidth.width)
         ButtonWidthType.Full -> modifier.fillMaxWidth()
+    }
+
+    val paddingValues = when {
+        title == null && style.size.buttonWidth is ButtonWidthType.Fixed -> PaddingValues(horizontal = 0.dp)
+        icon != null -> ButtonDefaults.ContentPadding
+        else -> ButtonDefaults.ButtonWithIconContentPadding
     }
 
     GreenTheme {
@@ -67,9 +81,29 @@ fun GreenButtonPrimary(
             colors = style.colors,
             shape = style.shape,
             enabled = enabled,
+            contentPadding = paddingValues,
             onClick = onClick
         ) {
-            Text(title, style = GreenTheme.typography.Headline)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                if (icon != null) {
+                    Icon(
+                        modifier = Modifier.size(24.dp),
+                        imageVector = icon,
+                        contentDescription = null
+                    )
+                    if (title != null) {
+                        Spacer(modifier = Modifier.width(12.dp))
+                    }
+                }
+                if (title != null) {
+                    val style = if (style.bookFont) {
+                        GreenTheme.typography.Headline
+                    } else {
+                        GreenTheme.typography.Title6
+                    }
+                    Text(title, style = style, maxLines = 2)
+                }
+            }
         }
     }
 }
@@ -103,7 +137,8 @@ fun GreenButtonPrimary(
 data class GreenButtonStyle(
     val size: GreenButtonSize,
     val shape: Shape,
-    val colors: ButtonColors
+    val colors: ButtonColors,
+    val bookFont: Boolean = false,
 )
 
 /**
@@ -140,14 +175,16 @@ object GreenButtonDefaults {
     fun defaultStyle() = GreenButtonStyle(
         size = GreenButtonSize.Default(ButtonWidthType.Full),
         shape = sebShape(),
-        colors = defaultColors()
+        colors = defaultColors(),
+        bookFont = true
     )
 
     @Composable
     fun legacyStyle() = GreenButtonStyle(
         size = GreenButtonSize.Legacy(ButtonWidthType.Full),
         shape = seb2016Shape(),
-        colors = legacyColors()
+        colors = legacyColors(),
+        bookFont = false
     )
 
     @Composable
@@ -157,16 +194,50 @@ object GreenButtonDefaults {
     )
 
     @Composable
+    fun secondaryColors() = ButtonDefaults.buttonColors(
+        containerColor = GreenTheme.colors.level3Colors.levelL3BackgroundSecondary,
+        contentColor = GreenTheme.colors.level3Colors.levelL3ContentSecondary
+    )
+
+    @Composable
     fun legacyColors() = ButtonDefaults.buttonColors(
         containerColor = GreenTheme.legacyColors.secondary,
         contentColor = Color.White,
     )
 
     @Composable
-    fun sebShape() = CircleShape
+    fun sebShape() = RoundedCornerShape(24.dp)
 
     @Composable
     fun seb2016Shape() = RoundedCornerShape(12.dp)
+}
+
+@Preview(
+    name = "Light Mode",
+    group = "Themes",
+    showBackground = true,
+    backgroundColor = 0xFFFFFF,
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+)
+@Preview(
+    name = "Dark Mode",
+    group = "Themes",
+    showBackground = true,
+    backgroundColor = 0x000000,
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+)
+@Composable
+private fun GreenButtonSecondaryPreview() {
+    GreenTheme {
+        GreenButtonPrimary(
+            title = "Button",
+            icon = SebIcons.Check,
+            style = GreenButtonDefaults.defaultStyle().copy(
+                colors = GreenButtonDefaults.secondaryColors()
+            ),
+            onClick = {}
+        )
+    }
 }
 
 @Preview(
@@ -188,6 +259,34 @@ private fun GreenButtonPrimaryPreview() {
     GreenTheme {
         GreenButtonPrimary(
             title = "Button",
+            icon = SebIcons.Check,
+            onClick = {}
+        )
+    }
+}
+
+@Preview(
+    name = "Light Mode",
+    group = "Themes",
+    showBackground = true,
+    backgroundColor = 0xFFFFFF,
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+)
+@Preview(
+    name = "Dark Mode",
+    group = "Themes",
+    showBackground = true,
+    backgroundColor = 0x000000,
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+)
+@Composable
+private fun GreenIconButtonPrimaryPreview() {
+    GreenTheme {
+        GreenButtonPrimary(
+            icon = SebIcons.Check,
+            style = GreenButtonDefaults.defaultStyle().copy(
+                size = GreenButtonSize.Default(ButtonWidthType.Fixed(48.dp))
+            ),
             onClick = {}
         )
     }

@@ -85,9 +85,8 @@ object GreenTypography {
     val Headline = createTextStyle(
         fontFamily = GreenSansSerifBook,
         fontSize = 17.sp,
-        lineHeight = 21.25.sp,
-        letterSpacing = 0.2.sp,
-        fontWeight = FontWeight.Medium,
+        lineHeight = 17.sp,
+        fontWeight = FontWeight.Normal,
     )
     val Body = createTextStyle(
         fontSize = 17.sp,

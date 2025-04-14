@@ -98,6 +98,7 @@ data class GreenSwitchStyle(
 object GreenSwitchDefaults {
 
     @Composable
+    // 2023
     fun defaultStyle() = GreenSwitchStyle(
         colors = defaultColors(),
         alwaysShowThumb = false,
@@ -105,6 +106,7 @@ object GreenSwitchDefaults {
     )
 
     @Composable
+    // 2016
     fun legacyStyle() = GreenSwitchStyle(
         colors = legacyColors(),
         alwaysShowThumb = false,
