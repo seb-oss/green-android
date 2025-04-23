@@ -1,8 +1,8 @@
-package se.seb.green.theme
+package se.seb.gds.theme.colors
 
 import androidx.compose.ui.graphics.Color
 
-val lightColors = GreenTokenColors(
+val lightColors = GdsTokensColors(
     isDark = false,
     level1Colors = Level1Colors(
         levelL1BackgroundPrimary = Color(0xffffffff),

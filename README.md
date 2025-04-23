@@ -1,6 +1,6 @@
-# Green Android
+# Green Design System Android
 
-Green Android is a project that consists of two main parts:
+Green Design System Android is a project that consists of two main parts:
 
 1. **Component Library**: A reusable library of UI components designed for Android applications. This library is distributed via GitHub Packages, making it easy to integrate into your own projects.
 2. **Companion App**: A demonstration app showcasing the components available in the library. The app provides examples of how to use the components and serves as a reference for developers.
@@ -57,7 +57,7 @@ repositories {
 
 ```kotlin
 dependencies {
-    implementation("se.seb.green:components:<latest-version>")
+    implementation("se.seb.gds:components:<latest-version>")
 }
 ```
 
@@ -70,10 +70,10 @@ Once installed, you can start using the components in your project. For example:
 ```kotlin
 // Example usage of a Switch component
 var checked by remember { mutableStateOf(true) }
-GreenSwitch(
+GdsSwitch(
     checked = checked,
     onCheckedChanged = { checked = it },
-    style = GreenSwitchDefaults.defaultStyle()
+    style = GdsSwitchDefaults.defaultStyle()
 )
 ```
 

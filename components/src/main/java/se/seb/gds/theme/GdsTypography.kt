@@ -1,4 +1,4 @@
-package se.seb.green.theme
+package se.seb.gds.theme
 
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -6,20 +6,20 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
-import se.seb.green.components.R
+import se.seb.gds.components.R
 
-private val GreenSansSerif = FontFamily(
+private val GdsSansSerif = FontFamily(
     Font(R.font.seb_sans_serif_regular, FontWeight.Normal),
     Font(R.font.seb_sans_serif_medium, FontWeight.Medium),
     Font(R.font.seb_sans_serif_bold, FontWeight.Bold),
 )
 
-private val GreenSansSerifBook = FontFamily(
+private val GdsSansSerifBook = FontFamily(
     Font(R.font.seb_sans_serif_book, FontWeight.Normal)
 )
 
 private fun createTextStyle(
-    fontFamily: FontFamily = GreenSansSerif,
+    fontFamily: FontFamily = GdsSansSerif,
     fontSize: TextUnit,
     lineHeight: TextUnit,
     fontWeight: FontWeight,
@@ -33,7 +33,7 @@ private fun createTextStyle(
         fontWeight = fontWeight,
     )
 
-object GreenTypography {
+object GdsTypography {
     val TitleLarge = createTextStyle(
         fontSize = 34.sp,
         lineHeight = 42.5.sp,
@@ -83,7 +83,7 @@ object GreenTypography {
         fontWeight = FontWeight.Bold,
     )
     val Headline = createTextStyle(
-        fontFamily = GreenSansSerifBook,
+        fontFamily = GdsSansSerifBook,
         fontSize = 17.sp,
         lineHeight = 17.sp,
         fontWeight = FontWeight.Normal,

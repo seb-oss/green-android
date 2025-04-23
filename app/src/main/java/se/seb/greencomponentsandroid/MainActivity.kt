@@ -15,8 +15,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import se.seb.green.atoms.GreenSwitch
-import se.seb.green.theme.GreenTheme
+import se.seb.gds.atoms.GdsSwitch
+import se.seb.gds.theme.GdsTheme
 import se.seb.greencomponentsandroid.ui.DesignLibraryScreen
 
 class MainActivity : ComponentActivity() {
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            GreenTheme {
+            GdsTheme {
                 DesignLibraryScreen()
             }
         }
@@ -38,7 +38,7 @@ fun Components(modifier: Modifier = Modifier) {
             text = "SebSwitch"
         )
         var sebSwitchChecked by remember { mutableStateOf(false) }
-        GreenSwitch(
+        GdsSwitch(
             checked = sebSwitchChecked,
             onCheckedChanged = { sebSwitchChecked = it }
         )
@@ -48,7 +48,7 @@ fun Components(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    GreenTheme {
+    GdsTheme {
         Components()
     }
 }

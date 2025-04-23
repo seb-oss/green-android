@@ -13,8 +13,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import se.seb.green.atoms.GreenSwitchDefaults
-import se.seb.green.components.SwitchRow
+import se.seb.gds.atoms.GdsSwitchDefaults
+import se.seb.gds.components.SwitchRow
 
 @Composable
 fun SwitchesScreen(scrollState: ScrollState) {
@@ -36,7 +36,7 @@ fun SwitchesScreen(scrollState: ScrollState) {
         SwitchRow(
             title = "Green 2016",
             checked = legacyChecked,
-            style = GreenSwitchDefaults.legacyStyle(),
+            style = GdsSwitchDefaults.legacyStyle(),
             onCheckedChanged = { legacyChecked = it },
         )
 
@@ -44,7 +44,7 @@ fun SwitchesScreen(scrollState: ScrollState) {
         SwitchRow(
             title = "Neo",
             checked = neoChecked,
-            style = GreenSwitchDefaults.neoStyle(),
+            style = GdsSwitchDefaults.neoStyle(),
             onCheckedChanged = { neoChecked = it },
         )
     }

@@ -6,16 +6,14 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import se.seb.green.icons.SebIcons
-import se.seb.green.theme.GreenTheme
+import se.seb.gds.icons.SebIcons
+import se.seb.gds.theme.GdsTheme
 
 @Composable
 internal fun GallerySection(
@@ -27,8 +25,8 @@ internal fun GallerySection(
         Text(
             modifier = horizontalModifier,
             text = title,
-            color = GreenTheme.legacyColors.PrimaryText,
-            style = GreenTheme.typography.Title4,
+            color = GdsTheme.legacyColors.PrimaryText,
+            style = GdsTheme.typography.Title4,
         )
         content()
     }
@@ -47,7 +45,7 @@ internal fun ListItem(
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(modifier = Modifier.weight(1f), text = title, color = GreenTheme.legacyColors.PrimaryText)
-        Icon(imageVector = SebIcons.RightChevron, contentDescription = null, tint = GreenTheme.colors.contentContent)
+        Text(modifier = Modifier.weight(1f), text = title, color = GdsTheme.legacyColors.PrimaryText)
+        Icon(imageVector = SebIcons.RightChevron, contentDescription = null, tint = GdsTheme.colors.contentContent)
     }
 }

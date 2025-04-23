@@ -32,7 +32,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import se.seb.green.theme.GreenTheme
+import se.seb.gds.theme.GdsTheme
 
 private const val CONTENT_ANIMATION_DURATION = 500
 
@@ -53,25 +53,25 @@ internal fun DesignLibraryScreen(
         topBar = {
             CenterAlignedTopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = GreenTheme.colors.level1Colors.levelL1BackgroundSecondary,
-                    titleContentColor = GreenTheme.colors.level2Colors.levelL2ContentPrimary
+                    containerColor = GdsTheme.colors.level1Colors.levelL1BackgroundSecondary,
+                    titleContentColor = GdsTheme.colors.level2Colors.levelL2ContentPrimary
                 ),
-                title = { Text(text = currentScreen.name, style = GreenTheme.typography.Headline) },
+                title = { Text(text = currentScreen.name, style = GdsTheme.typography.Headline) },
                 navigationIcon = {
                     if (currentScreen != LibraryScreen.LIBRARY) {
                         IconButton(onClick = { currentScreen = LibraryScreen.LIBRARY }) {
                             Icon(
                                 Icons.AutoMirrored.Filled.ArrowBack,
                                 contentDescription = "Back",
-                                tint = GreenTheme.colors.level2Colors.levelL2ContentPrimary
+                                tint = GdsTheme.colors.level2Colors.levelL2ContentPrimary
                             )
                         }
                     }
                 }
             )
         },
-        containerColor = GreenTheme.colors.level1Colors.levelL1BackgroundSecondary,
-        contentColor = GreenTheme.colors.level2Colors.levelL2ContentPrimary
+        containerColor = GdsTheme.colors.level1Colors.levelL1BackgroundSecondary,
+        contentColor = GdsTheme.colors.level2Colors.levelL2ContentPrimary
     ) { paddingValues ->
         AnimatedContent(
             modifier = Modifier

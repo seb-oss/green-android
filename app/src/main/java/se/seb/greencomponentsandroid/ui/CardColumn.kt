@@ -14,7 +14,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
-import se.seb.green.theme.GreenTheme
+import se.seb.gds.theme.GdsTheme
 
 @Composable
 fun CardColumn(
@@ -30,9 +30,9 @@ fun CardColumn(
             .shadow(
                 elevation = 4.dp,
                 shape = RoundedCornerShape(12.dp),
-                ambientColor = GreenTheme.legacyColors.onSecondary.copy(.4f),
+                ambientColor = GdsTheme.legacyColors.onSecondary.copy(.4f),
             )
-            .background(GreenTheme.legacyColors.background_1dp, shape)
+            .background(GdsTheme.legacyColors.background_1dp, shape)
             .clip(shape)
             .padding(contentPadding)
             .semantics { contentDescription = accessibilityContentDescription },

@@ -1,34 +1,36 @@
-package se.seb.green.theme
+package se.seb.gds.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import se.seb.gds.theme.colors.GdsTokensColors
+import se.seb.gds.theme.colors.LegacyColors
 
 @Composable
-fun GreenTheme(
+fun GdsTheme(
     content: @Composable () -> Unit
 ) {
-    val colors = GreenTokenColors.defaultColors(isSystemDarkMode = isSystemInDarkTheme())
+    val colors = GdsTokensColors.defaultColors(isSystemDarkMode = isSystemInDarkTheme())
     val legacyColors = LegacyColors.defaultColors(isSystemDarkMode = isSystemInDarkTheme())
 
     CompositionLocalProvider(
-        LocalGreenColors provides colors,
+        LocalGdsColors provides colors,
         LocalLegacyColors provides legacyColors,
-        LocalGreenTypography provides GreenTypography,
+        LocalGdsTypography provides GdsTypography,
         content = content
     )
 }
 
-object GreenTheme {
-    val colors: GreenTokenColors
+object GdsTheme {
+    val colors: GdsTokensColors
         @Composable
-        get() = LocalGreenColors.current
+        get() = LocalGdsColors.current
 
     val legacyColors: LegacyColors
         @Composable
         get() = LocalLegacyColors.current
 
-    val typography: GreenTypography
+    val typography: GdsTypography
         @Composable
-        get() = LocalGreenTypography.current
+        get() = LocalGdsTypography.current
 }

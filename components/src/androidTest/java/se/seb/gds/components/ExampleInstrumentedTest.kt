@@ -1,4 +1,4 @@
-package se.seb.green.components
+package se.seb.gds.components
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

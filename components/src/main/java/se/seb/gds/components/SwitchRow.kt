@@ -1,4 +1,4 @@
-package se.seb.green.components
+package se.seb.gds.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
@@ -18,26 +18,26 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import se.seb.green.atoms.GreenSwitch
-import se.seb.green.atoms.GreenSwitchDefaults
-import se.seb.green.atoms.GreenSwitchStyle
-import se.seb.green.theme.GreenTheme
+import se.seb.gds.atoms.GdsSwitch
+import se.seb.gds.atoms.GdsSwitchDefaults
+import se.seb.gds.atoms.GdsSwitchStyle
+import se.seb.gds.theme.GdsTheme
 
 @Composable
 fun SwitchRow(
     title: String,
     checked: Boolean,
     modifier: Modifier = Modifier,
-    style: GreenSwitchStyle = GreenSwitchDefaults.defaultStyle(),
-    onCheckedChanged: (Boolean) -> Unit = {},
+    style: GdsSwitchStyle = GdsSwitchDefaults.defaultStyle(),
     enabled: Boolean = true,
+    onCheckedChanged: (Boolean) -> Unit = {},
 ) {
     Row(
         modifier = modifier
             .height(64.dp)
             .fillMaxWidth()
             .background(
-                color = GreenTheme.colors.level2Colors.levelL2BackgroundSecondary,
+                color = GdsTheme.colors.level2Colors.levelL2BackgroundSecondary,
                 shape = RoundedCornerShape(12.dp)
             )
             .padding(16.dp),
@@ -45,10 +45,10 @@ fun SwitchRow(
     ) {
         Text(
             modifier = Modifier.weight(1f),
-            style = GreenTheme.typography.Headline,
+            style = GdsTheme.typography.Headline,
             text = title
         )
-        GreenSwitch(
+        GdsSwitch(
             checked = checked,
             onCheckedChanged = onCheckedChanged,
             style = style,
@@ -60,7 +60,7 @@ fun SwitchRow(
 @Preview
 @Composable
 private fun SwitchRowPreview() {
-    GreenTheme {
+    GdsTheme {
         Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = spacedBy(2.dp)) {
             var checked by remember { mutableStateOf(false) }
             SwitchRow(
@@ -75,7 +75,7 @@ private fun SwitchRowPreview() {
                 modifier = Modifier.padding(16.dp),
                 title = "Green 2016",
                 checked = legacyChecked,
-                style = GreenSwitchDefaults.legacyStyle(),
+                style = GdsSwitchDefaults.legacyStyle(),
                 onCheckedChanged = { legacyChecked = it },
             )
 
@@ -84,7 +84,7 @@ private fun SwitchRowPreview() {
                 modifier = Modifier.padding(16.dp),
                 title = "Neo",
                 checked = neoChecked,
-                style = GreenSwitchDefaults.neoStyle(),
+                style = GdsSwitchDefaults.neoStyle(),
                 onCheckedChanged = { neoChecked = it },
             )
         }

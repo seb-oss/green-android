@@ -1,4 +1,4 @@
-package se.seb.green.icons
+package se.seb.gds.icons
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

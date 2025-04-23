@@ -1,4 +1,4 @@
-package se.seb.green.components
+package se.seb.gds.components
 
 import org.junit.Test
 

@@ -1,8 +1,8 @@
-package se.seb.green.theme
+package se.seb.gds.theme.colors
 
 import androidx.compose.ui.graphics.Color
 
-data class GreenTokenColors(
+data class GdsTokensColors(
     val isDark: Boolean,
     val level1Colors: Level1Colors,
     val level2Colors: Level2Colors,
@@ -88,7 +88,7 @@ data class GreenTokenColors(
     val strokeStrokeWarning: Color,
 ) {
     companion object {
-        fun defaultColors(isSystemDarkMode: Boolean): GreenTokenColors {
+        fun defaultColors(isSystemDarkMode: Boolean): GdsTokensColors {
             return if (isSystemDarkMode) {
                 darkColors
             } else {

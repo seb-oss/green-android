@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "se.seb.green.components"
+    namespace = "se.seb.gds.components"
     compileSdk = 35
 
     defaultConfig {
@@ -49,7 +49,7 @@ dependencies {
 }
 
 val versionName: String
-    get() = "0.0.4"
+    get() = "0.0.5"
 
 val libraryArtifactId: String
     get() = "components"
@@ -67,7 +67,7 @@ val sourceJar by tasks.registering(Jar::class) {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "se.seb.green"
+            groupId = "se.seb.gds"
             artifactId = libraryArtifactId
             version = versionName
             artifact("build/outputs/aar/${libraryArtifactId}-release.aar")

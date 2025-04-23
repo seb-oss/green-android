@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import se.seb.green.theme.GreenTheme
+import se.seb.gds.theme.GdsTheme
 
 @Composable
 internal fun FontsScreen(scrollState: ScrollState) {
@@ -26,71 +26,71 @@ internal fun FontsScreen(scrollState: ScrollState) {
 
         FontText(
             name = "TitleLarge",
-            style = GreenTheme.typography.TitleLarge,
+            style = GdsTheme.typography.TitleLarge,
         )
         FontText(
             name = "TitleLarge",
-            style = GreenTheme.typography.TitleLarge,
+            style = GdsTheme.typography.TitleLarge,
         )
         FontText(
             name = "Title1",
-            style = GreenTheme.typography.Title1,
+            style = GdsTheme.typography.Title1,
         )
         FontText(
             name = "Title2",
-            style = GreenTheme.typography.Title2,
+            style = GdsTheme.typography.Title2,
         )
         FontText(
             name = "Title3",
-            style = GreenTheme.typography.Title3,
+            style = GdsTheme.typography.Title3,
         )
         FontText(
             name = "Title4",
-            style = GreenTheme.typography.Title4,
+            style = GdsTheme.typography.Title4,
         )
         FontText(
             name = "Title5",
-            style = GreenTheme.typography.Title5,
+            style = GdsTheme.typography.Title5,
         )
         FontText(
             name = "Title6",
-            style = GreenTheme.typography.Title6,
+            style = GdsTheme.typography.Title6,
         )
         FontText(
             name = "HeadlineBold",
-            style = GreenTheme.typography.HeadlineBold,
+            style = GdsTheme.typography.HeadlineBold,
         )
         FontText(
             name = "Headline",
-            style = GreenTheme.typography.Headline,
+            style = GdsTheme.typography.Headline,
         )
         FontText(
             name = "Body",
-            style = GreenTheme.typography.Body,
+            style = GdsTheme.typography.Body,
         )
         FontText(
             name = "SubHeader1",
-            style = GreenTheme.typography.SubHeader1,
+            style = GdsTheme.typography.SubHeader1,
         )
         FontText(
             name = "SubHeader2",
-            style = GreenTheme.typography.SubHeader2,
+            style = GdsTheme.typography.SubHeader2,
         )
         FontText(
             name = "SubHeader3",
-            style = GreenTheme.typography.SubHeader3,
+            style = GdsTheme.typography.SubHeader3,
         )
         FontText(
             name = "Footnote",
-            style = GreenTheme.typography.Footnote,
+            style = GdsTheme.typography.Footnote,
         )
         FontText(
             name = "Caption",
-            style = GreenTheme.typography.Caption,
+            style = GdsTheme.typography.Caption,
         )
         FontText(
             name = "Caption2",
-            style = GreenTheme.typography.Caption2,
+            style = GdsTheme.typography.Caption2,
         )
     }
 }

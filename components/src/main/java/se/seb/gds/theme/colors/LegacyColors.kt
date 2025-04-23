@@ -1,4 +1,4 @@
-package se.seb.green.theme
+package se.seb.gds.theme.colors
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package se.seb.green.views
+package se.seb.gds.views
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,8 +7,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.AbstractComposeView
-import se.seb.green.atoms.GreenSwitch
-import se.seb.green.atoms.GreenSwitchDefaults
+import se.seb.gds.atoms.GdsSwitch
+import se.seb.gds.atoms.GdsSwitchDefaults
 
 /**
  * A custom switch view that provides a visually distinct green-themed switch using Jetpack Compose.
@@ -21,7 +21,7 @@ import se.seb.green.atoms.GreenSwitchDefaults
  * @param attrs The attribute set containing XML attributes, if any.
  * @param defStyleAttr The default style attribute, if any.
  */
-class GreenSwitchView @JvmOverloads constructor(
+class GdsSwitchView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -59,11 +59,11 @@ class GreenSwitchView @JvmOverloads constructor(
     @Composable
     override fun Content() {
         val style = when (_style) {
-            SwitchStyle.Default -> GreenSwitchDefaults.defaultStyle()
-            SwitchStyle.Legacy -> GreenSwitchDefaults.legacyStyle()
-            SwitchStyle.Neo -> GreenSwitchDefaults.neoStyle()
+            SwitchStyle.Default -> GdsSwitchDefaults.defaultStyle()
+            SwitchStyle.Legacy -> GdsSwitchDefaults.legacyStyle()
+            SwitchStyle.Neo -> GdsSwitchDefaults.neoStyle()
         }
-        GreenSwitch(
+        GdsSwitch(
             checked = checked,
             enabled = _isEnabled,
             onCheckedChanged = { isChecked ->
