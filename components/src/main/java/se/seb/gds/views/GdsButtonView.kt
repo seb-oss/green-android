@@ -71,16 +71,16 @@ class GdsButtonView @JvmOverloads constructor(
         }
 
         val buttonStyle = when (_style) {
-            ButtonStyle.PRIMARY -> GdsButtonDefaults.primaryStyle()
-            ButtonStyle.SECONDARY -> GdsButtonDefaults.secondaryStyle()
-            ButtonStyle.TERTIARY -> GdsButtonDefaults.tertiaryStyle()
-            ButtonStyle.LEGACY_PRIMARY -> GdsButtonDefaults.legacyPrimaryStyle(size)
-            ButtonStyle.LEGACY_SECONDARY -> GdsButtonDefaults.legacySecondaryStyle(size)
-            ButtonStyle.LEGACY_TERTIARY -> GdsButtonDefaults.legacyTertiaryStyle(size)
-            ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE -> GdsButtonDefaults.legacyPrimaryDestructiveStyle(size)
-            ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE -> GdsButtonDefaults.legacySecondaryDestructiveStyle()
-            ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE -> GdsButtonDefaults.legacyTertiaryDestructiveStyle()
-            ButtonStyle.LEGACY_TERTIARY_EMPHASIS -> GdsButtonDefaults.legacyTertiaryEmphasisStyle()
+            ButtonStyle.PRIMARY -> GdsButtonDefaults.TwentyThree.primaryStyle()
+            ButtonStyle.SECONDARY -> GdsButtonDefaults.TwentyThree.secondaryStyle()
+            ButtonStyle.TERTIARY -> GdsButtonDefaults.TwentyThree.tertiaryStyle()
+            ButtonStyle.LEGACY_PRIMARY -> GdsButtonDefaults.primary(size)
+            ButtonStyle.LEGACY_SECONDARY -> GdsButtonDefaults.secondary(size)
+            ButtonStyle.LEGACY_TERTIARY -> GdsButtonDefaults.tertiary(size)
+            ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE -> GdsButtonDefaults.primaryDestructive(size)
+            ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE -> GdsButtonDefaults.secondaryDestructive()
+            ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE -> GdsButtonDefaults.tertiaryDestructive()
+            ButtonStyle.LEGACY_TERTIARY_EMPHASIS -> GdsButtonDefaults.tertiaryEmphasis()
         }
 
         GdsButton(

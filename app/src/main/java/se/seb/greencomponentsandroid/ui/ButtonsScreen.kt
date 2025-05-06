@@ -45,28 +45,28 @@ fun ButtonsScreen(scrollState: ScrollState) {
         if (showLegacyButtons.not()) {
             GdsButton(
                 title = "Primary Button",
-                style = GdsButtonDefaults.primaryStyle(),
+                style = GdsButtonDefaults.TwentyThree.primaryStyle(),
             ) { }
 
             GdsButton(
                 title = "Secondary Button",
-                style = GdsButtonDefaults.secondaryStyle(),
+                style = GdsButtonDefaults.TwentyThree.secondaryStyle(),
             ) { }
 
             GdsButton(
                 title = "Tertiary Button",
-                style = GdsButtonDefaults.tertiaryStyle(),
+                style = GdsButtonDefaults.TwentyThree.tertiaryStyle(),
             ) { }
 
             GdsButton(
                 title = "Primary Button with Icon",
-                style = GdsButtonDefaults.primaryStyle(),
+                style = GdsButtonDefaults.TwentyThree.primaryStyle(),
                 icon = SebIcons.Check
             ) { }
 
             GdsButton(
                 title = "Primary Dynamic with Icon",
-                style = GdsButtonDefaults.primaryStyle().copy(
+                style = GdsButtonDefaults.TwentyThree.primaryStyle().copy(
                     size = GdsButtonSize.Default(ButtonWidthType.Dynamic)
                 ),
                 icon = SebIcons.Check
@@ -74,14 +74,14 @@ fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Primary Fixed with Icon",
-                style = GdsButtonDefaults.primaryStyle().copy(
+                style = GdsButtonDefaults.TwentyThree.primaryStyle().copy(
                     size = GdsButtonSize.Default(ButtonWidthType.Fixed(200.dp))
                 ),
                 icon = SebIcons.Check
             ) { }
 
             GdsButton(
-                style = GdsButtonDefaults.primaryStyle().copy(
+                style = GdsButtonDefaults.TwentyThree.primaryStyle().copy(
                     size = GdsButtonSize.Default(ButtonWidthType.Fixed(48.dp))
                 ),
                 icon = SebIcons.Check
@@ -89,77 +89,79 @@ fun ButtonsScreen(scrollState: ScrollState) {
         } else {
             GdsButton(
                 title = "Primary Large Button",
-                style = GdsButtonDefaults.legacyPrimaryStyle(LegacyButtonSize.LARGE),
+                style = GdsButtonDefaults.primary(LegacyButtonSize.LARGE),
             ) { }
 
             GdsButton(
                 title = "Primary Medium Button",
-                style = GdsButtonDefaults.legacyPrimaryStyle(LegacyButtonSize.MEDIUM),
+                style = GdsButtonDefaults.primary(LegacyButtonSize.MEDIUM),
             ) { }
 
             GdsButton(
                 title = "Primary Small Button",
-                style = GdsButtonDefaults.legacyPrimaryStyle(LegacyButtonSize.SMALL),
+                style = GdsButtonDefaults.primary(LegacyButtonSize.SMALL),
             ) { }
 
             GdsButton(
                 title = "Secondary Large Button",
-                style = GdsButtonDefaults.legacySecondaryStyle(LegacyButtonSize.LARGE),
+                style = GdsButtonDefaults.secondary(LegacyButtonSize.LARGE),
             ) { }
 
             GdsButton(
                 title = "Secondary Medium Button",
-                style = GdsButtonDefaults.legacySecondaryStyle(LegacyButtonSize.MEDIUM),
+                style = GdsButtonDefaults.secondary(LegacyButtonSize.MEDIUM),
             ) { }
 
             GdsButton(
                 title = "Secondary Small Button",
-                style = GdsButtonDefaults.legacySecondaryStyle(LegacyButtonSize.SMALL),
+                style = GdsButtonDefaults.secondary(LegacyButtonSize.SMALL),
             ) { }
 
             GdsButton(
                 title = "Tertiary Large Button",
-                style = GdsButtonDefaults.legacyTertiaryStyle(LegacyButtonSize.LARGE),
+                style = GdsButtonDefaults.tertiary(LegacyButtonSize.LARGE),
             ) { }
 
             GdsButton(
                 title = "Tertiary Medium Button",
-                style = GdsButtonDefaults.legacyTertiaryStyle(LegacyButtonSize.MEDIUM),
+                style = GdsButtonDefaults.tertiary(LegacyButtonSize.MEDIUM).copy(
+                    bookFont = true
+                ),
             ) { }
 
             GdsButton(
                 title = "Tertiary Small Button",
-                style = GdsButtonDefaults.legacyTertiaryStyle(LegacyButtonSize.SMALL),
+                style = GdsButtonDefaults.tertiary(LegacyButtonSize.SMALL),
             ) { }
 
             GdsButton(
                 title = "Destructive Large Button",
-                style = GdsButtonDefaults.legacyPrimaryDestructiveStyle(LegacyButtonSize.LARGE),
+                style = GdsButtonDefaults.primaryDestructive(LegacyButtonSize.LARGE),
             ) { }
 
             GdsButton(
                 title = "Destructive Medium Button",
-                style = GdsButtonDefaults.legacyPrimaryDestructiveStyle(LegacyButtonSize.MEDIUM),
+                style = GdsButtonDefaults.primaryDestructive(LegacyButtonSize.MEDIUM),
             ) { }
 
             GdsButton(
                 title = "Destructive Small Button",
-                style = GdsButtonDefaults.legacyPrimaryDestructiveStyle(LegacyButtonSize.SMALL),
+                style = GdsButtonDefaults.primaryDestructive(LegacyButtonSize.SMALL),
             ) { }
 
             GdsButton(
                 title = "Destructive Secondary Button",
-                style = GdsButtonDefaults.legacySecondaryDestructiveStyle(),
+                style = GdsButtonDefaults.secondaryDestructive(),
             ) { }
 
             GdsButton(
                 title = "Destructive Tertiary Button",
-                style = GdsButtonDefaults.legacyTertiaryDestructiveStyle(),
+                style = GdsButtonDefaults.tertiaryDestructive(),
             ) { }
 
             GdsButton(
                 title = "Tertiary Emphasis Button",
-                style = GdsButtonDefaults.legacyTertiaryEmphasisStyle(),
+                style = GdsButtonDefaults.tertiaryEmphasis(),
             ) { }
         }
     }

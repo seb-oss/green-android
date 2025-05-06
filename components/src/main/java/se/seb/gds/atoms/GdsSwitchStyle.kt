@@ -62,10 +62,10 @@ object GdsSwitchDefaults {
     fun defaultColors(): SwitchColors {
         return SwitchDefaults.colors(
             checkedThumbColor = Color.White,
-            checkedTrackColor = GdsTheme.colors.level3Colors.levelL3BackgroundPositive,
-            uncheckedThumbColor = GdsTheme.colors.level3Colors.levelL3BorderSecondary,
-            uncheckedTrackColor = GdsTheme.colors.level3Colors.levelL3BackgroundQuarternary,
-            checkedIconColor = GdsTheme.colors.level3Colors.levelL3BackgroundPositive
+            checkedTrackColor = GdsTheme.colors.level3BackgroundPositive,
+            uncheckedThumbColor = GdsTheme.colors.level3BorderSecondary,
+            uncheckedTrackColor = GdsTheme.colors.level3BackgroundQuarternary,
+            checkedIconColor = GdsTheme.colors.level3BackgroundPositive
         )
     }
 

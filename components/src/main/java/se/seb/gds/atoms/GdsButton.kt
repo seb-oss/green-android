@@ -8,14 +8,21 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalRippleConfiguration
+import androidx.compose.material3.RippleConfiguration
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -48,13 +55,14 @@ import se.seb.gds.theme.GdsTheme
  *     )
  * )
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GdsButton(
     modifier: Modifier = Modifier,
     title: String? = null,
     enabled: Boolean = true,
     icon: ImageVector? = null,
-    style: GdsButtonStyle = GdsButtonDefaults.primaryStyle(),
+    style: GdsButtonStyle = GdsButtonDefaults.TwentyThree.primaryStyle(),
     onClick: () -> Unit,
 ) {
     val widthModifier = when (style.size.buttonWidth) {
@@ -70,31 +78,48 @@ fun GdsButton(
     }
 
     GdsTheme {
-        if (style.textButton) {
-            TextButton(
-                modifier = modifier
-                    .then(widthModifier)
-                    .heightIn(min = style.size.buttonHeight),
-                colors = style.colors,
-                shape = style.shape,
-                enabled = enabled,
-                contentPadding = paddingValues,
-                onClick = onClick,
-            ) {
-                ButtonContent(icon = icon, title = title, bookFont = style.bookFont)
+        val rippleColor = if (style.colors.containerColor != Color.Transparent) {
+            if (style.colors.containerColor.luminance() > 0.5f) {
+                Color.Black
+            } else {
+                Color.White
             }
         } else {
-            Button(
-                modifier = modifier
-                    .then(widthModifier)
-                    .heightIn(min = style.size.buttonHeight),
-                colors = style.colors,
-                shape = style.shape,
-                enabled = enabled,
-                contentPadding = paddingValues,
-                onClick = onClick
-            ) {
-                ButtonContent(icon = icon, title = title, bookFont = style.bookFont)
+            GdsTheme.colors.level3ContentTertiary
+        }
+
+        CompositionLocalProvider(
+            LocalRippleConfiguration provides RippleConfiguration(
+                color = rippleColor,
+                rippleAlpha = RippleAlpha(0.16f, 0.1f, 0.08f, 0.1f)
+            )
+        ) {
+            if (style.textButton) {
+                TextButton(
+                    modifier = modifier
+                        .then(widthModifier)
+                        .heightIn(min = style.size.buttonHeight),
+                    colors = style.colors,
+                    shape = style.shape,
+                    enabled = enabled,
+                    contentPadding = paddingValues,
+                    onClick = onClick,
+                ) {
+                    ButtonContent(icon = icon, title = title, bookFont = style.bookFont)
+                }
+            } else {
+                Button(
+                    modifier = modifier
+                        .then(widthModifier)
+                        .heightIn(min = style.size.buttonHeight),
+                    colors = style.colors,
+                    shape = style.shape,
+                    enabled = enabled,
+                    contentPadding = paddingValues,
+                    onClick = onClick
+                ) {
+                    ButtonContent(icon = icon, title = title, bookFont = style.bookFont)
+                }
             }
         }
     }
@@ -144,9 +169,7 @@ private fun GdsButtonSecondaryPreview() {
         GdsButton(
             title = "Button",
             icon = SebIcons.Check,
-            style = GdsButtonDefaults.primaryStyle().copy(
-                colors = GdsButtonDefaults.secondaryColors()
-            ),
+            style = GdsButtonDefaults.TwentyThree.secondaryStyle(),
             onClick = {}
         )
     }
@@ -196,7 +219,7 @@ private fun GdsIconButtonPrimaryPreview() {
     GdsTheme {
         GdsButton(
             icon = SebIcons.Check,
-            style = GdsButtonDefaults.primaryStyle().copy(
+            style = GdsButtonDefaults.TwentyThree.primaryStyle().copy(
                 size = GdsButtonSize.Default(ButtonWidthType.Fixed(48.dp))
             ),
             onClick = {}
@@ -222,7 +245,7 @@ private fun GdsIconButtonPrimaryPreview() {
 private fun GdsButton2016PrimaryPreview() {
     GdsTheme {
         GdsButton(
-            style = GdsButtonDefaults.legacyStyle().copy(
+            style = GdsButtonDefaults.primary().copy(
                 size = GdsButtonSize.Legacy(LegacyButtonSize.LARGE)
             ),
             title = "Button",

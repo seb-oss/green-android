@@ -37,7 +37,7 @@ fun SwitchRow(
             .height(64.dp)
             .fillMaxWidth()
             .background(
-                color = GdsTheme.colors.level2Colors.levelL2BackgroundSecondary,
+                color = GdsTheme.colors.level2BackgroundSecondary,
                 shape = RoundedCornerShape(12.dp)
             )
             .padding(16.dp),

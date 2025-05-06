@@ -31,6 +31,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import se.seb.gds.theme.GdsTheme
 
@@ -53,8 +54,8 @@ internal fun DesignLibraryScreen(
         topBar = {
             CenterAlignedTopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = GdsTheme.colors.level1Colors.levelL1BackgroundSecondary,
-                    titleContentColor = GdsTheme.colors.level2Colors.levelL2ContentPrimary
+                    containerColor = GdsTheme.colors.level1BackgroundSecondary,
+                    titleContentColor = GdsTheme.colors.level2ContentPrimary
                 ),
                 title = { Text(text = currentScreen.name, style = GdsTheme.typography.Headline) },
                 navigationIcon = {
@@ -63,15 +64,15 @@ internal fun DesignLibraryScreen(
                             Icon(
                                 Icons.AutoMirrored.Filled.ArrowBack,
                                 contentDescription = "Back",
-                                tint = GdsTheme.colors.level2Colors.levelL2ContentPrimary
+                                tint = GdsTheme.colors.level2ContentPrimary
                             )
                         }
                     }
                 }
             )
         },
-        containerColor = GdsTheme.colors.level1Colors.levelL1BackgroundSecondary,
-        contentColor = GdsTheme.colors.level2Colors.levelL2ContentPrimary
+        containerColor = GdsTheme.colors.level1BackgroundSecondary,
+        contentColor = GdsTheme.colors.level2ContentPrimary
     ) { paddingValues ->
         AnimatedContent(
             modifier = Modifier
