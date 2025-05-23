@@ -119,15 +119,6 @@ publishing {
                 password = System.getenv("GPR_TOKEN") ?: localProperties.getProperty("gpr.token", "")
             }
         }
-
-        maven {
-            name = "Sonatype"
-            url = uri("https://central.sonatype.com")
-            credentials {
-                username = System.getenv("SONATYPE_USERNAME") ?: localProperties.getProperty("sonatype.username", "")
-                password = System.getenv("SONATYPE_PASSWORD") ?: localProperties.getProperty("sonatype.token", "")
-            }
-        }
     }
 }
 
