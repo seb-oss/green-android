@@ -1,63 +1,47 @@
-name: Build and Publish
+name: Publish to Maven Central
 
 on:
+  # This allows you to trigger the workflow manually from the Actions tab in GitHub
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build Library
+  publish-to-central:
+    name: Build and Publish to Maven Central
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: 17
-          distribution: temurin
+          distribution: 'temurin'
 
       - name: Cache Gradle dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.gradle/caches
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Build the library
-        run: ./gradlew components:assembleRelease
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-artifacts
-          path: components/build/outputs/aar/
-
-  publish:
-    name: Publish to GitHub Packages
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: 17
-          distribution: temurin
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: build-artifacts
-          path: components/build/outputs/aar/
-
-      - name: Publish to GitHub Packages
+      - name: Publish to Maven Central
+        # This step runs the Gradle command to publish.
+        # It provides all the necessary credentials as environment variables.
         env:
-          GPR_USER: ${{ secrets.GPR_USER }}
-          GPR_TOKEN: ${{ secrets.GPR_TOKEN }}
-        run: ./gradlew publish
+          # Your GPG secrets from GitHub repository settings
+          GPG_SIGNING_KEY_ID: ${{ secrets.GPG_SIGNING_KEY_ID }}
+          GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+          GPG_SIGNING_PASSWORD: ${{ secrets.GPG_SIGNING_PASSWORD }}
+
+          # Your Sonatype token from GitHub repository settings
+          # SONATYPE_USERNAME should be the token's name/ID
+          # SONATYPE_PASSWORD should be the token's secret value
+          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+        run: ./gradlew publishReleaseToSonatypeRepository --info
