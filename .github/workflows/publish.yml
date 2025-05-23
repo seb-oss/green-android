@@ -44,4 +44,4 @@ jobs:
           # SONATYPE_PASSWORD should be the token's secret value
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
-        run: ./gradlew publishReleaseToSonatypeRepository --info
+        run: ./gradlew :components:assembleRelease publishReleaseToSonatypeRepository --info
