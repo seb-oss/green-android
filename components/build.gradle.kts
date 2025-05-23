@@ -101,7 +101,7 @@ val localProperties = Properties().apply {
 }*/
 
 mavenPublishing {
-    coordinates("io.seb.sebopensource", "components", "0.0.7-SNAPSHOT")
+    coordinates("io.seb.sebopensource", "components", "0.0.7")
 
     pom {
         name.set("Green Design System for Android") // A user-friendly name
