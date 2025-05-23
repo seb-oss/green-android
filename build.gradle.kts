@@ -4,9 +4,10 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.android.library) apply false
-    alias(libs.plugins.nexus.publish)
+//    alias(libs.plugins.nexus.publish)
 }
 
+/*
 nexusPublishing {
     repositories {
         sonatype {
@@ -16,6 +17,6 @@ nexusPublishing {
             snapshotRepositoryUrl.set(uri("https://central.sonatype.com/repository/maven-snapshots/"))
         }
 
-        packageGroup.set("se.seb.gds")
+        packageGroup.set("io.github.sebopensource")
     }
-}
+}*/

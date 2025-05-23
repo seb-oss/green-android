@@ -1,3 +1,5 @@
+import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+import com.vanniktech.maven.publish.SonatypeHost
 import java.util.Properties
 
 plugins {
@@ -5,12 +7,13 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.dokka)
+    alias(libs.plugins.vanniktech.maven.publish)
     id("maven-publish")
     id("signing")
 }
 
 android {
-    namespace = "se.seb.gds.components"
+    namespace = "io.github.sebopensource.components"
     compileSdk = 35
 
     defaultConfig {
@@ -44,12 +47,12 @@ android {
         compose = true
     }
 
-    publishing {
+    /*publishing {
         singleVariant("release") {
             withSourcesJar()
             withJavadocJar()
         }
-    }
+    }*/
 }
 
 dependencies {
@@ -71,40 +74,15 @@ val localProperties = Properties().apply {
     file("local.properties").takeIf { it.exists() }?.inputStream()?.use { load(it) }
 }
 
-publishing {
+/*publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "se.seb.gds"
+            groupId = "io.github.sebopensource"
             artifactId = libraryArtifactId
             version = versionName
 
             afterEvaluate {
                 from(components["release"])
-            }
-
-            pom {
-                name.set("Green Design System for Android") // A user-friendly name
-                description.set("The official Android implementation of SEB's Green Design System.")
-                url.set("https://github.com/seb-oss/green-android")
-
-                licenses {
-                    license {
-                        name.set("The Apache License, Version 2.0")
-                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                    }
-                }
-                developers {
-                    developer {
-                        id.set("seb-oss")
-                        name.set("SEB Open Source")
-                        email.set("opensource@seb.se")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:git://github.com/seb-oss/green-android.git")
-                    developerConnection.set("scm:git:ssh://github.com/seb-oss/green-android.git")
-                    url.set("https://github.com/seb-oss/green-android")
-                }
             }
         }
     }
@@ -120,8 +98,47 @@ publishing {
             }
         }
     }
+}*/
+
+mavenPublishing {
+    coordinates("io.seb.sebopensource.components", "components", "0.0.7-SNAPSHOT")
+
+    pom {
+        name.set("Green Design System for Android") // A user-friendly name
+        description.set("The official Android implementation of SEB's Green Design System.")
+        url.set("https://github.com/seb-oss/green-android")
+
+        licenses {
+            license {
+                name.set("The Apache License, Version 2.0")
+                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+            }
+        }
+        developers {
+            developer {
+                id.set("seb-oss")
+                name.set("SEB Open Source")
+                email.set("opensource@seb.se")
+            }
+        }
+        scm {
+            connection.set("scm:git:git://github.com/seb-oss/green-android.git")
+            developerConnection.set("scm:git:ssh://github.com/seb-oss/green-android.git")
+            url.set("https://github.com/seb-oss/green-android")
+        }
+    }
+
+    configure(AndroidSingleVariantLibrary(
+        variant = "release",
+        sourcesJar = true,
+        publishJavadocJar = true,
+    ))
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = true)
+
+    signAllPublications()
 }
 
+/*
 signing {
     // Sign the 'release' publication we defined in the publishing block
     sign(publishing.publications["release"])
@@ -132,4 +149,4 @@ signing {
     val signingPassword = System.getenv("GPG_SIGNING_PASSWORD")
 
     useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
-}
+}*/
