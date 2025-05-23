@@ -79,7 +79,10 @@ publishing {
             artifactId = libraryArtifactId
             version = versionName
 
-            from(components["release"])
+            afterEvaluate {
+                from(components["release"])
+            }
+
             // artifact("build/outputs/aar/${libraryArtifactId}-release.aar")
             artifact(sourceJar.get()) // Add the source JAR
             artifact(javadocJar.get()) // Add the javadoc JAR
