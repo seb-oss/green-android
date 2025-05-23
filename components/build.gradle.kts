@@ -47,12 +47,12 @@ android {
         compose = true
     }
 
-    /*publishing {
+    publishing {
         singleVariant("release") {
             withSourcesJar()
             withJavadocJar()
         }
-    }*/
+    }
 }
 
 dependencies {
@@ -100,7 +100,7 @@ val localProperties = Properties().apply {
     }
 }*/
 
-mavenPublishing {
+/*mavenPublishing {
     coordinates("io.github.sebopensource", "components", "0.0.7")
 
     pom {
@@ -136,7 +136,7 @@ mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = true)
 
     signAllPublications()
-}
+}*/
 
 /*
 signing {
