@@ -18,6 +18,10 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        aarMetadata {
+            minCompileSdk = 24
+        }
     }
 
     buildTypes {
@@ -38,6 +42,13 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 }
 
@@ -60,18 +71,6 @@ val localProperties = Properties().apply {
     file("local.properties").takeIf { it.exists() }?.inputStream()?.use { load(it) }
 }
 
-// Task to create a source JAR
-val sourceJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("sources")
-    from(android.sourceSets["main"].java.srcDirs)
-}
-
-val javadocJar by tasks.registering(Jar::class) {
-    dependsOn(tasks.dokkaHtml)
-    archiveClassifier.set("javadoc")
-    from(tasks.dokkaHtml.flatMap { it.outputDirectory })
-}
-
 publishing {
     publications {
         register<MavenPublication>("release") {
@@ -82,10 +81,6 @@ publishing {
             afterEvaluate {
                 from(components["release"])
             }
-
-            // artifact("build/outputs/aar/${libraryArtifactId}-release.aar")
-            artifact(sourceJar.get()) // Add the source JAR
-            artifact(javadocJar.get()) // Add the javadoc JAR
 
             pom {
                 name.set("Green Design System for Android") // A user-friendly name
