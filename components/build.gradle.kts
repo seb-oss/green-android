@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.dokka)
+    //alias(libs.plugins.dokka)
     alias(libs.plugins.vanniktech.maven.publish)
     //id("maven-publish")
     //id("signing")
