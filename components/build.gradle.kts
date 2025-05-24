@@ -21,10 +21,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-
-        aarMetadata {
-            minCompileSdk = 24
-        }
     }
 
     buildTypes {
