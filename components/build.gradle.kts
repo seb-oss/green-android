@@ -1,4 +1,5 @@
 import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.SonatypeHost
 import java.util.Properties
 
@@ -6,7 +7,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    //alias(libs.plugins.dokka)
+    alias(libs.plugins.dokka)
     alias(libs.plugins.vanniktech.maven.publish)
     //id("maven-publish")
     //id("signing")
@@ -82,8 +83,9 @@ val localProperties = Properties().apply {
             }
         }
     }
-
-    repositories {
+}*/
+/*
+    *//*repositories {
         // Setup Github Packages publication
         maven {
             name = "GithubPackages"
@@ -93,11 +95,12 @@ val localProperties = Properties().apply {
                 password = System.getenv("GPR_TOKEN") ?: localProperties.getProperty("gpr.token", "")
             }
         }
-    }
+    }*//*
 }*/
 
 /*mavenPublishing {
-    coordinates("io.github.sebopensource", "components", "0.0.7")
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = true)
+    //coordinates("io.github.sebopensource", "components", "0.0.8")
 
     pom {
         name.set("Green Design System for Android") // A user-friendly name
@@ -124,14 +127,25 @@ val localProperties = Properties().apply {
         }
     }
 
-    configure(AndroidSingleVariantLibrary(
-        variant = "release",
-        sourcesJar = true,
-        publishJavadocJar = true,
-    ))
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = true)
+    *//*configure(
+        AndroidSingleVariantLibrary(
+            variant = "release",
+            sourcesJar = true,
+            publishJavadocJar = true,
+        )
+    )*//*
 
-    signAllPublications()
+    //signAllPublications()
+}*/
+
+/*dokka {
+    dokkaSourceSets.main {
+        sourceLink {
+            localDirectory.set(file("src/main/kotlin"))
+            remoteUrl("https://github.com/seb-oss/green-android")
+            remoteLineSuffix.set("#L")
+        }
+    }
 }*/
 
 /*
