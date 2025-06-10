@@ -1,3 +1,5 @@
+import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -36,6 +38,14 @@ android {
     buildFeatures {
         compose = true
     }
+}
+
+mavenPublishing {
+    configure(AndroidSingleVariantLibrary(
+        variant = "release",
+        publishJavadocJar = true,
+        sourcesJar = true,
+    ))
 }
 
 dependencies {
