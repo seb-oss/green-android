@@ -34,6 +34,7 @@ jobs:
         # This step runs the Gradle command to publish.
         # It provides all the necessary credentials as environment variables.
         env:
+          # --- OLD ENVIRONMENT VARIABLES ---
           # Your GPG secrets from GitHub repository settings
           GPG_SIGNING_KEY_ID: ${{ secrets.GPG_SIGNING_KEY_ID }}
           GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
@@ -44,4 +45,11 @@ jobs:
           # SONATYPE_PASSWORD should be the token's secret value
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
-        run: ./gradlew publishReleaseToSonatypeRepository --info
+          # --- OLD ENVIRONMENT VARIABLES ---
+
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.ORG_GRADLE_PROJECT_MAVENCENTRALUSERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.ORG_GRADLE_PROJECT_MAVENCENTRALPASSWORD }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.ORG_GRADLE_PROJECT_SIGNINGINMEMORYKEY }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.ORG_GRADLE_PROJECT_SIGNINGINMEMORYKEYID }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.ORG_GRADLE_PROJECT_SIGNINGINMEMORYKEYPASSWORD }}
+        run: ./gradlew publish --no-configuration-cache --info

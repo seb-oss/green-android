@@ -2,7 +2,7 @@
 agp = "8.9.3"
 kotlin = "2.0.21"
 coreKtx = "1.16.0"
-junit = "5.0-SNAPSHOT"
+junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.9.0"
@@ -10,7 +10,8 @@ activityCompose = "1.10.1"
 composeBom = "2025.05.01"
 appcompat = "1.7.0"
 material = "1.12.0"
-dokka = "1.9.20"
+dokka = "2.0.0"
+vanniktech = "0.32.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,4 +37,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
-
+vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech"}
