@@ -1,6 +1,9 @@
 name: Publish to Maven Central
 
 on:
+  push:
+    tags:
+      - '*'  # This triggers the workflow on any tag push'
   # This allows you to trigger the workflow manually from the Actions tab in GitHub
   workflow_dispatch:
 
@@ -53,3 +56,14 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.ORG_GRADLE_PROJECT_SIGNINGINMEMORYKEYID }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.ORG_GRADLE_PROJECT_SIGNINGINMEMORYKEYPASSWORD }}
         run: ./gradlew publish --no-configuration-cache --info
+
+      - name: Create Github Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
