@@ -25,43 +25,26 @@ Green Design System Android is a project that consists of two main parts:
 
 ## Component Library
 
-The component library is a collection of customizable UI components designed to simplify and accelerate Android development. It is distributed as an `.aar` package via GitHub Packages.
+The component library is a collection of customizable UI components designed to simplify and accelerate Android development. It is distributed as an `.aar` package via Maven Central Repository.
 
 ### Features
 
 - A variety of reusable UI components.
 - Fully customizable colors, styles, and behaviors.
 - Designed with accessibility and performance in mind.
-- Distributed via GitHub Packages for easy integration.
+- Distributed via Maven Central Repository for easy integration.
 
 ### Installation
 
-To use the component library in your project, add the following configuration to your `build.gradle.kts` file:
-
-1. Add the GitHub Packages repository to your `repositories` block:
+To use the component library in your project, add the dependency to your `build.gradle` file:
 
 ```kotlin
-repositories {
-    maven {
-        setUrl("https://maven.pkg.github.com/seb-oss/green-android")
-
-        credentials {
-            username = System.getenv("GPR_USER") ?: "<your-github-username>"
-            password = System.getenv("GPR_TOKEN") ?: "<your-github-token>"
-        }
-    }
+dependencies { 
+    implementation("io.github.sebopensource:components::<latest-version>")
 }
 ```
 
-2. Add the library as a dependency:
-
-```kotlin
-dependencies {
-    implementation("se.seb.gds:components:<latest-version>")
-}
-```
-
-> **Note**: Replace `<latest-version>` with the latest version of the library. You will also need to set up a GitHub Personal Access Token (PAT) with the appropriate permissions to access GitHub Packages.
+> **Note**: Replace `<latest-version>` with the latest version of the library. 
 
 ### Usage
 
