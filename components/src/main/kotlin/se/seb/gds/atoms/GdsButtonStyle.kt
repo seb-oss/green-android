@@ -122,20 +122,20 @@ object GdsButtonDefaults {
 
         @Composable
         fun primaryColors() = ButtonDefaults.buttonColors(
-            containerColor = GdsTheme.colors.level3BackgroundPrimary,
-            contentColor = GdsTheme.colors.level3ContentPrimary,
+            containerColor = GdsTheme.colors.l3BackgroundPrimary,
+            contentColor = GdsTheme.colors.l3ContentPrimary,
         )
 
         @Composable
         fun secondaryColors() = ButtonDefaults.buttonColors(
-            containerColor = GdsTheme.colors.level3BackgroundSecondary,
-            contentColor = GdsTheme.colors.level3ContentTertiary
+            containerColor = GdsTheme.colors.l3BackgroundSecondary,
+            contentColor = GdsTheme.colors.l3ContentTertiary
         )
 
         @Composable
         fun tertiaryColors() = ButtonDefaults.buttonColors(
             containerColor = Color.Transparent,
-            contentColor = GdsTheme.colors.level3ContentTertiary
+            contentColor = GdsTheme.colors.l3ContentTertiary
         )
     }
 

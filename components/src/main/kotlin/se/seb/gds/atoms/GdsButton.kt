@@ -85,7 +85,7 @@ fun GdsButton(
                 Color.White
             }
         } else {
-            GdsTheme.colors.level3ContentTertiary
+            GdsTheme.colors.l3ContentTertiary
         }
 
         CompositionLocalProvider(

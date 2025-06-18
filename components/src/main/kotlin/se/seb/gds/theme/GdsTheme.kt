@@ -3,10 +3,10 @@ package se.seb.gds.theme
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import se.seb.gds.theme.colors.GdsTokens
 import se.seb.gds.theme.colors.LegacyColors
-import se.seb.gds.theme.colors.darkModeColors
-import se.seb.gds.theme.colors.lightModeColors
+import se.seb.gds.tokens.GdsColorTokens
+import se.seb.gds.tokens.darkModeColors
+import se.seb.gds.tokens.lightModeColors
 
 @Composable
 fun GdsTheme(
@@ -28,7 +28,7 @@ fun GdsTheme(
 }
 
 object GdsTheme {
-    val colors: GdsTokens
+    val colors: GdsColorTokens
         @Composable
         get() = LocalGdsColors.current
 
