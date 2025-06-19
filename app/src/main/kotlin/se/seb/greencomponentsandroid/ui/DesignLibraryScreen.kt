@@ -53,8 +53,8 @@ internal fun DesignLibraryScreen(
         topBar = {
             CenterAlignedTopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = GdsTheme.colors.l1BackgroundSecondary,
-                    titleContentColor = GdsTheme.colors.l2ContentPrimary
+                    containerColor = GdsTheme.colors.l102,
+                    titleContentColor = GdsTheme.colors.contentContent01
                 ),
                 title = { Text(text = currentScreen.name, style = GdsTheme.typography.Headline) },
                 navigationIcon = {
@@ -63,15 +63,15 @@ internal fun DesignLibraryScreen(
                             Icon(
                                 Icons.AutoMirrored.Filled.ArrowBack,
                                 contentDescription = "Back",
-                                tint = GdsTheme.colors.l2ContentPrimary
+                                tint = GdsTheme.colors.contentContent01
                             )
                         }
                     }
                 }
             )
         },
-        containerColor = GdsTheme.colors.l1BackgroundSecondary,
-        contentColor = GdsTheme.colors.l2ContentPrimary
+        containerColor = GdsTheme.colors.l102,
+        contentColor = GdsTheme.colors.contentContent01
     ) { paddingValues ->
         AnimatedContent(
             modifier = Modifier
@@ -105,9 +105,8 @@ internal fun DesignLibraryScreen(
                     currentScreen = it
                 }
 
-                LibraryScreen.COLORS -> {
-                    Box(modifier = Modifier.fillMaxSize())
-                }
+                LibraryScreen.COLORS -> ColorsScreen(allColors)
+                LibraryScreen.LEGACY_COLORS -> ColorsScreen(legacyColors)
 
                 LibraryScreen.FONTS -> FontsScreen(scrollState = scrollState)
                 LibraryScreen.SWITCHES -> SwitchesScreen(scrollState = scrollState)
@@ -133,6 +132,8 @@ private fun DesignLibrary(
     ) {
         GallerySection("Tokens") {
             ListItem("Colors") { onNavigateToSection(LibraryScreen.COLORS) }
+            HorizontalDivider()
+            ListItem("2016 Colors") { onNavigateToSection(LibraryScreen.LEGACY_COLORS) }
             HorizontalDivider()
             ListItem("Fonts") { onNavigateToSection(LibraryScreen.FONTS) }
         }

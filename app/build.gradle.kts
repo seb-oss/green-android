@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation(project(":components"))
+    implementation(libs.kotlin.reflect)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
