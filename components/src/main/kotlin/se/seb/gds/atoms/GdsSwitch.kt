@@ -42,7 +42,7 @@ fun GdsSwitch(
     GdsTheme {
         CompositionLocalProvider(
             LocalRippleConfiguration provides RippleConfiguration(
-                color = style.colors.checkedTrackColor,
+                color = GdsTheme.colors.statePositivePressed,
                 rippleAlpha = RippleAlpha(0.16f, 0.1f, 0.08f, 0.1f)
             )
         ) {

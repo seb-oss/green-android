@@ -46,6 +46,6 @@ internal fun ListItem(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(modifier = Modifier.weight(1f), text = title, color = GdsTheme.legacyColors.PrimaryText)
-        Icon(imageVector = SebIcons.RightChevron, contentDescription = null, tint = GdsTheme.colors.l3ContentPositive)
+        Icon(imageVector = SebIcons.RightChevron, contentDescription = null, tint = GdsTheme.colors.contentContent01)
     }
 }

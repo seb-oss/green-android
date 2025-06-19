@@ -13,7 +13,7 @@ dokka = "2.0.0"
 vanniktech = "0.32.0"
 
 # SEB
-tokens = "0.0.2"
+tokens = "0.0.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +29,7 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "compose" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "compose" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
 
 # SEB
 green-tokens = { group = "io.github.sebopensource", name = "android-tokens", version.ref = "tokens" }
