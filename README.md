@@ -62,6 +62,18 @@ GdsSwitch(
 
 Refer to the [Companion App](#companion-app) for detailed examples of how to use the components.
 
+#### Library preview
+
+You can also launch the `DesignLibraryFragment` in your app to see the components in action. 
+This fragment provides a visual representation of all available components and their configurations.
+
+
+```kotlin
+supportFragmentManager.beginTransaction()
+    .replace(R.id.fragment_container, DesignLibraryFragment())
+    .commit()
+```
+
 ---
 
 ## Companion App

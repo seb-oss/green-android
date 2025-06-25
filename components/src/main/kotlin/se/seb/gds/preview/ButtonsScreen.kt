@@ -1,4 +1,4 @@
-package se.seb.greencomponentsandroid.ui
+package se.seb.gds.preview
 
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Arrangement
@@ -17,8 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import se.seb.gds.atoms.ButtonWidthType
-import se.seb.gds.atoms.GdsButtonDefaults
 import se.seb.gds.atoms.GdsButton
+import se.seb.gds.atoms.GdsButtonDefaults
 import se.seb.gds.atoms.GdsButtonSize
 import se.seb.gds.atoms.LegacyButtonSize
 import se.seb.gds.components.SwitchRow
@@ -26,7 +26,7 @@ import se.seb.gds.icons.SebIcons
 import se.seb.gds.theme.GdsTheme
 
 @Composable
-fun ButtonsScreen(scrollState: ScrollState) {
+internal fun ButtonsScreen(scrollState: ScrollState) {
 
     var showLegacyButtons by rememberSaveable { mutableStateOf(false) }
 
