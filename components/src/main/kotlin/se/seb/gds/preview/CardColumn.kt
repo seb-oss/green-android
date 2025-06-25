@@ -1,4 +1,4 @@
-package se.seb.greencomponentsandroid.ui
+package se.seb.gds.preview
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import se.seb.gds.theme.GdsTheme
 
 @Composable
-fun CardColumn(
+internal fun CardColumn(
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(),
     accessibilityContentDescription: String = "",
