@@ -1,4 +1,4 @@
-package se.seb.greencomponentsandroid.ui
+package se.seb.gds.preview
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedContent

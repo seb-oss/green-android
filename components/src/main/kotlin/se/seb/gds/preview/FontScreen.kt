@@ -1,4 +1,4 @@
-package se.seb.greencomponentsandroid.ui
+package se.seb.gds.preview
 
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Arrangement.spacedBy

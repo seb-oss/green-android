@@ -1,4 +1,4 @@
-package se.seb.greencomponentsandroid.ui
+package se.seb.gds.preview
 
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +17,7 @@ import se.seb.gds.atoms.GdsSwitchDefaults
 import se.seb.gds.components.SwitchRow
 
 @Composable
-fun SwitchesScreen(scrollState: ScrollState) {
+internal fun SwitchesScreen(scrollState: ScrollState) {
     Column(
         modifier = Modifier
             .fillMaxSize()

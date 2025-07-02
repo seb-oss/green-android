@@ -1,6 +1,6 @@
-package se.seb.greencomponentsandroid.ui
+package se.seb.gds.preview
 
-enum class LibraryScreen {
+internal enum class LibraryScreen {
     LIBRARY,
     COLORS,
     LEGACY_COLORS,

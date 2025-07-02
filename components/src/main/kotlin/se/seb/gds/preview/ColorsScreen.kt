@@ -1,4 +1,4 @@
-package se.seb.greencomponentsandroid.ui
+package se.seb.gds.preview
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement.spacedBy
@@ -86,7 +86,7 @@ private fun Color.toHexString(): String {
     return String.format("#%08X", argb)
 }
 
-data class ColorMapping(
+internal data class ColorMapping(
     val lightModeColor: Color,
     val lightModeValue: String = lightModeColor.toHexString(),
     val darkModeColor: Color,
