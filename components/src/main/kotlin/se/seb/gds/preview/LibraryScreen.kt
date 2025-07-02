@@ -7,4 +7,5 @@ internal enum class LibraryScreen {
     FONTS,
     SWITCHES,
     BUTTONS,
+    INPUT,
 }
