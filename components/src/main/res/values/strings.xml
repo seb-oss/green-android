@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="text_field">Textfält</string>
+    <string name="text_field_error_in_field">Det finns ett fel i fältet.</string>
+    <string name="text_field_edit">ändra</string>
+    <string name="text_field_is_editing">ändrar</string>
+    <string name="text_field_characters_written">%d av %d möjliga tecken skrivna.</string>
+    <string name="text_field_disabled">inaktiverad</string>
+    <string name="clear_button_description">Rensa textfältet</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text_field">Text field</string>
+    <string name="text_field_error_in_field">There is an error in the field.</string>
+    <string name="text_field_edit">edit</string>
+    <string name="text_field_is_editing">is editing</string>
+    <string name="text_field_characters_written">%d of %d possible characters written.</string>
+    <string name="text_field_disabled">disabled</string>
+    <string name="clear_button_description">Clear text field</string>
+</resources>

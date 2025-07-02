@@ -8,7 +8,6 @@ import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Arrangement.spacedBy
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -84,19 +83,19 @@ internal fun DesignLibraryScreen(
                         animationSpec = tween(CONTENT_ANIMATION_DURATION),
                         initialOffsetX = { fullWidth -> fullWidth },
                     ) togetherWith
-                            slideOutHorizontally(
-                                animationSpec = tween(CONTENT_ANIMATION_DURATION),
-                                targetOffsetX = { fullWidth -> -fullWidth },
-                            )
+                        slideOutHorizontally(
+                            animationSpec = tween(CONTENT_ANIMATION_DURATION),
+                            targetOffsetX = { fullWidth -> -fullWidth },
+                        )
                 } else {
                     slideInHorizontally(
                         animationSpec = tween(CONTENT_ANIMATION_DURATION),
                         initialOffsetX = { fullWidth -> -fullWidth },
                     ) togetherWith
-                            slideOutHorizontally(
-                                animationSpec = tween(CONTENT_ANIMATION_DURATION),
-                                targetOffsetX = { fullWidth -> fullWidth },
-                            )
+                        slideOutHorizontally(
+                            animationSpec = tween(CONTENT_ANIMATION_DURATION),
+                            targetOffsetX = { fullWidth -> fullWidth },
+                        )
                 }
             },
         ) { targetState ->
@@ -111,11 +110,10 @@ internal fun DesignLibraryScreen(
                 LibraryScreen.FONTS -> FontsScreen(scrollState = scrollState)
                 LibraryScreen.SWITCHES -> SwitchesScreen(scrollState = scrollState)
                 LibraryScreen.BUTTONS -> ButtonsScreen(scrollState = scrollState)
+                LibraryScreen.INPUT -> InputScreen(scrollState = scrollState)
             }
-
         }
     }
-
 }
 
 @Composable
@@ -142,6 +140,8 @@ private fun DesignLibrary(
             ListItem("Switches") { onNavigateToSection(LibraryScreen.SWITCHES) }
             HorizontalDivider()
             ListItem("Buttons") { onNavigateToSection(LibraryScreen.BUTTONS) }
+            HorizontalDivider()
+            ListItem("Input") { onNavigateToSection(LibraryScreen.INPUT) }
         }
     }
 }
