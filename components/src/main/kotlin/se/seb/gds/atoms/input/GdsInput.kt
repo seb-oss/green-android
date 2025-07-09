@@ -69,7 +69,6 @@ import androidx.compose.ui.unit.coerceAtLeast
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import se.seb.gds.atoms.ClearButton
 import se.seb.gds.components.R
 import se.seb.gds.icons.ErrorIcon
 import se.seb.gds.theme.GdsTheme

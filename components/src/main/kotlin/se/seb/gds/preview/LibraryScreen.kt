@@ -8,4 +8,5 @@ internal enum class LibraryScreen {
     SWITCHES,
     BUTTONS,
     INPUT,
+    TOP_BAR,
 }
