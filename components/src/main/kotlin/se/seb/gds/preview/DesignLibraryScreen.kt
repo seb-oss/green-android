@@ -111,6 +111,7 @@ internal fun DesignLibraryScreen(
                 LibraryScreen.SWITCHES -> SwitchesScreen(scrollState = scrollState)
                 LibraryScreen.BUTTONS -> ButtonsScreen(scrollState = scrollState)
                 LibraryScreen.INPUT -> InputScreen(scrollState = scrollState)
+                LibraryScreen.TOP_BAR -> TopBarScreen()
             }
         }
     }
@@ -142,6 +143,8 @@ private fun DesignLibrary(
             ListItem("Buttons") { onNavigateToSection(LibraryScreen.BUTTONS) }
             HorizontalDivider()
             ListItem("Input") { onNavigateToSection(LibraryScreen.INPUT) }
+            HorizontalDivider()
+            ListItem("Top Bar") { onNavigateToSection(LibraryScreen.TOP_BAR) }
         }
     }
 }

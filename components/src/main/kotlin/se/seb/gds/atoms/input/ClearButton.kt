@@ -1,4 +1,4 @@
-package se.seb.gds.atoms
+package se.seb.gds.atoms.input
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
