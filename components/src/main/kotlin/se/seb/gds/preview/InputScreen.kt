@@ -47,7 +47,7 @@ fun InputScreen(scrollState: ScrollState) {
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(text = "Default")
+        Text(text = "Default SingleLine")
         GdsInput(
             state = rememberTextFieldState(),
             label = "Label",
@@ -68,8 +68,31 @@ fun InputScreen(scrollState: ScrollState) {
             } else null,
             lineLimits = TextFieldLineLimits.SingleLine,
         )
+        Spacer(Modifier.height(16.dp))
 
-        Text(text = "Contained")
+        Text(text = "Default MultiLine")
+        GdsInput(
+            state = rememberTextFieldState(),
+            label = "Label",
+            supportLabel = "Support Label - Default variant",
+            supportingText = "Support message (disabled).",
+            maxCharacters = if (maxChar) 500 else null,
+            enabled = enabled,
+            clearable = clearable,
+            isError = isError,
+            leadingIcon = if (leadingIcon) {
+                {
+                    Icon(
+                        painter = rememberVectorPainter(image = Icons.Default.Search),
+                        contentDescription = null
+                    )
+                }
+            } else null,
+            lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4)
+        )
+        Spacer(Modifier.height(16.dp))
+
+        Text(text = "Contained SingleLine")
         GdsInput(
             state = rememberTextFieldState(),
             label = "Label",
@@ -89,6 +112,30 @@ fun InputScreen(scrollState: ScrollState) {
                 }
             } else null,
             lineLimits = TextFieldLineLimits.SingleLine,
+        )
+
+        Spacer(Modifier.height(16.dp))
+        Text(text = "Contained MultiLine")
+        GdsInput(
+            state = rememberTextFieldState(),
+            label = "Label",
+            supportLabel = "Support Label - Default variant",
+            supportingText = "Support message (disabled).",
+            style = GdsInputDefaults.containedStyle(),
+            maxCharacters = if (maxChar) 50 else null,
+            errorMessage = "Error message",
+            enabled = enabled,
+            clearable = clearable,
+            isError = isError,
+            leadingIcon = if (leadingIcon) {
+                {
+                    Icon(
+                        painter = rememberVectorPainter(image = Icons.Default.Search),
+                        contentDescription = null
+                    )
+                }
+            } else null,
+            lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4)
         )
 
         Spacer(modifier = Modifier.height(16.dp))

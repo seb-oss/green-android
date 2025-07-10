@@ -29,6 +29,7 @@ data class GdsInputTextStyle(
     val footerMessageStyle: TextStyle,
     val labelStyle: TextStyle,
     val supportLabelStyle: TextStyle,
+    val characterCounter: TextStyle,
 )
 
 
@@ -71,14 +72,16 @@ object GdsInputDefaults {
         errorTextColor = GdsTheme.colors.contentContentNegative01,
         focusedLabelColor = GdsTheme.colors.contentContent02,
         unfocusedLabelColor = GdsTheme.colors.contentContent02,
-        errorLabelColor = GdsTheme.colors.contentContentNegative01,
+        errorLabelColor = GdsTheme.colors.contentContent02,
         disabledLabelColor = GdsTheme.colors.contentContent02,
-        errorTrailingIconColor = GdsTheme.colors.contentContentNegative01,
         focusedIndicatorColor = Color.Transparent,
         disabledIndicatorColor = Color.Transparent,
         errorIndicatorColor = Color.Transparent,
         unfocusedIndicatorColor = Color.Transparent,
-
+        focusedPlaceholderColor = GdsTheme.colors.contentContent02,
+        unfocusedPlaceholderColor = GdsTheme.colors.contentContent02,
+        disabledPlaceholderColor = GdsTheme.colors.contentContentDisabled01,
+        errorPlaceholderColor = GdsTheme.colors.contentContent02,
     )
 
     @Composable
@@ -91,13 +94,12 @@ object GdsInputDefaults {
     fun inputColors(): GdsInputColors = GdsInputColors(
         containerColor = GdsTheme.colors.l302,
         disabledContainerColor = GdsTheme.colors.l3Disabled01,
-        labelColor = GdsTheme.colors.contentContent02,
-        disabledLabelColor = GdsTheme.colors.contentContentDisabled01,
-        floatingLabelColor = GdsTheme.colors.contentContent01,
+        floatingLabelColor = GdsTheme.colors.contentContent02,
+        disabledFloatingLabelColor = GdsTheme.colors.contentContentDisabled01,
+        labelColor = GdsTheme.colors.contentContent01,
         supportLabelColor = GdsTheme.colors.contentContent01,
-        errorLabelColor = GdsTheme.colors.contentContentNegative01,
-        textColor = GdsTheme.colors.contentContent01,
-        disabledTextColor = GdsTheme.colors.contentContentDisabled01,
+        inputTextColor = GdsTheme.colors.contentContent01,
+        disabledInputTextColor = GdsTheme.colors.contentContentDisabled01,
         errorIndicatorColor = GdsTheme.colors.borderNegative,
         disabledSupportingTextColor = GdsTheme.colors.contentContentDisabled01,
         errorSupportingTextColor = GdsTheme.colors.contentContentNegative01,
@@ -114,6 +116,7 @@ object GdsInputDefaults {
         footerMessageStyle = GdsTheme.typography.SubHeader2,
         labelStyle = GdsTheme.typography.Headline,
         supportLabelStyle = GdsTheme.typography.SubHeader2,
+        characterCounter = GdsTheme.typography.Caption,
     )
 }
 
@@ -132,12 +135,11 @@ data class GdsInputColors(
     val containerColor: Color,
     val disabledContainerColor: Color,
     val labelColor: Color,
-    val disabledLabelColor: Color,
     val floatingLabelColor: Color,
+    val disabledFloatingLabelColor: Color,
     val supportLabelColor: Color,
-    val errorLabelColor: Color,
-    val textColor: Color,
-    val disabledTextColor: Color,
+    val inputTextColor: Color,
+    val disabledInputTextColor: Color,
     val errorIndicatorColor: Color,
     val disabledSupportingTextColor: Color,
     val errorSupportingTextColor: Color,
