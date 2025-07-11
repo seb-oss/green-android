@@ -1,20 +1,19 @@
 package se.seb.gds.atoms.input
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.unit.dp
-import se.seb.gds.theme.GdsTheme
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 
 @Composable
 fun CharacterAmountIndicator(
-    maxCharacters: Int,
+    modifier: Modifier = Modifier,
+    maxCharacters: Int?,
     currentCharacters: Int,
-    isFocused: Boolean
+    textStyle: TextStyle,
+    color: Color
 ) {
     val maxCharactersText = maxCharacters.toString()
     val currentCharactersText = currentCharacters.toString()
@@ -22,11 +21,8 @@ fun CharacterAmountIndicator(
 
     Text(
         text = trailingIconText,
-        modifier = Modifier
-            .background(color = GdsTheme.colors.l303, shape = RoundedCornerShape(4.dp))
-            .padding(vertical = 4.dp, horizontal = 6.dp)
-            .alpha(if (isFocused) 1f else 0f),
-        style = GdsTheme.typography.Caption,
-        color = GdsTheme.colors.contentContent01,
+        modifier = modifier.alpha(if (maxCharacters != null) 1f else 0f),
+        style = textStyle,
+        color = color,
     )
 }

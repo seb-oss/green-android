@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -25,21 +24,17 @@ fun ClearButton(
     onClick: () -> Unit,
 ) {
     val clearButtonDescription = stringResource(id = R.string.clear_button_description)
-    IconButton(
+    Icon(
         modifier = modifier
             .clearAndSetSemantics {
                 contentDescription = clearButtonDescription
                 role = Role.Button
             }
             .clickable(enabled = enabled, onClick = onClick),
-        onClick = onClick
-    ) {
-        Icon(
-            painter = painterResource(id = R.drawable.ic_clear_24),
-            contentDescription = null,
-            tint = GdsTheme.colors.contentContent01,
-        )
-    }
+        painter = painterResource (id = R.drawable.ic_clear_24),
+        contentDescription = null,
+        tint = GdsTheme.colors.contentContent01,
+    )
 }
 
 
