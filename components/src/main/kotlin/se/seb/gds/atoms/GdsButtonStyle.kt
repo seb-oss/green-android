@@ -95,6 +95,15 @@ sealed class GdsButtonSize(val buttonWidth: ButtonWidthType, val buttonHeight: D
 object GdsButtonDefaults {
 
     object TwentyThree {
+
+        @Composable
+        fun brandStyle() = GdsButtonStyle(
+            size = GdsButtonSize.Default(ButtonWidthType.Full),
+            shape = sebShape(),
+            colors = brandColors(),
+            bookFont = true
+        )
+
         @Composable
         fun primaryStyle() = GdsButtonStyle(
             size = GdsButtonSize.Default(ButtonWidthType.Full),
@@ -122,6 +131,12 @@ object GdsButtonDefaults {
 
         @Composable
         fun primaryColors() = ButtonDefaults.buttonColors(
+            containerColor = GdsTheme.colors.l301,
+            contentColor = GdsTheme.colors.contentContent03,
+        )
+
+        @Composable
+        fun brandColors() = ButtonDefaults.buttonColors(
             containerColor = GdsTheme.colors.l1Brand01,
             contentColor = GdsTheme.colors.contentContent03,
         )
