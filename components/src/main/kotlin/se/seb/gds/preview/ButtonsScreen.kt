@@ -44,6 +44,11 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
         if (showLegacyButtons.not()) {
             GdsButton(
+                title = "Brand Button",
+                style = GdsButtonDefaults.TwentyThree.brandStyle(),
+            ) { }
+
+            GdsButton(
                 title = "Primary Button",
                 style = GdsButtonDefaults.TwentyThree.primaryStyle(),
             ) { }
