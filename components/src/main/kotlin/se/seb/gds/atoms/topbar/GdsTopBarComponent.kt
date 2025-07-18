@@ -46,8 +46,8 @@ fun GdsTopBarComponent(
     title: String?,
     titleStyle: TextStyle = GdsTheme.typography.Title5,
     rightActions: @Composable (RowScope.() -> Unit)? = null,
-    color: Color = GdsTheme.colors.l101,
-    contentColor: Color = GdsTheme.colors.contentContent01,
+    color: Color? = GdsTheme.colors.l101,
+    contentColor: Color? = GdsTheme.colors.contentContent01,
     centeredTitle: Boolean? = false,
     elevation: Dp = 0.dp,
 ) {
@@ -69,8 +69,8 @@ fun GdsTopBarComponent(
                     }
                 )
                 .fillMaxWidth(),
-            color = color,
-            contentColor = contentColor,
+            color = color ?: GdsTheme.colors.l101,
+            contentColor = contentColor ?: GdsTheme.colors.contentContent01,
             shadowElevation = elevation,
             content = {
                 Row(
