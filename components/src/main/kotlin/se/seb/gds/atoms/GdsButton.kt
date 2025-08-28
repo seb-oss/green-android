@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalRippleConfiguration
@@ -24,8 +23,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import se.seb.gds.atoms.GdsButtonDefaults.seb2016Shape
 import se.seb.gds.icons.SebIcons
 import se.seb.gds.theme.GdsTheme
 
@@ -63,29 +65,25 @@ fun GdsButton(
     enabled: Boolean = true,
     icon: ImageVector? = null,
     style: GdsButtonStyle = GdsButtonDefaults.TwentyThree.primaryStyle(),
+    sizeProfile: GdsButtonSizeProfile = GdsButtonDefaults.TwentyThree.large(),
     onClick: () -> Unit,
 ) {
-    val widthModifier = when (style.size.buttonWidth) {
+    val widthModifier = when (sizeProfile.widthType) {
         ButtonWidthType.Dynamic -> modifier
-        is ButtonWidthType.Fixed -> modifier.width(style.size.buttonWidth.width)
+        is ButtonWidthType.Fixed -> modifier.width(sizeProfile.widthType.width)
         ButtonWidthType.Full -> modifier.fillMaxWidth()
     }
 
     val paddingValues = when {
-        title == null && style.size.buttonWidth is ButtonWidthType.Fixed -> PaddingValues(horizontal = 0.dp)
-        icon != null -> ButtonDefaults.ContentPadding
-        else -> ButtonDefaults.ButtonWithIconContentPadding
+        title == null && sizeProfile.widthType is ButtonWidthType.Fixed -> PaddingValues(horizontal = 0.dp)
+        else -> PaddingValues(horizontal = sizeProfile.horizontalPadding, vertical = 8.dp)
     }
 
     GdsTheme {
-        val rippleColor = if (style.colors.containerColor != Color.Transparent) {
-            if (style.colors.containerColor.luminance() > 0.5f) {
-                Color.Black
-            } else {
-                Color.White
-            }
-        } else {
-            GdsTheme.colors.stateLightHover
+        val rippleColor = when {
+            style.pressedColor != null -> style.pressedColor
+            style.colors.containerColor != Color.Transparent -> if (style.colors.containerColor.luminance() > 0.5f) Color.Black else Color.White
+            else -> GdsTheme.colors.stateLightHover
         }
 
         CompositionLocalProvider(
@@ -98,27 +96,42 @@ fun GdsButton(
                 TextButton(
                     modifier = modifier
                         .then(widthModifier)
-                        .heightIn(min = style.size.buttonHeight),
+                        .heightIn(min = sizeProfile.height),
                     colors = style.colors,
-                    shape = style.shape,
+                    shape = sizeProfile.shape,
                     enabled = enabled,
                     contentPadding = paddingValues,
                     onClick = onClick,
                 ) {
-                    ButtonContent(icon = icon, title = title, bookFont = style.bookFont)
+                    ButtonContent(
+                        icon = icon,
+                        title = title,
+                        textStyle = sizeProfile.textStyle,
+                        iconSize = sizeProfile.iconSize,
+                        iconSpacing = sizeProfile.iconSpacing,
+                        iconPosition = style.iconPosition
+                    )
                 }
             } else {
                 Button(
                     modifier = modifier
                         .then(widthModifier)
-                        .heightIn(min = style.size.buttonHeight),
+                        .heightIn(min = sizeProfile.height),
                     colors = style.colors,
-                    shape = style.shape,
+                    shape = sizeProfile.shape,
                     enabled = enabled,
+                    border = style.border,
                     contentPadding = paddingValues,
                     onClick = onClick
                 ) {
-                    ButtonContent(icon = icon, title = title, bookFont = style.bookFont)
+                    ButtonContent(
+                        icon = icon,
+                        title = title,
+                        textStyle = sizeProfile.textStyle,
+                        iconSize = sizeProfile.iconSize,
+                        iconSpacing = sizeProfile.iconSpacing,
+                        iconPosition = style.iconPosition
+                    )
                 }
             }
         }
@@ -126,25 +139,42 @@ fun GdsButton(
 }
 
 @Composable
-private fun ButtonContent(icon: ImageVector?, title: String?, bookFont: Boolean) {
+private fun ButtonContent(
+    icon: ImageVector?,
+    iconPosition: IconPosition,
+    title: String?,
+    iconSpacing: Dp,
+    textStyle: TextStyle,
+    iconSize: Dp
+) {
     Row(verticalAlignment = Alignment.CenterVertically) {
-        if (icon != null) {
+        if (icon != null && iconPosition == IconPosition.Left) {
             Icon(
-                modifier = Modifier.size(24.dp),
+                modifier = Modifier.size(iconSize),
                 imageVector = icon,
                 contentDescription = null
             )
             if (title != null) {
-                Spacer(modifier = Modifier.width(12.dp))
+                Spacer(modifier = Modifier.width(iconSpacing))
             }
         }
         if (title != null) {
-            val style = if (bookFont) {
-                GdsTheme.typography.Headline
-            } else {
-                GdsTheme.typography.Title6
+            Text(
+                text = title,
+                style = textStyle,
+                maxLines = 2,
+                modifier = Modifier.weight(1f, fill = false)
+            )
+        }
+        if (icon != null && iconPosition == IconPosition.Right) {
+            if (title != null) {
+                Spacer(modifier = Modifier.width(iconSpacing))
             }
-            Text(title, style = style, maxLines = 2)
+            Icon(
+                modifier = Modifier.size(iconSize),
+                imageVector = icon,
+                contentDescription = null
+            )
         }
     }
 }
@@ -219,9 +249,8 @@ private fun GdsIconButtonPrimaryPreview() {
     GdsTheme {
         GdsButton(
             icon = SebIcons.Check,
-            style = GdsButtonDefaults.TwentyThree.primaryStyle().copy(
-                size = GdsButtonSize.Default(ButtonWidthType.Fixed(48.dp))
-            ),
+            style = GdsButtonDefaults.TwentyThree.primaryStyle(),
+            sizeProfile = GdsButtonDefaults.TwentyThree.large(),
             onClick = {}
         )
     }
@@ -245,8 +274,14 @@ private fun GdsIconButtonPrimaryPreview() {
 private fun GdsButton2016PrimaryPreview() {
     GdsTheme {
         GdsButton(
-            style = GdsButtonDefaults.primary().copy(
-                size = GdsButtonSize.Legacy(LegacyButtonSize.LARGE)
+            style = GdsButtonDefaults.primary(),
+            sizeProfile = GdsButtonSizeProfile(
+                widthType = ButtonWidthType.Full,
+                height = 50.dp,
+                shape = seb2016Shape(LegacyButtonSize.LARGE),
+                horizontalPadding = 16.dp,
+                textStyle = GdsTheme.typography.Title6,
+                iconSize = 24.dp
             ),
             title = "Button",
             onClick = {}

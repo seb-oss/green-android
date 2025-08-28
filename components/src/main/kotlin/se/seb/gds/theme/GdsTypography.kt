@@ -130,4 +130,24 @@ object GdsTypography {
         letterSpacing = 0.3.sp,
         fontWeight = FontWeight.Medium,
     )
+
+    val DetailMediumLarge = createTextStyle(
+        fontSize = 16.sp,
+        lineHeight = 20.sp,
+        fontWeight = FontWeight.Medium,
+    )
+
+    val DetailBookLarge = createTextStyle(
+        fontFamily = GdsSansSerifBook,
+        fontSize = 16.sp,
+        lineHeight = 20.sp,
+        fontWeight = FontWeight.Normal,
+    )
+
+    val DetailBookMedium = createTextStyle(
+        fontFamily = GdsSansSerifBook,
+        fontSize = 14.sp,
+        lineHeight = 16.sp,
+        fontWeight = FontWeight.Normal,
+    )
 }

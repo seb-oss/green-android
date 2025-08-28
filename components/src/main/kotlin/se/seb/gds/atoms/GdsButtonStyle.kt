@@ -1,11 +1,13 @@
 package se.seb.gds.atoms
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import se.seb.gds.theme.GdsTheme
@@ -17,31 +19,72 @@ import se.seb.gds.theme.GdsTheme
  * size, shape, and colors.  It provides a structured way to define the appearance of
  * buttons consistently throughout your application.
  *
- * @property size The [GdsButtonSize] enum that determines the overall size (e.g., small, medium, large) of the button.
- * @property shape The [Shape] that defines the button's outline, such as rounded corners or a pill shape.
  * @property colors The [ButtonColors] that dictate the button's colors for various states (e.g., enabled, disabled, pressed).
+ * @property pressedColor An optional [Color] that specifies the button's background color when pressed.
+ * @property textButton A [Boolean] indicating if the button should be styled as a text
+ * button (true) or a filled button (false). Default is false.
+ * @property border A [Boolean] indicating if the button should have a border. Default is false.
+ * @property iconPosition The [IconPosition] that determines the position of an icon within the button (left or right). Default is [IconPosition.Left].
  *
  * Example usage:
  *
  * ```
  * val myButtonStyle = GdsButtonStyle(
- *     size = GdsButtonSize.Medium,
- *     shape = RoundedCornerShape(8.dp),
- *     colors = ButtonDefaults.buttonColors(
- *         backgroundColor = Color.Green,
- *         contentColor = Color.White,
- *         disabledBackgroundColor = Color.LightGray,
- *         disabledContentColor = Color.Gray
- *     )
+ *      colors = ButtonDefaults.buttonColors(
+ *              containerColor = Color.Green,
+ *              contentColor = Color.White
+ *          ),
+ *    pressedColor = Color.Blue,
+ *    textButton = false,
+ *    border = BorderStroke(1.dp, Color.Black),
+ *    iconPosition = IconPosition.Left
  * )
  * ```
  */
 data class GdsButtonStyle(
-    val size: GdsButtonSize,
-    val shape: Shape,
     val colors: ButtonColors,
-    val bookFont: Boolean = false,
+    val pressedColor: Color? = null,
     val textButton: Boolean = false,
+    val border: BorderStroke? = null,
+    val iconPosition: IconPosition = IconPosition.Left
+)
+
+/**
+ * Represents the size profile for a "Green Design System Button".
+ *
+ * This data class encapsulates the size-related properties of a button, allowing you to customize its
+ * width, height, shape, padding, icon size, icon spacing, and text style. It provides a structured way to define the
+ * size and layout of buttons consistently throughout your application.
+ *
+ * @property widthType The [ButtonWidthType] that determines the button's width behavior (e.g., full, dynamic, fixed).
+ * @property height The height of the button, specified in Dp.
+ * @property shape The [Shape] that defines the button's outline, such as rounded corners or a pill shape.
+ * @property horizontalPadding The horizontal padding inside the button, specified in Dp.
+ * @property iconSize The size of any icon included in the button, specified in Dp.
+ * @property iconSpacing The spacing between the icon and the text within the button, specified in Dp.
+ * @property textStyle The [TextStyle] that specifies the typography for the button's label, including font size and weight.
+ *
+ * Example usage:
+ *
+ * ```
+ * val myButtonSizeProfile = GdsButtonSizeProfile(
+ *     widthType = ButtonWidthType.Full,
+ *     height = 48.dp,
+ *     shape = RoundedCornerShape(8.dp),
+ *     horizontalPadding = 16.dp,
+ *     iconSize = 24.dp,
+ *     iconSpacing = 8.dp,
+ * )
+ * ```
+ */
+data class GdsButtonSizeProfile(
+    val widthType: ButtonWidthType = ButtonWidthType.Full,
+    val height: Dp = 48.dp,
+    val shape: Shape = RoundedCornerShape(24.dp),
+    val horizontalPadding: Dp = 24.dp,
+    val iconSize: Dp = 24.dp,
+    val iconSpacing: Dp = 8.dp,
+    val textStyle: TextStyle
 )
 
 /**
@@ -58,38 +101,20 @@ sealed class ButtonWidthType {
     data class Fixed(val width: Dp) : ButtonWidthType()
 }
 
+/**
+ * Represents the position of an icon within a button.
+ *
+ * An icon can be positioned either to the left or right of the button's text.
+ */
+enum class IconPosition {
+    Left,
+    Right
+}
+
 enum class LegacyButtonSize {
     LARGE,
     MEDIUM,
     SMALL,
-}
-
-/**
- * Represents the size configuration for a Green Design System Button.
- *
- * This sealed class defines different size variants for a Green Button,
- * specifying both the width and height. Each variant is a data class, allowing for
- * easy comparison and usage in composables.
- *
- * @property buttonWidth The width configuration for the button. Can be either [ButtonWidthType.Fixed] or [ButtonWidthType.Full].
- * @property buttonHeight The height of the button, represented as a [Dp] value.
- */
-sealed class GdsButtonSize(val buttonWidth: ButtonWidthType, val buttonHeight: Dp) {
-    data class Default(val width: ButtonWidthType) : GdsButtonSize(width, 48.dp)
-    data class Legacy(val size: LegacyButtonSize) : GdsButtonSize(
-        buttonWidth = when (size) {
-            LegacyButtonSize.LARGE -> ButtonWidthType.Full
-            LegacyButtonSize.MEDIUM -> ButtonWidthType.Full
-            LegacyButtonSize.SMALL -> ButtonWidthType.Dynamic
-        },
-        buttonHeight = when (size) {
-            LegacyButtonSize.LARGE -> 50.dp
-            LegacyButtonSize.MEDIUM -> 45.dp
-            LegacyButtonSize.SMALL -> 40.dp
-        }
-    )
-
-    data class Custom(val width: ButtonWidthType, val height: Dp) : GdsButtonSize(width, height)
 }
 
 object GdsButtonDefaults {
@@ -98,118 +123,170 @@ object GdsButtonDefaults {
 
         @Composable
         fun brandStyle() = GdsButtonStyle(
-            size = GdsButtonSize.Default(ButtonWidthType.Full),
-            shape = sebShape(),
             colors = brandColors(),
-            bookFont = true
+            pressedColor = GdsTheme.colors.stateDarkPressed
         )
 
         @Composable
         fun primaryStyle() = GdsButtonStyle(
-            size = GdsButtonSize.Default(ButtonWidthType.Full),
-            shape = sebShape(),
             colors = primaryColors(),
-            bookFont = true
+            pressedColor = GdsTheme.colors.stateDarkPressed
         )
 
         @Composable
         fun secondaryStyle() = GdsButtonStyle(
-            size = GdsButtonSize.Default(ButtonWidthType.Full),
-            shape = sebShape(),
             colors = secondaryColors(),
-            bookFont = true
+            pressedColor = GdsTheme.colors.stateLightPressed
         )
 
         @Composable
         fun tertiaryStyle() = GdsButtonStyle(
-            size = GdsButtonSize.Default(ButtonWidthType.Full),
-            shape = sebShape(),
             colors = tertiaryColors(),
-            bookFont = true,
-            textButton = true
+            textButton = true,
+            pressedColor = GdsTheme.colors.stateLightPressed
+        )
+
+        @Composable
+        fun outlineStyle() = GdsButtonStyle(
+            colors = outlineColors(),
+            border = BorderStroke(width = 1.dp, color = GdsTheme.colors.borderSubtle01),
+            pressedColor = GdsTheme.colors.stateLightPressed
+        )
+
+        @Composable
+        fun negativeStyle() = GdsButtonStyle(
+            colors = negativeColors(),
+            pressedColor = GdsTheme.colors.stateLightPressed
         )
 
         @Composable
         fun primaryColors() = ButtonDefaults.buttonColors(
             containerColor = GdsTheme.colors.l301,
             contentColor = GdsTheme.colors.contentContent03,
+            disabledContainerColor = GdsTheme.colors.l3Disabled03,
+            disabledContentColor = GdsTheme.colors.contentContentDisabled01,
         )
 
         @Composable
         fun brandColors() = ButtonDefaults.buttonColors(
-            containerColor = GdsTheme.colors.l1Brand01,
+            containerColor = GdsTheme.colors.l3Brand01,
             contentColor = GdsTheme.colors.contentContent03,
+            disabledContainerColor = GdsTheme.colors.l3Disabled03,
+            disabledContentColor = GdsTheme.colors.contentContentDisabled01,
         )
 
         @Composable
         fun secondaryColors() = ButtonDefaults.buttonColors(
             containerColor = GdsTheme.colors.l302,
-            contentColor = GdsTheme.colors.contentContent01
+            contentColor = GdsTheme.colors.contentContent01,
+            disabledContainerColor = GdsTheme.colors.l3Disabled03,
+            disabledContentColor = GdsTheme.colors.contentContentDisabled01,
         )
 
         @Composable
         fun tertiaryColors() = ButtonDefaults.buttonColors(
             containerColor = Color.Transparent,
-            contentColor = GdsTheme.colors.contentContent01
+            contentColor = GdsTheme.colors.contentContent01,
+            disabledContainerColor = GdsTheme.colors.l3Disabled03,
+            disabledContentColor = GdsTheme.colors.contentContentDisabled01,
+        )
+
+        @Composable
+        fun outlineColors() = ButtonDefaults.buttonColors(
+            containerColor = Color.Transparent,
+            contentColor = GdsTheme.colors.contentContent01,
+            disabledContainerColor = GdsTheme.colors.l3Disabled03,
+            disabledContentColor = GdsTheme.colors.contentContentDisabled01,
+        )
+
+        @Composable
+        fun negativeColors() = ButtonDefaults.buttonColors(
+            containerColor = GdsTheme.colors.l3Negative01,
+            contentColor = GdsTheme.colors.contentContentInversed,
+            disabledContainerColor = GdsTheme.colors.l3Disabled03,
+            disabledContentColor = GdsTheme.colors.contentContentDisabled01,
+        )
+
+        @Composable
+        fun xLarge() = GdsButtonSizeProfile(
+            height = 56.dp,
+            widthType = ButtonWidthType.Full,
+            shape = RoundedCornerShape(32.dp),
+            horizontalPadding = 24.dp,
+            textStyle = GdsTheme.typography.DetailMediumLarge,
+            iconSize = 24.dp,
+            iconSpacing = 8.dp
+        )
+
+        @Composable
+        fun large() = GdsButtonSizeProfile(
+            height = 48.dp,
+            widthType = ButtonWidthType.Full,
+            shape = RoundedCornerShape(24.dp),
+            horizontalPadding = 24.dp,
+            textStyle = GdsTheme.typography.DetailBookLarge,
+            iconSize = 24.dp,
+            iconSpacing = 8.dp
+        )
+
+        @Composable
+        fun medium() = GdsButtonSizeProfile(
+            height = 40.dp,
+            widthType = ButtonWidthType.Full,
+            shape = RoundedCornerShape(20.dp),
+            horizontalPadding = 20.dp,
+            textStyle = GdsTheme.typography.DetailBookLarge,
+            iconSize = 20.dp,
+            iconSpacing = 8.dp
+        )
+
+        @Composable
+        fun small() = GdsButtonSizeProfile(
+            height = 32.dp,
+            widthType = ButtonWidthType.Full,
+            shape = RoundedCornerShape(16.dp),
+            horizontalPadding = 16.dp,
+            textStyle = GdsTheme.typography.DetailBookMedium,
+            iconSize = 16.dp,
+            iconSpacing = 4.dp
         )
     }
 
     @Composable
-    fun primary(size: LegacyButtonSize = LegacyButtonSize.LARGE) = GdsButtonStyle(
-        size = GdsButtonSize.Legacy(size),
-        shape = seb2016Shape(size),
-        colors = primaryColors(),
-        bookFont = false
+    fun primary() = GdsButtonStyle(
+        colors = primaryColors()
     )
 
     @Composable
-    fun secondary(size: LegacyButtonSize) = GdsButtonStyle(
-        size = GdsButtonSize.Legacy(size),
-        shape = seb2016Shape(size),
+    fun secondary() = GdsButtonStyle(
         colors = secondaryColors(),
-        bookFont = false,
         textButton = true,
     )
 
     @Composable
-    fun tertiary(size: LegacyButtonSize) = GdsButtonStyle(
-        size = GdsButtonSize.Legacy(size),
-        shape = seb2016Shape(size),
+    fun tertiary() = GdsButtonStyle(
         colors = tertiaryColors(),
-        bookFont = false
     )
 
     @Composable
-    fun primaryDestructive(size: LegacyButtonSize) = GdsButtonStyle(
-        size = GdsButtonSize.Legacy(size),
-        shape = seb2016Shape(size),
+    fun primaryDestructive() = GdsButtonStyle(
         colors = primaryDestructiveColors(),
-        bookFont = false
     )
 
     @Composable
     fun secondaryDestructive() = GdsButtonStyle(
-        size = GdsButtonSize.Custom(ButtonWidthType.Full, 50.dp),
-        shape = seb2016Shape(LegacyButtonSize.SMALL),
         colors = secondaryDestructiveColors(),
-        bookFont = false,
-        textButton = true
+        textButton = true,
     )
 
     @Composable
     fun tertiaryDestructive() = GdsButtonStyle(
-        size = GdsButtonSize.Custom(ButtonWidthType.Full, 50.dp),
-        shape = seb2016Shape(LegacyButtonSize.SMALL),
         colors = tertiaryDestructiveColors(),
-        bookFont = false,
     )
 
     @Composable
     fun tertiaryEmphasis() = GdsButtonStyle(
-        size = GdsButtonSize.Custom(ButtonWidthType.Full, 50.dp),
-        shape = seb2016Shape(LegacyButtonSize.SMALL),
         colors = tertiaryEmphasisColors(),
-        bookFont = false
     )
 
     @Composable
@@ -255,14 +332,55 @@ object GdsButtonDefaults {
     )
 
     @Composable
-    fun sebShape() = RoundedCornerShape(24.dp)
-
-    @Composable
     fun seb2016Shape(size: LegacyButtonSize) = RoundedCornerShape(
         when (size) {
             LegacyButtonSize.LARGE -> 12.dp
             LegacyButtonSize.MEDIUM -> 12.dp
             LegacyButtonSize.SMALL -> 8.dp
         }
+    )
+
+    @Composable
+    fun seb2016WidthType(size: LegacyButtonSize): ButtonWidthType {
+        return when (size) {
+            LegacyButtonSize.LARGE -> ButtonWidthType.Full
+            LegacyButtonSize.MEDIUM -> ButtonWidthType.Full
+            LegacyButtonSize.SMALL -> ButtonWidthType.Dynamic
+        }
+    }
+
+    @Composable
+    fun seb2016HeightType(size: LegacyButtonSize): Dp {
+        return when (size) {
+            LegacyButtonSize.LARGE -> 50.dp
+            LegacyButtonSize.MEDIUM -> 45.dp
+            LegacyButtonSize.SMALL -> 40.dp
+        }
+    }
+
+    val legacyIconSize: Dp = 24.dp
+    val legacyIconSpacing: Dp = 12.dp
+    val legacyHorizontalPadding: Dp = 16.dp
+
+    @Composable
+    fun legacySizeProfile(size: LegacyButtonSize): GdsButtonSizeProfile = GdsButtonSizeProfile(
+        widthType = seb2016WidthType(size),
+        height = seb2016HeightType(size),
+        shape = seb2016Shape(size),
+        horizontalPadding = legacyHorizontalPadding,
+        textStyle = GdsTheme.typography.Title6,
+        iconSize = legacyIconSize,
+        iconSpacing = legacyIconSpacing
+    )
+
+    @Composable
+    fun legacyFullSmallProfile(): GdsButtonSizeProfile = GdsButtonSizeProfile(
+        widthType = ButtonWidthType.Full,
+        height = 50.dp,
+        shape = seb2016Shape(LegacyButtonSize.SMALL),
+        horizontalPadding = legacyHorizontalPadding,
+        textStyle = GdsTheme.typography.Title6,
+        iconSize = legacyIconSize,
+        iconSpacing = legacyIconSpacing
     )
 }

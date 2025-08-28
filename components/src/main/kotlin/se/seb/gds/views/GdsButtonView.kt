@@ -74,18 +74,37 @@ class GdsButtonView @JvmOverloads constructor(
             ButtonStyle.PRIMARY -> GdsButtonDefaults.TwentyThree.primaryStyle()
             ButtonStyle.SECONDARY -> GdsButtonDefaults.TwentyThree.secondaryStyle()
             ButtonStyle.TERTIARY -> GdsButtonDefaults.TwentyThree.tertiaryStyle()
-            ButtonStyle.LEGACY_PRIMARY -> GdsButtonDefaults.primary(size)
-            ButtonStyle.LEGACY_SECONDARY -> GdsButtonDefaults.secondary(size)
-            ButtonStyle.LEGACY_TERTIARY -> GdsButtonDefaults.tertiary(size)
-            ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE -> GdsButtonDefaults.primaryDestructive(size)
+            ButtonStyle.LEGACY_PRIMARY -> GdsButtonDefaults.primary()
+            ButtonStyle.LEGACY_SECONDARY -> GdsButtonDefaults.secondary()
+            ButtonStyle.LEGACY_TERTIARY -> GdsButtonDefaults.tertiary()
+            ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE -> GdsButtonDefaults.primaryDestructive()
             ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE -> GdsButtonDefaults.secondaryDestructive()
             ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE -> GdsButtonDefaults.tertiaryDestructive()
             ButtonStyle.LEGACY_TERTIARY_EMPHASIS -> GdsButtonDefaults.tertiaryEmphasis()
         }
 
+        val sizeProfile = when (_style) {
+            ButtonStyle.PRIMARY, ButtonStyle.SECONDARY, ButtonStyle.TERTIARY -> {
+                when (_size) {
+                    ButtonSize.SMALL -> GdsButtonDefaults.TwentyThree.small()
+                    ButtonSize.MEDIUM -> GdsButtonDefaults.TwentyThree.medium()
+                    ButtonSize.LARGE -> GdsButtonDefaults.TwentyThree.large()
+                }
+            }
+
+            ButtonStyle.LEGACY_PRIMARY, ButtonStyle.LEGACY_SECONDARY, ButtonStyle.LEGACY_TERTIARY, ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE -> {
+                GdsButtonDefaults.legacySizeProfile(size)
+            }
+
+            ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE, ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE, ButtonStyle.LEGACY_TERTIARY_EMPHASIS -> {
+                GdsButtonDefaults.legacyFullSmallProfile()
+            }
+        }
+
         GdsButton(
             title = title,
             style = buttonStyle,
+            sizeProfile = sizeProfile,
             enabled = _isEnabled,
             onClick = { onClickListener?.invoke() }
         )
