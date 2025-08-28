@@ -92,6 +92,18 @@ internal fun FontsScreen(scrollState: ScrollState) {
             name = "Caption2",
             style = GdsTheme.typography.Caption2,
         )
+        FontText(
+            name = "DetailMediumLarge",
+            style = GdsTheme.typography.DetailMediumLarge,
+        )
+        FontText(
+            name = "DetailBookLarge",
+            style = GdsTheme.typography.DetailBookLarge,
+        )
+        FontText(
+            name = "DetailBookMedium",
+            style = GdsTheme.typography.DetailBookMedium,
+        )
     }
 }
 
