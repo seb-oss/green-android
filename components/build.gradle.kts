@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.dokka)
     alias(libs.plugins.vanniktech.maven.publish)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -40,12 +41,20 @@ android {
     }
 }
 
+group = "io.github.sebopensource"
+version = "0.0.21"
+var artifactName = "components"
+
 mavenPublishing {
+    coordinates(group.toString(), artifactName, version.toString())
     configure(AndroidSingleVariantLibrary(
         variant = "release",
         publishJavadocJar = true,
         sourcesJar = true,
     ))
+}
+signing {
+    isRequired = false
 }
 
 dependencies {
@@ -56,6 +65,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.kotlin.reflect)
-    api(libs.green.tokens)
     debugImplementation(libs.androidx.ui.tooling)
+    implementation(libs.jvm.tokens)
+    implementation(libs.android.tokens)
+    api(libs.components.schema)
+    api(libs.kotlinx.serialization)
+    api(libs.kotlinx.serialization.json)
 }

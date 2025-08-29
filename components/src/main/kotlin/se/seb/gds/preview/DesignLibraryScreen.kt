@@ -112,6 +112,7 @@ internal fun DesignLibraryScreen(
                 LibraryScreen.BUTTONS -> ButtonsScreen(scrollState = scrollState)
                 LibraryScreen.INPUT -> InputScreen(scrollState = scrollState)
                 LibraryScreen.TOP_BAR -> TopBarScreen()
+                LibraryScreen.JSON -> JsonRendererScreen()
             }
         }
     }
@@ -145,6 +146,10 @@ private fun DesignLibrary(
             ListItem("Input") { onNavigateToSection(LibraryScreen.INPUT) }
             HorizontalDivider()
             ListItem("Top Bar") { onNavigateToSection(LibraryScreen.TOP_BAR) }
+        }
+
+        GallerySection("Renderer") {
+            ListItem("Json") { onNavigateToSection(LibraryScreen.JSON) }
         }
     }
 }

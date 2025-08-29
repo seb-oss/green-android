@@ -9,4 +9,5 @@ internal enum class LibraryScreen {
     BUTTONS,
     INPUT,
     TOP_BAR,
+    JSON
 }
