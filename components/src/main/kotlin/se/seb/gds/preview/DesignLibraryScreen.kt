@@ -52,25 +52,25 @@ internal fun DesignLibraryScreen(
         topBar = {
             CenterAlignedTopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = GdsTheme.colors.l102,
-                    titleContentColor = GdsTheme.colors.contentContent01
+                    containerColor = GdsTheme.colors.L1Neutral02,
+                    titleContentColor = GdsTheme.colors.ContentNeutral01
                 ),
-                title = { Text(text = currentScreen.name, style = GdsTheme.typography.Headline) },
+                title = { Text(text = currentScreen.name, style = GdsTheme.legacyTypography.Headline) },
                 navigationIcon = {
                     if (currentScreen != LibraryScreen.LIBRARY) {
                         IconButton(onClick = { currentScreen = LibraryScreen.LIBRARY }) {
                             Icon(
                                 Icons.AutoMirrored.Filled.ArrowBack,
                                 contentDescription = "Back",
-                                tint = GdsTheme.colors.contentContent01
+                                tint = GdsTheme.colors.ContentNeutral01
                             )
                         }
                     }
                 }
             )
         },
-        containerColor = GdsTheme.colors.l102,
-        contentColor = GdsTheme.colors.contentContent01
+        containerColor = GdsTheme.colors.L1Neutral02,
+        contentColor = GdsTheme.colors.ContentNeutral01
     ) { paddingValues ->
         AnimatedContent(
             modifier = Modifier

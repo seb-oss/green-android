@@ -17,7 +17,7 @@ fun ErrorIcon() {
     Icon(
         painterResource(id = R.drawable.ic_error_24),
         contentDescription = null,
-        tint = GdsTheme.colors.contentContentNegative01,
+        tint = GdsTheme.colors.ContentNegative01,
     )
 }
 
@@ -28,7 +28,7 @@ private fun ErrorIconPreview() {
     GdsTheme {
         Card(
             modifier = Modifier
-                .background(GdsTheme.colors.contentContent01)
+                .background(GdsTheme.colors.ContentNeutral01)
                 .fillMaxWidth(),
         ) {
             ErrorIcon()

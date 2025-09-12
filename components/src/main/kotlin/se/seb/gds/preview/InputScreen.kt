@@ -41,7 +41,7 @@ fun InputScreen(scrollState: ScrollState) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(GdsTheme.colors.l101)
+            .background(GdsTheme.colors.L1Neutral01)
             .verticalScroll(scrollState)
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -55,6 +55,7 @@ fun InputScreen(scrollState: ScrollState) {
             maxCharacters = if (maxChar) 50 else null,
             supportingText = "Supporting text",
             errorMessage = "Error message",
+            placeholderText = "Placeholder",
             enabled = enabled,
             clearable = clearable,
             isError = isError,

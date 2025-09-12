@@ -26,7 +26,7 @@ internal fun GallerySection(
             modifier = horizontalModifier,
             text = title,
             color = GdsTheme.legacyColors.PrimaryText,
-            style = GdsTheme.typography.Title4,
+            style = GdsTheme.legacyTypography.Title4,
         )
         content()
     }
@@ -46,6 +46,6 @@ internal fun ListItem(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(modifier = Modifier.weight(1f), text = title, color = GdsTheme.legacyColors.PrimaryText)
-        Icon(imageVector = SebIcons.RightChevron, contentDescription = null, tint = GdsTheme.colors.contentContent01)
+        Icon(imageVector = SebIcons.RightChevron, contentDescription = null, tint = GdsTheme.colors.ContentNeutral01)
     }
 }

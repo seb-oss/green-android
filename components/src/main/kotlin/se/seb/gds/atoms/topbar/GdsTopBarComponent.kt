@@ -44,10 +44,10 @@ fun GdsTopBarComponent(
     modifier: Modifier = Modifier,
     leftAction: @Composable (() -> Unit)? = null,
     title: String?,
-    titleStyle: TextStyle = GdsTheme.typography.Title5,
+    titleStyle: TextStyle = GdsTheme.legacyTypography.Title5,
     rightActions: @Composable (RowScope.() -> Unit)? = null,
-    color: Color? = GdsTheme.colors.l101,
-    contentColor: Color? = GdsTheme.colors.contentContent01,
+    color: Color? = GdsTheme.colors.L1Neutral01,
+    contentColor: Color? = GdsTheme.colors.ContentNeutral01,
     centeredTitle: Boolean? = false,
     elevation: Dp = 0.dp,
 ) {
@@ -69,8 +69,8 @@ fun GdsTopBarComponent(
                     }
                 )
                 .fillMaxWidth(),
-            color = color ?: GdsTheme.colors.l101,
-            contentColor = contentColor ?: GdsTheme.colors.contentContent01,
+            color = color ?: GdsTheme.colors.L1Neutral01,
+            contentColor = contentColor ?: GdsTheme.colors.ContentNeutral01,
             shadowElevation = elevation,
             content = {
                 Row(
@@ -110,7 +110,7 @@ fun GdsTopBarComponent(
                                         },
                                     text = title,
                                     style = titleStyle,
-                                    color = GdsTheme.colors.contentContent01,
+                                    color = GdsTheme.colors.ContentNeutral01,
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis,
                                 )
@@ -138,7 +138,7 @@ fun GdsTopBarComponent(
 @Composable
 fun GdsTopBarAction(
     @DrawableRes icon: Int,
-    tint: Color = GdsTheme.colors.contentContent01,
+    tint: Color = GdsTheme.colors.ContentNeutral01,
     contentDescription: String? = null,
     onClick: () -> Unit,
 ) = IconButton(onClick = onClick) {

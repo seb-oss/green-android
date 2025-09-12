@@ -22,7 +22,7 @@ fun TopBarScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(GdsTheme.colors.l101),
+            .background(GdsTheme.colors.L1Neutral01),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         GdsTopBarComponent(

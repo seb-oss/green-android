@@ -23,6 +23,7 @@ fun GdsTheme(
         LocalGdsColors provides colors,
         LocalLegacyColors provides legacyColors,
         LocalGdsTypography provides GdsTypography,
+        LocalLegacyTypography provides LegacyTypography,
         content = content
     )
 }
@@ -39,4 +40,8 @@ object GdsTheme {
     val typography: GdsTypography
         @Composable
         get() = LocalGdsTypography.current
+
+    val legacyTypography: LegacyTypography
+        @Composable
+        get() = LocalLegacyTypography.current
 }
