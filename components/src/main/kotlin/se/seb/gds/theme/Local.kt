@@ -15,3 +15,7 @@ val LocalLegacyColors = staticCompositionLocalOf {
 val LocalGdsTypography = staticCompositionLocalOf {
     GdsTypography
 }
+
+val LocalLegacyTypography = staticCompositionLocalOf {
+    LegacyTypography
+}

@@ -37,7 +37,7 @@ fun SwitchRow(
             .height(64.dp)
             .fillMaxWidth()
             .background(
-                color = GdsTheme.colors.l201,
+                color = GdsTheme.colors.L2Neutral01,
                 shape = RoundedCornerShape(12.dp)
             )
             .padding(16.dp),
@@ -45,7 +45,7 @@ fun SwitchRow(
     ) {
         Text(
             modifier = Modifier.weight(1f),
-            style = GdsTheme.typography.Headline,
+            style = GdsTheme.legacyTypography.Headline,
             text = title
         )
         GdsSwitch(

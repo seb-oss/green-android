@@ -117,7 +117,7 @@ private fun ColorRow(colorMapping: ColorMapping) {
             Text(
                 text = colorMapping.lightModeValue,
                 color = Color.Black,
-                style = GdsTheme.typography.Caption2,
+                style = GdsTheme.legacyTypography.Caption2,
             )
         }
 
@@ -137,7 +137,7 @@ private fun ColorRow(colorMapping: ColorMapping) {
             Text(
                 text = colorMapping.darkModeValue,
                 color = Color.White,
-                style = GdsTheme.typography.Caption2,
+                style = GdsTheme.legacyTypography.Caption2,
             )
         }
     }

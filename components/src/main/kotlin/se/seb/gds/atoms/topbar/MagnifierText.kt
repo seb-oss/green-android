@@ -72,15 +72,15 @@ fun MagnifierText(
             Box(
                 modifier = Modifier
                     .background(
-                        GdsTheme.colors.contentContent01.copy(alpha = 0.9f),
+                        GdsTheme.colors.ContentNeutral01.copy(alpha = 0.9f),
                         RoundedCornerShape(3.dp),
                     )
                     .clickable { showMagnifier = false },
             ) {
                 Text(
                     text = text,
-                    color = GdsTheme.colors.contentContent03,
-                    style = GdsTheme.typography.Headline,
+                    color = GdsTheme.colors.ContentNeutral03,
+                    style = GdsTheme.legacyTypography.Headline,
                     modifier = Modifier.padding(16.dp),
                 )
             }

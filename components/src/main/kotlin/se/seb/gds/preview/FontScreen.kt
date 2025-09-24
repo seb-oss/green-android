@@ -26,71 +26,71 @@ internal fun FontsScreen(scrollState: ScrollState) {
 
         FontText(
             name = "TitleLarge",
-            style = GdsTheme.typography.TitleLarge,
+            style = GdsTheme.legacyTypography.TitleLarge,
         )
         FontText(
             name = "TitleLarge",
-            style = GdsTheme.typography.TitleLarge,
+            style = GdsTheme.legacyTypography.TitleLarge,
         )
         FontText(
             name = "Title1",
-            style = GdsTheme.typography.Title1,
+            style = GdsTheme.legacyTypography.Title1,
         )
         FontText(
             name = "Title2",
-            style = GdsTheme.typography.Title2,
+            style = GdsTheme.legacyTypography.Title2,
         )
         FontText(
             name = "Title3",
-            style = GdsTheme.typography.Title3,
+            style = GdsTheme.legacyTypography.Title3,
         )
         FontText(
             name = "Title4",
-            style = GdsTheme.typography.Title4,
+            style = GdsTheme.legacyTypography.Title4,
         )
         FontText(
             name = "Title5",
-            style = GdsTheme.typography.Title5,
+            style = GdsTheme.legacyTypography.Title5,
         )
         FontText(
             name = "Title6",
-            style = GdsTheme.typography.Title6,
+            style = GdsTheme.legacyTypography.Title6,
         )
         FontText(
             name = "HeadlineBold",
-            style = GdsTheme.typography.HeadlineBold,
+            style = GdsTheme.legacyTypography.HeadlineBold,
         )
         FontText(
             name = "Headline",
-            style = GdsTheme.typography.Headline,
+            style = GdsTheme.legacyTypography.Headline,
         )
         FontText(
             name = "Body",
-            style = GdsTheme.typography.Body,
+            style = GdsTheme.legacyTypography.Body,
         )
         FontText(
             name = "SubHeader1",
-            style = GdsTheme.typography.SubHeader1,
+            style = GdsTheme.legacyTypography.SubHeader1,
         )
         FontText(
             name = "SubHeader2",
-            style = GdsTheme.typography.SubHeader2,
+            style = GdsTheme.legacyTypography.SubHeader2,
         )
         FontText(
             name = "SubHeader3",
-            style = GdsTheme.typography.SubHeader3,
+            style = GdsTheme.legacyTypography.SubHeader3,
         )
         FontText(
             name = "Footnote",
-            style = GdsTheme.typography.Footnote,
+            style = GdsTheme.legacyTypography.Footnote,
         )
         FontText(
             name = "Caption",
-            style = GdsTheme.typography.Caption,
+            style = GdsTheme.legacyTypography.Caption,
         )
         FontText(
             name = "Caption2",
-            style = GdsTheme.typography.Caption2,
+            style = GdsTheme.legacyTypography.Caption2,
         )
         FontText(
             name = "DetailMediumLarge",

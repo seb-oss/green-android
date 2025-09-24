@@ -9,6 +9,7 @@ import androidx.compose.foundation.interaction.DragInteraction
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -244,7 +245,7 @@ fun Footer(
             }
 
             else -> {
-                style.colors.enabledSupportingTextColor
+                style.colors.supportingTextColor
             }
         }
 
@@ -319,12 +320,13 @@ fun Body(
     }
 
     val containerColor = when {
+        textFieldIsFocused && !readOnly -> style.colors.focusedContainerColor.copy(0.14f)
         enabled -> style.colors.containerColor
         else -> style.colors.disabledContainerColor
     }
 
     val currentLabelColor = when {
-        !enabled -> style.colors.disabledFloatingLabelColor
+        !enabled -> style.colors.disabledContentColor
         else -> style.colors.floatingLabelColor
     }
 
@@ -335,17 +337,10 @@ fun Body(
     }
 
     val currentInputTextColor = when {
-        !enabled -> style.colors.disabledInputTextColor
+        !enabled -> style.colors.disabledContentColor
         else -> style.colors.inputTextColor
     }
-    val pressedModifier = if (textFieldIsFocused && !readOnly) {
-        Modifier.background(
-            shape = style.containerSize.shape,
-            color = style.colors.focusedContainerColor,
-        )
-    } else {
-        Modifier
-    }
+
     Box(
         modifier = Modifier
             .heightIn(
@@ -365,7 +360,7 @@ fun Body(
                 .border(width = 2.dp, color = borderColor, shape = style.containerSize.shape)
                 .matchParentSize()
         )
-        Box(modifier = pressedModifier.matchParentSize())
+
         Row(
             modifier = rowModifier ?: Modifier
                 .fillMaxWidth()
@@ -643,7 +638,7 @@ private fun TextFieldPreview() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(GdsTheme.colors.l101)
+                .background(GdsTheme.colors.StateNeutral01)
         ) {
             Column(
                 modifier = Modifier.padding(16.dp)

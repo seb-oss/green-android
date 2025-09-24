@@ -33,7 +33,7 @@ fun ClearButton(
             .clickable(enabled = enabled, onClick = onClick),
         painter = painterResource (id = R.drawable.ic_clear_24),
         contentDescription = null,
-        tint = GdsTheme.colors.contentContent01,
+        tint = GdsTheme.colors.ContentNeutral01,
     )
 }
 
@@ -44,7 +44,7 @@ fun ClearButton(
 private fun ClearButtonPreview() {
     GdsTheme {
         Card(
-            modifier = Modifier.background(GdsTheme.colors.contentContent01),
+            modifier = Modifier.background(GdsTheme.colors.ContentNeutral01),
         ) {
             ClearButton {
                 // no-op

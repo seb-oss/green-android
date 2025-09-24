@@ -20,11 +20,11 @@ import se.seb.gds.theme.GdsTheme
  * buttons consistently throughout your application.
  *
  * @property colors The [ButtonColors] that dictate the button's colors for various states (e.g., enabled, disabled, pressed).
- * @property pressedColor An optional [Color] that specifies the button's background color when pressed.
  * @property textButton A [Boolean] indicating if the button should be styled as a text
  * button (true) or a filled button (false). Default is false.
  * @property border A [Boolean] indicating if the button should have a border. Default is false.
  * @property iconPosition The [IconPosition] that determines the position of an icon within the button (left or right). Default is [IconPosition.Left].
+ * @property legacyRipple A [Boolean] indicating if the button should use legacy ripple effect. Default is false.
  *
  * Example usage:
  *
@@ -43,10 +43,10 @@ import se.seb.gds.theme.GdsTheme
  */
 data class GdsButtonStyle(
     val colors: ButtonColors,
-    val pressedColor: Color? = null,
     val textButton: Boolean = false,
     val border: BorderStroke? = null,
-    val iconPosition: IconPosition = IconPosition.Left
+    val iconPosition: IconPosition = IconPosition.Left,
+    val legacyRipple: Boolean = false,
 )
 
 /**
@@ -123,88 +123,82 @@ object GdsButtonDefaults {
 
         @Composable
         fun brandStyle() = GdsButtonStyle(
-            colors = brandColors(),
-            pressedColor = GdsTheme.colors.stateDarkPressed
+            colors = brandColors()
         )
 
         @Composable
         fun primaryStyle() = GdsButtonStyle(
-            colors = primaryColors(),
-            pressedColor = GdsTheme.colors.stateDarkPressed
+            colors = primaryColors()
         )
 
         @Composable
         fun secondaryStyle() = GdsButtonStyle(
             colors = secondaryColors(),
-            pressedColor = GdsTheme.colors.stateLightPressed
         )
 
         @Composable
         fun tertiaryStyle() = GdsButtonStyle(
             colors = tertiaryColors(),
-            textButton = true,
-            pressedColor = GdsTheme.colors.stateLightPressed
+            textButton = true
         )
 
         @Composable
         fun outlineStyle() = GdsButtonStyle(
             colors = outlineColors(),
-            border = BorderStroke(width = 1.dp, color = GdsTheme.colors.borderSubtle01),
-            pressedColor = GdsTheme.colors.stateLightPressed
+            border = BorderStroke(width = 1.dp, color = GdsTheme.colors.BorderSubtle01)
         )
 
         @Composable
         fun negativeStyle() = GdsButtonStyle(
-            colors = negativeColors(),
-            pressedColor = GdsTheme.colors.stateLightPressed
+            colors = negativeColors()
         )
 
         @Composable
         fun primaryColors() = ButtonDefaults.buttonColors(
-            containerColor = GdsTheme.colors.l301,
-            contentColor = GdsTheme.colors.contentContent03,
-            disabledContainerColor = GdsTheme.colors.l3Disabled03,
-            disabledContentColor = GdsTheme.colors.contentContentDisabled01,
+            containerColor = GdsTheme.colors.L3Neutral01,
+            contentColor = GdsTheme.colors.ContentNeutral03,
+            disabledContainerColor = GdsTheme.colors.L3Disabled03,
+            disabledContentColor = GdsTheme.colors.ContentDisabled01,
         )
 
         @Composable
         fun brandColors() = ButtonDefaults.buttonColors(
-            containerColor = GdsTheme.colors.l3Brand01,
-            contentColor = GdsTheme.colors.contentContent03,
-            disabledContainerColor = GdsTheme.colors.l3Disabled03,
-            disabledContentColor = GdsTheme.colors.contentContentDisabled01,
+            containerColor = GdsTheme.colors.L3Brand01,
+            contentColor = GdsTheme.colors.ContentInversed,
+            disabledContainerColor = GdsTheme.colors.L3Disabled03,
+            disabledContentColor = GdsTheme.colors.ContentDisabled01,
         )
 
         @Composable
         fun secondaryColors() = ButtonDefaults.buttonColors(
-            containerColor = GdsTheme.colors.l302,
-            contentColor = GdsTheme.colors.contentContent01,
-            disabledContainerColor = GdsTheme.colors.l3Disabled03,
-            disabledContentColor = GdsTheme.colors.contentContentDisabled01,
+            containerColor = GdsTheme.colors.L3Neutral02,
+            contentColor = GdsTheme.colors.ContentNeutral01,
+            disabledContainerColor = GdsTheme.colors.L3Disabled03,
+            disabledContentColor = GdsTheme.colors.ContentDisabled01,
         )
 
         @Composable
         fun tertiaryColors() = ButtonDefaults.buttonColors(
             containerColor = Color.Transparent,
-            contentColor = GdsTheme.colors.contentContent01,
-            disabledContainerColor = GdsTheme.colors.l3Disabled03,
-            disabledContentColor = GdsTheme.colors.contentContentDisabled01,
+            contentColor = GdsTheme.colors.ContentNeutral01,
+            disabledContainerColor = GdsTheme.colors.L3Disabled03,
+            disabledContentColor = GdsTheme.colors.ContentDisabled01,
         )
 
         @Composable
         fun outlineColors() = ButtonDefaults.buttonColors(
             containerColor = Color.Transparent,
-            contentColor = GdsTheme.colors.contentContent01,
-            disabledContainerColor = GdsTheme.colors.l3Disabled03,
-            disabledContentColor = GdsTheme.colors.contentContentDisabled01,
+            contentColor = GdsTheme.colors.ContentNeutral01,
+            disabledContainerColor = GdsTheme.colors.L3Disabled03,
+            disabledContentColor = GdsTheme.colors.ContentDisabled01,
         )
 
         @Composable
         fun negativeColors() = ButtonDefaults.buttonColors(
-            containerColor = GdsTheme.colors.l3Negative01,
-            contentColor = GdsTheme.colors.contentContentInversed,
-            disabledContainerColor = GdsTheme.colors.l3Disabled03,
-            disabledContentColor = GdsTheme.colors.contentContentDisabled01,
+            containerColor = GdsTheme.colors.L3Negative01,
+            contentColor = GdsTheme.colors.ContentInversed,
+            disabledContainerColor = GdsTheme.colors.L3Disabled03,
+            disabledContentColor = GdsTheme.colors.ContentDisabled01,
         )
 
         @Composable
@@ -254,39 +248,46 @@ object GdsButtonDefaults {
 
     @Composable
     fun primary() = GdsButtonStyle(
-        colors = primaryColors()
+        colors = primaryColors(),
+        legacyRipple = true
     )
 
     @Composable
     fun secondary() = GdsButtonStyle(
         colors = secondaryColors(),
         textButton = true,
+        legacyRipple = true
     )
 
     @Composable
     fun tertiary() = GdsButtonStyle(
         colors = tertiaryColors(),
+        legacyRipple = true
     )
 
     @Composable
     fun primaryDestructive() = GdsButtonStyle(
         colors = primaryDestructiveColors(),
+        legacyRipple = true
     )
 
     @Composable
     fun secondaryDestructive() = GdsButtonStyle(
         colors = secondaryDestructiveColors(),
         textButton = true,
+        legacyRipple = true
     )
 
     @Composable
     fun tertiaryDestructive() = GdsButtonStyle(
         colors = tertiaryDestructiveColors(),
+        legacyRipple = true
     )
 
     @Composable
     fun tertiaryEmphasis() = GdsButtonStyle(
         colors = tertiaryEmphasisColors(),
+        legacyRipple = true
     )
 
     @Composable
@@ -368,7 +369,7 @@ object GdsButtonDefaults {
         height = seb2016HeightType(size),
         shape = seb2016Shape(size),
         horizontalPadding = legacyHorizontalPadding,
-        textStyle = GdsTheme.typography.Title6,
+        textStyle = GdsTheme.legacyTypography.Title6,
         iconSize = legacyIconSize,
         iconSpacing = legacyIconSpacing
     )
@@ -379,7 +380,7 @@ object GdsButtonDefaults {
         height = 50.dp,
         shape = seb2016Shape(LegacyButtonSize.SMALL),
         horizontalPadding = legacyHorizontalPadding,
-        textStyle = GdsTheme.typography.Title6,
+        textStyle = GdsTheme.legacyTypography.Title6,
         iconSize = legacyIconSize,
         iconSpacing = legacyIconSpacing
     )

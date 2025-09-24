@@ -44,7 +44,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
     Column(
         modifier = Modifier
-            .background(GdsTheme.colors.l101)
+            .background(GdsTheme.colors.L1Neutral01)
             .fillMaxSize()
             .verticalScroll(scrollState)
             .padding(16.dp),
@@ -120,16 +120,6 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
             }
 
             GdsButton(
-                title = "Brand Button",
-                style = GdsButtonDefaults.TwentyThree.brandStyle().copy(
-                    iconPosition = iconPositionSelected
-                ),
-                sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                enabled = enabled,
-                icon = icon
-            ) { }
-
-            GdsButton(
                 title = "Primary Button",
                 style = GdsButtonDefaults.TwentyThree.primaryStyle().copy(
                     iconPosition = iconPositionSelected
@@ -179,7 +169,6 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                 icon = icon
             ) { }
 
-            // TODO: add icon button
         } else {
             GdsButton(
                 title = "Primary Large Button",
@@ -286,7 +275,7 @@ fun SelectRow(
             .height(64.dp)
             .fillMaxWidth()
             .background(
-                color = GdsTheme.colors.l201,
+                color = GdsTheme.colors.L2Neutral01,
                 shape = RoundedCornerShape(12.dp)
             )
             .padding(16.dp),
@@ -296,14 +285,14 @@ fun SelectRow(
 
         Text(
             modifier = Modifier.weight(1f),
-            style = GdsTheme.typography.Headline,
+            style = GdsTheme.legacyTypography.Headline,
             text = label
         )
 
         Box(modifier = Modifier.wrapContentSize()) {
             Text(
                 modifier = Modifier.clickable(onClick = { expanded = true }),
-                style = GdsTheme.typography.Headline,
+                style = GdsTheme.legacyTypography.Headline,
                 text = selectedText
             )
 
