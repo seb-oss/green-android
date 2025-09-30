@@ -19,113 +19,123 @@ import se.seb.gds.atoms.LegacyButtonSize
  *
  * @param context The context in which the view is running.
  * @param attrs The attributes of the XML tag that is inflating the view.
- * @param defStyleAttr An attribute in the current theme that contains a reference to a style resource that supplies default values for the view. Can be 0 to not look for defaults.
+ * @param defStyleAttr An attribute in the current theme that contains a reference to a style
+ * resource that supplies default values for the view. Can be 0 to not look for defaults.
  */
-class GdsButtonView @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : AbstractComposeView(context, attrs, defStyleAttr) {
+class GdsButtonView
+    @JvmOverloads
+    constructor(
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyleAttr: Int = 0,
+    ) : AbstractComposeView(context, attrs, defStyleAttr) {
+        private var _title by mutableStateOf("")
+        var title: String
+            get() = _title
+            set(value) {
+                _title = value
+            }
 
-    private var _title by mutableStateOf("")
-    var title: String
-        get() = _title
-        set(value) {
-            _title = value
+        private var _isEnabled by mutableStateOf(true)
+
+        override fun isEnabled(): Boolean = _isEnabled
+
+        override fun setEnabled(enabled: Boolean) {
+            _isEnabled = enabled
         }
 
-    private var _isEnabled by mutableStateOf(true)
+        var onClickListener: (() -> Unit)? = null
 
-    override fun isEnabled(): Boolean {
-        return _isEnabled
-    }
+        private var _style by mutableStateOf(ButtonStyle.PRIMARY)
 
-    override fun setEnabled(enabled: Boolean) {
-        _isEnabled = enabled
-    }
+        var style: ButtonStyle
+            get() = _style
+            set(value) {
+                _style = value
+            }
 
-    var onClickListener: (() -> Unit)? = null
+        private var _size by mutableStateOf(ButtonSize.LARGE)
 
-    private var _style by mutableStateOf(ButtonStyle.PRIMARY)
+        var buttonSize: ButtonSize
+            get() = _size
+            set(value) {
+                _size = value
+            }
 
-    var style: ButtonStyle
-        get() = _style
-        set(value) {
-            _style = value
-        }
-
-    private var _size by mutableStateOf(ButtonSize.LARGE)
-
-    var buttonSize: ButtonSize
-        get() = _size
-        set(value) {
-            _size = value
-        }
-
-    @Composable
-    override fun Content() {
-        val size = when (_size) {
-            ButtonSize.SMALL -> LegacyButtonSize.SMALL
-            ButtonSize.MEDIUM -> LegacyButtonSize.MEDIUM
-            ButtonSize.LARGE -> LegacyButtonSize.LARGE
-        }
-
-        val buttonStyle = when (_style) {
-            ButtonStyle.PRIMARY -> GdsButtonDefaults.TwentyThree.primaryStyle()
-            ButtonStyle.SECONDARY -> GdsButtonDefaults.TwentyThree.secondaryStyle()
-            ButtonStyle.TERTIARY -> GdsButtonDefaults.TwentyThree.tertiaryStyle()
-            ButtonStyle.LEGACY_PRIMARY -> GdsButtonDefaults.primary()
-            ButtonStyle.LEGACY_SECONDARY -> GdsButtonDefaults.secondary()
-            ButtonStyle.LEGACY_TERTIARY -> GdsButtonDefaults.tertiary()
-            ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE -> GdsButtonDefaults.primaryDestructive()
-            ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE -> GdsButtonDefaults.secondaryDestructive()
-            ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE -> GdsButtonDefaults.tertiaryDestructive()
-            ButtonStyle.LEGACY_TERTIARY_EMPHASIS -> GdsButtonDefaults.tertiaryEmphasis()
-        }
-
-        val sizeProfile = when (_style) {
-            ButtonStyle.PRIMARY, ButtonStyle.SECONDARY, ButtonStyle.TERTIARY -> {
+        @Composable
+        override fun Content() {
+            val size =
                 when (_size) {
-                    ButtonSize.SMALL -> GdsButtonDefaults.TwentyThree.small()
-                    ButtonSize.MEDIUM -> GdsButtonDefaults.TwentyThree.medium()
-                    ButtonSize.LARGE -> GdsButtonDefaults.TwentyThree.large()
+                    ButtonSize.SMALL -> LegacyButtonSize.SMALL
+                    ButtonSize.MEDIUM -> LegacyButtonSize.MEDIUM
+                    ButtonSize.LARGE -> LegacyButtonSize.LARGE
                 }
-            }
 
-            ButtonStyle.LEGACY_PRIMARY, ButtonStyle.LEGACY_SECONDARY, ButtonStyle.LEGACY_TERTIARY, ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE -> {
-                GdsButtonDefaults.legacySizeProfile(size)
-            }
+            val buttonStyle =
+                when (_style) {
+                    ButtonStyle.PRIMARY -> GdsButtonDefaults.TwentyThree.primaryStyle()
+                    ButtonStyle.SECONDARY -> GdsButtonDefaults.TwentyThree.secondaryStyle()
+                    ButtonStyle.TERTIARY -> GdsButtonDefaults.TwentyThree.tertiaryStyle()
+                    ButtonStyle.LEGACY_PRIMARY -> GdsButtonDefaults.primary()
+                    ButtonStyle.LEGACY_SECONDARY -> GdsButtonDefaults.secondary()
+                    ButtonStyle.LEGACY_TERTIARY -> GdsButtonDefaults.tertiary()
+                    ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE -> GdsButtonDefaults.primaryDestructive()
+                    ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE -> GdsButtonDefaults.secondaryDestructive()
+                    ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE -> GdsButtonDefaults.tertiaryDestructive()
+                    ButtonStyle.LEGACY_TERTIARY_EMPHASIS -> GdsButtonDefaults.tertiaryEmphasis()
+                }
 
-            ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE, ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE, ButtonStyle.LEGACY_TERTIARY_EMPHASIS -> {
-                GdsButtonDefaults.legacyFullSmallProfile()
-            }
+            val sizeProfile =
+                when (_style) {
+                    ButtonStyle.PRIMARY, ButtonStyle.SECONDARY, ButtonStyle.TERTIARY -> {
+                        when (_size) {
+                            ButtonSize.SMALL -> GdsButtonDefaults.TwentyThree.small()
+                            ButtonSize.MEDIUM -> GdsButtonDefaults.TwentyThree.medium()
+                            ButtonSize.LARGE -> GdsButtonDefaults.TwentyThree.large()
+                        }
+                    }
+
+                    ButtonStyle.LEGACY_PRIMARY,
+                    ButtonStyle.LEGACY_SECONDARY,
+                    ButtonStyle.LEGACY_TERTIARY,
+                    ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE,
+                    -> {
+                        GdsButtonDefaults.legacySizeProfile(size)
+                    }
+
+                    ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE,
+                    ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE,
+                    ButtonStyle.LEGACY_TERTIARY_EMPHASIS,
+                    -> {
+                        GdsButtonDefaults.legacyFullSmallProfile()
+                    }
+                }
+
+            GdsButton(
+                title = title,
+                style = buttonStyle,
+                sizeProfile = sizeProfile,
+                enabled = _isEnabled,
+                onClick = { onClickListener?.invoke() },
+            )
         }
 
-        GdsButton(
-            title = title,
-            style = buttonStyle,
-            sizeProfile = sizeProfile,
-            enabled = _isEnabled,
-            onClick = { onClickListener?.invoke() }
-        )
-    }
+        enum class ButtonStyle {
+            PRIMARY,
+            SECONDARY,
+            TERTIARY,
+            LEGACY_PRIMARY,
+            LEGACY_SECONDARY,
+            LEGACY_TERTIARY,
+            LEGACY_PRIMARY_DESTRUCTIVE,
+            LEGACY_SECONDARY_DESTRUCTIVE,
+            LEGACY_TERTIARY_DESTRUCTIVE,
+            LEGACY_TERTIARY_EMPHASIS,
+        }
 
-    enum class ButtonStyle {
-        PRIMARY,
-        SECONDARY,
-        TERTIARY,
-        LEGACY_PRIMARY,
-        LEGACY_SECONDARY,
-        LEGACY_TERTIARY,
-        LEGACY_PRIMARY_DESTRUCTIVE,
-        LEGACY_SECONDARY_DESTRUCTIVE,
-        LEGACY_TERTIARY_DESTRUCTIVE,
-        LEGACY_TERTIARY_EMPHASIS
+        enum class ButtonSize {
+            SMALL,
+            MEDIUM,
+            LARGE,
+        }
     }
-
-    enum class ButtonSize {
-        SMALL,
-        MEDIUM,
-        LARGE
-    }
-}

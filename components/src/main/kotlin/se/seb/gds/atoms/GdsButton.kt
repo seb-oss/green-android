@@ -28,9 +28,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import se.seb.gds.atoms.GdsButtonDefaults.seb2016Shape
-import se.seb.gds.icons.SebIcons
+import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
-
 
 /**
  * A primary GDS button composable.
@@ -68,16 +67,18 @@ fun GdsButton(
     sizeProfile: GdsButtonSizeProfile = GdsButtonDefaults.TwentyThree.large(),
     onClick: () -> Unit,
 ) {
-    val widthModifier = when (sizeProfile.widthType) {
-        ButtonWidthType.Dynamic -> modifier
-        is ButtonWidthType.Fixed -> modifier.width(sizeProfile.widthType.width)
-        ButtonWidthType.Full -> modifier.fillMaxWidth()
-    }
+    val widthModifier =
+        when (sizeProfile.widthType) {
+            ButtonWidthType.Dynamic -> modifier
+            is ButtonWidthType.Fixed -> modifier.width(sizeProfile.widthType.width)
+            ButtonWidthType.Full -> modifier.fillMaxWidth()
+        }
 
-    val paddingValues = when {
-        title == null && sizeProfile.widthType is ButtonWidthType.Fixed -> PaddingValues(horizontal = 0.dp)
-        else -> PaddingValues(horizontal = sizeProfile.horizontalPadding, vertical = 8.dp)
-    }
+    val paddingValues =
+        when {
+            title == null && sizeProfile.widthType is ButtonWidthType.Fixed -> PaddingValues(horizontal = 0.dp)
+            else -> PaddingValues(horizontal = sizeProfile.horizontalPadding, vertical = 8.dp)
+        }
 
     GdsTheme {
         val buttonContent: @Composable () -> Unit = {
@@ -90,26 +91,36 @@ fun GdsButton(
                 paddingValues,
                 onClick,
                 icon,
-                title
+                title,
             )
         }
 
         if (style.legacyRipple) {
-            val rippleColor = when {
-                style.colors.containerColor != Color.Transparent -> if (style.colors.containerColor.luminance() > 0.5f) Color.Black else Color.White
-                else -> GdsTheme.colors.StateNeutral05
-            }
+            val rippleColor =
+                when {
+                    style.colors.containerColor != Color.Transparent ->
+                        if (style.colors.containerColor.luminance() >
+                            0.5f
+                        ) {
+                            Color.Black
+                        } else {
+                            Color.White
+                        }
+                    else -> GdsTheme.colors.StateNeutral05
+                }
 
             CompositionLocalProvider(
-                LocalRippleConfiguration provides RippleConfiguration(
-                    color = rippleColor,
-                    rippleAlpha = RippleAlpha(
-                        draggedAlpha = 0.16f,
-                        focusedAlpha = 0.12f,
-                        hoveredAlpha = 0.08f,
-                        pressedAlpha = 0.1f
-                    )
-                )
+                LocalRippleConfiguration provides
+                    RippleConfiguration(
+                        color = rippleColor,
+                        rippleAlpha =
+                            RippleAlpha(
+                                draggedAlpha = 0.16f,
+                                focusedAlpha = 0.12f,
+                                hoveredAlpha = 0.08f,
+                                pressedAlpha = 0.1f,
+                            ),
+                    ),
             ) {
                 buttonContent()
             }
@@ -129,13 +140,14 @@ private fun ButtonContent(
     paddingValues: PaddingValues,
     onClick: () -> Unit,
     icon: ImageVector?,
-    title: String?
+    title: String?,
 ) {
     if (style.textButton) {
         TextButton(
-            modifier = modifier
-                .then(widthModifier)
-                .heightIn(min = sizeProfile.height),
+            modifier =
+                modifier
+                    .then(widthModifier)
+                    .heightIn(min = sizeProfile.height),
             colors = style.colors,
             shape = sizeProfile.shape,
             enabled = enabled,
@@ -148,20 +160,21 @@ private fun ButtonContent(
                 textStyle = sizeProfile.textStyle,
                 iconSize = sizeProfile.iconSize,
                 iconSpacing = sizeProfile.iconSpacing,
-                iconPosition = style.iconPosition
+                iconPosition = style.iconPosition,
             )
         }
     } else {
         Button(
-            modifier = modifier
-                .then(widthModifier)
-                .heightIn(min = sizeProfile.height),
+            modifier =
+                modifier
+                    .then(widthModifier)
+                    .heightIn(min = sizeProfile.height),
             colors = style.colors,
             shape = sizeProfile.shape,
             enabled = enabled,
             border = style.border,
             contentPadding = paddingValues,
-            onClick = onClick
+            onClick = onClick,
         ) {
             ButtonContent(
                 icon = icon,
@@ -169,7 +182,7 @@ private fun ButtonContent(
                 textStyle = sizeProfile.textStyle,
                 iconSize = sizeProfile.iconSize,
                 iconSpacing = sizeProfile.iconSpacing,
-                iconPosition = style.iconPosition
+                iconPosition = style.iconPosition,
             )
         }
     }
@@ -182,14 +195,14 @@ private fun ButtonContent(
     title: String?,
     iconSpacing: Dp,
     textStyle: TextStyle,
-    iconSize: Dp
+    iconSize: Dp,
 ) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         if (icon != null && iconPosition == IconPosition.Left) {
             Icon(
                 modifier = Modifier.size(iconSize),
                 imageVector = icon,
-                contentDescription = null
+                contentDescription = null,
             )
             if (title != null) {
                 Spacer(modifier = Modifier.width(iconSpacing))
@@ -200,7 +213,7 @@ private fun ButtonContent(
                 text = title,
                 style = textStyle,
                 maxLines = 2,
-                modifier = Modifier.weight(1f, fill = false)
+                modifier = Modifier.weight(1f, fill = false),
             )
         }
         if (icon != null && iconPosition == IconPosition.Right) {
@@ -210,7 +223,7 @@ private fun ButtonContent(
             Icon(
                 modifier = Modifier.size(iconSize),
                 imageVector = icon,
-                contentDescription = null
+                contentDescription = null,
             )
         }
     }
@@ -235,9 +248,9 @@ private fun GdsButtonSecondaryPreview() {
     GdsTheme {
         GdsButton(
             title = "Button",
-            icon = SebIcons.Check,
+            icon = GdsIcons.Solid.Checkmark,
             style = GdsButtonDefaults.TwentyThree.secondaryStyle(),
-            onClick = {}
+            onClick = {},
         )
     }
 }
@@ -261,8 +274,8 @@ private fun GdsButtonPrimaryPreview() {
     GdsTheme {
         GdsButton(
             title = "Button",
-            icon = SebIcons.Check,
-            onClick = {}
+            icon = GdsIcons.Solid.Checkmark,
+            onClick = {},
         )
     }
 }
@@ -285,10 +298,10 @@ private fun GdsButtonPrimaryPreview() {
 private fun GdsIconButtonPrimaryPreview() {
     GdsTheme {
         GdsButton(
-            icon = SebIcons.Check,
+            icon = GdsIcons.Solid.Checkmark,
             style = GdsButtonDefaults.TwentyThree.primaryStyle(),
             sizeProfile = GdsButtonDefaults.TwentyThree.large(),
-            onClick = {}
+            onClick = {},
         )
     }
 }
@@ -312,16 +325,17 @@ private fun GdsButton2016PrimaryPreview() {
     GdsTheme {
         GdsButton(
             style = GdsButtonDefaults.primary(),
-            sizeProfile = GdsButtonSizeProfile(
-                widthType = ButtonWidthType.Full,
-                height = 50.dp,
-                shape = seb2016Shape(LegacyButtonSize.LARGE),
-                horizontalPadding = 16.dp,
-                textStyle = GdsTheme.legacyTypography.Title6,
-                iconSize = 24.dp
-            ),
+            sizeProfile =
+                GdsButtonSizeProfile(
+                    widthType = ButtonWidthType.Full,
+                    height = 50.dp,
+                    shape = seb2016Shape(LegacyButtonSize.LARGE),
+                    horizontalPadding = 16.dp,
+                    textStyle = GdsTheme.legacyTypography.Title6,
+                    iconSize = 24.dp,
+                ),
             title = "Button",
-            onClick = {}
+            onClick = {},
         )
     }
 }

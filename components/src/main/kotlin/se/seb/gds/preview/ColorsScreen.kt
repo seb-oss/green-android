@@ -34,34 +34,38 @@ internal fun ColorsScreen(allColors: List<Pair<String, ColorMapping>>) {
     var filterText by remember { mutableStateOf("") }
     val listState = rememberLazyListState()
 
-    val filteredColors = remember(filterText, allColors) {
-        if (filterText.isBlank()) {
-            allColors
-        } else {
-            allColors.filter { (name, color) ->
-                name.contains(filterText, ignoreCase = true) ||
+    val filteredColors =
+        remember(filterText, allColors) {
+            if (filterText.isBlank()) {
+                allColors
+            } else {
+                allColors.filter { (name, color) ->
+                    name.contains(filterText, ignoreCase = true) ||
                         color.lightModeValue.contains(filterText, ignoreCase = true) ||
                         color.darkModeValue.contains(filterText, ignoreCase = true)
+                }
             }
         }
-    }
 
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
     ) {
         OutlinedTextField(
             value = filterText,
             onValueChange = { filterText = it },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 16.dp),
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 16.dp),
             label = { Text("Filter Colors") },
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Text,
-                imeAction = ImeAction.Done,
-            ),
+            keyboardOptions =
+                KeyboardOptions(
+                    keyboardType = KeyboardType.Text,
+                    imeAction = ImeAction.Done,
+                ),
         )
 
         LazyColumn(
@@ -96,22 +100,25 @@ internal data class ColorMapping(
 @Composable
 private fun ColorRow(colorMapping: ColorMapping) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
         horizontalArrangement = spacedBy(8.dp),
     ) {
         Column(
-            modifier = Modifier
-                .weight(1f)
-                .background(color = Color.LightGray, shape = RoundedCornerShape(2.dp))
-                .padding(2.dp),
+            modifier =
+                Modifier
+                    .weight(1f)
+                    .background(color = Color.LightGray, shape = RoundedCornerShape(2.dp))
+                    .padding(2.dp),
         ) {
             Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(80.dp)
-                    .background(color = colorMapping.lightModeColor),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .height(80.dp)
+                        .background(color = colorMapping.lightModeColor),
             )
 
             Text(
@@ -122,16 +129,18 @@ private fun ColorRow(colorMapping: ColorMapping) {
         }
 
         Column(
-            modifier = Modifier
-                .weight(1f)
-                .background(color = Color.Black, shape = RoundedCornerShape(2.dp))
-                .padding(2.dp),
+            modifier =
+                Modifier
+                    .weight(1f)
+                    .background(color = Color.Black, shape = RoundedCornerShape(2.dp))
+                    .padding(2.dp),
         ) {
             Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(80.dp)
-                    .background(color = colorMapping.darkModeColor),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .height(80.dp)
+                        .background(color = colorMapping.darkModeColor),
             )
 
             Text(

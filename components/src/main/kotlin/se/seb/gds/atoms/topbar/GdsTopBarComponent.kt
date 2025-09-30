@@ -58,25 +58,26 @@ fun GdsTopBarComponent(
     }
     Box {
         Surface(
-            modifier = modifier
-                .then(
-                    if (leftAction == null) {
-                        Modifier
-                            .semantics { traversalIndex = -1f }
-                            .focusRequester(focusRequester)
-                    } else {
-                        Modifier
-                    }
-                )
-                .fillMaxWidth(),
+            modifier =
+                modifier
+                    .then(
+                        if (leftAction == null) {
+                            Modifier
+                                .semantics { traversalIndex = -1f }
+                                .focusRequester(focusRequester)
+                        } else {
+                            Modifier
+                        },
+                    ).fillMaxWidth(),
             color = color ?: GdsTheme.colors.L1Neutral01,
             contentColor = contentColor ?: GdsTheme.colors.ContentNeutral01,
             shadowElevation = elevation,
             content = {
                 Row(
-                    modifier = Modifier
-                        .statusBarsPadding()
-                        .height(64.dp),
+                    modifier =
+                        Modifier
+                            .statusBarsPadding()
+                            .height(64.dp),
                     content = {
                         if (leftAction == null) {
                             Spacer(Modifier.size(16.dp))
@@ -96,18 +97,20 @@ fun GdsTopBarComponent(
                                 Modifier
                                     .align(Alignment.CenterVertically)
                                     .weight(1f),
-                            horizontalArrangement = applyArrangement(
-                                centeredTitle
-                            ),
+                            horizontalArrangement =
+                                applyArrangement(
+                                    centeredTitle,
+                                ),
                         ) {
                             title?.let {
                                 MagnifierText(
-                                    modifier = Modifier
-                                        .wrapContentWidth()
-                                        .align(Alignment.CenterVertically)
-                                        .semantics {
-                                            heading()
-                                        },
+                                    modifier =
+                                        Modifier
+                                            .wrapContentWidth()
+                                            .align(Alignment.CenterVertically)
+                                            .semantics {
+                                                heading()
+                                            },
                                     text = title,
                                     style = titleStyle,
                                     color = GdsTheme.colors.ContentNeutral01,
@@ -175,7 +178,7 @@ private fun PreviewTopBar() {
                         icon = R.drawable.ic_clear_24,
                         onClick = {},
                     )
-                }
+                },
             )
         }
     }

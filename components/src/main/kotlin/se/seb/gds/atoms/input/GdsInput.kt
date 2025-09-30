@@ -9,7 +9,6 @@ import androidx.compose.foundation.interaction.DragInteraction
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -97,9 +96,10 @@ fun GdsInput(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     lineLimits: TextFieldLineLimits = TextFieldLineLimits.Default,
     scrollState: ScrollState = rememberScrollState(),
-    interactionSource: MutableInteractionSource = remember {
-        MutableInteractionSource()
-    },
+    interactionSource: MutableInteractionSource =
+        remember {
+            MutableInteractionSource()
+        },
     prefix: @Composable (() -> Unit)? = null,
     suffix: @Composable (() -> Unit)? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
@@ -137,47 +137,51 @@ fun GdsInput(
         }
     }
 
-    val textFieldDescription = getAccessibilityDescription(
-        maxCharacters,
-        state,
-        overrideTextDescription,
-        textFieldIsFocused,
-        readOnly,
-        overridePlaceholderDescription,
-        label,
-        isError
-    )
+    val textFieldDescription =
+        getAccessibilityDescription(
+            maxCharacters,
+            state,
+            overrideTextDescription,
+            textFieldIsFocused,
+            readOnly,
+            overridePlaceholderDescription,
+            label,
+            isError,
+        )
 
-    val customActionsList = buildCustomAccessibilityActions(
-        trailingIconDescription = trailingIconDescription,
-        onTrailingIconClick = onTrailingIconClick,
-        onClearText = { clearText() }
-    )
+    val customActionsList =
+        buildCustomAccessibilityActions(
+            trailingIconDescription = trailingIconDescription,
+            onTrailingIconClick = onTrailingIconClick,
+            onClearText = { clearText() },
+        )
 
     val doubleTapToEditText = stringResource(id = R.string.text_field_edit)
 
-    val currentTrailingIcon: @Composable (() -> Unit)? = when {
-        trailingIcon != null -> trailingIcon
+    val currentTrailingIcon: @Composable (() -> Unit)? =
+        when {
+            trailingIcon != null -> trailingIcon
 
-        isError && !textFieldIsFocused -> {
-            @Composable { ErrorIcon() }
+            isError && !textFieldIsFocused -> {
+                @Composable { ErrorIcon() }
+            }
+            else -> null
         }
-        else -> null
-    }
 
-    val inputTransformationChain = inputTransformation
-        .thenIfNotNull(
-            maxCharacters?.let { MaxCharacterInputTransformation(it) },
-        )
-        .thenIfNotNull(CharacterWhitelistInputTransformation(characterWhitelistPredicate))
+    val inputTransformationChain =
+        inputTransformation
+            .thenIfNotNull(
+                maxCharacters?.let { MaxCharacterInputTransformation(it) },
+            ).thenIfNotNull(CharacterWhitelistInputTransformation(characterWhitelistPredicate))
 
     Column(
-        modifier = Modifier
-            .clearAndSetSemantics {
-                contentDescription = textFieldDescription
-                customActions = customActionsList
-                onClick(doubleTapToEditText, null)
-            }
+        modifier =
+            Modifier
+                .clearAndSetSemantics {
+                    contentDescription = textFieldDescription
+                    customActions = customActionsList
+                    onClick(doubleTapToEditText, null)
+                },
     ) {
         if (!style.floatingLabel) {
             Header(label = label, supportLabel = supportLabel, style = style)
@@ -205,7 +209,7 @@ fun GdsInput(
             trailingIcon = currentTrailingIcon,
             maxCharacters = maxCharacters,
             clearable = clearable,
-            clearText = { clearText() }
+            clearText = { clearText() },
         )
         Footer(
             state = state,
@@ -214,7 +218,7 @@ fun GdsInput(
             errorMessage = errorMessage,
             supportingMessage = supportingText,
             maxCharacters = maxCharacters,
-            style = style
+            style = style,
         )
     }
 }
@@ -227,39 +231,41 @@ fun Footer(
     errorMessage: String?,
     supportingMessage: String?,
     maxCharacters: Int?,
-    style: GdsInputStyle
+    style: GdsInputStyle,
 ) {
-    val textToShow = if (isError) {
-        errorMessage
-    } else {
-        supportingMessage
-    }
-    textToShow?.let {
-        val textColor = when {
-            !isEnabled -> {
-                style.colors.disabledSupportingTextColor
-            }
-
-            isError -> {
-                style.colors.errorSupportingTextColor
-            }
-
-            else -> {
-                style.colors.supportingTextColor
-            }
+    val textToShow =
+        if (isError) {
+            errorMessage
+        } else {
+            supportingMessage
         }
+    textToShow?.let {
+        val textColor =
+            when {
+                !isEnabled -> {
+                    style.colors.disabledSupportingTextColor
+                }
+
+                isError -> {
+                    style.colors.errorSupportingTextColor
+                }
+
+                else -> {
+                    style.colors.supportingTextColor
+                }
+            }
 
         Row(
             Modifier
                 .padding(start = 16.dp, end = 16.dp, top = 8.dp)
                 .fillMaxWidth(),
-            verticalAlignment = Alignment.Bottom
+            verticalAlignment = Alignment.Bottom,
         ) {
             Text(
                 modifier = Modifier.weight(1f),
                 text = it,
                 style = style.textStyle.footerMessageStyle,
-                color = textColor
+                color = textColor,
             )
             if (maxCharacters != null && !style.floatingLabel) {
                 CharacterAmountIndicator(
@@ -314,67 +320,77 @@ fun Body(
             lerp(
                 style.textStyle.largeLabelStyle,
                 style.textStyle.smallLabelStyle,
-                labelAnimationProgress
+                labelAnimationProgress,
             )
         }
     }
 
-    val containerColor = when {
-        textFieldIsFocused && !readOnly -> style.colors.focusedContainerColor.copy(0.14f)
-        enabled -> style.colors.containerColor
-        else -> style.colors.disabledContainerColor
-    }
+    val containerColor =
+        when {
+            textFieldIsFocused && !readOnly -> style.colors.focusedContainerColor.copy(0.14f)
+            enabled -> style.colors.containerColor
+            else -> style.colors.disabledContainerColor
+        }
 
-    val currentLabelColor = when {
-        !enabled -> style.colors.disabledContentColor
-        else -> style.colors.floatingLabelColor
-    }
+    val currentLabelColor =
+        when {
+            !enabled -> style.colors.disabledContentColor
+            else -> style.colors.floatingLabelColor
+        }
 
-    val borderColor = if (isError) {
-        style.colors.errorIndicatorColor
-    } else {
-        Color.Transparent
-    }
+    val borderColor =
+        if (isError) {
+            style.colors.errorIndicatorColor
+        } else {
+            Color.Transparent
+        }
 
-    val currentInputTextColor = when {
-        !enabled -> style.colors.disabledContentColor
-        else -> style.colors.inputTextColor
-    }
+    val currentInputTextColor =
+        when {
+            !enabled -> style.colors.disabledContentColor
+            else -> style.colors.inputTextColor
+        }
 
     Box(
-        modifier = Modifier
-            .heightIn(
-                min = InputFieldUtil.minHeight(
-                    textLineCount = textLineCount,
-                    labelLineCount = labelLineCount,
-                    hasPadding = true,
-                    textStyle = style.textStyle.inputTextStyle,
-                    labelStyle = style.textStyle.smallLabelStyle,
-                ).coerceAtLeast(style.containerSize.height)
-            ),
-        contentAlignment = Alignment.TopCenter
+        modifier =
+            Modifier
+                .heightIn(
+                    min =
+                        InputFieldUtil
+                            .minHeight(
+                                textLineCount = textLineCount,
+                                labelLineCount = labelLineCount,
+                                hasPadding = true,
+                                textStyle = style.textStyle.inputTextStyle,
+                                labelStyle = style.textStyle.smallLabelStyle,
+                            ).coerceAtLeast(style.containerSize.height),
+                ),
+        contentAlignment = Alignment.TopCenter,
     ) {
         Box(
-            modifier = Modifier
-                .background(shape = style.containerSize.shape, color = containerColor)
-                .border(width = 2.dp, color = borderColor, shape = style.containerSize.shape)
-                .matchParentSize()
+            modifier =
+                Modifier
+                    .background(shape = style.containerSize.shape, color = containerColor)
+                    .border(width = 2.dp, color = borderColor, shape = style.containerSize.shape)
+                    .matchParentSize(),
         )
 
         Row(
-            modifier = rowModifier ?: Modifier
-                .fillMaxWidth()
-                .align(Alignment.Center)
-                .padding(horizontal = 16.dp)
+            modifier =
+                rowModifier ?: Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.Center)
+                    .padding(horizontal = 16.dp),
         ) {
             val alignIconToTop = lineLimits is TextFieldLineLimits.MultiLine && (lineLimits.minHeightInLines > 1 || textLineCount > 1)
-            val leadingTrailingModifier = if (alignIconToTop) {
-                Modifier
-                    .align(Alignment.Top)
-                    .padding(top = 12.dp)
-            } else {
-                Modifier.align(Alignment.CenterVertically)
-            }
+            val leadingTrailingModifier =
+                if (alignIconToTop) {
+                    Modifier
+                        .align(Alignment.Top)
+                        .padding(top = 12.dp)
+                } else {
+                    Modifier.align(Alignment.CenterVertically)
+                }
             leadingIcon?.let {
                 Box(modifier = leadingTrailingModifier.padding(end = 12.dp)) {
                     leadingIcon.invoke()
@@ -386,10 +402,11 @@ fun Body(
             ) {
                 BasicTextField(
                     state = state,
-                    modifier = modifier
-                        .align(Alignment.CenterVertically)
-                        .semantics { hideFromAccessibility() }
-                        .weight(1f),
+                    modifier =
+                        modifier
+                            .align(Alignment.CenterVertically)
+                            .semantics { hideFromAccessibility() }
+                            .weight(1f),
                     enabled = enabled,
                     readOnly = readOnly,
                     textStyle = style.textStyle.inputTextStyle.copy(color = currentInputTextColor),
@@ -416,9 +433,10 @@ fun Body(
                                     Column(modifier = Modifier.weight(1f)) { innerTextField() }
                                     if (clearable && !readOnly && textFieldIsFocused && !isError) {
                                         ClearButton(
-                                            modifier = Modifier
-                                                .padding(start = 8.dp)
-                                                .alpha(if (state.text.isNotEmpty()) 1f else 0f),
+                                            modifier =
+                                                Modifier
+                                                    .padding(start = 8.dp)
+                                                    .alpha(if (state.text.isNotEmpty()) 1f else 0f),
                                             enabled = state.text.isNotEmpty(),
                                             onClick = { clearText() },
                                         )
@@ -426,41 +444,43 @@ fun Body(
                                 }
                             },
                             enabled = enabled,
-                            placeholder = placeholderText?.let {
-                                {
-                                    Text(
-                                        text = placeholderText,
-                                        style = style.textStyle.inputTextStyle,
-                                    )
-                                }
-                            },
+                            placeholder =
+                                placeholderText?.let {
+                                    {
+                                        Text(
+                                            text = placeholderText,
+                                            style = style.textStyle.inputTextStyle,
+                                        )
+                                    }
+                                },
                             prefix = prefix,
                             suffix = suffix,
-                            label = floatingLabel?.let {
-                                {
-                                    Row(
-                                        verticalAlignment = Alignment.Top,
-                                        modifier = Modifier.fillMaxWidth(),
-                                    ) {
-                                        Text(
-                                            text = it,
-                                            style = labelTextStyle.merge(color = currentLabelColor),
-                                            modifier = Modifier.weight(1f),
-                                            onTextLayout = { textLayoutResult ->
-                                                labelLineCount = textLayoutResult.lineCount
-                                            },
-                                        )
-                                        if (textFieldIsFocused && !readOnly && !isError) {
-                                            CharacterAmountIndicator(
-                                                textStyle = style.textStyle.characterCounter,
-                                                color = style.colors.floatingLabelColor,
-                                                maxCharacters = maxCharacters,
-                                                currentCharacters = state.text.length
+                            label =
+                                floatingLabel?.let {
+                                    {
+                                        Row(
+                                            verticalAlignment = Alignment.Top,
+                                            modifier = Modifier.fillMaxWidth(),
+                                        ) {
+                                            Text(
+                                                text = it,
+                                                style = labelTextStyle.merge(color = currentLabelColor),
+                                                modifier = Modifier.weight(1f),
+                                                onTextLayout = { textLayoutResult ->
+                                                    labelLineCount = textLayoutResult.lineCount
+                                                },
                                             )
+                                            if (textFieldIsFocused && !readOnly && !isError) {
+                                                CharacterAmountIndicator(
+                                                    textStyle = style.textStyle.characterCounter,
+                                                    color = style.colors.floatingLabelColor,
+                                                    maxCharacters = maxCharacters,
+                                                    currentCharacters = state.text.length,
+                                                )
+                                            }
                                         }
                                     }
-                                }
-                            },
+                                },
                             singleLine = false,
                             isError = isError,
                             interactionSource = interactionSource,
@@ -481,19 +501,19 @@ fun Body(
 @Composable
 private fun getContentPadding(
     style: GdsInputStyle,
-    floatingLabel: String?
+    floatingLabel: String?,
 ) = when {
     style.floatingLabel && floatingLabel == null -> {
         contentPaddingWithoutLabel(
             start = 0.dp,
-            end = 0.dp
+            end = 0.dp,
         )
     }
 
     style.floatingLabel -> {
         contentPaddingWithLabel(
             start = 0.dp,
-            end = 0.dp
+            end = 0.dp,
         )
     }
 
@@ -502,7 +522,7 @@ private fun getContentPadding(
             top = 10.dp,
             bottom = 10.dp,
             start = 0.dp,
-            end = 0.dp
+            end = 0.dp,
         )
     }
 }
@@ -511,7 +531,7 @@ private fun getContentPadding(
 internal fun Header(
     style: GdsInputStyle,
     label: String? = null,
-    supportLabel: String? = null
+    supportLabel: String? = null,
 ) {
     val hasContent = label != null || supportLabel != null
     label?.let {
@@ -519,7 +539,7 @@ internal fun Header(
             modifier = Modifier.padding(horizontal = 16.dp),
             color = style.colors.labelColor,
             style = style.textStyle.labelStyle,
-            text = it
+            text = it,
         )
     }
     supportLabel?.let {
@@ -527,7 +547,7 @@ internal fun Header(
             modifier = Modifier.padding(horizontal = 16.dp),
             style = style.textStyle.supportLabelStyle,
             color = style.colors.supportLabelColor,
-            text = it
+            text = it,
         )
     }
     if (hasContent) {
@@ -544,7 +564,7 @@ private fun getAccessibilityDescription(
     readOnly: Boolean,
     overridePlaceholderDescription: String?,
     label: String?,
-    isError: Boolean
+    isError: Boolean,
 ): String {
     val descriptionBuilder = StringBuilder()
 
@@ -575,8 +595,8 @@ private fun getAccessibilityDescription(
                 stringResource(
                     id = R.string.text_field_characters_written,
                     state.text.length,
-                    it
-                )
+                    it,
+                ),
             )
         }
     } else if (readOnly) {
@@ -594,12 +614,13 @@ private fun buildCustomAccessibilityActions(
     onClearText: () -> Unit,
 ): List<CustomAccessibilityAction> {
     val clearTextActionDescription = stringResource(id = R.string.clear_button_description)
-    val customActionsList = mutableListOf(
-        CustomAccessibilityAction(clearTextActionDescription) {
-            onClearText()
-            true
-        },
-    )
+    val customActionsList =
+        mutableListOf(
+            CustomAccessibilityAction(clearTextActionDescription) {
+                onClearText()
+                true
+            },
+        )
     if (onTrailingIconClick != null && trailingIconDescription != null) {
         customActionsList.add(
             CustomAccessibilityAction(trailingIconDescription) {
@@ -611,14 +632,12 @@ private fun buildCustomAccessibilityActions(
     return customActionsList
 }
 
-fun InputTransformation?.thenIfNotNull(next: InputTransformation?): InputTransformation? {
-    return when {
+fun InputTransformation?.thenIfNotNull(next: InputTransformation?): InputTransformation? =
+    when {
         this == null -> next
         next == null -> this
         else -> this.then(next)
     }
-}
-
 
 @Preview(
     name = "Light Mode GdsInput",
@@ -636,12 +655,13 @@ fun InputTransformation?.thenIfNotNull(next: InputTransformation?): InputTransfo
 private fun TextFieldPreview() {
     GdsTheme {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(GdsTheme.colors.StateNeutral01)
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .background(GdsTheme.colors.StateNeutral01),
         ) {
             Column(
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(16.dp),
             ) {
                 GdsInput(
                     state = rememberTextFieldState(),
@@ -653,10 +673,10 @@ private fun TextFieldPreview() {
                     leadingIcon = {
                         Icon(
                             painter = rememberVectorPainter(image = Icons.Default.Search),
-                            contentDescription = null
+                            contentDescription = null,
                         )
                     },
-                    lineLimits = TextFieldLineLimits.SingleLine
+                    lineLimits = TextFieldLineLimits.SingleLine,
                 )
                 Spacer(Modifier.height(16.dp))
                 GdsInput(
@@ -667,10 +687,10 @@ private fun TextFieldPreview() {
                     leadingIcon = {
                         Icon(
                             painter = rememberVectorPainter(image = Icons.Default.Search),
-                            contentDescription = null
+                            contentDescription = null,
                         )
                     },
-                    lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4)
+                    lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4),
                 )
                 Spacer(Modifier.height(16.dp))
                 GdsInput(
@@ -679,7 +699,7 @@ private fun TextFieldPreview() {
                     style = GdsInputDefaults.containedStyle(),
                     placeholderText = "Placeholder text",
                     supportingText = "Contained variant",
-                    errorMessage = "Error message."
+                    errorMessage = "Error message.",
                 )
                 Spacer(Modifier.height(16.dp))
                 GdsInput(
@@ -688,7 +708,7 @@ private fun TextFieldPreview() {
                     style = GdsInputDefaults.containedStyle(),
                     enabled = true,
                     readOnly = true,
-                    supportingText = "Support message."
+                    supportingText = "Support message.",
                 )
             }
         }

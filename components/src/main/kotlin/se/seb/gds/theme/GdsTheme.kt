@@ -9,14 +9,13 @@ import se.seb.gds.tokens.darkModeColors
 import se.seb.gds.tokens.lightModeColors
 
 @Composable
-fun GdsTheme(
-    content: @Composable () -> Unit
-) {
-    val colors = if (isSystemInDarkTheme()) {
-        darkModeColors
-    } else {
-        lightModeColors
-    }
+fun GdsTheme(content: @Composable () -> Unit) {
+    val colors =
+        if (isSystemInDarkTheme()) {
+            darkModeColors
+        } else {
+            lightModeColors
+        }
     val legacyColors = LegacyColors.defaultColors(isSystemDarkMode = isSystemInDarkTheme())
 
     CompositionLocalProvider(
@@ -24,7 +23,7 @@ fun GdsTheme(
         LocalLegacyColors provides legacyColors,
         LocalGdsTypography provides GdsTypography,
         LocalLegacyTypography provides LegacyTypography,
-        content = content
+        content = content,
     )
 }
 

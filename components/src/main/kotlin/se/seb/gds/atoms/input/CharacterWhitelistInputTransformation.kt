@@ -5,9 +5,9 @@ import androidx.compose.foundation.text.input.InputTransformation
 import androidx.compose.foundation.text.input.TextFieldBuffer
 import androidx.compose.foundation.text.input.forEachChange
 
-open class CharacterWhitelistInputTransformation(private val characterWhitelistPredicate: (original: CharSequence, newCharSequence: CharSequence) -> (Boolean)) :
-    InputTransformation {
-
+open class CharacterWhitelistInputTransformation(
+    private val characterWhitelistPredicate: (original: CharSequence, newCharSequence: CharSequence) -> (Boolean),
+) : InputTransformation {
     @OptIn(ExperimentalFoundationApi::class)
     override fun TextFieldBuffer.transformInput() {
         this.changes.forEachChange { sourceRange, _ ->

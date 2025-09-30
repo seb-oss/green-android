@@ -19,10 +19,11 @@ import se.seb.gds.components.SwitchRow
 @Composable
 internal fun SwitchesScreen(scrollState: ScrollState) {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(scrollState)
-            .padding(16.dp),
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .verticalScroll(scrollState)
+                .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         var checked by remember { mutableStateOf(false) }

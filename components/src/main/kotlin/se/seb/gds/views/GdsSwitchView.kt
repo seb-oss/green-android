@@ -21,61 +21,61 @@ import se.seb.gds.atoms.GdsSwitchDefaults
  * @param attrs The attribute set containing XML attributes, if any.
  * @param defStyleAttr The default style attribute, if any.
  */
-class GdsSwitchView @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : AbstractComposeView(context, attrs, defStyleAttr) {
-
-    private var _checked by mutableStateOf(false)
-    var checked: Boolean
-        get() = _checked
-        set(value) {
-            if (_checked != value) {
-                _checked = value
-                onCheckedChangedListener?.invoke(value)
+class GdsSwitchView
+    @JvmOverloads
+    constructor(
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyleAttr: Int = 0,
+    ) : AbstractComposeView(context, attrs, defStyleAttr) {
+        private var _checked by mutableStateOf(false)
+        var checked: Boolean
+            get() = _checked
+            set(value) {
+                if (_checked != value) {
+                    _checked = value
+                    onCheckedChangedListener?.invoke(value)
+                }
             }
+
+        private var _isEnabled by mutableStateOf(true)
+
+        override fun isEnabled(): Boolean = _isEnabled
+
+        override fun setEnabled(enabled: Boolean) {
+            _isEnabled = enabled
         }
 
-    private var _isEnabled by mutableStateOf(true)
+        var onCheckedChangedListener: ((Boolean) -> Unit)? = null
 
-    override fun isEnabled(): Boolean {
-        return _isEnabled
-    }
+        private var _style by mutableStateOf(SwitchStyle.Default)
+        var style: SwitchStyle
+            get() = _style
+            set(value) {
+                _style = value
+            }
 
-    override fun setEnabled(enabled: Boolean) {
-        _isEnabled = enabled
-    }
-
-    var onCheckedChangedListener: ((Boolean) -> Unit)? = null
-
-    private var _style by mutableStateOf(SwitchStyle.Default)
-    var style: SwitchStyle
-        get() = _style
-        set(value) {
-            _style = value
+        @Composable
+        override fun Content() {
+            val style =
+                when (_style) {
+                    SwitchStyle.Default -> GdsSwitchDefaults.defaultStyle()
+                    SwitchStyle.Legacy -> GdsSwitchDefaults.legacyStyle()
+                    SwitchStyle.Neo -> GdsSwitchDefaults.neoStyle()
+                }
+            GdsSwitch(
+                checked = checked,
+                enabled = _isEnabled,
+                onCheckedChanged = { isChecked ->
+                    onCheckedChangedListener?.invoke(isChecked)
+                },
+                style = style,
+            )
         }
 
-    @Composable
-    override fun Content() {
-        val style = when (_style) {
-            SwitchStyle.Default -> GdsSwitchDefaults.defaultStyle()
-            SwitchStyle.Legacy -> GdsSwitchDefaults.legacyStyle()
-            SwitchStyle.Neo -> GdsSwitchDefaults.neoStyle()
+        enum class SwitchStyle {
+            Default,
+            Legacy,
+            Neo,
         }
-        GdsSwitch(
-            checked = checked,
-            enabled = _isEnabled,
-            onCheckedChanged = { isChecked ->
-                onCheckedChangedListener?.invoke(isChecked)
-            },
-            style = style,
-        )
     }
-
-    enum class SwitchStyle {
-        Default,
-        Legacy,
-        Neo
-    }
-}

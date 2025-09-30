@@ -31,7 +31,6 @@ import se.seb.gds.theme.GdsTheme
 
 @Composable
 fun InputScreen(scrollState: ScrollState) {
-
     var enabled by rememberSaveable { mutableStateOf(true) }
     var clearable by rememberSaveable { mutableStateOf(false) }
     var isError by rememberSaveable { mutableStateOf(false) }
@@ -39,11 +38,12 @@ fun InputScreen(scrollState: ScrollState) {
     var leadingIcon by rememberSaveable { mutableStateOf(false) }
 
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(GdsTheme.colors.L1Neutral01)
-            .verticalScroll(scrollState)
-            .padding(16.dp),
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(GdsTheme.colors.L1Neutral01)
+                .verticalScroll(scrollState)
+                .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -59,14 +59,17 @@ fun InputScreen(scrollState: ScrollState) {
             enabled = enabled,
             clearable = clearable,
             isError = isError,
-            leadingIcon = if (leadingIcon) {
-                {
-                    Icon(
-                        painter = rememberVectorPainter(image = Icons.Default.Search),
-                        contentDescription = null
-                    )
-                }
-            } else null,
+            leadingIcon =
+                if (leadingIcon) {
+                    {
+                        Icon(
+                            painter = rememberVectorPainter(image = Icons.Default.Search),
+                            contentDescription = null,
+                        )
+                    }
+                } else {
+                    null
+                },
             lineLimits = TextFieldLineLimits.SingleLine,
         )
         Spacer(Modifier.height(16.dp))
@@ -81,15 +84,18 @@ fun InputScreen(scrollState: ScrollState) {
             enabled = enabled,
             clearable = clearable,
             isError = isError,
-            leadingIcon = if (leadingIcon) {
-                {
-                    Icon(
-                        painter = rememberVectorPainter(image = Icons.Default.Search),
-                        contentDescription = null
-                    )
-                }
-            } else null,
-            lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4)
+            leadingIcon =
+                if (leadingIcon) {
+                    {
+                        Icon(
+                            painter = rememberVectorPainter(image = Icons.Default.Search),
+                            contentDescription = null,
+                        )
+                    }
+                } else {
+                    null
+                },
+            lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4),
         )
         Spacer(Modifier.height(16.dp))
 
@@ -104,14 +110,17 @@ fun InputScreen(scrollState: ScrollState) {
             enabled = enabled,
             clearable = clearable,
             isError = isError,
-            leadingIcon = if (leadingIcon) {
-                {
-                    Icon(
-                        painter = rememberVectorPainter(image = Icons.Default.Search),
-                        contentDescription = null
-                    )
-                }
-            } else null,
+            leadingIcon =
+                if (leadingIcon) {
+                    {
+                        Icon(
+                            painter = rememberVectorPainter(image = Icons.Default.Search),
+                            contentDescription = null,
+                        )
+                    }
+                } else {
+                    null
+                },
             lineLimits = TextFieldLineLimits.SingleLine,
         )
 
@@ -128,15 +137,18 @@ fun InputScreen(scrollState: ScrollState) {
             enabled = enabled,
             clearable = clearable,
             isError = isError,
-            leadingIcon = if (leadingIcon) {
-                {
-                    Icon(
-                        painter = rememberVectorPainter(image = Icons.Default.Search),
-                        contentDescription = null
-                    )
-                }
-            } else null,
-            lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4)
+            leadingIcon =
+                if (leadingIcon) {
+                    {
+                        Icon(
+                            painter = rememberVectorPainter(image = Icons.Default.Search),
+                            contentDescription = null,
+                        )
+                    }
+                } else {
+                    null
+                },
+            lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4),
         )
 
         Spacer(modifier = Modifier.height(16.dp))

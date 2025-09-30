@@ -57,53 +57,54 @@ data class GdsInputTextStyle(
     val characterCounter: TextStyle,
 )
 
-
 /**
  * Creates a [GdsInputColors] that represents the default colors used in
  * a [GdsInput].
  */
 
 object GdsInputDefaults {
-
     /** Default style for [GdsInput] with large container and floating label. */
     @Composable
-    fun containedStyle() = GdsInputStyle(
-        containerSize = InputSize.Large,
-        floatingLabel = true,
-        textFieldColors = textFieldColors(),
-        colors = inputColors(),
-        textSelectionColors = textSelectionColors(),
-        textStyle = inputTextStyle()
-    )
+    fun containedStyle() =
+        GdsInputStyle(
+            containerSize = InputSize.Large,
+            floatingLabel = true,
+            textFieldColors = textFieldColors(),
+            colors = inputColors(),
+            textSelectionColors = textSelectionColors(),
+            textStyle = inputTextStyle(),
+        )
 
     @Composable
-    fun defaultStyle() = GdsInputStyle(
-        containerSize = InputSize.Small,
-        floatingLabel = false,
-        textFieldColors = textFieldColors(),
-        colors = inputColors(),
-        textSelectionColors = textSelectionColors(),
-        textStyle = inputTextStyle()
-    )
+    fun defaultStyle() =
+        GdsInputStyle(
+            containerSize = InputSize.Small,
+            floatingLabel = false,
+            textFieldColors = textFieldColors(),
+            colors = inputColors(),
+            textSelectionColors = textSelectionColors(),
+            textStyle = inputTextStyle(),
+        )
 
     /** Override default TextField colors to make container and indicator transparent
      * as we are using our own container and indicator in GdsInput
      */
     @Composable
-    fun textFieldColors() = TextFieldDefaults.colors().copy(
-        disabledContainerColor = Color.Transparent,
-        focusedContainerColor = Color.Transparent,
-        errorContainerColor = Color.Transparent,
-        unfocusedContainerColor = Color.Transparent,
-        focusedIndicatorColor = Color.Transparent,
-        disabledIndicatorColor = Color.Transparent,
-        errorIndicatorColor = Color.Transparent,
-        unfocusedIndicatorColor = Color.Transparent,
-        focusedPlaceholderColor = GdsTheme.colors.ContentNeutral02,
-        unfocusedPlaceholderColor = GdsTheme.colors.ContentNeutral02,
-        disabledPlaceholderColor = GdsTheme.colors.ContentDisabled01,
-        errorPlaceholderColor = GdsTheme.colors.ContentNeutral02,
-    )
+    fun textFieldColors() =
+        TextFieldDefaults.colors().copy(
+            disabledContainerColor = Color.Transparent,
+            focusedContainerColor = Color.Transparent,
+            errorContainerColor = Color.Transparent,
+            unfocusedContainerColor = Color.Transparent,
+            focusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent,
+            errorIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            focusedPlaceholderColor = GdsTheme.colors.ContentNeutral02,
+            unfocusedPlaceholderColor = GdsTheme.colors.ContentNeutral02,
+            disabledPlaceholderColor = GdsTheme.colors.ContentDisabled01,
+            errorPlaceholderColor = GdsTheme.colors.ContentNeutral02,
+        )
 
     /**
      * Default text selection colors for [GdsInput].
@@ -111,10 +112,11 @@ object GdsInputDefaults {
      * See [TextSelectionColors] for more details.
      */
     @Composable
-    fun textSelectionColors() = TextSelectionColors(
-        handleColor = GdsTheme.colors.ContentNeutral01,
-        backgroundColor = GdsTheme.colors.ContentNeutral01.copy(alpha = 0.2f),
-    )
+    fun textSelectionColors() =
+        TextSelectionColors(
+            handleColor = GdsTheme.colors.ContentNeutral01,
+            backgroundColor = GdsTheme.colors.ContentNeutral01.copy(alpha = 0.2f),
+        )
 
     /**
      * Default input colors for [GdsInput] in different states.
@@ -122,21 +124,22 @@ object GdsInputDefaults {
      * See [GdsInputColors] for more details.
      */
     @Composable
-    fun inputColors(): GdsInputColors = GdsInputColors(
-        containerColor = GdsTheme.colors.L3Neutral02,
-        floatingLabelColor = GdsTheme.colors.ContentNeutral02,
-        labelColor = GdsTheme.colors.ContentNeutral01,
-        supportLabelColor = GdsTheme.colors.ContentNeutral01,
-        inputTextColor = GdsTheme.colors.ContentNeutral01,
-        supportingTextColor = GdsTheme.colors.ContentNeutral01,
-        errorSupportingTextColor = GdsTheme.colors.ContentNegative01,
-        errorIndicatorColor = GdsTheme.colors.BorderNegative01,
-        disabledContainerColor = GdsTheme.colors.L3Disabled01,
-        disabledContentColor = GdsTheme.colors.ContentDisabled01,
-        disabledSupportingTextColor = GdsTheme.colors.ContentDisabled01,
-        focusedContainerColor = GdsTheme.colors.StateNeutral04,
-        cursorColor = GdsTheme.colors.ContentNeutral01,
-    )
+    fun inputColors(): GdsInputColors =
+        GdsInputColors(
+            containerColor = GdsTheme.colors.L3Neutral02,
+            floatingLabelColor = GdsTheme.colors.ContentNeutral02,
+            labelColor = GdsTheme.colors.ContentNeutral01,
+            supportLabelColor = GdsTheme.colors.ContentNeutral01,
+            inputTextColor = GdsTheme.colors.ContentNeutral01,
+            supportingTextColor = GdsTheme.colors.ContentNeutral01,
+            errorSupportingTextColor = GdsTheme.colors.ContentNegative01,
+            errorIndicatorColor = GdsTheme.colors.BorderNegative01,
+            disabledContainerColor = GdsTheme.colors.L3Disabled01,
+            disabledContentColor = GdsTheme.colors.ContentDisabled01,
+            disabledSupportingTextColor = GdsTheme.colors.ContentDisabled01,
+            focusedContainerColor = GdsTheme.colors.StateNeutral04,
+            cursorColor = GdsTheme.colors.ContentNeutral01,
+        )
 
     /**
      * Default text styles for [GdsInput] in different states.
@@ -144,19 +147,24 @@ object GdsInputDefaults {
      * See [GdsInputTextStyle] for more details.
      */
     @Composable
-    fun inputTextStyle() = GdsInputTextStyle(
-        smallLabelStyle = GdsTheme.typography.DetailBookSmall,
-        largeLabelStyle = GdsTheme.typography.DetailBookMedium,
-        inputTextStyle = GdsTheme.typography.DetailBookMedium,
-        footerMessageStyle = GdsTheme.typography.DetailRegularSmall,
-        labelStyle = GdsTheme.typography.DetailBookMedium,
-        supportLabelStyle = GdsTheme.typography.DetailRegularSmall,
-        characterCounter = GdsTheme.typography.DetailBookSmall,
-    )
+    fun inputTextStyle() =
+        GdsInputTextStyle(
+            smallLabelStyle = GdsTheme.typography.DetailBookSmall,
+            largeLabelStyle = GdsTheme.typography.DetailBookMedium,
+            inputTextStyle = GdsTheme.typography.DetailBookMedium,
+            footerMessageStyle = GdsTheme.typography.DetailRegularSmall,
+            labelStyle = GdsTheme.typography.DetailBookMedium,
+            supportLabelStyle = GdsTheme.typography.DetailRegularSmall,
+            characterCounter = GdsTheme.typography.DetailBookSmall,
+        )
 }
 
-sealed class InputSize(val height: Dp, val shape: Shape) {
+sealed class InputSize(
+    val height: Dp,
+    val shape: Shape,
+) {
     data object Small : InputSize(height = 48.dp, shape = RoundedCornerShape(8.dp))
+
     data object Large : InputSize(height = 64.dp, shape = RoundedCornerShape(12.dp))
 }
 

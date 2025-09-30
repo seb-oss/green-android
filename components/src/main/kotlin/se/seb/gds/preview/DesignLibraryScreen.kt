@@ -51,10 +51,11 @@ internal fun DesignLibraryScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = GdsTheme.colors.L1Neutral02,
-                    titleContentColor = GdsTheme.colors.ContentNeutral01
-                ),
+                colors =
+                    TopAppBarDefaults.topAppBarColors(
+                        containerColor = GdsTheme.colors.L1Neutral02,
+                        titleContentColor = GdsTheme.colors.ContentNeutral01,
+                    ),
                 title = { Text(text = currentScreen.name, style = GdsTheme.legacyTypography.Headline) },
                 navigationIcon = {
                     if (currentScreen != LibraryScreen.LIBRARY) {
@@ -62,20 +63,21 @@ internal fun DesignLibraryScreen(
                             Icon(
                                 Icons.AutoMirrored.Filled.ArrowBack,
                                 contentDescription = "Back",
-                                tint = GdsTheme.colors.ContentNeutral01
+                                tint = GdsTheme.colors.ContentNeutral01,
                             )
                         }
                     }
-                }
+                },
             )
         },
         containerColor = GdsTheme.colors.L1Neutral02,
-        contentColor = GdsTheme.colors.ContentNeutral01
+        contentColor = GdsTheme.colors.ContentNeutral01,
     ) { paddingValues ->
         AnimatedContent(
-            modifier = Modifier
-                .padding(paddingValues)
-                .fillMaxSize(),
+            modifier =
+                Modifier
+                    .padding(paddingValues)
+                    .fillMaxSize(),
             targetState = currentScreen,
             transitionSpec = {
                 if ((targetState.ordinal) > (initialState.ordinal)) {
@@ -100,9 +102,10 @@ internal fun DesignLibraryScreen(
             },
         ) { targetState ->
             when (targetState) {
-                LibraryScreen.LIBRARY -> DesignLibrary(scrollState = scrollState) {
-                    currentScreen = it
-                }
+                LibraryScreen.LIBRARY ->
+                    DesignLibrary(scrollState = scrollState) {
+                        currentScreen = it
+                    }
 
                 LibraryScreen.COLORS -> ColorsScreen(allColors)
                 LibraryScreen.LEGACY_COLORS -> ColorsScreen(legacyColors)
@@ -112,6 +115,7 @@ internal fun DesignLibraryScreen(
                 LibraryScreen.BUTTONS -> ButtonsScreen(scrollState = scrollState)
                 LibraryScreen.INPUT -> InputScreen(scrollState = scrollState)
                 LibraryScreen.TOP_BAR -> TopBarScreen()
+                LibraryScreen.ICONS -> IconsScreen()
             }
         }
     }
@@ -123,10 +127,11 @@ private fun DesignLibrary(
     onNavigateToSection: (screen: LibraryScreen) -> Unit,
 ) {
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .verticalScroll(scrollState)
-            .padding(16.dp),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .verticalScroll(scrollState)
+                .padding(16.dp),
         verticalArrangement = spacedBy(16.dp),
     ) {
         GallerySection("Tokens") {
@@ -135,6 +140,8 @@ private fun DesignLibrary(
             ListItem("2016 Colors") { onNavigateToSection(LibraryScreen.LEGACY_COLORS) }
             HorizontalDivider()
             ListItem("Fonts") { onNavigateToSection(LibraryScreen.FONTS) }
+            HorizontalDivider()
+            ListItem("Icons") { onNavigateToSection(LibraryScreen.ICONS) }
         }
 
         GallerySection("Components") {

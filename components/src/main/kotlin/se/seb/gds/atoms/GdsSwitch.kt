@@ -37,14 +37,15 @@ fun GdsSwitch(
     checked: Boolean,
     style: GdsSwitchStyle = GdsSwitchDefaults.defaultStyle(),
     enabled: Boolean = true,
-    onCheckedChanged: (Boolean) -> Unit
+    onCheckedChanged: (Boolean) -> Unit,
 ) {
     GdsTheme {
         CompositionLocalProvider(
-            LocalRippleConfiguration provides RippleConfiguration(
-                color = GdsTheme.colors.StatePositive03,
-                rippleAlpha = RippleAlpha(0.16f, 0.1f, 0.08f, 0.1f)
-            )
+            LocalRippleConfiguration provides
+                RippleConfiguration(
+                    color = GdsTheme.colors.StatePositive03,
+                    rippleAlpha = RippleAlpha(0.16f, 0.1f, 0.08f, 0.1f),
+                ),
         ) {
             Switch(
                 modifier = modifier,
@@ -87,7 +88,7 @@ private fun GreenSwitchPreview() {
         GdsSwitch(
             checked = checked,
             onCheckedChanged = { checked = it },
-            style = GdsSwitchDefaults.defaultStyle()
+            style = GdsSwitchDefaults.defaultStyle(),
         )
     }
 }

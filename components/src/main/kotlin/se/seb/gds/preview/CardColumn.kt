@@ -25,17 +25,17 @@ internal fun CardColumn(
 ) {
     val shape = RoundedCornerShape(12.dp)
     Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .shadow(
-                elevation = 4.dp,
-                shape = RoundedCornerShape(12.dp),
-                ambientColor = GdsTheme.legacyColors.onSecondary.copy(.4f),
-            )
-            .background(GdsTheme.legacyColors.background_1dp, shape)
-            .clip(shape)
-            .padding(contentPadding)
-            .semantics { contentDescription = accessibilityContentDescription },
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .shadow(
+                    elevation = 4.dp,
+                    shape = RoundedCornerShape(12.dp),
+                    ambientColor = GdsTheme.legacyColors.onSecondary.copy(.4f),
+                ).background(GdsTheme.legacyColors.background_1dp, shape)
+                .clip(shape)
+                .padding(contentPadding)
+                .semantics { contentDescription = accessibilityContentDescription },
         content = content,
     )
 }

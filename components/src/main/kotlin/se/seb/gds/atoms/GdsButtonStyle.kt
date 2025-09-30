@@ -84,7 +84,7 @@ data class GdsButtonSizeProfile(
     val horizontalPadding: Dp = 24.dp,
     val iconSize: Dp = 24.dp,
     val iconSpacing: Dp = 8.dp,
-    val textStyle: TextStyle
+    val textStyle: TextStyle,
 )
 
 /**
@@ -97,8 +97,12 @@ data class GdsButtonSizeProfile(
  */
 sealed class ButtonWidthType {
     data object Full : ButtonWidthType()
+
     data object Dynamic : ButtonWidthType()
-    data class Fixed(val width: Dp) : ButtonWidthType()
+
+    data class Fixed(
+        val width: Dp,
+    ) : ButtonWidthType()
 }
 
 /**
@@ -108,7 +112,7 @@ sealed class ButtonWidthType {
  */
 enum class IconPosition {
     Left,
-    Right
+    Right,
 }
 
 enum class LegacyButtonSize {
@@ -118,270 +122,299 @@ enum class LegacyButtonSize {
 }
 
 object GdsButtonDefaults {
-
     object TwentyThree {
+        @Composable
+        fun brandStyle() =
+            GdsButtonStyle(
+                colors = brandColors(),
+            )
 
         @Composable
-        fun brandStyle() = GdsButtonStyle(
-            colors = brandColors()
-        )
+        fun primaryStyle() =
+            GdsButtonStyle(
+                colors = primaryColors(),
+            )
 
         @Composable
-        fun primaryStyle() = GdsButtonStyle(
-            colors = primaryColors()
-        )
+        fun secondaryStyle() =
+            GdsButtonStyle(
+                colors = secondaryColors(),
+            )
 
         @Composable
-        fun secondaryStyle() = GdsButtonStyle(
-            colors = secondaryColors(),
-        )
+        fun tertiaryStyle() =
+            GdsButtonStyle(
+                colors = tertiaryColors(),
+                textButton = true,
+            )
 
         @Composable
-        fun tertiaryStyle() = GdsButtonStyle(
-            colors = tertiaryColors(),
-            textButton = true
-        )
+        fun outlineStyle() =
+            GdsButtonStyle(
+                colors = outlineColors(),
+                border = BorderStroke(width = 1.dp, color = GdsTheme.colors.BorderSubtle01),
+            )
 
         @Composable
-        fun outlineStyle() = GdsButtonStyle(
-            colors = outlineColors(),
-            border = BorderStroke(width = 1.dp, color = GdsTheme.colors.BorderSubtle01)
-        )
+        fun negativeStyle() =
+            GdsButtonStyle(
+                colors = negativeColors(),
+            )
 
         @Composable
-        fun negativeStyle() = GdsButtonStyle(
-            colors = negativeColors()
-        )
+        fun primaryColors() =
+            ButtonDefaults.buttonColors(
+                containerColor = GdsTheme.colors.L3Neutral01,
+                contentColor = GdsTheme.colors.ContentNeutral03,
+                disabledContainerColor = GdsTheme.colors.L3Disabled03,
+                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+            )
 
         @Composable
-        fun primaryColors() = ButtonDefaults.buttonColors(
-            containerColor = GdsTheme.colors.L3Neutral01,
-            contentColor = GdsTheme.colors.ContentNeutral03,
-            disabledContainerColor = GdsTheme.colors.L3Disabled03,
-            disabledContentColor = GdsTheme.colors.ContentDisabled01,
-        )
+        fun brandColors() =
+            ButtonDefaults.buttonColors(
+                containerColor = GdsTheme.colors.L3Brand01,
+                contentColor = GdsTheme.colors.ContentInversed,
+                disabledContainerColor = GdsTheme.colors.L3Disabled03,
+                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+            )
 
         @Composable
-        fun brandColors() = ButtonDefaults.buttonColors(
-            containerColor = GdsTheme.colors.L3Brand01,
-            contentColor = GdsTheme.colors.ContentInversed,
-            disabledContainerColor = GdsTheme.colors.L3Disabled03,
-            disabledContentColor = GdsTheme.colors.ContentDisabled01,
-        )
+        fun secondaryColors() =
+            ButtonDefaults.buttonColors(
+                containerColor = GdsTheme.colors.L3Neutral02,
+                contentColor = GdsTheme.colors.ContentNeutral01,
+                disabledContainerColor = GdsTheme.colors.L3Disabled03,
+                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+            )
 
         @Composable
-        fun secondaryColors() = ButtonDefaults.buttonColors(
-            containerColor = GdsTheme.colors.L3Neutral02,
-            contentColor = GdsTheme.colors.ContentNeutral01,
-            disabledContainerColor = GdsTheme.colors.L3Disabled03,
-            disabledContentColor = GdsTheme.colors.ContentDisabled01,
-        )
+        fun tertiaryColors() =
+            ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+                contentColor = GdsTheme.colors.ContentNeutral01,
+                disabledContainerColor = GdsTheme.colors.L3Disabled03,
+                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+            )
 
         @Composable
-        fun tertiaryColors() = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent,
-            contentColor = GdsTheme.colors.ContentNeutral01,
-            disabledContainerColor = GdsTheme.colors.L3Disabled03,
-            disabledContentColor = GdsTheme.colors.ContentDisabled01,
-        )
+        fun outlineColors() =
+            ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+                contentColor = GdsTheme.colors.ContentNeutral01,
+                disabledContainerColor = GdsTheme.colors.L3Disabled03,
+                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+            )
 
         @Composable
-        fun outlineColors() = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent,
-            contentColor = GdsTheme.colors.ContentNeutral01,
-            disabledContainerColor = GdsTheme.colors.L3Disabled03,
-            disabledContentColor = GdsTheme.colors.ContentDisabled01,
-        )
+        fun negativeColors() =
+            ButtonDefaults.buttonColors(
+                containerColor = GdsTheme.colors.L3Negative01,
+                contentColor = GdsTheme.colors.ContentInversed,
+                disabledContainerColor = GdsTheme.colors.L3Disabled03,
+                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+            )
 
         @Composable
-        fun negativeColors() = ButtonDefaults.buttonColors(
-            containerColor = GdsTheme.colors.L3Negative01,
-            contentColor = GdsTheme.colors.ContentInversed,
-            disabledContainerColor = GdsTheme.colors.L3Disabled03,
-            disabledContentColor = GdsTheme.colors.ContentDisabled01,
-        )
+        fun xLarge() =
+            GdsButtonSizeProfile(
+                height = 56.dp,
+                widthType = ButtonWidthType.Full,
+                shape = RoundedCornerShape(32.dp),
+                horizontalPadding = 24.dp,
+                textStyle = GdsTheme.typography.DetailMediumLarge,
+                iconSize = 24.dp,
+                iconSpacing = 8.dp,
+            )
 
         @Composable
-        fun xLarge() = GdsButtonSizeProfile(
-            height = 56.dp,
-            widthType = ButtonWidthType.Full,
-            shape = RoundedCornerShape(32.dp),
-            horizontalPadding = 24.dp,
-            textStyle = GdsTheme.typography.DetailMediumLarge,
-            iconSize = 24.dp,
-            iconSpacing = 8.dp
-        )
+        fun large() =
+            GdsButtonSizeProfile(
+                height = 48.dp,
+                widthType = ButtonWidthType.Full,
+                shape = RoundedCornerShape(24.dp),
+                horizontalPadding = 24.dp,
+                textStyle = GdsTheme.typography.DetailBookLarge,
+                iconSize = 24.dp,
+                iconSpacing = 8.dp,
+            )
 
         @Composable
-        fun large() = GdsButtonSizeProfile(
-            height = 48.dp,
-            widthType = ButtonWidthType.Full,
-            shape = RoundedCornerShape(24.dp),
-            horizontalPadding = 24.dp,
-            textStyle = GdsTheme.typography.DetailBookLarge,
-            iconSize = 24.dp,
-            iconSpacing = 8.dp
-        )
+        fun medium() =
+            GdsButtonSizeProfile(
+                height = 40.dp,
+                widthType = ButtonWidthType.Full,
+                shape = RoundedCornerShape(20.dp),
+                horizontalPadding = 20.dp,
+                textStyle = GdsTheme.typography.DetailBookLarge,
+                iconSize = 20.dp,
+                iconSpacing = 8.dp,
+            )
 
         @Composable
-        fun medium() = GdsButtonSizeProfile(
-            height = 40.dp,
-            widthType = ButtonWidthType.Full,
-            shape = RoundedCornerShape(20.dp),
-            horizontalPadding = 20.dp,
-            textStyle = GdsTheme.typography.DetailBookLarge,
-            iconSize = 20.dp,
-            iconSpacing = 8.dp
-        )
-
-        @Composable
-        fun small() = GdsButtonSizeProfile(
-            height = 32.dp,
-            widthType = ButtonWidthType.Full,
-            shape = RoundedCornerShape(16.dp),
-            horizontalPadding = 16.dp,
-            textStyle = GdsTheme.typography.DetailBookMedium,
-            iconSize = 16.dp,
-            iconSpacing = 4.dp
-        )
+        fun small() =
+            GdsButtonSizeProfile(
+                height = 32.dp,
+                widthType = ButtonWidthType.Full,
+                shape = RoundedCornerShape(16.dp),
+                horizontalPadding = 16.dp,
+                textStyle = GdsTheme.typography.DetailBookMedium,
+                iconSize = 16.dp,
+                iconSpacing = 4.dp,
+            )
     }
 
     @Composable
-    fun primary() = GdsButtonStyle(
-        colors = primaryColors(),
-        legacyRipple = true
-    )
+    fun primary() =
+        GdsButtonStyle(
+            colors = primaryColors(),
+            legacyRipple = true,
+        )
 
     @Composable
-    fun secondary() = GdsButtonStyle(
-        colors = secondaryColors(),
-        textButton = true,
-        legacyRipple = true
-    )
+    fun secondary() =
+        GdsButtonStyle(
+            colors = secondaryColors(),
+            textButton = true,
+            legacyRipple = true,
+        )
 
     @Composable
-    fun tertiary() = GdsButtonStyle(
-        colors = tertiaryColors(),
-        legacyRipple = true
-    )
+    fun tertiary() =
+        GdsButtonStyle(
+            colors = tertiaryColors(),
+            legacyRipple = true,
+        )
 
     @Composable
-    fun primaryDestructive() = GdsButtonStyle(
-        colors = primaryDestructiveColors(),
-        legacyRipple = true
-    )
+    fun primaryDestructive() =
+        GdsButtonStyle(
+            colors = primaryDestructiveColors(),
+            legacyRipple = true,
+        )
 
     @Composable
-    fun secondaryDestructive() = GdsButtonStyle(
-        colors = secondaryDestructiveColors(),
-        textButton = true,
-        legacyRipple = true
-    )
+    fun secondaryDestructive() =
+        GdsButtonStyle(
+            colors = secondaryDestructiveColors(),
+            textButton = true,
+            legacyRipple = true,
+        )
 
     @Composable
-    fun tertiaryDestructive() = GdsButtonStyle(
-        colors = tertiaryDestructiveColors(),
-        legacyRipple = true
-    )
+    fun tertiaryDestructive() =
+        GdsButtonStyle(
+            colors = tertiaryDestructiveColors(),
+            legacyRipple = true,
+        )
 
     @Composable
-    fun tertiaryEmphasis() = GdsButtonStyle(
-        colors = tertiaryEmphasisColors(),
-        legacyRipple = true
-    )
+    fun tertiaryEmphasis() =
+        GdsButtonStyle(
+            colors = tertiaryEmphasisColors(),
+            legacyRipple = true,
+        )
 
     @Composable
-    fun primaryColors() = ButtonDefaults.buttonColors(
-        containerColor = GdsTheme.legacyColors.secondary,
-        contentColor = Color.White,
-    )
+    fun primaryColors() =
+        ButtonDefaults.buttonColors(
+            containerColor = GdsTheme.legacyColors.secondary,
+            contentColor = Color.White,
+        )
 
     @Composable
-    fun primaryDestructiveColors() = ButtonDefaults.buttonColors(
-        containerColor = GdsTheme.legacyColors.Red1,
-        contentColor = Color.White,
-    )
+    fun primaryDestructiveColors() =
+        ButtonDefaults.buttonColors(
+            containerColor = GdsTheme.legacyColors.Red1,
+            contentColor = Color.White,
+        )
 
     @Composable
-    fun secondaryDestructiveColors() = ButtonDefaults.buttonColors(
-        containerColor = Color.Transparent,
-        contentColor = GdsTheme.legacyColors.Red1,
-    )
+    fun secondaryDestructiveColors() =
+        ButtonDefaults.buttonColors(
+            containerColor = Color.Transparent,
+            contentColor = GdsTheme.legacyColors.Red1,
+        )
 
     @Composable
-    fun tertiaryDestructiveColors() = ButtonDefaults.buttonColors(
-        containerColor = GdsTheme.legacyColors.TertiaryButtonBackground,
-        contentColor = GdsTheme.legacyColors.Red1,
-    )
+    fun tertiaryDestructiveColors() =
+        ButtonDefaults.buttonColors(
+            containerColor = GdsTheme.legacyColors.TertiaryButtonBackground,
+            contentColor = GdsTheme.legacyColors.Red1,
+        )
 
     @Composable
-    fun secondaryColors() = ButtonDefaults.buttonColors(
-        containerColor = Color.Transparent,
-        contentColor = GdsTheme.legacyColors.secondary,
-    )
+    fun secondaryColors() =
+        ButtonDefaults.buttonColors(
+            containerColor = Color.Transparent,
+            contentColor = GdsTheme.legacyColors.secondary,
+        )
 
     @Composable
-    fun tertiaryColors() = ButtonDefaults.buttonColors(
-        containerColor = GdsTheme.legacyColors.TertiaryButtonBackground,
-        contentColor = GdsTheme.legacyColors.PrimaryText,
-    )
+    fun tertiaryColors() =
+        ButtonDefaults.buttonColors(
+            containerColor = GdsTheme.legacyColors.TertiaryButtonBackground,
+            contentColor = GdsTheme.legacyColors.PrimaryText,
+        )
 
     @Composable
-    fun tertiaryEmphasisColors() = ButtonDefaults.buttonColors(
-        containerColor = GdsTheme.legacyColors.TertiaryButtonBackground,
-        contentColor = GdsTheme.legacyColors.DarkBlue1,
-    )
+    fun tertiaryEmphasisColors() =
+        ButtonDefaults.buttonColors(
+            containerColor = GdsTheme.legacyColors.TertiaryButtonBackground,
+            contentColor = GdsTheme.legacyColors.DarkBlue1,
+        )
 
     @Composable
-    fun seb2016Shape(size: LegacyButtonSize) = RoundedCornerShape(
+    fun seb2016Shape(size: LegacyButtonSize) =
+        RoundedCornerShape(
+            when (size) {
+                LegacyButtonSize.LARGE -> 12.dp
+                LegacyButtonSize.MEDIUM -> 12.dp
+                LegacyButtonSize.SMALL -> 8.dp
+            },
+        )
+
+    @Composable
+    fun seb2016WidthType(size: LegacyButtonSize): ButtonWidthType =
         when (size) {
-            LegacyButtonSize.LARGE -> 12.dp
-            LegacyButtonSize.MEDIUM -> 12.dp
-            LegacyButtonSize.SMALL -> 8.dp
-        }
-    )
-
-    @Composable
-    fun seb2016WidthType(size: LegacyButtonSize): ButtonWidthType {
-        return when (size) {
             LegacyButtonSize.LARGE -> ButtonWidthType.Full
             LegacyButtonSize.MEDIUM -> ButtonWidthType.Full
             LegacyButtonSize.SMALL -> ButtonWidthType.Dynamic
         }
-    }
 
     @Composable
-    fun seb2016HeightType(size: LegacyButtonSize): Dp {
-        return when (size) {
+    fun seb2016HeightType(size: LegacyButtonSize): Dp =
+        when (size) {
             LegacyButtonSize.LARGE -> 50.dp
             LegacyButtonSize.MEDIUM -> 45.dp
             LegacyButtonSize.SMALL -> 40.dp
         }
-    }
 
     val legacyIconSize: Dp = 24.dp
     val legacyIconSpacing: Dp = 12.dp
     val legacyHorizontalPadding: Dp = 16.dp
 
     @Composable
-    fun legacySizeProfile(size: LegacyButtonSize): GdsButtonSizeProfile = GdsButtonSizeProfile(
-        widthType = seb2016WidthType(size),
-        height = seb2016HeightType(size),
-        shape = seb2016Shape(size),
-        horizontalPadding = legacyHorizontalPadding,
-        textStyle = GdsTheme.legacyTypography.Title6,
-        iconSize = legacyIconSize,
-        iconSpacing = legacyIconSpacing
-    )
+    fun legacySizeProfile(size: LegacyButtonSize): GdsButtonSizeProfile =
+        GdsButtonSizeProfile(
+            widthType = seb2016WidthType(size),
+            height = seb2016HeightType(size),
+            shape = seb2016Shape(size),
+            horizontalPadding = legacyHorizontalPadding,
+            textStyle = GdsTheme.legacyTypography.Title6,
+            iconSize = legacyIconSize,
+            iconSpacing = legacyIconSpacing,
+        )
 
     @Composable
-    fun legacyFullSmallProfile(): GdsButtonSizeProfile = GdsButtonSizeProfile(
-        widthType = ButtonWidthType.Full,
-        height = 50.dp,
-        shape = seb2016Shape(LegacyButtonSize.SMALL),
-        horizontalPadding = legacyHorizontalPadding,
-        textStyle = GdsTheme.legacyTypography.Title6,
-        iconSize = legacyIconSize,
-        iconSpacing = legacyIconSpacing
-    )
+    fun legacyFullSmallProfile(): GdsButtonSizeProfile =
+        GdsButtonSizeProfile(
+            widthType = ButtonWidthType.Full,
+            height = 50.dp,
+            shape = seb2016Shape(LegacyButtonSize.SMALL),
+            horizontalPadding = legacyHorizontalPadding,
+            textStyle = GdsTheme.legacyTypography.Title6,
+            iconSize = legacyIconSize,
+            iconSpacing = legacyIconSpacing,
+        )
 }

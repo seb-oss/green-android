@@ -25,18 +25,17 @@ fun ClearButton(
 ) {
     val clearButtonDescription = stringResource(id = R.string.clear_button_description)
     Icon(
-        modifier = modifier
-            .clearAndSetSemantics {
-                contentDescription = clearButtonDescription
-                role = Role.Button
-            }
-            .clickable(enabled = enabled, onClick = onClick),
-        painter = painterResource (id = R.drawable.ic_clear_24),
+        modifier =
+            modifier
+                .clearAndSetSemantics {
+                    contentDescription = clearButtonDescription
+                    role = Role.Button
+                }.clickable(enabled = enabled, onClick = onClick),
+        painter = painterResource(id = R.drawable.ic_clear_24),
         contentDescription = null,
         tint = GdsTheme.colors.ContentNeutral01,
     )
 }
-
 
 @Preview(name = "Dark Mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(name = "Light Mode", uiMode = Configuration.UI_MODE_NIGHT_NO)

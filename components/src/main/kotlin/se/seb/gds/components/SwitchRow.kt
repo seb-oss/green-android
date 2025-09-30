@@ -33,20 +33,20 @@ fun SwitchRow(
     onCheckedChanged: (Boolean) -> Unit = {},
 ) {
     Row(
-        modifier = modifier
-            .height(64.dp)
-            .fillMaxWidth()
-            .background(
-                color = GdsTheme.colors.L2Neutral01,
-                shape = RoundedCornerShape(12.dp)
-            )
-            .padding(16.dp),
-        verticalAlignment = Alignment.CenterVertically
+        modifier =
+            modifier
+                .height(64.dp)
+                .fillMaxWidth()
+                .background(
+                    color = GdsTheme.colors.L2Neutral01,
+                    shape = RoundedCornerShape(12.dp),
+                ).padding(16.dp),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
             modifier = Modifier.weight(1f),
             style = GdsTheme.legacyTypography.Headline,
-            text = title
+            text = title,
         )
         GdsSwitch(
             checked = checked,
@@ -88,6 +88,5 @@ private fun SwitchRowPreview() {
                 onCheckedChanged = { neoChecked = it },
             )
         }
-
     }
 }

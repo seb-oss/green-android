@@ -17,13 +17,13 @@ import se.seb.gds.theme.GdsTheme
 @Composable
 internal fun FontsScreen(scrollState: ScrollState) {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(scrollState)
-            .padding(16.dp),
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .verticalScroll(scrollState)
+                .padding(16.dp),
         verticalArrangement = spacedBy(16.dp),
     ) {
-
         FontText(
             name = "TitleLarge",
             style = GdsTheme.legacyTypography.TitleLarge,
@@ -112,18 +112,18 @@ fun FontText(
     name: String,
     style: TextStyle,
 ) {
-    fun FontWeight.name(): String {
-        return when (weight) {
+    fun FontWeight.name(): String =
+        when (weight) {
             700 -> " - Bold"
             500 -> " - Medium"
             400 -> " - Normal"
             else -> ""
         }
-    }
 
-    val title = with(style) {
-        "$name ${fontSize.value}/${lineHeight.value}/(${letterSpacing.value})${fontWeight?.name()}"
-    }
+    val title =
+        with(style) {
+            "$name ${fontSize.value}/${lineHeight.value}/(${letterSpacing.value})${fontWeight?.name()}"
+        }
 
     Text(text = title, style = style)
 }

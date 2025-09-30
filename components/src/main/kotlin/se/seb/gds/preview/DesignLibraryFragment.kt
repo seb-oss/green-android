@@ -22,7 +22,6 @@ import kotlin.reflect.typeOf
  * create an instance of this fragment.
  */
 class DesignLibraryFragment : Fragment() {
-
     private lateinit var themeColors: List<Pair<String, ColorMapping>>
     private lateinit var legacyThemeColors: List<Pair<String, ColorMapping>>
 
@@ -42,13 +41,15 @@ class DesignLibraryFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = content {
-        GdsTheme {
-            DesignLibraryScreen(themeColors, legacyThemeColors)
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? =
+        content {
+            GdsTheme {
+                DesignLibraryScreen(themeColors, legacyThemeColors)
+            }
         }
-    }
 
     private inline fun <reified T : Any> extractColorProperties(instance: T): List<Pair<String, Color>> {
         val colorProperties = mutableListOf<Pair<String, Color>>()
@@ -74,10 +75,11 @@ class DesignLibraryFragment : Fragment() {
         return (lightColorMap.keys + darkColorMap.keys)
             .distinct()
             .map { key ->
-                key to ColorMapping(
-                    lightModeColor = lightColorMap[key] ?: Color.Transparent,
-                    darkModeColor = darkColorMap[key] ?: Color.Transparent,
-                )
+                key to
+                    ColorMapping(
+                        lightModeColor = lightColorMap[key] ?: Color.Transparent,
+                        darkModeColor = darkColorMap[key] ?: Color.Transparent,
+                    )
             }
     }
 

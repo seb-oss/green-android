@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import se.seb.gds.icons.SebIcons
+import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 @Composable
@@ -38,14 +38,15 @@ internal fun ListItem(
     onClick: () -> Unit,
 ) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(40.dp)
-            .clickable { onClick() }
-            .padding(horizontal = 16.dp),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .height(40.dp)
+                .clickable { onClick() }
+                .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(modifier = Modifier.weight(1f), text = title, color = GdsTheme.legacyColors.PrimaryText)
-        Icon(imageVector = SebIcons.RightChevron, contentDescription = null, tint = GdsTheme.colors.ContentNeutral01)
+        Icon(imageVector = GdsIcons.Solid.ChevronRight, contentDescription = null, tint = GdsTheme.colors.ContentNeutral01)
     }
 }
