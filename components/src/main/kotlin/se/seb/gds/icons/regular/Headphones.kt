@@ -38,8 +38,22 @@ val Headphones: ImageVector
                 ) {
                     moveTo(x = 3.75f, y = 13.75f)
                     verticalLineTo(y = 12.0f)
-                    curveTo(x1 = 3.75f, y1 = 7.44365f, x2 = 7.44365f, y2 = 3.75f, x3 = 12.0f, y3 = 3.75f)
-                    curveTo(x1 = 16.5563f, y1 = 3.75f, x2 = 20.25f, y2 = 7.44365f, x3 = 20.25f, y3 = 12.0f)
+                    curveTo(
+                        x1 = 3.75f,
+                        y1 = 7.44365f,
+                        x2 = 7.44365f,
+                        y2 = 3.75f,
+                        x3 = 12.0f,
+                        y3 = 3.75f,
+                    )
+                    curveTo(
+                        x1 = 16.5563f,
+                        y1 = 3.75f,
+                        x2 = 20.25f,
+                        y2 = 7.44365f,
+                        x3 = 20.25f,
+                        y3 = 12.0f,
+                    )
                     verticalLineTo(y = 13.75f)
                     moveTo(x = 3.75f, y = 13.75f)
                     verticalLineTo(y = 20.25f)
@@ -70,9 +84,9 @@ private fun IconPreview() {
                 imageVector = Headphones,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

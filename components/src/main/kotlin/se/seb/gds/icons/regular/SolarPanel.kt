@@ -86,9 +86,9 @@ private fun IconPreview() {
                 imageVector = SolarPanel,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

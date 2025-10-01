@@ -54,8 +54,22 @@ val Pdf: ImageVector
                     moveTo(x = 3.75f, y = 20.25f)
                     verticalLineTo(y = 14.75f)
                     horizontalLineTo(x = 5.75f)
-                    curveTo(x1 = 6.57843f, y1 = 14.75f, x2 = 7.25f, y2 = 15.4216f, x3 = 7.25f, y3 = 16.25f)
-                    curveTo(x1 = 7.25f, y1 = 17.0784f, x2 = 6.57843f, y2 = 17.75f, x3 = 5.75f, y3 = 17.75f)
+                    curveTo(
+                        x1 = 6.57843f,
+                        y1 = 14.75f,
+                        x2 = 7.25f,
+                        y2 = 15.4216f,
+                        x3 = 7.25f,
+                        y3 = 16.25f,
+                    )
+                    curveTo(
+                        x1 = 7.25f,
+                        y1 = 17.0784f,
+                        x2 = 6.57843f,
+                        y2 = 17.75f,
+                        x3 = 5.75f,
+                        y3 = 17.75f,
+                    )
                     horizontalLineTo(x = 4.5f)
                 }
                 path(
@@ -67,8 +81,22 @@ val Pdf: ImageVector
                     moveTo(x = 9.75f, y = 14.75f)
                     verticalLineTo(y = 20.25f)
                     horizontalLineTo(x = 11.25f)
-                    curveTo(x1 = 12.3333f, y1 = 20.25f, x2 = 14.0f, y2 = 19.7f, x3 = 14.0f, y3 = 17.5f)
-                    curveTo(x1 = 14.0f, y1 = 15.3f, x2 = 12.3333f, y2 = 14.75f, x3 = 11.25f, y3 = 14.75f)
+                    curveTo(
+                        x1 = 12.3333f,
+                        y1 = 20.25f,
+                        x2 = 14.0f,
+                        y2 = 19.7f,
+                        x3 = 14.0f,
+                        y3 = 17.5f,
+                    )
+                    curveTo(
+                        x1 = 14.0f,
+                        y1 = 15.3f,
+                        x2 = 12.3333f,
+                        y2 = 14.75f,
+                        x3 = 11.25f,
+                        y3 = 14.75f,
+                    )
                     horizontalLineTo(x = 9.75f)
                     close()
                 }
@@ -107,9 +135,9 @@ private fun IconPreview() {
                 imageVector = Pdf,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

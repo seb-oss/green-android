@@ -40,9 +40,23 @@ val Flag: ImageVector
                     verticalLineTo(y = 15.0831f)
                     moveTo(x = 4.75f, y = 15.0831f)
                     verticalLineTo(y = 3.77755f)
-                    curveTo(x1 = 10.0003f, y1 = 1.18383f, x2 = 13.9997f, y2 = 6.37127f, x3 = 19.25f, y3 = 3.77755f)
+                    curveTo(
+                        x1 = 10.0003f,
+                        y1 = 1.18383f,
+                        x2 = 13.9997f,
+                        y2 = 6.37127f,
+                        x3 = 19.25f,
+                        y3 = 3.77755f,
+                    )
                     verticalLineTo(y = 15.0831f)
-                    curveTo(x1 = 13.9997f, y1 = 17.6768f, x2 = 10.0003f, y2 = 12.4894f, x3 = 4.75f, y3 = 15.0831f)
+                    curveTo(
+                        x1 = 13.9997f,
+                        y1 = 17.6768f,
+                        x2 = 10.0003f,
+                        y2 = 12.4894f,
+                        x3 = 4.75f,
+                        y3 = 15.0831f,
+                    )
                     close()
                 }
             }.build()
@@ -61,9 +75,9 @@ private fun IconPreview() {
                 imageVector = Flag,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

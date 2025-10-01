@@ -51,7 +51,14 @@ val Industry: ImageVector
                 ) {
                     moveTo(x = 8.0f, y = 5.25f)
                     verticalLineTo(y = 5.25f)
-                    curveTo(x1 = 8.0f, y1 = 4.14543f, x2 = 8.89543f, y2 = 3.25f, x3 = 10.0f, y3 = 3.25f)
+                    curveTo(
+                        x1 = 8.0f,
+                        y1 = 4.14543f,
+                        x2 = 8.89543f,
+                        y2 = 3.25f,
+                        x3 = 10.0f,
+                        y3 = 3.25f,
+                    )
                     horizontalLineTo(x = 19.25f)
                 }
                 path(
@@ -83,9 +90,9 @@ private fun IconPreview() {
                 imageVector = Industry,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

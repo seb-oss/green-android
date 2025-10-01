@@ -48,16 +48,72 @@ val Truck: ImageVector
                     horizontalLineTo(x = 8.75f)
                     verticalLineTo(y = 6.84091f)
                     moveTo(x = 9.75f, y = 16.75f)
-                    curveTo(x1 = 9.75f, y1 = 18.1307f, x2 = 8.63071f, y2 = 19.25f, x3 = 7.25f, y3 = 19.25f)
-                    curveTo(x1 = 5.86929f, y1 = 19.25f, x2 = 4.75f, y2 = 18.1307f, x3 = 4.75f, y3 = 16.75f)
-                    curveTo(x1 = 4.75f, y1 = 15.3693f, x2 = 5.86929f, y2 = 14.25f, x3 = 7.25f, y3 = 14.25f)
-                    curveTo(x1 = 8.63071f, y1 = 14.25f, x2 = 9.75f, y2 = 15.3693f, x3 = 9.75f, y3 = 16.75f)
+                    curveTo(
+                        x1 = 9.75f,
+                        y1 = 18.1307f,
+                        x2 = 8.63071f,
+                        y2 = 19.25f,
+                        x3 = 7.25f,
+                        y3 = 19.25f,
+                    )
+                    curveTo(
+                        x1 = 5.86929f,
+                        y1 = 19.25f,
+                        x2 = 4.75f,
+                        y2 = 18.1307f,
+                        x3 = 4.75f,
+                        y3 = 16.75f,
+                    )
+                    curveTo(
+                        x1 = 4.75f,
+                        y1 = 15.3693f,
+                        x2 = 5.86929f,
+                        y2 = 14.25f,
+                        x3 = 7.25f,
+                        y3 = 14.25f,
+                    )
+                    curveTo(
+                        x1 = 8.63071f,
+                        y1 = 14.25f,
+                        x2 = 9.75f,
+                        y2 = 15.3693f,
+                        x3 = 9.75f,
+                        y3 = 16.75f,
+                    )
                     close()
                     moveTo(x = 19.25f, y = 16.75f)
-                    curveTo(x1 = 19.25f, y1 = 18.1307f, x2 = 18.1307f, y2 = 19.25f, x3 = 16.75f, y3 = 19.25f)
-                    curveTo(x1 = 15.3693f, y1 = 19.25f, x2 = 14.25f, y2 = 18.1307f, x3 = 14.25f, y3 = 16.75f)
-                    curveTo(x1 = 14.25f, y1 = 15.3693f, x2 = 15.3693f, y2 = 14.25f, x3 = 16.75f, y3 = 14.25f)
-                    curveTo(x1 = 18.1307f, y1 = 14.25f, x2 = 19.25f, y2 = 15.3693f, x3 = 19.25f, y3 = 16.75f)
+                    curveTo(
+                        x1 = 19.25f,
+                        y1 = 18.1307f,
+                        x2 = 18.1307f,
+                        y2 = 19.25f,
+                        x3 = 16.75f,
+                        y3 = 19.25f,
+                    )
+                    curveTo(
+                        x1 = 15.3693f,
+                        y1 = 19.25f,
+                        x2 = 14.25f,
+                        y2 = 18.1307f,
+                        x3 = 14.25f,
+                        y3 = 16.75f,
+                    )
+                    curveTo(
+                        x1 = 14.25f,
+                        y1 = 15.3693f,
+                        x2 = 15.3693f,
+                        y2 = 14.25f,
+                        x3 = 16.75f,
+                        y3 = 14.25f,
+                    )
+                    curveTo(
+                        x1 = 18.1307f,
+                        y1 = 14.25f,
+                        x2 = 19.25f,
+                        y2 = 15.3693f,
+                        x3 = 19.25f,
+                        y3 = 16.75f,
+                    )
                     close()
                 }
             }.build()
@@ -76,9 +132,9 @@ private fun IconPreview() {
                 imageVector = Truck,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

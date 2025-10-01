@@ -48,10 +48,38 @@ val FloppyDisk: ImageVector
                     horizontalLineTo(x = 3.75f)
                     close()
                     moveTo(x = 15.25f, y = 14.25f)
-                    curveTo(x1 = 15.25f, y1 = 16.0449f, x2 = 13.7949f, y2 = 17.5f, x3 = 12.0f, y3 = 17.5f)
-                    curveTo(x1 = 10.2051f, y1 = 17.5f, x2 = 8.75f, y2 = 16.0449f, x3 = 8.75f, y3 = 14.25f)
-                    curveTo(x1 = 8.75f, y1 = 12.4551f, x2 = 10.2051f, y2 = 11.0f, x3 = 12.0f, y3 = 11.0f)
-                    curveTo(x1 = 13.7949f, y1 = 11.0f, x2 = 15.25f, y2 = 12.4551f, x3 = 15.25f, y3 = 14.25f)
+                    curveTo(
+                        x1 = 15.25f,
+                        y1 = 16.0449f,
+                        x2 = 13.7949f,
+                        y2 = 17.5f,
+                        x3 = 12.0f,
+                        y3 = 17.5f,
+                    )
+                    curveTo(
+                        x1 = 10.2051f,
+                        y1 = 17.5f,
+                        x2 = 8.75f,
+                        y2 = 16.0449f,
+                        x3 = 8.75f,
+                        y3 = 14.25f,
+                    )
+                    curveTo(
+                        x1 = 8.75f,
+                        y1 = 12.4551f,
+                        x2 = 10.2051f,
+                        y2 = 11.0f,
+                        x3 = 12.0f,
+                        y3 = 11.0f,
+                    )
+                    curveTo(
+                        x1 = 13.7949f,
+                        y1 = 11.0f,
+                        x2 = 15.25f,
+                        y2 = 12.4551f,
+                        x3 = 15.25f,
+                        y3 = 14.25f,
+                    )
                     close()
                 }
             }.build()
@@ -70,9 +98,9 @@ private fun IconPreview() {
                 imageVector = FloppyDisk,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

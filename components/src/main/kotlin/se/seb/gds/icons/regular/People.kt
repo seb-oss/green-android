@@ -38,15 +38,57 @@ val People: ImageVector
                 ) {
                     moveTo(x = 3.75f, y = 20.25f)
                     verticalLineTo(y = 18.75f)
-                    curveTo(x1 = 3.75f, y1 = 16.5409f, x2 = 5.54086f, y2 = 14.75f, x3 = 7.75f, y3 = 14.75f)
+                    curveTo(
+                        x1 = 3.75f,
+                        y1 = 16.5409f,
+                        x2 = 5.54086f,
+                        y2 = 14.75f,
+                        x3 = 7.75f,
+                        y3 = 14.75f,
+                    )
                     horizontalLineTo(x = 16.25f)
-                    curveTo(x1 = 18.4591f, y1 = 14.75f, x2 = 20.25f, y2 = 16.5409f, x3 = 20.25f, y3 = 18.75f)
+                    curveTo(
+                        x1 = 18.4591f,
+                        y1 = 14.75f,
+                        x2 = 20.25f,
+                        y2 = 16.5409f,
+                        x3 = 20.25f,
+                        y3 = 18.75f,
+                    )
                     verticalLineTo(y = 20.25f)
                     moveTo(x = 16.75f, y = 7.5f)
-                    curveTo(x1 = 16.75f, y1 = 10.1234f, x2 = 14.6234f, y2 = 12.25f, x3 = 12.0f, y3 = 12.25f)
-                    curveTo(x1 = 9.37665f, y1 = 12.25f, x2 = 7.25f, y2 = 10.1234f, x3 = 7.25f, y3 = 7.5f)
-                    curveTo(x1 = 7.25f, y1 = 4.87665f, x2 = 9.37665f, y2 = 2.75f, x3 = 12.0f, y3 = 2.75f)
-                    curveTo(x1 = 14.6234f, y1 = 2.75f, x2 = 16.75f, y2 = 4.87665f, x3 = 16.75f, y3 = 7.5f)
+                    curveTo(
+                        x1 = 16.75f,
+                        y1 = 10.1234f,
+                        x2 = 14.6234f,
+                        y2 = 12.25f,
+                        x3 = 12.0f,
+                        y3 = 12.25f,
+                    )
+                    curveTo(
+                        x1 = 9.37665f,
+                        y1 = 12.25f,
+                        x2 = 7.25f,
+                        y2 = 10.1234f,
+                        x3 = 7.25f,
+                        y3 = 7.5f,
+                    )
+                    curveTo(
+                        x1 = 7.25f,
+                        y1 = 4.87665f,
+                        x2 = 9.37665f,
+                        y2 = 2.75f,
+                        x3 = 12.0f,
+                        y3 = 2.75f,
+                    )
+                    curveTo(
+                        x1 = 14.6234f,
+                        y1 = 2.75f,
+                        x2 = 16.75f,
+                        y2 = 4.87665f,
+                        x3 = 16.75f,
+                        y3 = 7.5f,
+                    )
                     close()
                 }
             }.build()
@@ -65,9 +107,9 @@ private fun IconPreview() {
                 imageVector = People,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

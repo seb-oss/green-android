@@ -34,22 +34,78 @@ val CrossLarge: ImageVector
                     pathFillType = PathFillType.EvenOdd,
                 ) {
                     moveTo(x = 4.11612f, y = 4.11612f)
-                    curveTo(x1 = 4.60427f, y1 = 3.62796f, x2 = 5.39573f, y2 = 3.62796f, x3 = 5.88388f, y3 = 4.11612f)
+                    curveTo(
+                        x1 = 4.60427f,
+                        y1 = 3.62796f,
+                        x2 = 5.39573f,
+                        y2 = 3.62796f,
+                        x3 = 5.88388f,
+                        y3 = 4.11612f,
+                    )
                     lineTo(x = 12.0f, y = 10.2322f)
                     lineTo(x = 18.1161f, y = 4.11612f)
-                    curveTo(x1 = 18.6043f, y1 = 3.62796f, x2 = 19.3957f, y2 = 3.62796f, x3 = 19.8839f, y3 = 4.11612f)
-                    curveTo(x1 = 20.372f, y1 = 4.60427f, x2 = 20.372f, y2 = 5.39573f, x3 = 19.8839f, y3 = 5.88388f)
+                    curveTo(
+                        x1 = 18.6043f,
+                        y1 = 3.62796f,
+                        x2 = 19.3957f,
+                        y2 = 3.62796f,
+                        x3 = 19.8839f,
+                        y3 = 4.11612f,
+                    )
+                    curveTo(
+                        x1 = 20.372f,
+                        y1 = 4.60427f,
+                        x2 = 20.372f,
+                        y2 = 5.39573f,
+                        x3 = 19.8839f,
+                        y3 = 5.88388f,
+                    )
                     lineTo(x = 13.7678f, y = 12.0f)
                     lineTo(x = 19.8839f, y = 18.1161f)
-                    curveTo(x1 = 20.372f, y1 = 18.6043f, x2 = 20.372f, y2 = 19.3957f, x3 = 19.8839f, y3 = 19.8839f)
-                    curveTo(x1 = 19.3957f, y1 = 20.372f, x2 = 18.6043f, y2 = 20.372f, x3 = 18.1161f, y3 = 19.8839f)
+                    curveTo(
+                        x1 = 20.372f,
+                        y1 = 18.6043f,
+                        x2 = 20.372f,
+                        y2 = 19.3957f,
+                        x3 = 19.8839f,
+                        y3 = 19.8839f,
+                    )
+                    curveTo(
+                        x1 = 19.3957f,
+                        y1 = 20.372f,
+                        x2 = 18.6043f,
+                        y2 = 20.372f,
+                        x3 = 18.1161f,
+                        y3 = 19.8839f,
+                    )
                     lineTo(x = 12.0f, y = 13.7678f)
                     lineTo(x = 5.88388f, y = 19.8839f)
-                    curveTo(x1 = 5.39573f, y1 = 20.372f, x2 = 4.60427f, y2 = 20.372f, x3 = 4.11612f, y3 = 19.8839f)
-                    curveTo(x1 = 3.62796f, y1 = 19.3957f, x2 = 3.62796f, y2 = 18.6043f, x3 = 4.11612f, y3 = 18.1161f)
+                    curveTo(
+                        x1 = 5.39573f,
+                        y1 = 20.372f,
+                        x2 = 4.60427f,
+                        y2 = 20.372f,
+                        x3 = 4.11612f,
+                        y3 = 19.8839f,
+                    )
+                    curveTo(
+                        x1 = 3.62796f,
+                        y1 = 19.3957f,
+                        x2 = 3.62796f,
+                        y2 = 18.6043f,
+                        x3 = 4.11612f,
+                        y3 = 18.1161f,
+                    )
                     lineTo(x = 10.2322f, y = 12.0f)
                     lineTo(x = 4.11612f, y = 5.88388f)
-                    curveTo(x1 = 3.62796f, y1 = 5.39573f, x2 = 3.62796f, y2 = 4.60427f, x3 = 4.11612f, y3 = 4.11612f)
+                    curveTo(
+                        x1 = 3.62796f,
+                        y1 = 5.39573f,
+                        x2 = 3.62796f,
+                        y2 = 4.60427f,
+                        x3 = 4.11612f,
+                        y3 = 4.11612f,
+                    )
                     close()
                 }
             }.build()
@@ -68,9 +124,9 @@ private fun IconPreview() {
                 imageVector = CrossLarge,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

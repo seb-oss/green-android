@@ -50,12 +50,26 @@ val Law: ImageVector
                     horizontalLineTo(x = 21.25f)
                     moveTo(x = 5.5f, y = 5.75f)
                     lineTo(x = 2.5f, y = 15.25f)
-                    curveTo(x1 = 4.57693f, y1 = 16.4267f, x2 = 6.42307f, y2 = 16.4267f, x3 = 8.5f, y3 = 15.25f)
+                    curveTo(
+                        x1 = 4.57693f,
+                        y1 = 16.4267f,
+                        x2 = 6.42307f,
+                        y2 = 16.4267f,
+                        x3 = 8.5f,
+                        y3 = 15.25f,
+                    )
                     lineTo(x = 5.5f, y = 5.75f)
                     close()
                     moveTo(x = 18.5f, y = 5.75f)
                     lineTo(x = 15.5f, y = 15.25f)
-                    curveTo(x1 = 17.5769f, y1 = 16.4267f, x2 = 19.4231f, y2 = 16.4267f, x3 = 21.5f, y3 = 15.25f)
+                    curveTo(
+                        x1 = 17.5769f,
+                        y1 = 16.4267f,
+                        x2 = 19.4231f,
+                        y2 = 16.4267f,
+                        x3 = 21.5f,
+                        y3 = 15.25f,
+                    )
                     lineTo(x = 18.5f, y = 5.75f)
                     close()
                 }
@@ -75,9 +89,9 @@ private fun IconPreview() {
                 imageVector = Law,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

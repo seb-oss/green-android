@@ -42,9 +42,23 @@ val MacbookAir: ImageVector
                     verticalLineTo(y = 13.75f)
                     moveTo(x = 1.75f, y = 16.75f)
                     verticalLineTo(y = 18.25f)
-                    curveTo(x1 = 1.75f, y1 = 18.8023f, x2 = 2.19772f, y2 = 19.25f, x3 = 2.75f, y3 = 19.25f)
+                    curveTo(
+                        x1 = 1.75f,
+                        y1 = 18.8023f,
+                        x2 = 2.19772f,
+                        y2 = 19.25f,
+                        x3 = 2.75f,
+                        y3 = 19.25f,
+                    )
                     horizontalLineTo(x = 21.25f)
-                    curveTo(x1 = 21.8023f, y1 = 19.25f, x2 = 22.25f, y2 = 18.8023f, x3 = 22.25f, y3 = 18.25f)
+                    curveTo(
+                        x1 = 21.8023f,
+                        y1 = 19.25f,
+                        x2 = 22.25f,
+                        y2 = 18.8023f,
+                        x3 = 22.25f,
+                        y3 = 18.25f,
+                    )
                     verticalLineTo(y = 16.75f)
                     horizontalLineTo(x = 15.075f)
                     lineTo(x = 14.1f, y = 17.25f)
@@ -69,9 +83,9 @@ private fun IconPreview() {
                 imageVector = MacbookAir,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

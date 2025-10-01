@@ -34,17 +34,73 @@ val CircleMinus: ImageVector
                     pathFillType = PathFillType.EvenOdd,
                 ) {
                     moveTo(x = 2.0f, y = 12.0f)
-                    curveTo(x1 = 2.0f, y1 = 6.47715f, x2 = 6.47715f, y2 = 2.0f, x3 = 12.0f, y3 = 2.0f)
-                    curveTo(x1 = 17.5228f, y1 = 2.0f, x2 = 22.0f, y2 = 6.47715f, x3 = 22.0f, y3 = 12.0f)
-                    curveTo(x1 = 22.0f, y1 = 17.5228f, x2 = 17.5228f, y2 = 22.0f, x3 = 12.0f, y3 = 22.0f)
-                    curveTo(x1 = 6.47715f, y1 = 22.0f, x2 = 2.0f, y2 = 17.5228f, x3 = 2.0f, y3 = 12.0f)
+                    curveTo(
+                        x1 = 2.0f,
+                        y1 = 6.47715f,
+                        x2 = 6.47715f,
+                        y2 = 2.0f,
+                        x3 = 12.0f,
+                        y3 = 2.0f,
+                    )
+                    curveTo(
+                        x1 = 17.5228f,
+                        y1 = 2.0f,
+                        x2 = 22.0f,
+                        y2 = 6.47715f,
+                        x3 = 22.0f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 22.0f,
+                        y1 = 17.5228f,
+                        x2 = 17.5228f,
+                        y2 = 22.0f,
+                        x3 = 12.0f,
+                        y3 = 22.0f,
+                    )
+                    curveTo(
+                        x1 = 6.47715f,
+                        y1 = 22.0f,
+                        x2 = 2.0f,
+                        y2 = 17.5228f,
+                        x3 = 2.0f,
+                        y3 = 12.0f,
+                    )
                     close()
                     moveTo(x = 16.2426f, y = 12.7505f)
-                    curveTo(x1 = 16.6569f, y1 = 12.7505f, x2 = 16.9926f, y2 = 12.4147f, x3 = 16.9926f, y3 = 12.0005f)
-                    curveTo(x1 = 16.9926f, y1 = 11.5862f, x2 = 16.6569f, y2 = 11.2505f, x3 = 16.2426f, y3 = 11.2505f)
+                    curveTo(
+                        x1 = 16.6569f,
+                        y1 = 12.7505f,
+                        x2 = 16.9926f,
+                        y2 = 12.4147f,
+                        x3 = 16.9926f,
+                        y3 = 12.0005f,
+                    )
+                    curveTo(
+                        x1 = 16.9926f,
+                        y1 = 11.5862f,
+                        x2 = 16.6569f,
+                        y2 = 11.2505f,
+                        x3 = 16.2426f,
+                        y3 = 11.2505f,
+                    )
                     horizontalLineTo(x = 7.75736f)
-                    curveTo(x1 = 7.34315f, y1 = 11.2505f, x2 = 7.00736f, y2 = 11.5862f, x3 = 7.00736f, y3 = 12.0005f)
-                    curveTo(x1 = 7.00736f, y1 = 12.4147f, x2 = 7.34315f, y2 = 12.7505f, x3 = 7.75736f, y3 = 12.7505f)
+                    curveTo(
+                        x1 = 7.34315f,
+                        y1 = 11.2505f,
+                        x2 = 7.00736f,
+                        y2 = 11.5862f,
+                        x3 = 7.00736f,
+                        y3 = 12.0005f,
+                    )
+                    curveTo(
+                        x1 = 7.00736f,
+                        y1 = 12.4147f,
+                        x2 = 7.34315f,
+                        y2 = 12.7505f,
+                        x3 = 7.75736f,
+                        y3 = 12.7505f,
+                    )
                     horizontalLineTo(x = 16.2426f)
                     close()
                 }
@@ -64,9 +120,9 @@ private fun IconPreview() {
                 imageVector = CircleMinus,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

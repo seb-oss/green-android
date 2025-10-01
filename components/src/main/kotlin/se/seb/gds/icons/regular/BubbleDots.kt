@@ -52,22 +52,106 @@ val BubbleDots: ImageVector
                     strokeLineWidth = 0.5f,
                 ) {
                     moveTo(x = 7.25f, y = 11.25f)
-                    curveTo(x1 = 7.25f, y1 = 11.6642f, x2 = 7.58579f, y2 = 12.0f, x3 = 8.0f, y3 = 12.0f)
-                    curveTo(x1 = 8.41421f, y1 = 12.0f, x2 = 8.75f, y2 = 11.6642f, x3 = 8.75f, y3 = 11.25f)
-                    curveTo(x1 = 8.75f, y1 = 10.8358f, x2 = 8.41421f, y2 = 10.5f, x3 = 8.0f, y3 = 10.5f)
-                    curveTo(x1 = 7.58579f, y1 = 10.5f, x2 = 7.25f, y2 = 10.8358f, x3 = 7.25f, y3 = 11.25f)
+                    curveTo(
+                        x1 = 7.25f,
+                        y1 = 11.6642f,
+                        x2 = 7.58579f,
+                        y2 = 12.0f,
+                        x3 = 8.0f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 8.41421f,
+                        y1 = 12.0f,
+                        x2 = 8.75f,
+                        y2 = 11.6642f,
+                        x3 = 8.75f,
+                        y3 = 11.25f,
+                    )
+                    curveTo(
+                        x1 = 8.75f,
+                        y1 = 10.8358f,
+                        x2 = 8.41421f,
+                        y2 = 10.5f,
+                        x3 = 8.0f,
+                        y3 = 10.5f,
+                    )
+                    curveTo(
+                        x1 = 7.58579f,
+                        y1 = 10.5f,
+                        x2 = 7.25f,
+                        y2 = 10.8358f,
+                        x3 = 7.25f,
+                        y3 = 11.25f,
+                    )
                     close()
                     moveTo(x = 11.25f, y = 11.25f)
-                    curveTo(x1 = 11.25f, y1 = 11.6642f, x2 = 11.5858f, y2 = 12.0f, x3 = 12.0f, y3 = 12.0f)
-                    curveTo(x1 = 12.4142f, y1 = 12.0f, x2 = 12.75f, y2 = 11.6642f, x3 = 12.75f, y3 = 11.25f)
-                    curveTo(x1 = 12.75f, y1 = 10.8358f, x2 = 12.4142f, y2 = 10.5f, x3 = 12.0f, y3 = 10.5f)
-                    curveTo(x1 = 11.5858f, y1 = 10.5f, x2 = 11.25f, y2 = 10.8358f, x3 = 11.25f, y3 = 11.25f)
+                    curveTo(
+                        x1 = 11.25f,
+                        y1 = 11.6642f,
+                        x2 = 11.5858f,
+                        y2 = 12.0f,
+                        x3 = 12.0f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 12.4142f,
+                        y1 = 12.0f,
+                        x2 = 12.75f,
+                        y2 = 11.6642f,
+                        x3 = 12.75f,
+                        y3 = 11.25f,
+                    )
+                    curveTo(
+                        x1 = 12.75f,
+                        y1 = 10.8358f,
+                        x2 = 12.4142f,
+                        y2 = 10.5f,
+                        x3 = 12.0f,
+                        y3 = 10.5f,
+                    )
+                    curveTo(
+                        x1 = 11.5858f,
+                        y1 = 10.5f,
+                        x2 = 11.25f,
+                        y2 = 10.8358f,
+                        x3 = 11.25f,
+                        y3 = 11.25f,
+                    )
                     close()
                     moveTo(x = 15.25f, y = 11.25f)
-                    curveTo(x1 = 15.25f, y1 = 11.6642f, x2 = 15.5858f, y2 = 12.0f, x3 = 16.0f, y3 = 12.0f)
-                    curveTo(x1 = 16.4142f, y1 = 12.0f, x2 = 16.75f, y2 = 11.6642f, x3 = 16.75f, y3 = 11.25f)
-                    curveTo(x1 = 16.75f, y1 = 10.8358f, x2 = 16.4142f, y2 = 10.5f, x3 = 16.0f, y3 = 10.5f)
-                    curveTo(x1 = 15.5858f, y1 = 10.5f, x2 = 15.25f, y2 = 10.8358f, x3 = 15.25f, y3 = 11.25f)
+                    curveTo(
+                        x1 = 15.25f,
+                        y1 = 11.6642f,
+                        x2 = 15.5858f,
+                        y2 = 12.0f,
+                        x3 = 16.0f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 16.4142f,
+                        y1 = 12.0f,
+                        x2 = 16.75f,
+                        y2 = 11.6642f,
+                        x3 = 16.75f,
+                        y3 = 11.25f,
+                    )
+                    curveTo(
+                        x1 = 16.75f,
+                        y1 = 10.8358f,
+                        x2 = 16.4142f,
+                        y2 = 10.5f,
+                        x3 = 16.0f,
+                        y3 = 10.5f,
+                    )
+                    curveTo(
+                        x1 = 15.5858f,
+                        y1 = 10.5f,
+                        x2 = 15.25f,
+                        y2 = 10.8358f,
+                        x3 = 15.25f,
+                        y3 = 11.25f,
+                    )
                     close()
                 }
             }.build()
@@ -86,9 +170,9 @@ private fun IconPreview() {
                 imageVector = BubbleDots,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

@@ -34,20 +34,76 @@ val BarsTwo: ImageVector
                     pathFillType = PathFillType.EvenOdd,
                 ) {
                     moveTo(x = 2.0f, y = 7.25f)
-                    curveTo(x1 = 2.0f, y1 = 6.83579f, x2 = 2.33579f, y2 = 6.5f, x3 = 2.75f, y3 = 6.5f)
+                    curveTo(
+                        x1 = 2.0f,
+                        y1 = 6.83579f,
+                        x2 = 2.33579f,
+                        y2 = 6.5f,
+                        x3 = 2.75f,
+                        y3 = 6.5f,
+                    )
                     horizontalLineTo(x = 21.25f)
-                    curveTo(x1 = 21.6642f, y1 = 6.5f, x2 = 22.0f, y2 = 6.83579f, x3 = 22.0f, y3 = 7.25f)
-                    curveTo(x1 = 22.0f, y1 = 7.66421f, x2 = 21.6642f, y2 = 8.0f, x3 = 21.25f, y3 = 8.0f)
+                    curveTo(
+                        x1 = 21.6642f,
+                        y1 = 6.5f,
+                        x2 = 22.0f,
+                        y2 = 6.83579f,
+                        x3 = 22.0f,
+                        y3 = 7.25f,
+                    )
+                    curveTo(
+                        x1 = 22.0f,
+                        y1 = 7.66421f,
+                        x2 = 21.6642f,
+                        y2 = 8.0f,
+                        x3 = 21.25f,
+                        y3 = 8.0f,
+                    )
                     horizontalLineTo(x = 2.75f)
-                    curveTo(x1 = 2.33579f, y1 = 8.0f, x2 = 2.0f, y2 = 7.66421f, x3 = 2.0f, y3 = 7.25f)
+                    curveTo(
+                        x1 = 2.33579f,
+                        y1 = 8.0f,
+                        x2 = 2.0f,
+                        y2 = 7.66421f,
+                        x3 = 2.0f,
+                        y3 = 7.25f,
+                    )
                     close()
                     moveTo(x = 2.0f, y = 16.75f)
-                    curveTo(x1 = 2.0f, y1 = 16.3358f, x2 = 2.33579f, y2 = 16.0f, x3 = 2.75f, y3 = 16.0f)
+                    curveTo(
+                        x1 = 2.0f,
+                        y1 = 16.3358f,
+                        x2 = 2.33579f,
+                        y2 = 16.0f,
+                        x3 = 2.75f,
+                        y3 = 16.0f,
+                    )
                     horizontalLineTo(x = 21.25f)
-                    curveTo(x1 = 21.6642f, y1 = 16.0f, x2 = 22.0f, y2 = 16.3358f, x3 = 22.0f, y3 = 16.75f)
-                    curveTo(x1 = 22.0f, y1 = 17.1642f, x2 = 21.6642f, y2 = 17.5f, x3 = 21.25f, y3 = 17.5f)
+                    curveTo(
+                        x1 = 21.6642f,
+                        y1 = 16.0f,
+                        x2 = 22.0f,
+                        y2 = 16.3358f,
+                        x3 = 22.0f,
+                        y3 = 16.75f,
+                    )
+                    curveTo(
+                        x1 = 22.0f,
+                        y1 = 17.1642f,
+                        x2 = 21.6642f,
+                        y2 = 17.5f,
+                        x3 = 21.25f,
+                        y3 = 17.5f,
+                    )
                     horizontalLineTo(x = 2.75f)
-                    curveTo(x1 = 2.33579f, y1 = 17.5f, x2 = 2.0f, y2 = 17.1642f, x3 = 2.0f, y3 = 16.75f)
+                    curveTo(
+                        x1 = 2.33579f,
+                        y1 = 17.5f,
+                        x2 = 2.0f,
+                        y2 = 17.1642f,
+                        x3 = 2.0f,
+                        y3 = 16.75f,
+                    )
                     close()
                 }
             }.build()
@@ -66,9 +122,9 @@ private fun IconPreview() {
                 imageVector = BarsTwo,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

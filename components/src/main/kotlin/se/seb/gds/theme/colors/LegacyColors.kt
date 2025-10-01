@@ -318,9 +318,7 @@ data class LegacyColors(
     }
 }
 
-data class UtilityColors(
-    val UtilityTestColor: Color,
-) {
+data class UtilityColors(val UtilityTestColor: Color) {
     companion object {
         private val lightColors =
             UtilityColors(

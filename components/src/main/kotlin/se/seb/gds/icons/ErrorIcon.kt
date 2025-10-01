@@ -28,9 +28,9 @@ private fun ErrorIconPreview() {
     GdsTheme {
         Card(
             modifier =
-                Modifier
-                    .background(GdsTheme.colors.ContentNeutral01)
-                    .fillMaxWidth(),
+            Modifier
+                .background(GdsTheme.colors.ContentNeutral01)
+                .fillMaxWidth(),
         ) {
             ErrorIcon()
         }

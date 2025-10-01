@@ -37,7 +37,14 @@ val PieChart: ImageVector
                     strokeLineWidth = 1.5f,
                 ) {
                     moveTo(x = 21.25f, y = 9.25f)
-                    curveTo(x1 = 20.7693f, y1 = 5.88913f, x2 = 18.1109f, y2 = 3.23074f, x3 = 14.75f, y3 = 2.75f)
+                    curveTo(
+                        x1 = 20.7693f,
+                        y1 = 5.88913f,
+                        x2 = 18.1109f,
+                        y2 = 3.23074f,
+                        x3 = 14.75f,
+                        y3 = 2.75f,
+                    )
                     verticalLineTo(y = 9.25f)
                     horizontalLineTo(x = 21.25f)
                     close()
@@ -49,13 +56,48 @@ val PieChart: ImageVector
                     strokeLineWidth = 1.5f,
                 ) {
                     moveTo(x = 19.25f, y = 13.0f)
-                    curveTo(x1 = 19.25f, y1 = 17.5563f, x2 = 15.5563f, y2 = 21.25f, x3 = 11.0f, y3 = 21.25f)
-                    curveTo(x1 = 6.44365f, y1 = 21.25f, x2 = 2.75f, y2 = 17.5563f, x3 = 2.75f, y3 = 13.0f)
-                    curveTo(x1 = 2.75f, y1 = 8.44365f, x2 = 6.44365f, y2 = 4.75f, x3 = 11.0f, y3 = 4.75f)
-                    curveTo(x1 = 11.085f, y1 = 4.75f, x2 = 11.1697f, y2 = 4.75129f, x3 = 11.2541f, y3 = 4.75384f)
+                    curveTo(
+                        x1 = 19.25f,
+                        y1 = 17.5563f,
+                        x2 = 15.5563f,
+                        y2 = 21.25f,
+                        x3 = 11.0f,
+                        y3 = 21.25f,
+                    )
+                    curveTo(
+                        x1 = 6.44365f,
+                        y1 = 21.25f,
+                        x2 = 2.75f,
+                        y2 = 17.5563f,
+                        x3 = 2.75f,
+                        y3 = 13.0f,
+                    )
+                    curveTo(
+                        x1 = 2.75f,
+                        y1 = 8.44365f,
+                        x2 = 6.44365f,
+                        y2 = 4.75f,
+                        x3 = 11.0f,
+                        y3 = 4.75f,
+                    )
+                    curveTo(
+                        x1 = 11.085f,
+                        y1 = 4.75f,
+                        x2 = 11.1697f,
+                        y2 = 4.75129f,
+                        x3 = 11.2541f,
+                        y3 = 4.75384f,
+                    )
                     verticalLineTo(y = 12.7502f)
                     horizontalLineTo(x = 19.2463f)
-                    curveTo(x1 = 19.2488f, y1 = 12.8332f, x2 = 19.25f, y2 = 12.9164f, x3 = 19.25f, y3 = 13.0f)
+                    curveTo(
+                        x1 = 19.2488f,
+                        y1 = 12.8332f,
+                        x2 = 19.25f,
+                        y2 = 12.9164f,
+                        x3 = 19.25f,
+                        y3 = 13.0f,
+                    )
                     close()
                 }
             }.build()
@@ -74,9 +116,9 @@ private fun IconPreview() {
                 imageVector = PieChart,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

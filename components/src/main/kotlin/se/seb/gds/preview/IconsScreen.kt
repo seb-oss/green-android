@@ -55,23 +55,23 @@ fun IconsScreen() {
 
     Column(
         modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
+        Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp),
     ) {
         OutlinedTextField(
             value = filterText,
             onValueChange = { filterText = it },
             modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 16.dp),
+            Modifier
+                .fillMaxWidth()
+                .padding(bottom = 16.dp),
             label = { Text("Filter Icons") },
             keyboardOptions =
-                KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
-                    imeAction = ImeAction.Done,
-                ),
+            KeyboardOptions(
+                keyboardType = KeyboardType.Text,
+                imeAction = ImeAction.Done,
+            ),
         )
 
         LazyVerticalGrid(
@@ -79,7 +79,7 @@ fun IconsScreen() {
             contentPadding = PaddingValues(horizontal = 0.dp, vertical = 8.dp),
         ) {
             items(filteredIconList) { (name, imageVector) ->
-                IconPreviewCard(name, imageVector) // A custom composable to display the icon/name
+                IconPreviewCard(name, imageVector)
             }
         }
     }
@@ -90,48 +90,39 @@ fun IconPreviewCard(
     fullName: String,
     imageVector: ImageVector,
 ) {
-    // 1. Use an ElevatedCard for a subtle lift effect
     CardColumn(
-        // Add padding to the card itself and set a reasonable size for the preview slot
-        modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(4.dp) // Margin/Spacing between cards
-                .aspectRatio(1f),
-        // Ensures the card is square (good for grids)
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(4.dp)
+            .aspectRatio(1f),
     ) {
         Column(
-            // Fill the space inside the card and add padding inside the column
-            modifier =
-                Modifier
-                    .fillMaxSize()
-                    .padding(8.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center, // Center content vertically
+            verticalArrangement = Arrangement.Center,
         ) {
-            // 3. Icon (styled with theme color and larger size)
             Icon(
                 imageVector = imageVector,
                 contentDescription = fullName,
-                // Tint the icon using the primary color or the default content color
                 tint = GdsTheme.colors.ContentNeutral01,
                 modifier =
-                    Modifier
-                        .size(40.dp) // Make the icon a bit larger
-                        .weight(1f) // Allows the icon to take up available vertical space
-                        .wrapContentSize(Alignment.Center), // Centers the icon within its weight container
+                Modifier
+                    .size(40.dp)
+                    .weight(1f)
+                    .wrapContentSize(Alignment.Center),
             )
 
-            Spacer(modifier = Modifier.height(4.dp)) // Small gap between icon and name
+            Spacer(modifier = Modifier.height(4.dp))
 
-            // 4. Text (styled for small, clear labels)
             val text = fullName.split(".").joinToString("\n")
             Text(
                 text = text,
                 style = MaterialTheme.typography.labelSmall,
                 textAlign = TextAlign.Center,
                 maxLines = 2,
-                overflow = TextOverflow.Ellipsis, // Handles long names cleanly
+                overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.fillMaxWidth(),
             )
         }

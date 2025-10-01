@@ -35,16 +35,79 @@ val CirclesThree: ImageVector
                     strokeLineWidth = 1.5f,
                 ) {
                     moveTo(x = 14.6766f, y = 7.38126f)
-                    curveTo(x1 = 13.686f, y1 = 5.23749f, x2 = 11.5167f, y2 = 3.75f, x3 = 9.0f, y3 = 3.75f)
-                    curveTo(x1 = 5.54822f, y1 = 3.75f, x2 = 2.75f, y2 = 6.54822f, x3 = 2.75f, y3 = 10.0f)
-                    curveTo(x1 = 2.75f, y1 = 13.3961f, x2 = 5.45873f, y2 = 16.1596f, x3 = 8.83359f, y3 = 16.2478f)
+                    curveTo(
+                        x1 = 13.686f,
+                        y1 = 5.23749f,
+                        x2 = 11.5167f,
+                        y2 = 3.75f,
+                        x3 = 9.0f,
+                        y3 = 3.75f,
+                    )
+                    curveTo(
+                        x1 = 5.54822f,
+                        y1 = 3.75f,
+                        x2 = 2.75f,
+                        y2 = 6.54822f,
+                        x3 = 2.75f,
+                        y3 = 10.0f,
+                    )
+                    curveTo(
+                        x1 = 2.75f,
+                        y1 = 13.3961f,
+                        x2 = 5.45873f,
+                        y2 = 16.1596f,
+                        x3 = 8.83359f,
+                        y3 = 16.2478f,
+                    )
                     moveTo(x = 21.25f, y = 14.0f)
-                    curveTo(x1 = 21.25f, y1 = 17.4518f, x2 = 18.4518f, y2 = 20.25f, x3 = 15.0f, y3 = 20.25f)
-                    curveTo(x1 = 12.3406f, y1 = 20.25f, x2 = 10.0691f, y2 = 18.589f, x3 = 9.16641f, y3 = 16.2478f)
-                    curveTo(x1 = 8.89745f, y1 = 15.5503f, x2 = 8.75f, y2 = 14.7924f, x3 = 8.75f, y3 = 14.0f)
-                    curveTo(x1 = 8.75f, y1 = 10.6039f, x2 = 11.4587f, y2 = 7.84038f, x3 = 14.8336f, y3 = 7.75217f)
-                    curveTo(x1 = 14.8889f, y1 = 7.75073f, x2 = 14.9444f, y2 = 7.75f, x3 = 15.0f, y3 = 7.75f)
-                    curveTo(x1 = 18.4518f, y1 = 7.75f, x2 = 21.25f, y2 = 10.5482f, x3 = 21.25f, y3 = 14.0f)
+                    curveTo(
+                        x1 = 21.25f,
+                        y1 = 17.4518f,
+                        x2 = 18.4518f,
+                        y2 = 20.25f,
+                        x3 = 15.0f,
+                        y3 = 20.25f,
+                    )
+                    curveTo(
+                        x1 = 12.3406f,
+                        y1 = 20.25f,
+                        x2 = 10.0691f,
+                        y2 = 18.589f,
+                        x3 = 9.16641f,
+                        y3 = 16.2478f,
+                    )
+                    curveTo(
+                        x1 = 8.89745f,
+                        y1 = 15.5503f,
+                        x2 = 8.75f,
+                        y2 = 14.7924f,
+                        x3 = 8.75f,
+                        y3 = 14.0f,
+                    )
+                    curveTo(
+                        x1 = 8.75f,
+                        y1 = 10.6039f,
+                        x2 = 11.4587f,
+                        y2 = 7.84038f,
+                        x3 = 14.8336f,
+                        y3 = 7.75217f,
+                    )
+                    curveTo(
+                        x1 = 14.8889f,
+                        y1 = 7.75073f,
+                        x2 = 14.9444f,
+                        y2 = 7.75f,
+                        x3 = 15.0f,
+                        y3 = 7.75f,
+                    )
+                    curveTo(
+                        x1 = 18.4518f,
+                        y1 = 7.75f,
+                        x2 = 21.25f,
+                        y2 = 10.5482f,
+                        x3 = 21.25f,
+                        y3 = 14.0f,
+                    )
                     close()
                 }
             }.build()
@@ -63,9 +126,9 @@ private fun IconPreview() {
                 imageVector = CirclesThree,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

@@ -43,7 +43,14 @@ val CreditCard: ImageVector
                     moveTo(x = 2.75f, y = 9.75005f)
                     verticalLineTo(y = 4.75293f)
                     horizontalLineTo(x = 21.2422f)
-                    curveTo(x1 = 21.247f, y1 = 6.41863f, x2 = 21.2461f, y2 = 8.08434f, x3 = 21.2461f, y3 = 9.75005f)
+                    curveTo(
+                        x1 = 21.247f,
+                        y1 = 6.41863f,
+                        x2 = 21.2461f,
+                        y2 = 8.08434f,
+                        x3 = 21.2461f,
+                        y3 = 9.75005f,
+                    )
                     moveTo(x = 2.75f, y = 9.75005f)
                     horizontalLineTo(x = 21.2461f)
                     moveTo(x = 6.75f, y = 13.25f)
@@ -65,9 +72,9 @@ private fun IconPreview() {
                 imageVector = CreditCard,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

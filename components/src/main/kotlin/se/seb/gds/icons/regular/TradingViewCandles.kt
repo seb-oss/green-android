@@ -77,9 +77,9 @@ private fun IconPreview() {
                 imageVector = TradingViewCandles,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((20.0).dp)
-                        .height((20.0).dp),
+                Modifier
+                    .width((20.0).dp)
+                    .height((20.0).dp),
             )
         }
     }

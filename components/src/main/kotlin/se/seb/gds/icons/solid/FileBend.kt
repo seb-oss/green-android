@@ -33,14 +33,42 @@ val FileBend: ImageVector
                 ) {
                     moveTo(x = 12.0f, y = 2.0f)
                     horizontalLineTo(x = 4.75f)
-                    curveTo(x1 = 4.33579f, y1 = 2.0f, x2 = 4.0f, y2 = 2.33579f, x3 = 4.0f, y3 = 2.75f)
+                    curveTo(
+                        x1 = 4.33579f,
+                        y1 = 2.0f,
+                        x2 = 4.0f,
+                        y2 = 2.33579f,
+                        x3 = 4.0f,
+                        y3 = 2.75f,
+                    )
                     verticalLineTo(y = 21.25f)
-                    curveTo(x1 = 4.0f, y1 = 21.6642f, x2 = 4.33579f, y2 = 22.0f, x3 = 4.75f, y3 = 22.0f)
+                    curveTo(
+                        x1 = 4.0f,
+                        y1 = 21.6642f,
+                        x2 = 4.33579f,
+                        y2 = 22.0f,
+                        x3 = 4.75f,
+                        y3 = 22.0f,
+                    )
                     horizontalLineTo(x = 19.25f)
-                    curveTo(x1 = 19.6642f, y1 = 22.0f, x2 = 20.0f, y2 = 21.6642f, x3 = 20.0f, y3 = 21.25f)
+                    curveTo(
+                        x1 = 19.6642f,
+                        y1 = 22.0f,
+                        x2 = 20.0f,
+                        y2 = 21.6642f,
+                        x3 = 20.0f,
+                        y3 = 21.25f,
+                    )
                     verticalLineTo(y = 10.0f)
                     horizontalLineTo(x = 12.75f)
-                    curveTo(x1 = 12.3358f, y1 = 10.0f, x2 = 12.0f, y2 = 9.66421f, x3 = 12.0f, y3 = 9.25f)
+                    curveTo(
+                        x1 = 12.3358f,
+                        y1 = 10.0f,
+                        x2 = 12.0f,
+                        y2 = 9.66421f,
+                        x3 = 12.0f,
+                        y3 = 9.25f,
+                    )
                     verticalLineTo(y = 2.0f)
                     close()
                 }
@@ -69,9 +97,9 @@ private fun IconPreview() {
                 imageVector = FileBend,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

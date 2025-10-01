@@ -37,11 +37,39 @@ val Megaphone: ImageVector
                     strokeLineWidth = 1.5f,
                 ) {
                     moveTo(x = 18.2478f, y = 14.0f)
-                    curveTo(x1 = 19.9047f, y1 = 14.0f, x2 = 21.2478f, y2 = 12.6569f, x3 = 21.2478f, y3 = 11.0f)
-                    curveTo(x1 = 21.2478f, y1 = 9.34315f, x2 = 19.9047f, y2 = 8.0f, x3 = 18.2478f, y3 = 8.0f)
+                    curveTo(
+                        x1 = 19.9047f,
+                        y1 = 14.0f,
+                        x2 = 21.2478f,
+                        y2 = 12.6569f,
+                        x3 = 21.2478f,
+                        y3 = 11.0f,
+                    )
+                    curveTo(
+                        x1 = 21.2478f,
+                        y1 = 9.34315f,
+                        x2 = 19.9047f,
+                        y2 = 8.0f,
+                        x3 = 18.2478f,
+                        y3 = 8.0f,
+                    )
                     moveTo(x = 12.5771f, y = 18.25f)
-                    curveTo(x1 = 12.1653f, y1 = 19.4152f, x2 = 11.054f, y2 = 20.25f, x3 = 9.7478f, y3 = 20.25f)
-                    curveTo(x1 = 8.09095f, y1 = 20.25f, x2 = 6.7478f, y2 = 18.9069f, x3 = 6.7478f, y3 = 17.25f)
+                    curveTo(
+                        x1 = 12.1653f,
+                        y1 = 19.4152f,
+                        x2 = 11.054f,
+                        y2 = 20.25f,
+                        x3 = 9.7478f,
+                        y3 = 20.25f,
+                    )
+                    curveTo(
+                        x1 = 8.09095f,
+                        y1 = 20.25f,
+                        x2 = 6.7478f,
+                        y2 = 18.9069f,
+                        x3 = 6.7478f,
+                        y3 = 17.25f,
+                    )
                     verticalLineTo(y = 15.75f)
                     moveTo(x = 6.75f, y = 6.25f)
                     verticalLineTo(y = 15.75f)
@@ -68,9 +96,9 @@ private fun IconPreview() {
                 imageVector = Megaphone,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

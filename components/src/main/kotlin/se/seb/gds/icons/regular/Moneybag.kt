@@ -37,14 +37,56 @@ val Moneybag: ImageVector
                     moveTo(x = 9.42188f, y = 7.75f)
                     horizontalLineTo(x = 14.5781f)
                     moveTo(x = 9.42188f, y = 7.75f)
-                    curveTo(x1 = 9.42188f, y1 = 7.75f, x2 = 3.74996f, y2 = 10.9722f, x3 = 3.75f, y3 = 16.1111f)
-                    curveTo(x1 = 3.75003f, y1 = 20.2435f, x2 = 7.85366f, y2 = 21.25f, x3 = 12.0f, y3 = 21.25f)
-                    curveTo(x1 = 16.1463f, y1 = 21.25f, x2 = 20.25f, y2 = 20.2435f, x3 = 20.25f, y3 = 16.1111f)
-                    curveTo(x1 = 20.25f, y1 = 10.9722f, x2 = 14.5781f, y2 = 7.75f, x3 = 14.5781f, y3 = 7.75f)
+                    curveTo(
+                        x1 = 9.42188f,
+                        y1 = 7.75f,
+                        x2 = 3.74996f,
+                        y2 = 10.9722f,
+                        x3 = 3.75f,
+                        y3 = 16.1111f,
+                    )
+                    curveTo(
+                        x1 = 3.75003f,
+                        y1 = 20.2435f,
+                        x2 = 7.85366f,
+                        y2 = 21.25f,
+                        x3 = 12.0f,
+                        y3 = 21.25f,
+                    )
+                    curveTo(
+                        x1 = 16.1463f,
+                        y1 = 21.25f,
+                        x2 = 20.25f,
+                        y2 = 20.2435f,
+                        x3 = 20.25f,
+                        y3 = 16.1111f,
+                    )
+                    curveTo(
+                        x1 = 20.25f,
+                        y1 = 10.9722f,
+                        x2 = 14.5781f,
+                        y2 = 7.75f,
+                        x3 = 14.5781f,
+                        y3 = 7.75f,
+                    )
                     moveTo(x = 9.42188f, y = 7.75f)
                     lineTo(x = 7.875f, y = 3.77778f)
-                    curveTo(x1 = 7.875f, y1 = 3.77778f, x2 = 9.42188f, y2 = 2.75f, x3 = 12.0f, y3 = 2.75f)
-                    curveTo(x1 = 14.5781f, y1 = 2.75f, x2 = 16.125f, y2 = 3.77778f, x3 = 16.125f, y3 = 3.77778f)
+                    curveTo(
+                        x1 = 7.875f,
+                        y1 = 3.77778f,
+                        x2 = 9.42188f,
+                        y2 = 2.75f,
+                        x3 = 12.0f,
+                        y3 = 2.75f,
+                    )
+                    curveTo(
+                        x1 = 14.5781f,
+                        y1 = 2.75f,
+                        x2 = 16.125f,
+                        y2 = 3.77778f,
+                        x3 = 16.125f,
+                        y3 = 3.77778f,
+                    )
                     lineTo(x = 14.5781f, y = 7.75f)
                 }
             }.build()
@@ -63,9 +105,9 @@ private fun IconPreview() {
                 imageVector = Moneybag,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

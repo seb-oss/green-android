@@ -40,8 +40,22 @@ val Shield: ImageVector
                     lineTo(x = 12.0f, y = 2.75f)
                     lineTo(x = 3.75f, y = 5.5f)
                     verticalLineTo(y = 11.9123f)
-                    curveTo(x1 = 3.75f, y1 = 16.8848f, x2 = 8.0f, y2 = 19.25f, x3 = 12.0f, y3 = 21.4079f)
-                    curveTo(x1 = 16.0f, y1 = 19.25f, x2 = 20.25f, y2 = 16.8848f, x3 = 20.25f, y3 = 11.9123f)
+                    curveTo(
+                        x1 = 3.75f,
+                        y1 = 16.8848f,
+                        x2 = 8.0f,
+                        y2 = 19.25f,
+                        x3 = 12.0f,
+                        y3 = 21.4079f,
+                    )
+                    curveTo(
+                        x1 = 16.0f,
+                        y1 = 19.25f,
+                        x2 = 20.25f,
+                        y2 = 16.8848f,
+                        x3 = 20.25f,
+                        y3 = 11.9123f,
+                    )
                     verticalLineTo(y = 5.5f)
                     close()
                 }
@@ -61,9 +75,9 @@ private fun IconPreview() {
                 imageVector = Shield,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

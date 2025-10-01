@@ -34,12 +34,40 @@ val MinusSmall: ImageVector
                     pathFillType = PathFillType.EvenOdd,
                 ) {
                     moveTo(x = 6.0f, y = 12.0f)
-                    curveTo(x1 = 6.0f, y1 = 11.5858f, x2 = 6.33579f, y2 = 11.25f, x3 = 6.75f, y3 = 11.25f)
+                    curveTo(
+                        x1 = 6.0f,
+                        y1 = 11.5858f,
+                        x2 = 6.33579f,
+                        y2 = 11.25f,
+                        x3 = 6.75f,
+                        y3 = 11.25f,
+                    )
                     horizontalLineTo(x = 17.25f)
-                    curveTo(x1 = 17.6642f, y1 = 11.25f, x2 = 18.0f, y2 = 11.5858f, x3 = 18.0f, y3 = 12.0f)
-                    curveTo(x1 = 18.0f, y1 = 12.4142f, x2 = 17.6642f, y2 = 12.75f, x3 = 17.25f, y3 = 12.75f)
+                    curveTo(
+                        x1 = 17.6642f,
+                        y1 = 11.25f,
+                        x2 = 18.0f,
+                        y2 = 11.5858f,
+                        x3 = 18.0f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 18.0f,
+                        y1 = 12.4142f,
+                        x2 = 17.6642f,
+                        y2 = 12.75f,
+                        x3 = 17.25f,
+                        y3 = 12.75f,
+                    )
                     horizontalLineTo(x = 6.75f)
-                    curveTo(x1 = 6.33579f, y1 = 12.75f, x2 = 6.0f, y2 = 12.4142f, x3 = 6.0f, y3 = 12.0f)
+                    curveTo(
+                        x1 = 6.33579f,
+                        y1 = 12.75f,
+                        x2 = 6.0f,
+                        y2 = 12.4142f,
+                        x3 = 6.0f,
+                        y3 = 12.0f,
+                    )
                     close()
                 }
             }.build()
@@ -58,9 +86,9 @@ private fun IconPreview() {
                 imageVector = MinusSmall,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

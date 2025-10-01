@@ -149,9 +149,9 @@ private fun ButtonContent(
     if (style.textButton) {
         TextButton(
             modifier =
-                modifier
-                    .then(widthModifier)
-                    .heightIn(min = sizeProfile.height),
+            modifier
+                .then(widthModifier)
+                .heightIn(min = sizeProfile.height),
             colors = style.colors,
             shape = sizeProfile.shape,
             enabled = enabled,
@@ -170,9 +170,9 @@ private fun ButtonContent(
     } else {
         Button(
             modifier =
-                modifier
-                    .then(widthModifier)
-                    .heightIn(min = sizeProfile.height),
+            modifier
+                .then(widthModifier)
+                .heightIn(min = sizeProfile.height),
             colors = style.colors,
             shape = sizeProfile.shape,
             enabled = enabled,

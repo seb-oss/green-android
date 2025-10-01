@@ -43,11 +43,11 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
     Column(
         modifier =
-            Modifier
-                .background(GdsTheme.colors.L1Neutral01)
-                .fillMaxSize()
-                .verticalScroll(scrollState)
-                .padding(16.dp),
+        Modifier
+            .background(GdsTheme.colors.L1Neutral01)
+            .fillMaxSize()
+            .verticalScroll(scrollState)
+            .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {

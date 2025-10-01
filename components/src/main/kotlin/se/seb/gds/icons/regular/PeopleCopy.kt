@@ -42,8 +42,22 @@ val PeopleCopy: ImageVector
                     verticalLineTo(y = 17.25f)
                     horizontalLineTo(x = 6.75f)
                     moveTo(x = 9.32626f, y = 21.25f)
-                    curveTo(x1 = 9.78713f, y1 = 18.9642f, x2 = 11.7046f, y2 = 17.25f, x3 = 14.0f, y3 = 17.25f)
-                    curveTo(x1 = 16.2954f, y1 = 17.25f, x2 = 18.2129f, y2 = 18.9642f, x3 = 18.6737f, y3 = 21.25f)
+                    curveTo(
+                        x1 = 9.78713f,
+                        y1 = 18.9642f,
+                        x2 = 11.7046f,
+                        y2 = 17.25f,
+                        x3 = 14.0f,
+                        y3 = 17.25f,
+                    )
+                    curveTo(
+                        x1 = 16.2954f,
+                        y1 = 17.25f,
+                        x2 = 18.2129f,
+                        y2 = 18.9642f,
+                        x3 = 18.6737f,
+                        y3 = 21.25f,
+                    )
                     moveTo(x = 9.32626f, y = 21.25f)
                     horizontalLineTo(x = 6.75f)
                     verticalLineTo(y = 6.75f)
@@ -53,10 +67,38 @@ val PeopleCopy: ImageVector
                     moveTo(x = 9.32626f, y = 21.25f)
                     horizontalLineTo(x = 18.6737f)
                     moveTo(x = 16.25f, y = 12.5f)
-                    curveTo(x1 = 16.25f, y1 = 13.7426f, x2 = 15.2426f, y2 = 14.75f, x3 = 14.0f, y3 = 14.75f)
-                    curveTo(x1 = 12.7574f, y1 = 14.75f, x2 = 11.75f, y2 = 13.7426f, x3 = 11.75f, y3 = 12.5f)
-                    curveTo(x1 = 11.75f, y1 = 11.2574f, x2 = 12.7574f, y2 = 10.25f, x3 = 14.0f, y3 = 10.25f)
-                    curveTo(x1 = 15.2426f, y1 = 10.25f, x2 = 16.25f, y2 = 11.2574f, x3 = 16.25f, y3 = 12.5f)
+                    curveTo(
+                        x1 = 16.25f,
+                        y1 = 13.7426f,
+                        x2 = 15.2426f,
+                        y2 = 14.75f,
+                        x3 = 14.0f,
+                        y3 = 14.75f,
+                    )
+                    curveTo(
+                        x1 = 12.7574f,
+                        y1 = 14.75f,
+                        x2 = 11.75f,
+                        y2 = 13.7426f,
+                        x3 = 11.75f,
+                        y3 = 12.5f,
+                    )
+                    curveTo(
+                        x1 = 11.75f,
+                        y1 = 11.2574f,
+                        x2 = 12.7574f,
+                        y2 = 10.25f,
+                        x3 = 14.0f,
+                        y3 = 10.25f,
+                    )
+                    curveTo(
+                        x1 = 15.2426f,
+                        y1 = 10.25f,
+                        x2 = 16.25f,
+                        y2 = 11.2574f,
+                        x3 = 16.25f,
+                        y3 = 12.5f,
+                    )
                     close()
                 }
             }.build()
@@ -75,9 +117,9 @@ private fun IconPreview() {
                 imageVector = PeopleCopy,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

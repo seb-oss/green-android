@@ -45,7 +45,14 @@ val Ticket: ImageVector
                     moveTo(x = 2.75f, y = 4.75f)
                     horizontalLineTo(x = 21.25f)
                     verticalLineTo(y = 9.25f)
-                    curveTo(x1 = 18.5f, y1 = 10.0f, x2 = 18.5f, y2 = 14.0f, x3 = 21.25f, y3 = 14.75f)
+                    curveTo(
+                        x1 = 18.5f,
+                        y1 = 10.0f,
+                        x2 = 18.5f,
+                        y2 = 14.0f,
+                        x3 = 21.25f,
+                        y3 = 14.75f,
+                    )
                     verticalLineTo(y = 19.25f)
                     horizontalLineTo(x = 2.75f)
                     verticalLineTo(y = 14.75f)
@@ -69,9 +76,9 @@ private fun IconPreview() {
                 imageVector = Ticket,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

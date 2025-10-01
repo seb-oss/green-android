@@ -35,8 +35,22 @@ val Heart: ImageVector
                     strokeLineWidth = 1.5f,
                 ) {
                     moveTo(x = 12.0f, y = 5.57193f)
-                    curveTo(x1 = 18.3331f, y1 = -0.86765f, x2 = 29.1898f, y2 = 11.0916f, x3 = 12.0f, y3 = 20.75f)
-                    curveTo(x1 = -5.18982f, y1 = 11.0916f, x2 = 5.66687f, y2 = -0.867651f, x3 = 12.0f, y3 = 5.57193f)
+                    curveTo(
+                        x1 = 18.3331f,
+                        y1 = -0.86765f,
+                        x2 = 29.1898f,
+                        y2 = 11.0916f,
+                        x3 = 12.0f,
+                        y3 = 20.75f,
+                    )
+                    curveTo(
+                        x1 = -5.18982f,
+                        y1 = 11.0916f,
+                        x2 = 5.66687f,
+                        y2 = -0.867651f,
+                        x3 = 12.0f,
+                        y3 = 5.57193f,
+                    )
                     close()
                 }
             }.build()
@@ -55,9 +69,9 @@ private fun IconPreview() {
                 imageVector = Heart,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

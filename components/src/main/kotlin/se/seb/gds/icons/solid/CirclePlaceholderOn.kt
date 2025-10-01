@@ -32,10 +32,38 @@ val CirclePlaceholderOn: ImageVector
                     fill = SolidColor(Color(0xFF000000)),
                 ) {
                     moveTo(x = 12.0f, y = 2.0f)
-                    curveTo(x1 = 6.47715f, y1 = 2.0f, x2 = 2.0f, y2 = 6.47715f, x3 = 2.0f, y3 = 12.0f)
-                    curveTo(x1 = 2.0f, y1 = 17.5228f, x2 = 6.47715f, y2 = 22.0f, x3 = 12.0f, y3 = 22.0f)
-                    curveTo(x1 = 17.5228f, y1 = 22.0f, x2 = 22.0f, y2 = 17.5228f, x3 = 22.0f, y3 = 12.0f)
-                    curveTo(x1 = 22.0f, y1 = 6.47715f, x2 = 17.5228f, y2 = 2.0f, x3 = 12.0f, y3 = 2.0f)
+                    curveTo(
+                        x1 = 6.47715f,
+                        y1 = 2.0f,
+                        x2 = 2.0f,
+                        y2 = 6.47715f,
+                        x3 = 2.0f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 2.0f,
+                        y1 = 17.5228f,
+                        x2 = 6.47715f,
+                        y2 = 22.0f,
+                        x3 = 12.0f,
+                        y3 = 22.0f,
+                    )
+                    curveTo(
+                        x1 = 17.5228f,
+                        y1 = 22.0f,
+                        x2 = 22.0f,
+                        y2 = 17.5228f,
+                        x3 = 22.0f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 22.0f,
+                        y1 = 6.47715f,
+                        x2 = 17.5228f,
+                        y2 = 2.0f,
+                        x3 = 12.0f,
+                        y3 = 2.0f,
+                    )
                     close()
                 }
             }.build()
@@ -54,9 +82,9 @@ private fun IconPreview() {
                 imageVector = CirclePlaceholderOn,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

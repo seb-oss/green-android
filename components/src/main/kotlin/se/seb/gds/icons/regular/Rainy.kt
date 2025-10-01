@@ -44,12 +44,54 @@ val Rainy: ImageVector
                     lineTo(x = 15.7773f, y = 20.25f)
                     moveTo(x = 9.42188f, y = 14.25f)
                     horizontalLineTo(x = 16.125f)
-                    curveTo(x1 = 18.4032f, y1 = 14.25f, x2 = 20.25f, y2 = 12.3777f, x3 = 20.25f, y3 = 10.0682f)
-                    curveTo(x1 = 20.25f, y1 = 7.75863f, x2 = 18.4032f, y2 = 5.88636f, x3 = 16.125f, y3 = 5.88636f)
-                    curveTo(x1 = 15.5908f, y1 = 5.88636f, x2 = 15.0803f, y2 = 5.98932f, x3 = 14.6117f, y3 = 6.17673f)
-                    curveTo(x1 = 13.7313f, y1 = 4.15838f, x2 = 11.7388f, y2 = 2.75f, x3 = 9.42188f, y3 = 2.75f)
-                    curveTo(x1 = 6.28939f, y1 = 2.75f, x2 = 3.75f, y2 = 5.32436f, x3 = 3.75f, y3 = 8.5f)
-                    curveTo(x1 = 3.75f, y1 = 11.6756f, x2 = 6.28939f, y2 = 14.25f, x3 = 9.42188f, y3 = 14.25f)
+                    curveTo(
+                        x1 = 18.4032f,
+                        y1 = 14.25f,
+                        x2 = 20.25f,
+                        y2 = 12.3777f,
+                        x3 = 20.25f,
+                        y3 = 10.0682f,
+                    )
+                    curveTo(
+                        x1 = 20.25f,
+                        y1 = 7.75863f,
+                        x2 = 18.4032f,
+                        y2 = 5.88636f,
+                        x3 = 16.125f,
+                        y3 = 5.88636f,
+                    )
+                    curveTo(
+                        x1 = 15.5908f,
+                        y1 = 5.88636f,
+                        x2 = 15.0803f,
+                        y2 = 5.98932f,
+                        x3 = 14.6117f,
+                        y3 = 6.17673f,
+                    )
+                    curveTo(
+                        x1 = 13.7313f,
+                        y1 = 4.15838f,
+                        x2 = 11.7388f,
+                        y2 = 2.75f,
+                        x3 = 9.42188f,
+                        y3 = 2.75f,
+                    )
+                    curveTo(
+                        x1 = 6.28939f,
+                        y1 = 2.75f,
+                        x2 = 3.75f,
+                        y2 = 5.32436f,
+                        x3 = 3.75f,
+                        y3 = 8.5f,
+                    )
+                    curveTo(
+                        x1 = 3.75f,
+                        y1 = 11.6756f,
+                        x2 = 6.28939f,
+                        y2 = 14.25f,
+                        x3 = 9.42188f,
+                        y3 = 14.25f,
+                    )
                     close()
                 }
             }.build()
@@ -68,9 +110,9 @@ private fun IconPreview() {
                 imageVector = Rainy,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

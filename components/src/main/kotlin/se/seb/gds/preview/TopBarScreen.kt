@@ -48,7 +48,7 @@ fun TopBarScreen() {
             },
             elevation = 4.dp,
             applyInsetsPadding = false,
-            centeredTitle = true
+            centeredTitle = true,
         )
     }
 }

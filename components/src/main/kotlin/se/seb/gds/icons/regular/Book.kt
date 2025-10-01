@@ -39,8 +39,22 @@ val Book: ImageVector
                     moveTo(x = 19.25f, y = 12.0f)
                     verticalLineTo(y = 16.75f)
                     horizontalLineTo(x = 7.0f)
-                    curveTo(x1 = 5.75736f, y1 = 16.75f, x2 = 4.75f, y2 = 17.7574f, x3 = 4.75f, y3 = 19.0f)
-                    curveTo(x1 = 4.75f, y1 = 20.2426f, x2 = 5.75736f, y2 = 21.25f, x3 = 7.0f, y3 = 21.25f)
+                    curveTo(
+                        x1 = 5.75736f,
+                        y1 = 16.75f,
+                        x2 = 4.75f,
+                        y2 = 17.7574f,
+                        x3 = 4.75f,
+                        y3 = 19.0f,
+                    )
+                    curveTo(
+                        x1 = 4.75f,
+                        y1 = 20.2426f,
+                        x2 = 5.75736f,
+                        y2 = 21.25f,
+                        x3 = 7.0f,
+                        y3 = 21.25f,
+                    )
                     horizontalLineTo(x = 10.0f)
                     moveTo(x = 8.75f, y = 7.0f)
                     horizontalLineTo(x = 15.25f)
@@ -50,9 +64,23 @@ val Book: ImageVector
                     horizontalLineTo(x = 19.25f)
                     verticalLineTo(y = 21.25f)
                     horizontalLineTo(x = 6.75f)
-                    curveTo(x1 = 5.64543f, y1 = 21.25f, x2 = 4.75f, y2 = 20.3546f, x3 = 4.75f, y3 = 19.25f)
+                    curveTo(
+                        x1 = 5.64543f,
+                        y1 = 21.25f,
+                        x2 = 4.75f,
+                        y2 = 20.3546f,
+                        x3 = 4.75f,
+                        y3 = 19.25f,
+                    )
                     verticalLineTo(y = 4.75f)
-                    curveTo(x1 = 4.75f, y1 = 3.64543f, x2 = 5.64543f, y2 = 2.75f, x3 = 6.75f, y3 = 2.75f)
+                    curveTo(
+                        x1 = 4.75f,
+                        y1 = 3.64543f,
+                        x2 = 5.64543f,
+                        y2 = 2.75f,
+                        x3 = 6.75f,
+                        y3 = 2.75f,
+                    )
                     close()
                 }
             }.build()
@@ -71,9 +99,9 @@ private fun IconPreview() {
                 imageVector = Book,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

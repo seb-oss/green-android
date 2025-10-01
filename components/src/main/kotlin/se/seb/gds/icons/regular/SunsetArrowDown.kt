@@ -53,8 +53,22 @@ val SunsetArrowDown: ImageVector
                     lineTo(x = 14.5f, y = 6.0f)
                     moveTo(x = 7.75f, y = 16.25f)
                     verticalLineTo(y = 16.0f)
-                    curveTo(x1 = 7.75f, y1 = 13.6528f, x2 = 9.65279f, y2 = 11.75f, x3 = 12.0f, y3 = 11.75f)
-                    curveTo(x1 = 14.3472f, y1 = 11.75f, x2 = 16.25f, y2 = 13.6528f, x3 = 16.25f, y3 = 16.0f)
+                    curveTo(
+                        x1 = 7.75f,
+                        y1 = 13.6528f,
+                        x2 = 9.65279f,
+                        y2 = 11.75f,
+                        x3 = 12.0f,
+                        y3 = 11.75f,
+                    )
+                    curveTo(
+                        x1 = 14.3472f,
+                        y1 = 11.75f,
+                        x2 = 16.25f,
+                        y2 = 13.6528f,
+                        x3 = 16.25f,
+                        y3 = 16.0f,
+                    )
                     verticalLineTo(y = 16.25f)
                 }
             }.build()
@@ -73,9 +87,9 @@ private fun IconPreview() {
                 imageVector = SunsetArrowDown,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

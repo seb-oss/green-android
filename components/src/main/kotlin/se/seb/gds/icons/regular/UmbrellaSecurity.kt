@@ -38,15 +38,43 @@ val UmbrellaSecurity: ImageVector
                 ) {
                     moveTo(x = 12.0f, y = 15.25f)
                     verticalLineTo(y = 19.3267f)
-                    curveTo(x1 = 12.0f, y1 = 20.3889f, x2 = 11.1389f, y2 = 21.25f, x3 = 10.0767f, y3 = 21.25f)
-                    curveTo(x1 = 9.15988f, y1 = 21.25f, x2 = 8.37054f, y2 = 20.6029f, x3 = 8.19074f, y3 = 19.7039f)
+                    curveTo(
+                        x1 = 12.0f,
+                        y1 = 20.3889f,
+                        x2 = 11.1389f,
+                        y2 = 21.25f,
+                        x3 = 10.0767f,
+                        y3 = 21.25f,
+                    )
+                    curveTo(
+                        x1 = 9.15988f,
+                        y1 = 21.25f,
+                        x2 = 8.37054f,
+                        y2 = 20.6029f,
+                        x3 = 8.19074f,
+                        y3 = 19.7039f,
+                    )
                     lineTo(x = 7.99996f, y = 18.75f)
                     moveTo(x = 12.0f, y = 2.75f)
                     verticalLineTo(y = 4.75f)
                     moveTo(x = 12.0f, y = 4.75f)
-                    curveTo(x1 = 7.43826f, y1 = 4.75f, x2 = 3.62751f, y2 = 7.96518f, x3 = 2.71021f, y3 = 12.253f)
+                    curveTo(
+                        x1 = 7.43826f,
+                        y1 = 4.75f,
+                        x2 = 3.62751f,
+                        y2 = 7.96518f,
+                        x3 = 2.71021f,
+                        y3 = 12.253f,
+                    )
                     horizontalLineTo(x = 21.2897f)
-                    curveTo(x1 = 20.3724f, y1 = 7.96518f, x2 = 16.5617f, y2 = 4.75f, x3 = 12.0f, y3 = 4.75f)
+                    curveTo(
+                        x1 = 20.3724f,
+                        y1 = 7.96518f,
+                        x2 = 16.5617f,
+                        y2 = 4.75f,
+                        x3 = 12.0f,
+                        y3 = 4.75f,
+                    )
                     close()
                 }
             }.build()
@@ -65,9 +93,9 @@ private fun IconPreview() {
                 imageVector = UmbrellaSecurity,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

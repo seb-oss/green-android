@@ -32,30 +32,114 @@ val DotGridOneVertical: ImageVector
                     fill = SolidColor(Color(0xFF000000)),
                 ) {
                     moveTo(x = 12.0f, y = 2.0f)
-                    curveTo(x1 = 11.0335f, y1 = 2.0f, x2 = 10.25f, y2 = 2.7835f, x3 = 10.25f, y3 = 3.75f)
-                    curveTo(x1 = 10.25f, y1 = 4.7165f, x2 = 11.0335f, y2 = 5.5f, x3 = 12.0f, y3 = 5.5f)
-                    curveTo(x1 = 12.9665f, y1 = 5.5f, x2 = 13.75f, y2 = 4.7165f, x3 = 13.75f, y3 = 3.75f)
-                    curveTo(x1 = 13.75f, y1 = 2.7835f, x2 = 12.9665f, y2 = 2.0f, x3 = 12.0f, y3 = 2.0f)
+                    curveTo(
+                        x1 = 11.0335f,
+                        y1 = 2.0f,
+                        x2 = 10.25f,
+                        y2 = 2.7835f,
+                        x3 = 10.25f,
+                        y3 = 3.75f,
+                    )
+                    curveTo(
+                        x1 = 10.25f,
+                        y1 = 4.7165f,
+                        x2 = 11.0335f,
+                        y2 = 5.5f,
+                        x3 = 12.0f,
+                        y3 = 5.5f,
+                    )
+                    curveTo(
+                        x1 = 12.9665f,
+                        y1 = 5.5f,
+                        x2 = 13.75f,
+                        y2 = 4.7165f,
+                        x3 = 13.75f,
+                        y3 = 3.75f,
+                    )
+                    curveTo(
+                        x1 = 13.75f,
+                        y1 = 2.7835f,
+                        x2 = 12.9665f,
+                        y2 = 2.0f,
+                        x3 = 12.0f,
+                        y3 = 2.0f,
+                    )
                     close()
                 }
                 path(
                     fill = SolidColor(Color(0xFF000000)),
                 ) {
                     moveTo(x = 12.0f, y = 10.25f)
-                    curveTo(x1 = 11.0335f, y1 = 10.25f, x2 = 10.25f, y2 = 11.0335f, x3 = 10.25f, y3 = 12.0f)
-                    curveTo(x1 = 10.25f, y1 = 12.9665f, x2 = 11.0335f, y2 = 13.75f, x3 = 12.0f, y3 = 13.75f)
-                    curveTo(x1 = 12.9665f, y1 = 13.75f, x2 = 13.75f, y2 = 12.9665f, x3 = 13.75f, y3 = 12.0f)
-                    curveTo(x1 = 13.75f, y1 = 11.0335f, x2 = 12.9665f, y2 = 10.25f, x3 = 12.0f, y3 = 10.25f)
+                    curveTo(
+                        x1 = 11.0335f,
+                        y1 = 10.25f,
+                        x2 = 10.25f,
+                        y2 = 11.0335f,
+                        x3 = 10.25f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 10.25f,
+                        y1 = 12.9665f,
+                        x2 = 11.0335f,
+                        y2 = 13.75f,
+                        x3 = 12.0f,
+                        y3 = 13.75f,
+                    )
+                    curveTo(
+                        x1 = 12.9665f,
+                        y1 = 13.75f,
+                        x2 = 13.75f,
+                        y2 = 12.9665f,
+                        x3 = 13.75f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 13.75f,
+                        y1 = 11.0335f,
+                        x2 = 12.9665f,
+                        y2 = 10.25f,
+                        x3 = 12.0f,
+                        y3 = 10.25f,
+                    )
                     close()
                 }
                 path(
                     fill = SolidColor(Color(0xFF000000)),
                 ) {
                     moveTo(x = 12.0f, y = 18.5f)
-                    curveTo(x1 = 11.0335f, y1 = 18.5f, x2 = 10.25f, y2 = 19.2835f, x3 = 10.25f, y3 = 20.25f)
-                    curveTo(x1 = 10.25f, y1 = 21.2165f, x2 = 11.0335f, y2 = 22.0f, x3 = 12.0f, y3 = 22.0f)
-                    curveTo(x1 = 12.9665f, y1 = 22.0f, x2 = 13.75f, y2 = 21.2165f, x3 = 13.75f, y3 = 20.25f)
-                    curveTo(x1 = 13.75f, y1 = 19.2835f, x2 = 12.9665f, y2 = 18.5f, x3 = 12.0f, y3 = 18.5f)
+                    curveTo(
+                        x1 = 11.0335f,
+                        y1 = 18.5f,
+                        x2 = 10.25f,
+                        y2 = 19.2835f,
+                        x3 = 10.25f,
+                        y3 = 20.25f,
+                    )
+                    curveTo(
+                        x1 = 10.25f,
+                        y1 = 21.2165f,
+                        x2 = 11.0335f,
+                        y2 = 22.0f,
+                        x3 = 12.0f,
+                        y3 = 22.0f,
+                    )
+                    curveTo(
+                        x1 = 12.9665f,
+                        y1 = 22.0f,
+                        x2 = 13.75f,
+                        y2 = 21.2165f,
+                        x3 = 13.75f,
+                        y3 = 20.25f,
+                    )
+                    curveTo(
+                        x1 = 13.75f,
+                        y1 = 19.2835f,
+                        x2 = 12.9665f,
+                        y2 = 18.5f,
+                        x3 = 12.0f,
+                        y3 = 18.5f,
+                    )
                     close()
                 }
             }.build()
@@ -74,9 +158,9 @@ private fun IconPreview() {
                 imageVector = DotGridOneVertical,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

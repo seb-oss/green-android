@@ -41,24 +41,115 @@ val Leisure: ImageVector
                     moveTo(x = 13.5f, y = 9.25f)
                     horizontalLineTo(x = 14.0f)
                     moveTo(x = 17.4492f, y = 12.7507f)
-                    curveTo(x1 = 17.1168f, y1 = 15.1864f, x2 = 15.1897f, y2 = 17.1146f, x3 = 12.7545f, y3 = 17.4487f)
+                    curveTo(
+                        x1 = 17.1168f,
+                        y1 = 15.1864f,
+                        x2 = 15.1897f,
+                        y2 = 17.1146f,
+                        x3 = 12.7545f,
+                        y3 = 17.4487f,
+                    )
                     moveTo(x = 9.25f, y = 9.25f)
-                    curveTo(x1 = 9.25f, y1 = 9.52614f, x2 = 9.02614f, y2 = 9.75f, x3 = 8.75f, y3 = 9.75f)
-                    curveTo(x1 = 8.47386f, y1 = 9.75f, x2 = 8.25f, y2 = 9.52614f, x3 = 8.25f, y3 = 9.25f)
-                    curveTo(x1 = 8.25f, y1 = 8.97386f, x2 = 8.47386f, y2 = 8.75f, x3 = 8.75f, y3 = 8.75f)
-                    curveTo(x1 = 9.02614f, y1 = 8.75f, x2 = 9.25f, y2 = 8.97386f, x3 = 9.25f, y3 = 9.25f)
+                    curveTo(
+                        x1 = 9.25f,
+                        y1 = 9.52614f,
+                        x2 = 9.02614f,
+                        y2 = 9.75f,
+                        x3 = 8.75f,
+                        y3 = 9.75f,
+                    )
+                    curveTo(
+                        x1 = 8.47386f,
+                        y1 = 9.75f,
+                        x2 = 8.25f,
+                        y2 = 9.52614f,
+                        x3 = 8.25f,
+                        y3 = 9.25f,
+                    )
+                    curveTo(
+                        x1 = 8.25f,
+                        y1 = 8.97386f,
+                        x2 = 8.47386f,
+                        y2 = 8.75f,
+                        x3 = 8.75f,
+                        y3 = 8.75f,
+                    )
+                    curveTo(
+                        x1 = 9.02614f,
+                        y1 = 8.75f,
+                        x2 = 9.25f,
+                        y2 = 8.97386f,
+                        x3 = 9.25f,
+                        y3 = 9.25f,
+                    )
                     close()
                     moveTo(x = 14.25f, y = 9.25f)
-                    curveTo(x1 = 14.25f, y1 = 9.52614f, x2 = 14.0261f, y2 = 9.75f, x3 = 13.75f, y3 = 9.75f)
-                    curveTo(x1 = 13.4739f, y1 = 9.75f, x2 = 13.25f, y2 = 9.52614f, x3 = 13.25f, y3 = 9.25f)
-                    curveTo(x1 = 13.25f, y1 = 8.97386f, x2 = 13.4739f, y2 = 8.75f, x3 = 13.75f, y3 = 8.75f)
-                    curveTo(x1 = 14.0261f, y1 = 8.75f, x2 = 14.25f, y2 = 8.97386f, x3 = 14.25f, y3 = 9.25f)
+                    curveTo(
+                        x1 = 14.25f,
+                        y1 = 9.52614f,
+                        x2 = 14.0261f,
+                        y2 = 9.75f,
+                        x3 = 13.75f,
+                        y3 = 9.75f,
+                    )
+                    curveTo(
+                        x1 = 13.4739f,
+                        y1 = 9.75f,
+                        x2 = 13.25f,
+                        y2 = 9.52614f,
+                        x3 = 13.25f,
+                        y3 = 9.25f,
+                    )
+                    curveTo(
+                        x1 = 13.25f,
+                        y1 = 8.97386f,
+                        x2 = 13.4739f,
+                        y2 = 8.75f,
+                        x3 = 13.75f,
+                        y3 = 8.75f,
+                    )
+                    curveTo(
+                        x1 = 14.0261f,
+                        y1 = 8.75f,
+                        x2 = 14.25f,
+                        y2 = 8.97386f,
+                        x3 = 14.25f,
+                        y3 = 9.25f,
+                    )
                     close()
                     moveTo(x = 21.25f, y = 12.0f)
-                    curveTo(x1 = 21.25f, y1 = 17.1086f, x2 = 17.1086f, y2 = 21.25f, x3 = 12.0f, y3 = 21.25f)
-                    curveTo(x1 = 6.89137f, y1 = 21.25f, x2 = 2.75f, y2 = 17.1086f, x3 = 2.75f, y3 = 12.0f)
-                    curveTo(x1 = 2.75f, y1 = 6.89137f, x2 = 6.89137f, y2 = 2.75f, x3 = 12.0f, y3 = 2.75f)
-                    curveTo(x1 = 17.1086f, y1 = 2.75f, x2 = 21.25f, y2 = 6.89137f, x3 = 21.25f, y3 = 12.0f)
+                    curveTo(
+                        x1 = 21.25f,
+                        y1 = 17.1086f,
+                        x2 = 17.1086f,
+                        y2 = 21.25f,
+                        x3 = 12.0f,
+                        y3 = 21.25f,
+                    )
+                    curveTo(
+                        x1 = 6.89137f,
+                        y1 = 21.25f,
+                        x2 = 2.75f,
+                        y2 = 17.1086f,
+                        x3 = 2.75f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 2.75f,
+                        y1 = 6.89137f,
+                        x2 = 6.89137f,
+                        y2 = 2.75f,
+                        x3 = 12.0f,
+                        y3 = 2.75f,
+                    )
+                    curveTo(
+                        x1 = 17.1086f,
+                        y1 = 2.75f,
+                        x2 = 21.25f,
+                        y2 = 6.89137f,
+                        x3 = 21.25f,
+                        y3 = 12.0f,
+                    )
                     close()
                 }
             }.build()
@@ -77,9 +168,9 @@ private fun IconPreview() {
                 imageVector = Leisure,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

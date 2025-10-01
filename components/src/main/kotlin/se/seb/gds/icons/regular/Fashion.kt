@@ -39,7 +39,14 @@ val Fashion: ImageVector
                     moveTo(x = 20.7125f, y = 11.5768f)
                     lineTo(x = 22.25f, y = 7.25f)
                     lineTo(x = 15.075f, y = 3.75f)
-                    curveTo(x1 = 14.0732f, y1 = 7.01444f, x2 = 9.92685f, y2 = 7.01444f, x3 = 8.925f, y3 = 3.75f)
+                    curveTo(
+                        x1 = 14.0732f,
+                        y1 = 7.01444f,
+                        x2 = 9.92685f,
+                        y2 = 7.01444f,
+                        x3 = 8.925f,
+                        y3 = 3.75f,
+                    )
                     lineTo(x = 1.75f, y = 7.25f)
                     lineTo(x = 3.2875f, y = 11.5768f)
                     lineTo(x = 5.75f, y = 10.45f)
@@ -65,9 +72,9 @@ private fun IconPreview() {
                 imageVector = Fashion,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

@@ -45,16 +45,72 @@ val CircleQuestionmark: ImageVector
                     moveTo(x = 12.0f, y = 16.0f)
                     verticalLineTo(y = 15.99f)
                     moveTo(x = 21.25f, y = 12.0f)
-                    curveTo(x1 = 21.25f, y1 = 17.1086f, x2 = 17.1086f, y2 = 21.25f, x3 = 12.0f, y3 = 21.25f)
-                    curveTo(x1 = 6.89137f, y1 = 21.25f, x2 = 2.75f, y2 = 17.1086f, x3 = 2.75f, y3 = 12.0f)
-                    curveTo(x1 = 2.75f, y1 = 6.89137f, x2 = 6.89137f, y2 = 2.75f, x3 = 12.0f, y3 = 2.75f)
-                    curveTo(x1 = 17.1086f, y1 = 2.75f, x2 = 21.25f, y2 = 6.89137f, x3 = 21.25f, y3 = 12.0f)
+                    curveTo(
+                        x1 = 21.25f,
+                        y1 = 17.1086f,
+                        x2 = 17.1086f,
+                        y2 = 21.25f,
+                        x3 = 12.0f,
+                        y3 = 21.25f,
+                    )
+                    curveTo(
+                        x1 = 6.89137f,
+                        y1 = 21.25f,
+                        x2 = 2.75f,
+                        y2 = 17.1086f,
+                        x3 = 2.75f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 2.75f,
+                        y1 = 6.89137f,
+                        x2 = 6.89137f,
+                        y2 = 2.75f,
+                        x3 = 12.0f,
+                        y3 = 2.75f,
+                    )
+                    curveTo(
+                        x1 = 17.1086f,
+                        y1 = 2.75f,
+                        x2 = 21.25f,
+                        y2 = 6.89137f,
+                        x3 = 21.25f,
+                        y3 = 12.0f,
+                    )
                     close()
                     moveTo(x = 12.25f, y = 16.0f)
-                    curveTo(x1 = 12.25f, y1 = 16.1381f, x2 = 12.1381f, y2 = 16.25f, x3 = 12.0f, y3 = 16.25f)
-                    curveTo(x1 = 11.8619f, y1 = 16.25f, x2 = 11.75f, y2 = 16.1381f, x3 = 11.75f, y3 = 16.0f)
-                    curveTo(x1 = 11.75f, y1 = 15.8619f, x2 = 11.8619f, y2 = 15.75f, x3 = 12.0f, y3 = 15.75f)
-                    curveTo(x1 = 12.1381f, y1 = 15.75f, x2 = 12.25f, y2 = 15.8619f, x3 = 12.25f, y3 = 16.0f)
+                    curveTo(
+                        x1 = 12.25f,
+                        y1 = 16.1381f,
+                        x2 = 12.1381f,
+                        y2 = 16.25f,
+                        x3 = 12.0f,
+                        y3 = 16.25f,
+                    )
+                    curveTo(
+                        x1 = 11.8619f,
+                        y1 = 16.25f,
+                        x2 = 11.75f,
+                        y2 = 16.1381f,
+                        x3 = 11.75f,
+                        y3 = 16.0f,
+                    )
+                    curveTo(
+                        x1 = 11.75f,
+                        y1 = 15.8619f,
+                        x2 = 11.8619f,
+                        y2 = 15.75f,
+                        x3 = 12.0f,
+                        y3 = 15.75f,
+                    )
+                    curveTo(
+                        x1 = 12.1381f,
+                        y1 = 15.75f,
+                        x2 = 12.25f,
+                        y2 = 15.8619f,
+                        x3 = 12.25f,
+                        y3 = 16.0f,
+                    )
                     close()
                 }
             }.build()
@@ -73,9 +129,9 @@ private fun IconPreview() {
                 imageVector = CircleQuestionmark,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

@@ -38,8 +38,24 @@ val EmojiSad: ImageVector
                 ) {
                     moveTo(x = 12.0f, y = 12.0f)
                     moveToRelative(dx = -9.25f, dy = 0.0f)
-                    arcToRelative(a = 9.25f, b = 9.25f, theta = 0.0f, isMoreThanHalf = true, isPositiveArc = true, dx1 = 18.5f, dy1 = 0.0f)
-                    arcToRelative(a = 9.25f, b = 9.25f, theta = 0.0f, isMoreThanHalf = true, isPositiveArc = true, dx1 = -18.5f, dy1 = 0.0f)
+                    arcToRelative(
+                        a = 9.25f,
+                        b = 9.25f,
+                        theta = 0.0f,
+                        isMoreThanHalf = true,
+                        isPositiveArc = true,
+                        dx1 = 18.5f,
+                        dy1 = 0.0f,
+                    )
+                    arcToRelative(
+                        a = 9.25f,
+                        b = 9.25f,
+                        theta = 0.0f,
+                        isMoreThanHalf = true,
+                        isPositiveArc = true,
+                        dx1 = -18.5f,
+                        dy1 = 0.0f,
+                    )
                     close()
                 }
                 path(
@@ -49,7 +65,14 @@ val EmojiSad: ImageVector
                     strokeLineWidth = 1.5f,
                 ) {
                     moveTo(x = 9.17188f, y = 15.4216f)
-                    curveTo(x1 = 10.734f, y1 = 13.8595f, x2 = 13.2666f, y2 = 13.8595f, x3 = 14.8287f, y3 = 15.4216f)
+                    curveTo(
+                        x1 = 10.734f,
+                        y1 = 13.8595f,
+                        x2 = 13.2666f,
+                        y2 = 13.8595f,
+                        x3 = 14.8287f,
+                        y3 = 15.4216f,
+                    )
                 }
                 path(
                     stroke = SolidColor(Color(0xFF000000)),
@@ -60,10 +83,38 @@ val EmojiSad: ImageVector
                     moveTo(x = 14.5f, y = 9.5f)
                     horizontalLineTo(x = 15.0f)
                     moveTo(x = 15.25f, y = 9.5f)
-                    curveTo(x1 = 15.25f, y1 = 9.77614f, x2 = 15.0261f, y2 = 10.0f, x3 = 14.75f, y3 = 10.0f)
-                    curveTo(x1 = 14.4739f, y1 = 10.0f, x2 = 14.25f, y2 = 9.77614f, x3 = 14.25f, y3 = 9.5f)
-                    curveTo(x1 = 14.25f, y1 = 9.22386f, x2 = 14.4739f, y2 = 9.0f, x3 = 14.75f, y3 = 9.0f)
-                    curveTo(x1 = 15.0261f, y1 = 9.0f, x2 = 15.25f, y2 = 9.22386f, x3 = 15.25f, y3 = 9.5f)
+                    curveTo(
+                        x1 = 15.25f,
+                        y1 = 9.77614f,
+                        x2 = 15.0261f,
+                        y2 = 10.0f,
+                        x3 = 14.75f,
+                        y3 = 10.0f,
+                    )
+                    curveTo(
+                        x1 = 14.4739f,
+                        y1 = 10.0f,
+                        x2 = 14.25f,
+                        y2 = 9.77614f,
+                        x3 = 14.25f,
+                        y3 = 9.5f,
+                    )
+                    curveTo(
+                        x1 = 14.25f,
+                        y1 = 9.22386f,
+                        x2 = 14.4739f,
+                        y2 = 9.0f,
+                        x3 = 14.75f,
+                        y3 = 9.0f,
+                    )
+                    curveTo(
+                        x1 = 15.0261f,
+                        y1 = 9.0f,
+                        x2 = 15.25f,
+                        y2 = 9.22386f,
+                        x3 = 15.25f,
+                        y3 = 9.5f,
+                    )
                     close()
                 }
                 path(
@@ -75,10 +126,38 @@ val EmojiSad: ImageVector
                     moveTo(x = 9.0f, y = 9.5f)
                     horizontalLineTo(x = 9.5f)
                     moveTo(x = 9.75f, y = 9.5f)
-                    curveTo(x1 = 9.75f, y1 = 9.77614f, x2 = 9.52614f, y2 = 10.0f, x3 = 9.25f, y3 = 10.0f)
-                    curveTo(x1 = 8.97386f, y1 = 10.0f, x2 = 8.75f, y2 = 9.77614f, x3 = 8.75f, y3 = 9.5f)
-                    curveTo(x1 = 8.75f, y1 = 9.22386f, x2 = 8.97386f, y2 = 9.0f, x3 = 9.25f, y3 = 9.0f)
-                    curveTo(x1 = 9.52614f, y1 = 9.0f, x2 = 9.75f, y2 = 9.22386f, x3 = 9.75f, y3 = 9.5f)
+                    curveTo(
+                        x1 = 9.75f,
+                        y1 = 9.77614f,
+                        x2 = 9.52614f,
+                        y2 = 10.0f,
+                        x3 = 9.25f,
+                        y3 = 10.0f,
+                    )
+                    curveTo(
+                        x1 = 8.97386f,
+                        y1 = 10.0f,
+                        x2 = 8.75f,
+                        y2 = 9.77614f,
+                        x3 = 8.75f,
+                        y3 = 9.5f,
+                    )
+                    curveTo(
+                        x1 = 8.75f,
+                        y1 = 9.22386f,
+                        x2 = 8.97386f,
+                        y2 = 9.0f,
+                        x3 = 9.25f,
+                        y3 = 9.0f,
+                    )
+                    curveTo(
+                        x1 = 9.52614f,
+                        y1 = 9.0f,
+                        x2 = 9.75f,
+                        y2 = 9.22386f,
+                        x3 = 9.75f,
+                        y3 = 9.5f,
+                    )
                     close()
                 }
             }.build()
@@ -97,9 +176,9 @@ private fun IconPreview() {
                 imageVector = EmojiSad,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

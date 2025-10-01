@@ -37,8 +37,22 @@ val Television: ImageVector
                     strokeLineWidth = 1.5f,
                 ) {
                     moveTo(x = 18.0f, y = 20.25f)
-                    curveTo(x1 = 16.114f, y1 = 19.6013f, x2 = 14.0967f, y2 = 19.25f, x3 = 12.0f, y3 = 19.25f)
-                    curveTo(x1 = 9.90334f, y1 = 19.25f, x2 = 7.88601f, y2 = 19.6013f, x3 = 6.0f, y3 = 20.25f)
+                    curveTo(
+                        x1 = 16.114f,
+                        y1 = 19.6013f,
+                        x2 = 14.0967f,
+                        y2 = 19.25f,
+                        x3 = 12.0f,
+                        y3 = 19.25f,
+                    )
+                    curveTo(
+                        x1 = 9.90334f,
+                        y1 = 19.25f,
+                        x2 = 7.88601f,
+                        y2 = 19.6013f,
+                        x3 = 6.0f,
+                        y3 = 20.25f,
+                    )
                     moveTo(x = 2.75f, y = 3.75f)
                     horizontalLineTo(x = 21.25f)
                     verticalLineTo(y = 16.25f)
@@ -62,9 +76,9 @@ private fun IconPreview() {
                 imageVector = Television,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

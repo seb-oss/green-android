@@ -34,17 +34,17 @@ val RunShortcut: ImageVector
             ).apply {
                 group(
                     clipPathData =
-                        PathData {
-                            // M 0 0
-                            moveTo(x = 0.0f, y = 0.0f)
-                            // h 24
-                            horizontalLineToRelative(dx = 24.0f)
-                            // v 24
-                            verticalLineToRelative(dy = 24.0f)
-                            // h -24z
-                            horizontalLineToRelative(dx = -24.0f)
-                            close()
-                        },
+                    PathData {
+                        // M 0 0
+                        moveTo(x = 0.0f, y = 0.0f)
+                        // h 24
+                        horizontalLineToRelative(dx = 24.0f)
+                        // v 24
+                        verticalLineToRelative(dy = 24.0f)
+                        // h -24z
+                        horizontalLineToRelative(dx = -24.0f)
+                        close()
+                    },
                 ) {
                     path(
                         stroke = SolidColor(Color(0xFF000000)),
@@ -78,9 +78,9 @@ private fun IconPreview() {
                 imageVector = RunShortcut,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

@@ -42,12 +42,33 @@ val ThumbsDown: ImageVector
                     verticalLineTo(y = 13.0f)
                     lineTo(x = 13.0043f, y = 21.25f)
                     horizontalLineTo(x = 12.389f)
-                    curveTo(x1 = 11.1622f, y1 = 21.25f, x2 = 10.2249f, y2 = 20.1546f, x3 = 10.4139f, y3 = 18.9419f)
+                    curveTo(
+                        x1 = 11.1622f,
+                        y1 = 21.25f,
+                        x2 = 10.2249f,
+                        y2 = 20.1546f,
+                        x3 = 10.4139f,
+                        y3 = 18.9419f,
+                    )
                     lineTo(x = 10.9892f, y = 15.25f)
                     horizontalLineTo(x = 5.74908f)
-                    curveTo(x1 = 3.91335f, y1 = 15.25f, x2 = 2.50859f, y2 = 13.6144f, x3 = 2.78476f, y3 = 11.7987f)
+                    curveTo(
+                        x1 = 3.91335f,
+                        y1 = 15.25f,
+                        x2 = 2.50859f,
+                        y2 = 13.6144f,
+                        x3 = 2.78476f,
+                        y3 = 11.7987f,
+                    )
                     lineTo(x = 3.62128f, y = 6.29867f)
-                    curveTo(x1 = 3.84421f, y1 = 4.83298f, x2 = 5.1038f, y2 = 3.75f, x3 = 6.5856f, y3 = 3.75f)
+                    curveTo(
+                        x1 = 3.84421f,
+                        y1 = 4.83298f,
+                        x2 = 5.1038f,
+                        y2 = 3.75f,
+                        x3 = 6.5856f,
+                        y3 = 3.75f,
+                    )
                     horizontalLineTo(x = 17.2521f)
                     close()
                 }
@@ -67,9 +88,9 @@ private fun IconPreview() {
                 imageVector = ThumbsDown,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

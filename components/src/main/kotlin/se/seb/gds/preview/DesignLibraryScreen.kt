@@ -77,9 +77,9 @@ internal fun DesignLibraryScreen(
     ) { paddingValues ->
         AnimatedContent(
             modifier =
-                Modifier
-                    .padding(paddingValues)
-                    .fillMaxSize(),
+            Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
             targetState = currentScreen,
             transitionSpec = {
                 if ((targetState.ordinal) > (initialState.ordinal)) {
@@ -122,6 +122,7 @@ internal fun DesignLibraryScreen(
                 LibraryScreen.INPUT -> InputScreen(scrollState = scrollState)
 
                 LibraryScreen.TOP_BAR -> TopBarScreen()
+
                 LibraryScreen.ICONS -> IconsScreen()
             }
         }
@@ -135,10 +136,10 @@ private fun DesignLibrary(
 ) {
     Column(
         modifier =
-            Modifier
-                .fillMaxWidth()
-                .verticalScroll(scrollState)
-                .padding(16.dp),
+        Modifier
+            .fillMaxWidth()
+            .verticalScroll(scrollState)
+            .padding(16.dp),
         verticalArrangement = spacedBy(16.dp),
     ) {
         GallerySection("Tokens") {

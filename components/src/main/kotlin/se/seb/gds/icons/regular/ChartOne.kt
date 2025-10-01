@@ -85,13 +85,41 @@ val ChartOne: ImageVector
                     verticalLineTo(y = 20.25f)
                     close()
                     moveTo(x = 4.5f, y = 1.75f)
-                    curveTo(x1 = 4.5f, y1 = 1.33579f, x2 = 4.16421f, y2 = 1.0f, x3 = 3.75f, y3 = 1.0f)
-                    curveTo(x1 = 3.33579f, y1 = 1.0f, x2 = 3.0f, y2 = 1.33579f, x3 = 3.0f, y3 = 1.75f)
+                    curveTo(
+                        x1 = 4.5f,
+                        y1 = 1.33579f,
+                        x2 = 4.16421f,
+                        y2 = 1.0f,
+                        x3 = 3.75f,
+                        y3 = 1.0f,
+                    )
+                    curveTo(
+                        x1 = 3.33579f,
+                        y1 = 1.0f,
+                        x2 = 3.0f,
+                        y2 = 1.33579f,
+                        x3 = 3.0f,
+                        y3 = 1.75f,
+                    )
                     horizontalLineTo(x = 4.5f)
                     close()
                     moveTo(x = 3.0f, y = 22.25f)
-                    curveTo(x1 = 3.0f, y1 = 22.6642f, x2 = 3.33579f, y2 = 23.0f, x3 = 3.75f, y3 = 23.0f)
-                    curveTo(x1 = 4.16421f, y1 = 23.0f, x2 = 4.5f, y2 = 22.6642f, x3 = 4.5f, y3 = 22.25f)
+                    curveTo(
+                        x1 = 3.0f,
+                        y1 = 22.6642f,
+                        x2 = 3.33579f,
+                        y2 = 23.0f,
+                        x3 = 3.75f,
+                        y3 = 23.0f,
+                    )
+                    curveTo(
+                        x1 = 4.16421f,
+                        y1 = 23.0f,
+                        x2 = 4.5f,
+                        y2 = 22.6642f,
+                        x3 = 4.5f,
+                        y3 = 22.25f,
+                    )
                     horizontalLineTo(x = 3.0f)
                     close()
                     moveTo(x = 8.5f, y = 3.75f)
@@ -189,9 +217,9 @@ private fun IconPreview() {
                 imageVector = ChartOne,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

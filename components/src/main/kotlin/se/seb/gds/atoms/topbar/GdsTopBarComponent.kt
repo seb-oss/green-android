@@ -75,15 +75,15 @@ fun GdsTopBarComponent(
             content = {
                 Row(
                     modifier =
-                        Modifier
-                            .then(
-                                if (applyInsetsPadding) {
-                                    Modifier.statusBarsPadding()
-                                } else {
-                                    Modifier
-                                },
-                            )
-                            .height(64.dp),
+                    Modifier
+                        .then(
+                            if (applyInsetsPadding) {
+                                Modifier.statusBarsPadding()
+                            } else {
+                                Modifier
+                            },
+                        )
+                        .height(64.dp),
                     content = {
                         if (leftAction == null) {
                             Spacer(Modifier.size(16.dp))
@@ -110,12 +110,12 @@ fun GdsTopBarComponent(
                             title?.let {
                                 MagnifierText(
                                     modifier =
-                                        Modifier
-                                            .wrapContentWidth()
-                                            .align(Alignment.CenterVertically)
-                                            .semantics {
-                                                heading()
-                                            },
+                                    Modifier
+                                        .wrapContentWidth()
+                                        .align(Alignment.CenterVertically)
+                                        .semantics {
+                                            heading()
+                                        },
                                     text = title,
                                     style = titleStyle,
                                     color = GdsTheme.colors.ContentNeutral01,

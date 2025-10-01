@@ -57,8 +57,22 @@ val Solar: ImageVector
                     moveTo(x = 16.5f, y = 8.0f)
                     lineTo(x = 17.5f, y = 9.0f)
                     moveTo(x = 8.83697f, y = 3.75f)
-                    curveTo(x1 = 9.17555f, y1 = 5.18335f, x2 = 10.4632f, y2 = 6.25f, x3 = 12.0f, y3 = 6.25f)
-                    curveTo(x1 = 13.5368f, y1 = 6.25f, x2 = 14.8245f, y2 = 5.18335f, x3 = 15.163f, y3 = 3.75f)
+                    curveTo(
+                        x1 = 9.17555f,
+                        y1 = 5.18335f,
+                        x2 = 10.4632f,
+                        y2 = 6.25f,
+                        x3 = 12.0f,
+                        y3 = 6.25f,
+                    )
+                    curveTo(
+                        x1 = 13.5368f,
+                        y1 = 6.25f,
+                        x2 = 14.8245f,
+                        y2 = 5.18335f,
+                        x3 = 15.163f,
+                        y3 = 3.75f,
+                    )
                 }
             }.build()
             .also { _solar = it }
@@ -76,9 +90,9 @@ private fun IconPreview() {
                 imageVector = Solar,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

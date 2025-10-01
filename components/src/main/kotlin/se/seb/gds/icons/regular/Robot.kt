@@ -53,8 +53,22 @@ val Robot: ImageVector
                     verticalLineTo(y = 14.25f)
                     moveTo(x = 5.75f, y = 14.25f)
                     verticalLineTo(y = 15.0f)
-                    curveTo(x1 = 5.75f, y1 = 18.4518f, x2 = 8.54822f, y2 = 21.25f, x3 = 12.0f, y3 = 21.25f)
-                    curveTo(x1 = 15.4518f, y1 = 21.25f, x2 = 18.25f, y2 = 18.4518f, x3 = 18.25f, y3 = 15.0f)
+                    curveTo(
+                        x1 = 5.75f,
+                        y1 = 18.4518f,
+                        x2 = 8.54822f,
+                        y2 = 21.25f,
+                        x3 = 12.0f,
+                        y3 = 21.25f,
+                    )
+                    curveTo(
+                        x1 = 15.4518f,
+                        y1 = 21.25f,
+                        x2 = 18.25f,
+                        y2 = 18.4518f,
+                        x3 = 18.25f,
+                        y3 = 15.0f,
+                    )
                     verticalLineTo(y = 14.25f)
                     moveTo(x = 5.75f, y = 14.25f)
                     lineTo(x = 3.75f, y = 16.25f)
@@ -79,9 +93,9 @@ private fun IconPreview() {
                 imageVector = Robot,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((25.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((25.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

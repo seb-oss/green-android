@@ -53,10 +53,38 @@ val Sun: ImageVector
                     moveTo(x = 4.76462f, y = 4.76462f)
                     lineTo(x = 5.84173f, y = 5.84173f)
                     moveTo(x = 15.7123f, y = 8.28781f)
-                    curveTo(x1 = 17.7626f, y1 = 10.3381f, x2 = 17.7626f, y2 = 13.6622f, x3 = 15.7123f, y3 = 15.7124f)
-                    curveTo(x1 = 13.6621f, y1 = 17.7627f, x2 = 10.3379f, y2 = 17.7627f, x3 = 8.28769f, y3 = 15.7124f)
-                    curveTo(x1 = 6.23744f, y1 = 13.6622f, x2 = 6.23744f, y2 = 10.3381f, x3 = 8.28769f, y3 = 8.28781f)
-                    curveTo(x1 = 10.3379f, y1 = 6.23756f, x2 = 13.6621f, y2 = 6.23756f, x3 = 15.7123f, y3 = 8.28781f)
+                    curveTo(
+                        x1 = 17.7626f,
+                        y1 = 10.3381f,
+                        x2 = 17.7626f,
+                        y2 = 13.6622f,
+                        x3 = 15.7123f,
+                        y3 = 15.7124f,
+                    )
+                    curveTo(
+                        x1 = 13.6621f,
+                        y1 = 17.7627f,
+                        x2 = 10.3379f,
+                        y2 = 17.7627f,
+                        x3 = 8.28769f,
+                        y3 = 15.7124f,
+                    )
+                    curveTo(
+                        x1 = 6.23744f,
+                        y1 = 13.6622f,
+                        x2 = 6.23744f,
+                        y2 = 10.3381f,
+                        x3 = 8.28769f,
+                        y3 = 8.28781f,
+                    )
+                    curveTo(
+                        x1 = 10.3379f,
+                        y1 = 6.23756f,
+                        x2 = 13.6621f,
+                        y2 = 6.23756f,
+                        x3 = 15.7123f,
+                        y3 = 8.28781f,
+                    )
                     close()
                 }
             }.build()
@@ -75,9 +103,9 @@ private fun IconPreview() {
                 imageVector = Sun,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

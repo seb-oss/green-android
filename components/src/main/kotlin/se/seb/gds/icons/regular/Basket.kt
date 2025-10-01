@@ -43,16 +43,72 @@ val Basket: ImageVector
                     lineTo(x = 21.25f, y = 5.75f)
                     horizontalLineTo(x = 4.5f)
                     moveTo(x = 9.25f, y = 19.0f)
-                    curveTo(x1 = 9.25f, y1 = 19.6904f, x2 = 8.69036f, y2 = 20.25f, x3 = 8.0f, y3 = 20.25f)
-                    curveTo(x1 = 7.30964f, y1 = 20.25f, x2 = 6.75f, y2 = 19.6904f, x3 = 6.75f, y3 = 19.0f)
-                    curveTo(x1 = 6.75f, y1 = 18.3096f, x2 = 7.30964f, y2 = 17.75f, x3 = 8.0f, y3 = 17.75f)
-                    curveTo(x1 = 8.69036f, y1 = 17.75f, x2 = 9.25f, y2 = 18.3096f, x3 = 9.25f, y3 = 19.0f)
+                    curveTo(
+                        x1 = 9.25f,
+                        y1 = 19.6904f,
+                        x2 = 8.69036f,
+                        y2 = 20.25f,
+                        x3 = 8.0f,
+                        y3 = 20.25f,
+                    )
+                    curveTo(
+                        x1 = 7.30964f,
+                        y1 = 20.25f,
+                        x2 = 6.75f,
+                        y2 = 19.6904f,
+                        x3 = 6.75f,
+                        y3 = 19.0f,
+                    )
+                    curveTo(
+                        x1 = 6.75f,
+                        y1 = 18.3096f,
+                        x2 = 7.30964f,
+                        y2 = 17.75f,
+                        x3 = 8.0f,
+                        y3 = 17.75f,
+                    )
+                    curveTo(
+                        x1 = 8.69036f,
+                        y1 = 17.75f,
+                        x2 = 9.25f,
+                        y2 = 18.3096f,
+                        x3 = 9.25f,
+                        y3 = 19.0f,
+                    )
                     close()
                     moveTo(x = 18.25f, y = 19.0f)
-                    curveTo(x1 = 18.25f, y1 = 19.6904f, x2 = 17.6904f, y2 = 20.25f, x3 = 17.0f, y3 = 20.25f)
-                    curveTo(x1 = 16.3096f, y1 = 20.25f, x2 = 15.75f, y2 = 19.6904f, x3 = 15.75f, y3 = 19.0f)
-                    curveTo(x1 = 15.75f, y1 = 18.3096f, x2 = 16.3096f, y2 = 17.75f, x3 = 17.0f, y3 = 17.75f)
-                    curveTo(x1 = 17.6904f, y1 = 17.75f, x2 = 18.25f, y2 = 18.3096f, x3 = 18.25f, y3 = 19.0f)
+                    curveTo(
+                        x1 = 18.25f,
+                        y1 = 19.6904f,
+                        x2 = 17.6904f,
+                        y2 = 20.25f,
+                        x3 = 17.0f,
+                        y3 = 20.25f,
+                    )
+                    curveTo(
+                        x1 = 16.3096f,
+                        y1 = 20.25f,
+                        x2 = 15.75f,
+                        y2 = 19.6904f,
+                        x3 = 15.75f,
+                        y3 = 19.0f,
+                    )
+                    curveTo(
+                        x1 = 15.75f,
+                        y1 = 18.3096f,
+                        x2 = 16.3096f,
+                        y2 = 17.75f,
+                        x3 = 17.0f,
+                        y3 = 17.75f,
+                    )
+                    curveTo(
+                        x1 = 17.6904f,
+                        y1 = 17.75f,
+                        x2 = 18.25f,
+                        y2 = 18.3096f,
+                        x3 = 18.25f,
+                        y3 = 19.0f,
+                    )
                     close()
                 }
             }.build()
@@ -71,9 +127,9 @@ private fun IconPreview() {
                 imageVector = Basket,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

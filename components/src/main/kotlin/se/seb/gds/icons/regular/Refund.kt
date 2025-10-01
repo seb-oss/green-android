@@ -41,8 +41,22 @@ val Refund: ImageVector
                     lineTo(x = 6.75f, y = 9.25f)
                     moveTo(x = 4.5f, y = 6.25f)
                     horizontalLineTo(x = 14.25f)
-                    curveTo(x1 = 17.7018f, y1 = 6.25f, x2 = 20.5f, y2 = 9.04822f, x3 = 20.5f, y3 = 12.5f)
-                    curveTo(x1 = 20.5f, y1 = 15.9518f, x2 = 17.7018f, y2 = 18.75f, x3 = 14.25f, y3 = 18.75f)
+                    curveTo(
+                        x1 = 17.7018f,
+                        y1 = 6.25f,
+                        x2 = 20.5f,
+                        y2 = 9.04822f,
+                        x3 = 20.5f,
+                        y3 = 12.5f,
+                    )
+                    curveTo(
+                        x1 = 20.5f,
+                        y1 = 15.9518f,
+                        x2 = 17.7018f,
+                        y2 = 18.75f,
+                        x3 = 14.25f,
+                        y3 = 18.75f,
+                    )
                     horizontalLineTo(x = 5.75f)
                 }
             }.build()
@@ -61,9 +75,9 @@ private fun IconPreview() {
                 imageVector = Refund,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

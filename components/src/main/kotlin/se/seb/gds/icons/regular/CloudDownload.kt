@@ -38,14 +38,70 @@ val CloudDownload: ImageVector
                 ) {
                     moveTo(x = 16.75f, y = 19.25f)
                     horizontalLineTo(x = 18.125f)
-                    curveTo(x1 = 20.4032f, y1 = 19.25f, x2 = 22.25f, y2 = 17.4032f, x3 = 22.25f, y3 = 15.125f)
-                    curveTo(x1 = 22.25f, y1 = 12.8468f, x2 = 20.4032f, y2 = 11.0f, x3 = 18.125f, y3 = 11.0f)
-                    curveTo(x1 = 18.0814f, y1 = 11.0f, x2 = 18.038f, y2 = 11.0007f, x3 = 17.9948f, y3 = 11.002f)
-                    curveTo(x1 = 17.9983f, y1 = 10.9184f, x2 = 18.0f, y2 = 10.8344f, x3 = 18.0f, y3 = 10.75f)
-                    curveTo(x1 = 18.0f, y1 = 7.43629f, x2 = 15.3137f, y2 = 4.75f, x3 = 12.0f, y3 = 4.75f)
-                    curveTo(x1 = 9.3716f, y1 = 4.75f, x2 = 7.13793f, y2 = 6.44009f, x3 = 6.32647f, y3 = 8.7928f)
-                    curveTo(x1 = 3.74507f, y1 = 9.12339f, x2 = 1.75f, y2 = 11.3287f, x3 = 1.75f, y3 = 14.0f)
-                    curveTo(x1 = 1.75f, y1 = 16.8995f, x2 = 4.10051f, y2 = 19.25f, x3 = 7.0f, y3 = 19.25f)
+                    curveTo(
+                        x1 = 20.4032f,
+                        y1 = 19.25f,
+                        x2 = 22.25f,
+                        y2 = 17.4032f,
+                        x3 = 22.25f,
+                        y3 = 15.125f,
+                    )
+                    curveTo(
+                        x1 = 22.25f,
+                        y1 = 12.8468f,
+                        x2 = 20.4032f,
+                        y2 = 11.0f,
+                        x3 = 18.125f,
+                        y3 = 11.0f,
+                    )
+                    curveTo(
+                        x1 = 18.0814f,
+                        y1 = 11.0f,
+                        x2 = 18.038f,
+                        y2 = 11.0007f,
+                        x3 = 17.9948f,
+                        y3 = 11.002f,
+                    )
+                    curveTo(
+                        x1 = 17.9983f,
+                        y1 = 10.9184f,
+                        x2 = 18.0f,
+                        y2 = 10.8344f,
+                        x3 = 18.0f,
+                        y3 = 10.75f,
+                    )
+                    curveTo(
+                        x1 = 18.0f,
+                        y1 = 7.43629f,
+                        x2 = 15.3137f,
+                        y2 = 4.75f,
+                        x3 = 12.0f,
+                        y3 = 4.75f,
+                    )
+                    curveTo(
+                        x1 = 9.3716f,
+                        y1 = 4.75f,
+                        x2 = 7.13793f,
+                        y2 = 6.44009f,
+                        x3 = 6.32647f,
+                        y3 = 8.7928f,
+                    )
+                    curveTo(
+                        x1 = 3.74507f,
+                        y1 = 9.12339f,
+                        x2 = 1.75f,
+                        y2 = 11.3287f,
+                        x3 = 1.75f,
+                        y3 = 14.0f,
+                    )
+                    curveTo(
+                        x1 = 1.75f,
+                        y1 = 16.8995f,
+                        x2 = 4.10051f,
+                        y2 = 19.25f,
+                        x3 = 7.0f,
+                        y3 = 19.25f,
+                    )
                     horizontalLineTo(x = 7.25f)
                     moveTo(x = 12.0f, y = 11.75f)
                     verticalLineTo(y = 19.25f)
@@ -70,9 +126,9 @@ private fun IconPreview() {
                 imageVector = CloudDownload,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

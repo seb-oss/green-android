@@ -39,11 +39,11 @@ internal fun ListItem(
 ) {
     Row(
         modifier =
-            Modifier
-                .fillMaxWidth()
-                .height(40.dp)
-                .clickable { onClick() }
-                .padding(horizontal = 16.dp),
+        Modifier
+            .fillMaxWidth()
+            .height(40.dp)
+            .clickable { onClick() }
+            .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(

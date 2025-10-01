@@ -32,17 +32,73 @@ val Shield: ImageVector
                     fill = SolidColor(Color(0xFF000000)),
                 ) {
                     moveTo(x = 12.2372f, y = 2.03849f)
-                    curveTo(x1 = 12.0832f, y1 = 1.98717f, x2 = 11.9168f, y2 = 1.98717f, x3 = 11.7628f, y3 = 2.03849f)
+                    curveTo(
+                        x1 = 12.0832f,
+                        y1 = 1.98717f,
+                        x2 = 11.9168f,
+                        y2 = 1.98717f,
+                        x3 = 11.7628f,
+                        y3 = 2.03849f,
+                    )
                     lineTo(x = 3.51283f, y = 4.78849f)
-                    curveTo(x1 = 3.20657f, y1 = 4.89057f, x2 = 3.0f, y2 = 5.17718f, x3 = 3.0f, y3 = 5.5f)
+                    curveTo(
+                        x1 = 3.20657f,
+                        y1 = 4.89057f,
+                        x2 = 3.0f,
+                        y2 = 5.17718f,
+                        x3 = 3.0f,
+                        y3 = 5.5f,
+                    )
                     verticalLineTo(y = 11.9123f)
-                    curveTo(x1 = 3.0f, y1 = 14.6497f, x2 = 4.18351f, y2 = 16.6701f, x3 = 5.85876f, y3 = 18.2596f)
-                    curveTo(x1 = 7.5058f, y1 = 19.8225f, x2 = 9.65956f, y2 = 20.9975f, x3 = 11.6439f, y3 = 22.068f)
-                    curveTo(x1 = 11.8662f, y1 = 22.1879f, x2 = 12.1338f, y2 = 22.1879f, x3 = 12.3561f, y3 = 22.068f)
-                    curveTo(x1 = 14.3404f, y1 = 20.9975f, x2 = 16.4942f, y2 = 19.8225f, x3 = 18.1412f, y3 = 18.2596f)
-                    curveTo(x1 = 19.8165f, y1 = 16.6701f, x2 = 21.0f, y2 = 14.6497f, x3 = 21.0f, y3 = 11.9123f)
+                    curveTo(
+                        x1 = 3.0f,
+                        y1 = 14.6497f,
+                        x2 = 4.18351f,
+                        y2 = 16.6701f,
+                        x3 = 5.85876f,
+                        y3 = 18.2596f,
+                    )
+                    curveTo(
+                        x1 = 7.5058f,
+                        y1 = 19.8225f,
+                        x2 = 9.65956f,
+                        y2 = 20.9975f,
+                        x3 = 11.6439f,
+                        y3 = 22.068f,
+                    )
+                    curveTo(
+                        x1 = 11.8662f,
+                        y1 = 22.1879f,
+                        x2 = 12.1338f,
+                        y2 = 22.1879f,
+                        x3 = 12.3561f,
+                        y3 = 22.068f,
+                    )
+                    curveTo(
+                        x1 = 14.3404f,
+                        y1 = 20.9975f,
+                        x2 = 16.4942f,
+                        y2 = 19.8225f,
+                        x3 = 18.1412f,
+                        y3 = 18.2596f,
+                    )
+                    curveTo(
+                        x1 = 19.8165f,
+                        y1 = 16.6701f,
+                        x2 = 21.0f,
+                        y2 = 14.6497f,
+                        x3 = 21.0f,
+                        y3 = 11.9123f,
+                    )
                     verticalLineTo(y = 5.5f)
-                    curveTo(x1 = 21.0f, y1 = 5.17718f, x2 = 20.7934f, y2 = 4.89057f, x3 = 20.4872f, y3 = 4.78849f)
+                    curveTo(
+                        x1 = 21.0f,
+                        y1 = 5.17718f,
+                        x2 = 20.7934f,
+                        y2 = 4.89057f,
+                        x3 = 20.4872f,
+                        y3 = 4.78849f,
+                    )
                     lineTo(x = 12.2372f, y = 2.03849f)
                     close()
                 }
@@ -62,9 +118,9 @@ private fun IconPreview() {
                 imageVector = Shield,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

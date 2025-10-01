@@ -18,10 +18,10 @@ import se.seb.gds.theme.GdsTheme
 internal fun FontsScreen(scrollState: ScrollState) {
     Column(
         modifier =
-            Modifier
-                .fillMaxSize()
-                .verticalScroll(scrollState)
-                .padding(16.dp),
+        Modifier
+            .fillMaxSize()
+            .verticalScroll(scrollState)
+            .padding(16.dp),
         verticalArrangement = spacedBy(16.dp),
     ) {
         FontText(

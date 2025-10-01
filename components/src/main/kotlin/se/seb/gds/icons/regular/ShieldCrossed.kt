@@ -47,8 +47,22 @@ val ShieldCrossed: ImageVector
                     moveTo(x = 12.0f, y = 2.75f)
                     lineTo(x = 20.25f, y = 5.5f)
                     verticalLineTo(y = 11.9123f)
-                    curveTo(x1 = 20.25f, y1 = 16.8848f, x2 = 16.0f, y2 = 19.25f, x3 = 12.0f, y3 = 21.4079f)
-                    curveTo(x1 = 8.0f, y1 = 19.25f, x2 = 3.75f, y2 = 16.8848f, x3 = 3.75f, y3 = 11.9123f)
+                    curveTo(
+                        x1 = 20.25f,
+                        y1 = 16.8848f,
+                        x2 = 16.0f,
+                        y2 = 19.25f,
+                        x3 = 12.0f,
+                        y3 = 21.4079f,
+                    )
+                    curveTo(
+                        x1 = 8.0f,
+                        y1 = 19.25f,
+                        x2 = 3.75f,
+                        y2 = 16.8848f,
+                        x3 = 3.75f,
+                        y3 = 11.9123f,
+                    )
                     verticalLineTo(y = 5.5f)
                     lineTo(x = 12.0f, y = 2.75f)
                     close()
@@ -69,9 +83,9 @@ private fun IconPreview() {
                 imageVector = ShieldCrossed,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

@@ -37,40 +37,40 @@ class GdsSwitchView @JvmOverloads constructor(
             }
         }
 
-        private var _isEnabled by mutableStateOf(true)
+    private var _isEnabled by mutableStateOf(true)
 
-        override fun isEnabled(): Boolean = _isEnabled
+    override fun isEnabled(): Boolean = _isEnabled
 
-        override fun setEnabled(enabled: Boolean) {
-            _isEnabled = enabled
+    override fun setEnabled(enabled: Boolean) {
+        _isEnabled = enabled
+    }
+
+    var onCheckedChangedListener: ((Boolean) -> Unit)? = null
+
+    private var _style by mutableStateOf(SwitchStyle.Default)
+    var style: SwitchStyle
+        get() = _style
+        set(value) {
+            _style = value
         }
 
-        var onCheckedChangedListener: ((Boolean) -> Unit)? = null
-
-        private var _style by mutableStateOf(SwitchStyle.Default)
-        var style: SwitchStyle
-            get() = _style
-            set(value) {
-                _style = value
+    @Composable
+    override fun Content() {
+        val style =
+            when (_style) {
+                SwitchStyle.Default -> GdsSwitchDefaults.defaultStyle()
+                SwitchStyle.Legacy -> GdsSwitchDefaults.legacyStyle()
+                SwitchStyle.Neo -> GdsSwitchDefaults.neoStyle()
             }
-
-        @Composable
-        override fun Content() {
-            val style =
-                when (_style) {
-                    SwitchStyle.Default -> GdsSwitchDefaults.defaultStyle()
-                    SwitchStyle.Legacy -> GdsSwitchDefaults.legacyStyle()
-                    SwitchStyle.Neo -> GdsSwitchDefaults.neoStyle()
-                }
-            GdsSwitch(
-                checked = checked,
-                enabled = _isEnabled,
-                onCheckedChanged = { isChecked ->
-                    onCheckedChangedListener?.invoke(isChecked)
-                },
-                style = style,
-            )
-        }
+        GdsSwitch(
+            checked = checked,
+            enabled = _isEnabled,
+            onCheckedChanged = { isChecked ->
+                onCheckedChangedListener?.invoke(isChecked)
+            },
+            style = style,
+        )
+    }
 
     enum class SwitchStyle {
         Default,

@@ -37,8 +37,22 @@ val ArrowShareLeft: ImageVector
                     moveTo(x = 2.75f, y = 12.0f)
                     lineTo(x = 12.25f, y = 3.75f)
                     verticalLineTo(y = 8.5f)
-                    curveTo(x1 = 20.75f, y1 = 8.5f, x2 = 23.0f, y2 = 11.75f, x3 = 23.0f, y3 = 20.25f)
-                    curveTo(x1 = 21.5f, y1 = 17.25f, x2 = 20.75f, y2 = 15.5f, x3 = 12.25f, y3 = 15.5f)
+                    curveTo(
+                        x1 = 20.75f,
+                        y1 = 8.5f,
+                        x2 = 23.0f,
+                        y2 = 11.75f,
+                        x3 = 23.0f,
+                        y3 = 20.25f,
+                    )
+                    curveTo(
+                        x1 = 21.5f,
+                        y1 = 17.25f,
+                        x2 = 20.75f,
+                        y2 = 15.5f,
+                        x3 = 12.25f,
+                        y3 = 15.5f,
+                    )
                     verticalLineTo(y = 20.25f)
                     lineTo(x = 2.75f, y = 12.0f)
                     close()
@@ -59,9 +73,9 @@ private fun IconPreview() {
                 imageVector = ArrowShareLeft,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((25.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((25.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

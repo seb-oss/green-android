@@ -32,16 +32,51 @@ val Folder: ImageVector
                     fill = SolidColor(Color(0xFF000000)),
                 ) {
                     moveTo(x = 2.75f, y = 3.0f)
-                    curveTo(x1 = 2.33579f, y1 = 3.0f, x2 = 2.0f, y2 = 3.33579f, x3 = 2.0f, y3 = 3.75f)
+                    curveTo(
+                        x1 = 2.33579f,
+                        y1 = 3.0f,
+                        x2 = 2.0f,
+                        y2 = 3.33579f,
+                        x3 = 2.0f,
+                        y3 = 3.75f,
+                    )
                     verticalLineTo(y = 19.25f)
-                    curveTo(x1 = 2.0f, y1 = 19.6642f, x2 = 2.33579f, y2 = 20.0f, x3 = 2.75f, y3 = 20.0f)
+                    curveTo(
+                        x1 = 2.0f,
+                        y1 = 19.6642f,
+                        x2 = 2.33579f,
+                        y2 = 20.0f,
+                        x3 = 2.75f,
+                        y3 = 20.0f,
+                    )
                     horizontalLineTo(x = 21.25f)
-                    curveTo(x1 = 21.6642f, y1 = 20.0f, x2 = 22.0f, y2 = 19.6642f, x3 = 22.0f, y3 = 19.25f)
+                    curveTo(
+                        x1 = 21.6642f,
+                        y1 = 20.0f,
+                        x2 = 22.0f,
+                        y2 = 19.6642f,
+                        x3 = 22.0f,
+                        y3 = 19.25f,
+                    )
                     verticalLineTo(y = 6.75f)
-                    curveTo(x1 = 22.0f, y1 = 6.33579f, x2 = 21.6642f, y2 = 6.0f, x3 = 21.25f, y3 = 6.0f)
+                    curveTo(
+                        x1 = 22.0f,
+                        y1 = 6.33579f,
+                        x2 = 21.6642f,
+                        y2 = 6.0f,
+                        x3 = 21.25f,
+                        y3 = 6.0f,
+                    )
                     horizontalLineTo(x = 12.4014f)
                     lineTo(x = 10.624f, y = 3.33397f)
-                    curveTo(x1 = 10.4849f, y1 = 3.12533f, x2 = 10.2508f, y2 = 3.0f, x3 = 10.0f, y3 = 3.0f)
+                    curveTo(
+                        x1 = 10.4849f,
+                        y1 = 3.12533f,
+                        x2 = 10.2508f,
+                        y2 = 3.0f,
+                        x3 = 10.0f,
+                        y3 = 3.0f,
+                    )
                     horizontalLineTo(x = 2.75f)
                     close()
                 }
@@ -61,9 +96,9 @@ private fun IconPreview() {
                 imageVector = Folder,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

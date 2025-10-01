@@ -51,8 +51,22 @@ val TrashCan: ImageVector
                     moveTo(x = 10.0f, y = 10.75f)
                     verticalLineTo(y = 16.25f)
                     moveTo(x = 9.0f, y = 5.75f)
-                    curveTo(x1 = 9.0f, y1 = 4.09315f, x2 = 10.3431f, y2 = 2.75f, x3 = 12.0f, y3 = 2.75f)
-                    curveTo(x1 = 13.6569f, y1 = 2.75f, x2 = 15.0f, y2 = 4.09315f, x3 = 15.0f, y3 = 5.75f)
+                    curveTo(
+                        x1 = 9.0f,
+                        y1 = 4.09315f,
+                        x2 = 10.3431f,
+                        y2 = 2.75f,
+                        x3 = 12.0f,
+                        y3 = 2.75f,
+                    )
+                    curveTo(
+                        x1 = 13.6569f,
+                        y1 = 2.75f,
+                        x2 = 15.0f,
+                        y2 = 4.09315f,
+                        x3 = 15.0f,
+                        y3 = 5.75f,
+                    )
                 }
             }.build()
             .also { _trashCan = it }
@@ -70,9 +84,9 @@ private fun IconPreview() {
                 imageVector = TrashCan,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

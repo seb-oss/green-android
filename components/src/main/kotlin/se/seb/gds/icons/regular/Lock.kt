@@ -40,8 +40,22 @@ val Lock: ImageVector
                     verticalLineTo(y = 17.0f)
                     moveTo(x = 16.25f, y = 9.75f)
                     verticalLineTo(y = 7.0f)
-                    curveTo(x1 = 16.25f, y1 = 4.65279f, x2 = 14.3472f, y2 = 2.75f, x3 = 12.0f, y3 = 2.75f)
-                    curveTo(x1 = 9.65279f, y1 = 2.75f, x2 = 7.75f, y2 = 4.65279f, x3 = 7.75f, y3 = 7.0f)
+                    curveTo(
+                        x1 = 16.25f,
+                        y1 = 4.65279f,
+                        x2 = 14.3472f,
+                        y2 = 2.75f,
+                        x3 = 12.0f,
+                        y3 = 2.75f,
+                    )
+                    curveTo(
+                        x1 = 9.65279f,
+                        y1 = 2.75f,
+                        x2 = 7.75f,
+                        y2 = 4.65279f,
+                        x3 = 7.75f,
+                        y3 = 7.0f,
+                    )
                     verticalLineTo(y = 9.75f)
                     moveTo(x = 4.75f, y = 9.75f)
                     horizontalLineTo(x = 19.25f)
@@ -66,9 +80,9 @@ private fun IconPreview() {
                 imageVector = Lock,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

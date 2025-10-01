@@ -32,18 +32,60 @@ val Bubble: ImageVector
                     fill = SolidColor(Color(0xFF000000)),
                 ) {
                     moveTo(x = 21.2522f, y = 3.0f)
-                    curveTo(x1 = 21.6664f, y1 = 3.0f, x2 = 22.0022f, y2 = 3.33579f, x3 = 22.0022f, y3 = 3.75f)
+                    curveTo(
+                        x1 = 21.6664f,
+                        y1 = 3.0f,
+                        x2 = 22.0022f,
+                        y2 = 3.33579f,
+                        x3 = 22.0022f,
+                        y3 = 3.75f,
+                    )
                     verticalLineTo(y = 18.25f)
-                    curveTo(x1 = 22.0022f, y1 = 18.6642f, x2 = 21.6664f, y2 = 19.0f, x3 = 21.2522f, y3 = 19.0f)
+                    curveTo(
+                        x1 = 22.0022f,
+                        y1 = 18.6642f,
+                        x2 = 21.6664f,
+                        y2 = 19.0f,
+                        x3 = 21.2522f,
+                        y3 = 19.0f,
+                    )
                     horizontalLineTo(x = 12.1948f)
                     lineTo(x = 7.36364f, y = 21.6572f)
-                    curveTo(x1 = 7.13129f, y1 = 21.785f, x2 = 6.84873f, y2 = 21.7806f, x3 = 6.62048f, y3 = 21.6456f)
-                    curveTo(x1 = 6.39222f, y1 = 21.5106f, x2 = 6.2522f, y2 = 21.2652f, x3 = 6.2522f, y3 = 21.0f)
+                    curveTo(
+                        x1 = 7.13129f,
+                        y1 = 21.785f,
+                        x2 = 6.84873f,
+                        y2 = 21.7806f,
+                        x3 = 6.62048f,
+                        y3 = 21.6456f,
+                    )
+                    curveTo(
+                        x1 = 6.39222f,
+                        y1 = 21.5106f,
+                        x2 = 6.2522f,
+                        y2 = 21.2652f,
+                        x3 = 6.2522f,
+                        y3 = 21.0f,
+                    )
                     verticalLineTo(y = 19.0f)
                     horizontalLineTo(x = 2.7522f)
-                    curveTo(x1 = 2.33798f, y1 = 19.0f, x2 = 2.0022f, y2 = 18.6642f, x3 = 2.0022f, y3 = 18.25f)
+                    curveTo(
+                        x1 = 2.33798f,
+                        y1 = 19.0f,
+                        x2 = 2.0022f,
+                        y2 = 18.6642f,
+                        x3 = 2.0022f,
+                        y3 = 18.25f,
+                    )
                     verticalLineTo(y = 3.75f)
-                    curveTo(x1 = 2.0022f, y1 = 3.33579f, x2 = 2.33798f, y2 = 3.0f, x3 = 2.7522f, y3 = 3.0f)
+                    curveTo(
+                        x1 = 2.0022f,
+                        y1 = 3.33579f,
+                        x2 = 2.33798f,
+                        y2 = 3.0f,
+                        x3 = 2.7522f,
+                        y3 = 3.0f,
+                    )
                     horizontalLineTo(x = 21.2522f)
                     close()
                 }
@@ -63,9 +105,9 @@ private fun IconPreview() {
                 imageVector = Bubble,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

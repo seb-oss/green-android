@@ -33,32 +33,88 @@ val SquareMinus: ImageVector
                 ) {
                     moveTo(x = 20.25f, y = 3.75f)
                     horizontalLineTo(x = 21.0f)
-                    curveTo(x1 = 21.0f, y1 = 3.33579f, x2 = 20.6642f, y2 = 3.0f, x3 = 20.25f, y3 = 3.0f)
+                    curveTo(
+                        x1 = 21.0f,
+                        y1 = 3.33579f,
+                        x2 = 20.6642f,
+                        y2 = 3.0f,
+                        x3 = 20.25f,
+                        y3 = 3.0f,
+                    )
                     verticalLineTo(y = 3.75f)
                     close()
                     moveTo(x = 20.25f, y = 20.25f)
                     verticalLineTo(y = 21.0f)
-                    curveTo(x1 = 20.6642f, y1 = 21.0f, x2 = 21.0f, y2 = 20.6642f, x3 = 21.0f, y3 = 20.25f)
+                    curveTo(
+                        x1 = 20.6642f,
+                        y1 = 21.0f,
+                        x2 = 21.0f,
+                        y2 = 20.6642f,
+                        x3 = 21.0f,
+                        y3 = 20.25f,
+                    )
                     horizontalLineTo(x = 20.25f)
                     close()
                     moveTo(x = 3.75f, y = 20.25f)
                     horizontalLineTo(x = 3.0f)
-                    curveTo(x1 = 3.0f, y1 = 20.6642f, x2 = 3.33579f, y2 = 21.0f, x3 = 3.75f, y3 = 21.0f)
+                    curveTo(
+                        x1 = 3.0f,
+                        y1 = 20.6642f,
+                        x2 = 3.33579f,
+                        y2 = 21.0f,
+                        x3 = 3.75f,
+                        y3 = 21.0f,
+                    )
                     verticalLineTo(y = 20.25f)
                     close()
                     moveTo(x = 3.75f, y = 3.75f)
                     verticalLineTo(y = 3.0f)
-                    curveTo(x1 = 3.33579f, y1 = 3.0f, x2 = 3.0f, y2 = 3.33579f, x3 = 3.0f, y3 = 3.75f)
+                    curveTo(
+                        x1 = 3.33579f,
+                        y1 = 3.0f,
+                        x2 = 3.0f,
+                        y2 = 3.33579f,
+                        x3 = 3.0f,
+                        y3 = 3.75f,
+                    )
                     horizontalLineTo(x = 3.75f)
                     close()
                     moveTo(x = 15.25f, y = 12.7502f)
-                    curveTo(x1 = 15.6642f, y1 = 12.7502f, x2 = 16.0f, y2 = 12.4144f, x3 = 16.0f, y3 = 12.0002f)
-                    curveTo(x1 = 16.0f, y1 = 11.586f, x2 = 15.6642f, y2 = 11.2502f, x3 = 15.25f, y3 = 11.2502f)
+                    curveTo(
+                        x1 = 15.6642f,
+                        y1 = 12.7502f,
+                        x2 = 16.0f,
+                        y2 = 12.4144f,
+                        x3 = 16.0f,
+                        y3 = 12.0002f,
+                    )
+                    curveTo(
+                        x1 = 16.0f,
+                        y1 = 11.586f,
+                        x2 = 15.6642f,
+                        y2 = 11.2502f,
+                        x3 = 15.25f,
+                        y3 = 11.2502f,
+                    )
                     verticalLineTo(y = 12.7502f)
                     close()
                     moveTo(x = 8.75736f, y = 11.2502f)
-                    curveTo(x1 = 8.34314f, y1 = 11.2502f, x2 = 8.00736f, y2 = 11.586f, x3 = 8.00736f, y3 = 12.0002f)
-                    curveTo(x1 = 8.00736f, y1 = 12.4144f, x2 = 8.34314f, y2 = 12.7502f, x3 = 8.75736f, y3 = 12.7502f)
+                    curveTo(
+                        x1 = 8.34314f,
+                        y1 = 11.2502f,
+                        x2 = 8.00736f,
+                        y2 = 11.586f,
+                        x3 = 8.00736f,
+                        y3 = 12.0002f,
+                    )
+                    curveTo(
+                        x1 = 8.00736f,
+                        y1 = 12.4144f,
+                        x2 = 8.34314f,
+                        y2 = 12.7502f,
+                        x3 = 8.75736f,
+                        y3 = 12.7502f,
+                    )
                     verticalLineTo(y = 11.2502f)
                     close()
                     moveTo(x = 19.5f, y = 3.75f)
@@ -108,9 +164,9 @@ private fun IconPreview() {
                 imageVector = SquareMinus,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

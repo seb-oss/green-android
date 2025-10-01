@@ -43,13 +43,55 @@ val ArrowRotateLeftRight: ImageVector
                     verticalLineTo(y = 7.75f)
                     horizontalLineTo(x = 8.75f)
                     moveTo(x = 3.81383f, y = 10.9688f)
-                    curveTo(x1 = 3.7717f, y1 = 11.3066f, x2 = 3.75f, y2 = 11.6508f, x3 = 3.75f, y3 = 12.0f)
-                    curveTo(x1 = 3.75f, y1 = 16.5563f, x2 = 7.44365f, y2 = 20.25f, x3 = 12.0f, y3 = 20.25f)
-                    curveTo(x1 = 14.6766f, y1 = 20.25f, x2 = 17.1111f, y2 = 18.9754f, x3 = 18.6322f, y3 = 17.0f)
+                    curveTo(
+                        x1 = 3.7717f,
+                        y1 = 11.3066f,
+                        x2 = 3.75f,
+                        y2 = 11.6508f,
+                        x3 = 3.75f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 3.75f,
+                        y1 = 16.5563f,
+                        x2 = 7.44365f,
+                        y2 = 20.25f,
+                        x3 = 12.0f,
+                        y3 = 20.25f,
+                    )
+                    curveTo(
+                        x1 = 14.6766f,
+                        y1 = 20.25f,
+                        x2 = 17.1111f,
+                        y2 = 18.9754f,
+                        x3 = 18.6322f,
+                        y3 = 17.0f,
+                    )
                     moveTo(x = 20.1862f, y = 13.0312f)
-                    curveTo(x1 = 20.2283f, y1 = 12.6934f, x2 = 20.25f, y2 = 12.3492f, x3 = 20.25f, y3 = 12.0f)
-                    curveTo(x1 = 20.25f, y1 = 7.44365f, x2 = 16.5563f, y2 = 3.75f, x3 = 12.0f, y3 = 3.75f)
-                    curveTo(x1 = 9.32342f, y1 = 3.75f, x2 = 6.88887f, y2 = 5.02463f, x3 = 5.36784f, y3 = 7.0f)
+                    curveTo(
+                        x1 = 20.2283f,
+                        y1 = 12.6934f,
+                        x2 = 20.25f,
+                        y2 = 12.3492f,
+                        x3 = 20.25f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 20.25f,
+                        y1 = 7.44365f,
+                        x2 = 16.5563f,
+                        y2 = 3.75f,
+                        x3 = 12.0f,
+                        y3 = 3.75f,
+                    )
+                    curveTo(
+                        x1 = 9.32342f,
+                        y1 = 3.75f,
+                        x2 = 6.88887f,
+                        y2 = 5.02463f,
+                        x3 = 5.36784f,
+                        y3 = 7.0f,
+                    )
                 }
             }.build()
             .also { _arrowRotateLeftRight = it }
@@ -67,9 +109,9 @@ private fun IconPreview() {
                 imageVector = ArrowRotateLeftRight,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

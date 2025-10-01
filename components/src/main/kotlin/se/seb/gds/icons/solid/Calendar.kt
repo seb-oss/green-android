@@ -34,24 +34,80 @@ val Calendar: ImageVector
                     pathFillType = PathFillType.EvenOdd,
                 ) {
                     moveTo(x = 7.75f, y = 2.0f)
-                    curveTo(x1 = 8.16421f, y1 = 2.0f, x2 = 8.5f, y2 = 2.33579f, x3 = 8.5f, y3 = 2.75f)
+                    curveTo(
+                        x1 = 8.16421f,
+                        y1 = 2.0f,
+                        x2 = 8.5f,
+                        y2 = 2.33579f,
+                        x3 = 8.5f,
+                        y3 = 2.75f,
+                    )
                     verticalLineTo(y = 4.0f)
                     horizontalLineTo(x = 15.5f)
                     verticalLineTo(y = 2.75f)
-                    curveTo(x1 = 15.5f, y1 = 2.33579f, x2 = 15.8358f, y2 = 2.0f, x3 = 16.25f, y3 = 2.0f)
-                    curveTo(x1 = 16.6642f, y1 = 2.0f, x2 = 17.0f, y2 = 2.33579f, x3 = 17.0f, y3 = 2.75f)
+                    curveTo(
+                        x1 = 15.5f,
+                        y1 = 2.33579f,
+                        x2 = 15.8358f,
+                        y2 = 2.0f,
+                        x3 = 16.25f,
+                        y3 = 2.0f,
+                    )
+                    curveTo(
+                        x1 = 16.6642f,
+                        y1 = 2.0f,
+                        x2 = 17.0f,
+                        y2 = 2.33579f,
+                        x3 = 17.0f,
+                        y3 = 2.75f,
+                    )
                     verticalLineTo(y = 4.0f)
                     horizontalLineTo(x = 20.25f)
-                    curveTo(x1 = 20.6642f, y1 = 4.0f, x2 = 21.0f, y2 = 4.33579f, x3 = 21.0f, y3 = 4.75f)
+                    curveTo(
+                        x1 = 20.6642f,
+                        y1 = 4.0f,
+                        x2 = 21.0f,
+                        y2 = 4.33579f,
+                        x3 = 21.0f,
+                        y3 = 4.75f,
+                    )
                     verticalLineTo(y = 20.25f)
-                    curveTo(x1 = 21.0f, y1 = 20.6642f, x2 = 20.6642f, y2 = 21.0f, x3 = 20.25f, y3 = 21.0f)
+                    curveTo(
+                        x1 = 21.0f,
+                        y1 = 20.6642f,
+                        x2 = 20.6642f,
+                        y2 = 21.0f,
+                        x3 = 20.25f,
+                        y3 = 21.0f,
+                    )
                     horizontalLineTo(x = 3.75f)
-                    curveTo(x1 = 3.33579f, y1 = 21.0f, x2 = 3.0f, y2 = 20.6642f, x3 = 3.0f, y3 = 20.25f)
+                    curveTo(
+                        x1 = 3.33579f,
+                        y1 = 21.0f,
+                        x2 = 3.0f,
+                        y2 = 20.6642f,
+                        x3 = 3.0f,
+                        y3 = 20.25f,
+                    )
                     verticalLineTo(y = 4.75f)
-                    curveTo(x1 = 3.0f, y1 = 4.33579f, x2 = 3.33579f, y2 = 4.0f, x3 = 3.75f, y3 = 4.0f)
+                    curveTo(
+                        x1 = 3.0f,
+                        y1 = 4.33579f,
+                        x2 = 3.33579f,
+                        y2 = 4.0f,
+                        x3 = 3.75f,
+                        y3 = 4.0f,
+                    )
                     horizontalLineTo(x = 7.0f)
                     verticalLineTo(y = 2.75f)
-                    curveTo(x1 = 7.0f, y1 = 2.33579f, x2 = 7.33579f, y2 = 2.0f, x3 = 7.75f, y3 = 2.0f)
+                    curveTo(
+                        x1 = 7.0f,
+                        y1 = 2.33579f,
+                        x2 = 7.33579f,
+                        y2 = 2.0f,
+                        x3 = 7.75f,
+                        y3 = 2.0f,
+                    )
                     close()
                     moveTo(x = 4.5f, y = 10.5f)
                     verticalLineTo(y = 19.5f)
@@ -76,9 +132,9 @@ private fun IconPreview() {
                 imageVector = Calendar,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

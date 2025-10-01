@@ -37,9 +37,30 @@ val PencilWave: ImageVector
                     strokeLineWidth = 1.5f,
                 ) {
                     moveTo(x = 21.0f, y = 18.0f)
-                    curveTo(x1 = 21.0f, y1 = 18.0f, x2 = 19.666f, y2 = 19.5444f, x3 = 18.166f, y3 = 19.5444f)
-                    curveTo(x1 = 16.666f, y1 = 19.5444f, x2 = 15.4594f, y2 = 18.115f, x3 = 13.9866f, y3 = 18.115f)
-                    curveTo(x1 = 12.5138f, y1 = 18.115f, x2 = 11.6598f, y2 = 18.786f, x3 = 10.75f, y3 = 19.75f)
+                    curveTo(
+                        x1 = 21.0f,
+                        y1 = 18.0f,
+                        x2 = 19.666f,
+                        y2 = 19.5444f,
+                        x3 = 18.166f,
+                        y3 = 19.5444f,
+                    )
+                    curveTo(
+                        x1 = 16.666f,
+                        y1 = 19.5444f,
+                        x2 = 15.4594f,
+                        y2 = 18.115f,
+                        x3 = 13.9866f,
+                        y3 = 18.115f,
+                    )
+                    curveTo(
+                        x1 = 12.5138f,
+                        y1 = 18.115f,
+                        x2 = 11.6598f,
+                        y2 = 18.786f,
+                        x3 = 10.75f,
+                        y3 = 19.75f,
+                    )
                     moveTo(x = 17.0f, y = 2.75f)
                     lineTo(x = 20.25f, y = 6.0f)
                     lineTo(x = 6.0f, y = 20.25f)
@@ -64,9 +85,9 @@ private fun IconPreview() {
                 imageVector = PencilWave,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

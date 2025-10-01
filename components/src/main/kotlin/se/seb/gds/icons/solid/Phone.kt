@@ -34,21 +34,77 @@ val Phone: ImageVector
                     pathFillType = PathFillType.EvenOdd,
                 ) {
                     moveTo(x = 5.0f, y = 1.75f)
-                    curveTo(x1 = 5.0f, y1 = 1.33579f, x2 = 5.33579f, y2 = 1.0f, x3 = 5.75f, y3 = 1.0f)
+                    curveTo(
+                        x1 = 5.0f,
+                        y1 = 1.33579f,
+                        x2 = 5.33579f,
+                        y2 = 1.0f,
+                        x3 = 5.75f,
+                        y3 = 1.0f,
+                    )
                     horizontalLineTo(x = 18.25f)
-                    curveTo(x1 = 18.6642f, y1 = 1.0f, x2 = 19.0f, y2 = 1.33579f, x3 = 19.0f, y3 = 1.75f)
+                    curveTo(
+                        x1 = 18.6642f,
+                        y1 = 1.0f,
+                        x2 = 19.0f,
+                        y2 = 1.33579f,
+                        x3 = 19.0f,
+                        y3 = 1.75f,
+                    )
                     verticalLineTo(y = 22.25f)
-                    curveTo(x1 = 19.0f, y1 = 22.6642f, x2 = 18.6642f, y2 = 23.0f, x3 = 18.25f, y3 = 23.0f)
+                    curveTo(
+                        x1 = 19.0f,
+                        y1 = 22.6642f,
+                        x2 = 18.6642f,
+                        y2 = 23.0f,
+                        x3 = 18.25f,
+                        y3 = 23.0f,
+                    )
                     horizontalLineTo(x = 5.75f)
-                    curveTo(x1 = 5.33579f, y1 = 23.0f, x2 = 5.0f, y2 = 22.6642f, x3 = 5.0f, y3 = 22.25f)
+                    curveTo(
+                        x1 = 5.33579f,
+                        y1 = 23.0f,
+                        x2 = 5.0f,
+                        y2 = 22.6642f,
+                        x3 = 5.0f,
+                        y3 = 22.25f,
+                    )
                     verticalLineTo(y = 1.75f)
                     close()
                     moveTo(x = 9.75f, y = 18.5f)
-                    curveTo(x1 = 9.33579f, y1 = 18.5f, x2 = 9.0f, y2 = 18.8358f, x3 = 9.0f, y3 = 19.25f)
-                    curveTo(x1 = 9.0f, y1 = 19.6642f, x2 = 9.33579f, y2 = 20.0f, x3 = 9.75f, y3 = 20.0f)
+                    curveTo(
+                        x1 = 9.33579f,
+                        y1 = 18.5f,
+                        x2 = 9.0f,
+                        y2 = 18.8358f,
+                        x3 = 9.0f,
+                        y3 = 19.25f,
+                    )
+                    curveTo(
+                        x1 = 9.0f,
+                        y1 = 19.6642f,
+                        x2 = 9.33579f,
+                        y2 = 20.0f,
+                        x3 = 9.75f,
+                        y3 = 20.0f,
+                    )
                     horizontalLineTo(x = 14.25f)
-                    curveTo(x1 = 14.6642f, y1 = 20.0f, x2 = 15.0f, y2 = 19.6642f, x3 = 15.0f, y3 = 19.25f)
-                    curveTo(x1 = 15.0f, y1 = 18.8358f, x2 = 14.6642f, y2 = 18.5f, x3 = 14.25f, y3 = 18.5f)
+                    curveTo(
+                        x1 = 14.6642f,
+                        y1 = 20.0f,
+                        x2 = 15.0f,
+                        y2 = 19.6642f,
+                        x3 = 15.0f,
+                        y3 = 19.25f,
+                    )
+                    curveTo(
+                        x1 = 15.0f,
+                        y1 = 18.8358f,
+                        x2 = 14.6642f,
+                        y2 = 18.5f,
+                        x3 = 14.25f,
+                        y3 = 18.5f,
+                    )
                     horizontalLineTo(x = 9.75f)
                     close()
                 }
@@ -68,9 +124,9 @@ private fun IconPreview() {
                 imageVector = Phone,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

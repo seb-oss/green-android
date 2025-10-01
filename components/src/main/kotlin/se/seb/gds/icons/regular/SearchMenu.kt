@@ -45,10 +45,38 @@ val SearchMenu: ImageVector
                     moveTo(x = 19.5f, y = 16.5f)
                     lineTo(x = 22.25f, y = 19.25f)
                     moveTo(x = 21.25f, y = 12.0f)
-                    curveTo(x1 = 21.25f, y1 = 15.4518f, x2 = 18.4518f, y2 = 18.25f, x3 = 15.0f, y3 = 18.25f)
-                    curveTo(x1 = 11.5482f, y1 = 18.25f, x2 = 8.75f, y2 = 15.4518f, x3 = 8.75f, y3 = 12.0f)
-                    curveTo(x1 = 8.75f, y1 = 8.54822f, x2 = 11.5482f, y2 = 5.75f, x3 = 15.0f, y3 = 5.75f)
-                    curveTo(x1 = 18.4518f, y1 = 5.75f, x2 = 21.25f, y2 = 8.54822f, x3 = 21.25f, y3 = 12.0f)
+                    curveTo(
+                        x1 = 21.25f,
+                        y1 = 15.4518f,
+                        x2 = 18.4518f,
+                        y2 = 18.25f,
+                        x3 = 15.0f,
+                        y3 = 18.25f,
+                    )
+                    curveTo(
+                        x1 = 11.5482f,
+                        y1 = 18.25f,
+                        x2 = 8.75f,
+                        y2 = 15.4518f,
+                        x3 = 8.75f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 8.75f,
+                        y1 = 8.54822f,
+                        x2 = 11.5482f,
+                        y2 = 5.75f,
+                        x3 = 15.0f,
+                        y3 = 5.75f,
+                    )
+                    curveTo(
+                        x1 = 18.4518f,
+                        y1 = 5.75f,
+                        x2 = 21.25f,
+                        y2 = 8.54822f,
+                        x3 = 21.25f,
+                        y3 = 12.0f,
+                    )
                     close()
                 }
             }.build()
@@ -67,9 +95,9 @@ private fun IconPreview() {
                 imageVector = SearchMenu,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

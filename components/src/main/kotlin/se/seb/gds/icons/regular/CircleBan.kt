@@ -35,13 +35,55 @@ val CircleBan: ImageVector
                     strokeLineWidth = 1.5f,
                 ) {
                     moveTo(x = 18.5407f, y = 5.45926f)
-                    curveTo(x1 = 16.8668f, y1 = 3.78534f, x2 = 14.5543f, y2 = 2.75f, x3 = 12.0f, y3 = 2.75f)
-                    curveTo(x1 = 6.89137f, y1 = 2.75f, x2 = 2.75f, y2 = 6.89137f, x3 = 2.75f, y3 = 12.0f)
-                    curveTo(x1 = 2.75f, y1 = 14.5543f, x2 = 3.78534f, y2 = 16.8668f, x3 = 5.45926f, y3 = 18.5407f)
+                    curveTo(
+                        x1 = 16.8668f,
+                        y1 = 3.78534f,
+                        x2 = 14.5543f,
+                        y2 = 2.75f,
+                        x3 = 12.0f,
+                        y3 = 2.75f,
+                    )
+                    curveTo(
+                        x1 = 6.89137f,
+                        y1 = 2.75f,
+                        x2 = 2.75f,
+                        y2 = 6.89137f,
+                        x3 = 2.75f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 2.75f,
+                        y1 = 14.5543f,
+                        x2 = 3.78534f,
+                        y2 = 16.8668f,
+                        x3 = 5.45926f,
+                        y3 = 18.5407f,
+                    )
                     moveTo(x = 18.5407f, y = 5.45926f)
-                    curveTo(x1 = 20.2147f, y1 = 7.13318f, x2 = 21.25f, y2 = 9.44568f, x3 = 21.25f, y3 = 12.0f)
-                    curveTo(x1 = 21.25f, y1 = 17.1086f, x2 = 17.1086f, y2 = 21.25f, x3 = 12.0f, y3 = 21.25f)
-                    curveTo(x1 = 9.44568f, y1 = 21.25f, x2 = 7.13318f, y2 = 20.2147f, x3 = 5.45926f, y3 = 18.5407f)
+                    curveTo(
+                        x1 = 20.2147f,
+                        y1 = 7.13318f,
+                        x2 = 21.25f,
+                        y2 = 9.44568f,
+                        x3 = 21.25f,
+                        y3 = 12.0f,
+                    )
+                    curveTo(
+                        x1 = 21.25f,
+                        y1 = 17.1086f,
+                        x2 = 17.1086f,
+                        y2 = 21.25f,
+                        x3 = 12.0f,
+                        y3 = 21.25f,
+                    )
+                    curveTo(
+                        x1 = 9.44568f,
+                        y1 = 21.25f,
+                        x2 = 7.13318f,
+                        y2 = 20.2147f,
+                        x3 = 5.45926f,
+                        y3 = 18.5407f,
+                    )
                     moveTo(x = 18.5407f, y = 5.45926f)
                     lineTo(x = 5.45926f, y = 18.5407f)
                 }
@@ -61,9 +103,9 @@ private fun IconPreview() {
                 imageVector = CircleBan,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }

@@ -72,14 +72,42 @@ val ChargingStation: ImageVector
                     fill = SolidColor(Color(0xFF000000)),
                 ) {
                     moveTo(x = 9.31469f, y = 6.91746f)
-                    curveTo(x1 = 9.31469f, y1 = 6.52592f, x2 = 8.83448f, y2 = 6.35059f, x3 = 8.59206f, y3 = 6.65363f)
+                    curveTo(
+                        x1 = 9.31469f,
+                        y1 = 6.52592f,
+                        x2 = 8.83448f,
+                        y2 = 6.35059f,
+                        x3 = 8.59206f,
+                        y3 = 6.65363f,
+                    )
                     lineTo(x = 6.19283f, y = 9.65281f)
-                    curveTo(x1 = 5.97521f, y1 = 9.92484f, x2 = 6.16445f, y2 = 10.3333f, x3 = 6.5081f, y3 = 10.3333f)
+                    curveTo(
+                        x1 = 5.97521f,
+                        y1 = 9.92484f,
+                        x2 = 6.16445f,
+                        y2 = 10.3333f,
+                        x3 = 6.5081f,
+                        y3 = 10.3333f,
+                    )
                     horizontalLineTo(x = 7.68526f)
                     verticalLineTo(y = 12.0825f)
-                    curveTo(x1 = 7.68526f, y1 = 12.4741f, x2 = 8.16548f, y2 = 12.6494f, x3 = 8.4079f, y3 = 12.3464f)
+                    curveTo(
+                        x1 = 7.68526f,
+                        y1 = 12.4741f,
+                        x2 = 8.16548f,
+                        y2 = 12.6494f,
+                        x3 = 8.4079f,
+                        y3 = 12.3464f,
+                    )
                     lineTo(x = 10.8071f, y = 9.34719f)
-                    curveTo(x1 = 11.0247f, y1 = 9.07516f, x2 = 10.8355f, y2 = 8.66673f, x3 = 10.4918f, y3 = 8.66673f)
+                    curveTo(
+                        x1 = 11.0247f,
+                        y1 = 9.07516f,
+                        x2 = 10.8355f,
+                        y2 = 8.66673f,
+                        x3 = 10.4918f,
+                        y3 = 8.66673f,
+                    )
                     horizontalLineTo(x = 9.31469f)
                     verticalLineTo(y = 6.91746f)
                     close()
@@ -100,9 +128,9 @@ private fun IconPreview() {
                 imageVector = ChargingStation,
                 contentDescription = null,
                 modifier =
-                    Modifier
-                        .width((24.0).dp)
-                        .height((24.0).dp),
+                Modifier
+                    .width((24.0).dp)
+                    .height((24.0).dp),
             )
         }
     }
