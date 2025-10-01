@@ -55,7 +55,11 @@ fun GdsSwitch(
                 thumbContent = {
                     if (checked || style.alwaysShowThumb) {
                         if (style.checkedIcon != null) {
-                            Icon(imageVector = style.checkedIcon, contentDescription = null)
+                            Icon(
+                                modifier = Modifier.size(SwitchDefaults.IconSize),
+                                imageVector = style.checkedIcon,
+                                contentDescription = null,
+                            )
                         } else if (style.alwaysShowThumb) {
                             Box(modifier = Modifier.size(SwitchDefaults.IconSize))
                         }

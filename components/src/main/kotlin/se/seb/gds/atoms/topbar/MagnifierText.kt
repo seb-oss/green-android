@@ -36,8 +36,14 @@ fun MagnifierText(
     onClick: (() -> Unit)? = null,
 ) {
     val localDensity = LocalDensity.current
-    val textSize = with(localDensity) { style.fontSize.value.dp.toSp() }
-    val lineHeight = with(localDensity) { style.lineHeight.value.dp.toSp() }
+    val textSize = with(localDensity) {
+        style.fontSize.value.dp
+            .toSp()
+    }
+    val lineHeight = with(localDensity) {
+        style.lineHeight.value.dp
+            .toSp()
+    }
     var showMagnifier by remember { mutableStateOf(false) }
     var magnifierPosition by remember { mutableStateOf(IntOffset.Zero) }
 

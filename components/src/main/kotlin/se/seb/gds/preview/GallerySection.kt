@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import se.seb.gds.icons.SebIcons
+import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 @Composable
@@ -51,7 +51,7 @@ internal fun ListItem(
             color = GdsTheme.legacyColors.PrimaryText,
         )
         Icon(
-            imageVector = SebIcons.RightChevron,
+            imageVector = GdsIcons.Solid.ChevronRight,
             contentDescription = null,
             tint = GdsTheme.colors.ContentNeutral01,
         )

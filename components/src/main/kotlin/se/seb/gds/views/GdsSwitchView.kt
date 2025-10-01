@@ -39,9 +39,7 @@ class GdsSwitchView @JvmOverloads constructor(
 
     private var _isEnabled by mutableStateOf(true)
 
-    override fun isEnabled(): Boolean {
-        return _isEnabled
-    }
+    override fun isEnabled(): Boolean = _isEnabled
 
     override fun setEnabled(enabled: Boolean) {
         _isEnabled = enabled

@@ -28,7 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import se.seb.gds.atoms.GdsButtonDefaults.seb2016Shape
-import se.seb.gds.icons.SebIcons
+import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 /**
@@ -117,8 +117,7 @@ fun GdsButton(
                 LocalRippleConfiguration provides
                     RippleConfiguration(
                         color = rippleColor,
-                        rippleAlpha =
-                        RippleAlpha(
+                        rippleAlpha = RippleAlpha(
                             draggedAlpha = 0.16f,
                             focusedAlpha = 0.12f,
                             hoveredAlpha = 0.08f,
@@ -250,7 +249,7 @@ private fun GdsButtonSecondaryPreview() {
     GdsTheme {
         GdsButton(
             title = "Button",
-            icon = SebIcons.Check,
+            icon = GdsIcons.Solid.Checkmark,
             style = GdsButtonDefaults.TwentyThree.secondaryStyle(),
             onClick = {},
         )
@@ -276,7 +275,7 @@ private fun GdsButtonPrimaryPreview() {
     GdsTheme {
         GdsButton(
             title = "Button",
-            icon = SebIcons.Check,
+            icon = GdsIcons.Solid.Checkmark,
             onClick = {},
         )
     }
@@ -300,7 +299,7 @@ private fun GdsButtonPrimaryPreview() {
 private fun GdsIconButtonPrimaryPreview() {
     GdsTheme {
         GdsButton(
-            icon = SebIcons.Check,
+            icon = GdsIcons.Solid.Checkmark,
             style = GdsButtonDefaults.TwentyThree.primaryStyle(),
             sizeProfile = GdsButtonDefaults.TwentyThree.large(),
             onClick = {},

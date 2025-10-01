@@ -34,7 +34,7 @@ import se.seb.gds.atoms.GdsButtonDefaults
 import se.seb.gds.atoms.IconPosition
 import se.seb.gds.atoms.LegacyButtonSize
 import se.seb.gds.components.SwitchRow
-import se.seb.gds.icons.SebIcons
+import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 @Composable
@@ -99,7 +99,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
             SwitchRow("Icon", checked = hasIcon) {
                 hasIcon = it
             }
-            val icon = hasIcon.takeIf { it }?.let { SebIcons.Check }
+            val icon = hasIcon.takeIf { it }?.let { GdsIcons.Solid.Checkmark }
 
             var iconPosition by rememberSaveable { mutableStateOf("Left") }
             if (hasIcon) {
