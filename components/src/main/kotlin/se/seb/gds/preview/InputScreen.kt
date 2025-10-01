@@ -31,7 +31,6 @@ import se.seb.gds.theme.GdsTheme
 
 @Composable
 fun InputScreen(scrollState: ScrollState) {
-
     var enabled by rememberSaveable { mutableStateOf(true) }
     var clearable by rememberSaveable { mutableStateOf(false) }
     var isError by rememberSaveable { mutableStateOf(false) }
@@ -63,10 +62,12 @@ fun InputScreen(scrollState: ScrollState) {
                 {
                     Icon(
                         painter = rememberVectorPainter(image = Icons.Default.Search),
-                        contentDescription = null
+                        contentDescription = null,
                     )
                 }
-            } else null,
+            } else {
+                null
+            },
             lineLimits = TextFieldLineLimits.SingleLine,
         )
         Spacer(Modifier.height(16.dp))
@@ -85,11 +86,13 @@ fun InputScreen(scrollState: ScrollState) {
                 {
                     Icon(
                         painter = rememberVectorPainter(image = Icons.Default.Search),
-                        contentDescription = null
+                        contentDescription = null,
                     )
                 }
-            } else null,
-            lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4)
+            } else {
+                null
+            },
+            lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4),
         )
         Spacer(Modifier.height(16.dp))
 
@@ -108,10 +111,12 @@ fun InputScreen(scrollState: ScrollState) {
                 {
                     Icon(
                         painter = rememberVectorPainter(image = Icons.Default.Search),
-                        contentDescription = null
+                        contentDescription = null,
                     )
                 }
-            } else null,
+            } else {
+                null
+            },
             lineLimits = TextFieldLineLimits.SingleLine,
         )
 
@@ -132,11 +137,13 @@ fun InputScreen(scrollState: ScrollState) {
                 {
                     Icon(
                         painter = rememberVectorPainter(image = Icons.Default.Search),
-                        contentDescription = null
+                        contentDescription = null,
                     )
                 }
-            } else null,
-            lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4)
+            } else {
+                null
+            },
+            lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4),
         )
 
         Spacer(modifier = Modifier.height(16.dp))

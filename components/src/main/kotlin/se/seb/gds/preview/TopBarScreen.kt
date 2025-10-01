@@ -18,7 +18,6 @@ import se.seb.gds.theme.GdsTheme
 
 @Composable
 fun TopBarScreen() {
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -36,19 +35,17 @@ fun TopBarScreen() {
             rightActions = {
                 GdsTopBarAction(
                     icon = R.drawable.ic_clear_24,
-                    onClick = { }
+                    onClick = { },
                 )
             },
-            elevation = 4.dp
+            elevation = 4.dp,
         )
         LazyColumn(
-            modifier = Modifier.padding()
+            modifier = Modifier.padding(),
         ) {
-
             items(100) {
                 Text("Item $it", Modifier.fillMaxWidth())
             }
         }
     }
-
 }

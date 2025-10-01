@@ -9,7 +9,6 @@ import androidx.compose.foundation.interaction.DragInteraction
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -107,7 +106,10 @@ fun GdsInput(
     onTrailingIconClick: (() -> Unit)? = null,
     trailingIconDescription: String? = null,
     onInteraction: (Interaction) -> Unit = {},
-    characterWhitelistPredicate: (CharSequence, CharSequence) -> Boolean = { _: CharSequence, _: CharSequence -> true },
+    characterWhitelistPredicate: (
+        CharSequence,
+        CharSequence,
+    ) -> Boolean = { _: CharSequence, _: CharSequence -> true },
     onValueChange: (String) -> Unit = {},
 ) {
     val scope = rememberCoroutineScope()
@@ -145,13 +147,13 @@ fun GdsInput(
         readOnly,
         overridePlaceholderDescription,
         label,
-        isError
+        isError,
     )
 
     val customActionsList = buildCustomAccessibilityActions(
         trailingIconDescription = trailingIconDescription,
         onTrailingIconClick = onTrailingIconClick,
-        onClearText = { clearText() }
+        onClearText = { clearText() },
     )
 
     val doubleTapToEditText = stringResource(id = R.string.text_field_edit)
@@ -162,6 +164,7 @@ fun GdsInput(
         isError && !textFieldIsFocused -> {
             @Composable { ErrorIcon() }
         }
+
         else -> null
     }
 
@@ -177,7 +180,7 @@ fun GdsInput(
                 contentDescription = textFieldDescription
                 customActions = customActionsList
                 onClick(doubleTapToEditText, null)
-            }
+            },
     ) {
         if (!style.floatingLabel) {
             Header(label = label, supportLabel = supportLabel, style = style)
@@ -205,7 +208,7 @@ fun GdsInput(
             trailingIcon = currentTrailingIcon,
             maxCharacters = maxCharacters,
             clearable = clearable,
-            clearText = { clearText() }
+            clearText = { clearText() },
         )
         Footer(
             state = state,
@@ -214,7 +217,7 @@ fun GdsInput(
             errorMessage = errorMessage,
             supportingMessage = supportingText,
             maxCharacters = maxCharacters,
-            style = style
+            style = style,
         )
     }
 }
@@ -227,7 +230,7 @@ fun Footer(
     errorMessage: String?,
     supportingMessage: String?,
     maxCharacters: Int?,
-    style: GdsInputStyle
+    style: GdsInputStyle,
 ) {
     val textToShow = if (isError) {
         errorMessage
@@ -253,13 +256,13 @@ fun Footer(
             Modifier
                 .padding(start = 16.dp, end = 16.dp, top = 8.dp)
                 .fillMaxWidth(),
-            verticalAlignment = Alignment.Bottom
+            verticalAlignment = Alignment.Bottom,
         ) {
             Text(
                 modifier = Modifier.weight(1f),
                 text = it,
                 style = style.textStyle.footerMessageStyle,
-                color = textColor
+                color = textColor,
             )
             if (maxCharacters != null && !style.floatingLabel) {
                 CharacterAmountIndicator(
@@ -303,7 +306,9 @@ fun Body(
 ) {
     val floatingLabel = label.takeIf { style.floatingLabel }
     var textLineCount by remember { mutableIntStateOf(1) }
-    var labelLineCount by remember { mutableIntStateOf(if (style.containerSize is InputSize.Large) 1 else 0) }
+    var labelLineCount by remember {
+        mutableIntStateOf(if (style.containerSize is InputSize.Large) 1 else 0)
+    }
 
     val labelAnimationProgress by animateFloatAsState(
         targetValue = if (textFieldIsFocused || state.text.isNotEmpty()) 1f else 0f,
@@ -314,7 +319,7 @@ fun Body(
             lerp(
                 style.textStyle.largeLabelStyle,
                 style.textStyle.smallLabelStyle,
-                labelAnimationProgress
+                labelAnimationProgress,
             )
         }
     }
@@ -350,24 +355,26 @@ fun Body(
                     hasPadding = true,
                     textStyle = style.textStyle.inputTextStyle,
                     labelStyle = style.textStyle.smallLabelStyle,
-                ).coerceAtLeast(style.containerSize.height)
+                ).coerceAtLeast(style.containerSize.height),
             ),
-        contentAlignment = Alignment.TopCenter
+        contentAlignment = Alignment.TopCenter,
     ) {
         Box(
             modifier = Modifier
                 .background(shape = style.containerSize.shape, color = containerColor)
                 .border(width = 2.dp, color = borderColor, shape = style.containerSize.shape)
-                .matchParentSize()
+                .matchParentSize(),
         )
 
         Row(
             modifier = rowModifier ?: Modifier
                 .fillMaxWidth()
                 .align(Alignment.Center)
-                .padding(horizontal = 16.dp)
+                .padding(horizontal = 16.dp),
         ) {
-            val alignIconToTop = lineLimits is TextFieldLineLimits.MultiLine && (lineLimits.minHeightInLines > 1 || textLineCount > 1)
+            val alignIconToTop =
+                lineLimits is TextFieldLineLimits.MultiLine &&
+                    (lineLimits.minHeightInLines > 1 || textLineCount > 1)
             val leadingTrailingModifier = if (alignIconToTop) {
                 Modifier
                     .align(Alignment.Top)
@@ -455,7 +462,7 @@ fun Body(
                                                 textStyle = style.textStyle.characterCounter,
                                                 color = style.colors.floatingLabelColor,
                                                 maxCharacters = maxCharacters,
-                                                currentCharacters = state.text.length
+                                                currentCharacters = state.text.length,
                                             )
                                         }
                                     }
@@ -481,19 +488,19 @@ fun Body(
 @Composable
 private fun getContentPadding(
     style: GdsInputStyle,
-    floatingLabel: String?
+    floatingLabel: String?,
 ) = when {
     style.floatingLabel && floatingLabel == null -> {
         contentPaddingWithoutLabel(
             start = 0.dp,
-            end = 0.dp
+            end = 0.dp,
         )
     }
 
     style.floatingLabel -> {
         contentPaddingWithLabel(
             start = 0.dp,
-            end = 0.dp
+            end = 0.dp,
         )
     }
 
@@ -502,7 +509,7 @@ private fun getContentPadding(
             top = 10.dp,
             bottom = 10.dp,
             start = 0.dp,
-            end = 0.dp
+            end = 0.dp,
         )
     }
 }
@@ -511,7 +518,7 @@ private fun getContentPadding(
 internal fun Header(
     style: GdsInputStyle,
     label: String? = null,
-    supportLabel: String? = null
+    supportLabel: String? = null,
 ) {
     val hasContent = label != null || supportLabel != null
     label?.let {
@@ -519,7 +526,7 @@ internal fun Header(
             modifier = Modifier.padding(horizontal = 16.dp),
             color = style.colors.labelColor,
             style = style.textStyle.labelStyle,
-            text = it
+            text = it,
         )
     }
     supportLabel?.let {
@@ -527,7 +534,7 @@ internal fun Header(
             modifier = Modifier.padding(horizontal = 16.dp),
             style = style.textStyle.supportLabelStyle,
             color = style.colors.supportLabelColor,
-            text = it
+            text = it,
         )
     }
     if (hasContent) {
@@ -544,7 +551,7 @@ private fun getAccessibilityDescription(
     readOnly: Boolean,
     overridePlaceholderDescription: String?,
     label: String?,
-    isError: Boolean
+    isError: Boolean,
 ): String {
     val descriptionBuilder = StringBuilder()
 
@@ -575,8 +582,8 @@ private fun getAccessibilityDescription(
                 stringResource(
                     id = R.string.text_field_characters_written,
                     state.text.length,
-                    it
-                )
+                    it,
+                ),
             )
         }
     } else if (readOnly) {
@@ -619,7 +626,6 @@ fun InputTransformation?.thenIfNotNull(next: InputTransformation?): InputTransfo
     }
 }
 
-
 @Preview(
     name = "Light Mode GdsInput",
     group = "Themes",
@@ -638,10 +644,10 @@ private fun TextFieldPreview() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(GdsTheme.colors.StateNeutral01)
+                .background(GdsTheme.colors.StateNeutral01),
         ) {
             Column(
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(16.dp),
             ) {
                 GdsInput(
                     state = rememberTextFieldState(),
@@ -653,10 +659,10 @@ private fun TextFieldPreview() {
                     leadingIcon = {
                         Icon(
                             painter = rememberVectorPainter(image = Icons.Default.Search),
-                            contentDescription = null
+                            contentDescription = null,
                         )
                     },
-                    lineLimits = TextFieldLineLimits.SingleLine
+                    lineLimits = TextFieldLineLimits.SingleLine,
                 )
                 Spacer(Modifier.height(16.dp))
                 GdsInput(
@@ -667,10 +673,10 @@ private fun TextFieldPreview() {
                     leadingIcon = {
                         Icon(
                             painter = rememberVectorPainter(image = Icons.Default.Search),
-                            contentDescription = null
+                            contentDescription = null,
                         )
                     },
-                    lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4)
+                    lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 4),
                 )
                 Spacer(Modifier.height(16.dp))
                 GdsInput(
@@ -679,7 +685,7 @@ private fun TextFieldPreview() {
                     style = GdsInputDefaults.containedStyle(),
                     placeholderText = "Placeholder text",
                     supportingText = "Contained variant",
-                    errorMessage = "Error message."
+                    errorMessage = "Error message.",
                 )
                 Spacer(Modifier.height(16.dp))
                 GdsInput(
@@ -688,7 +694,7 @@ private fun TextFieldPreview() {
                     style = GdsInputDefaults.containedStyle(),
                     enabled = true,
                     readOnly = true,
-                    supportingText = "Support message."
+                    supportingText = "Support message.",
                 )
             }
         }

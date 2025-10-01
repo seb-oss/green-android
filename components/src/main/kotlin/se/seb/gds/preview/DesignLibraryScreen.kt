@@ -53,24 +53,26 @@ internal fun DesignLibraryScreen(
             CenterAlignedTopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = GdsTheme.colors.L1Neutral02,
-                    titleContentColor = GdsTheme.colors.ContentNeutral01
+                    titleContentColor = GdsTheme.colors.ContentNeutral01,
                 ),
-                title = { Text(text = currentScreen.name, style = GdsTheme.legacyTypography.Headline) },
+                title = {
+                    Text(text = currentScreen.name, style = GdsTheme.legacyTypography.Headline)
+                },
                 navigationIcon = {
                     if (currentScreen != LibraryScreen.LIBRARY) {
                         IconButton(onClick = { currentScreen = LibraryScreen.LIBRARY }) {
                             Icon(
                                 Icons.AutoMirrored.Filled.ArrowBack,
                                 contentDescription = "Back",
-                                tint = GdsTheme.colors.ContentNeutral01
+                                tint = GdsTheme.colors.ContentNeutral01,
                             )
                         }
                     }
-                }
+                },
             )
         },
         containerColor = GdsTheme.colors.L1Neutral02,
-        contentColor = GdsTheme.colors.ContentNeutral01
+        contentColor = GdsTheme.colors.ContentNeutral01,
     ) { paddingValues ->
         AnimatedContent(
             modifier = Modifier
@@ -105,12 +107,17 @@ internal fun DesignLibraryScreen(
                 }
 
                 LibraryScreen.COLORS -> ColorsScreen(allColors)
+
                 LibraryScreen.LEGACY_COLORS -> ColorsScreen(legacyColors)
 
                 LibraryScreen.FONTS -> FontsScreen(scrollState = scrollState)
+
                 LibraryScreen.SWITCHES -> SwitchesScreen(scrollState = scrollState)
+
                 LibraryScreen.BUTTONS -> ButtonsScreen(scrollState = scrollState)
+
                 LibraryScreen.INPUT -> InputScreen(scrollState = scrollState)
+
                 LibraryScreen.TOP_BAR -> TopBarScreen()
             }
         }

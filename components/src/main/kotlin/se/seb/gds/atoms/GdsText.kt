@@ -12,7 +12,7 @@ fun GdsText(
     modifier: Modifier = Modifier,
     label: String,
     color: Color?,
-    style: TextStyle?
+    style: TextStyle?,
 ) {
     Text(
         modifier = modifier,

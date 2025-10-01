@@ -24,7 +24,7 @@ import se.seb.gds.atoms.LegacyButtonSize
 class GdsButtonView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    defStyleAttr: Int = 0,
 ) : AbstractComposeView(context, attrs, defStyleAttr) {
 
     private var _title by mutableStateOf("")
@@ -92,11 +92,18 @@ class GdsButtonView @JvmOverloads constructor(
                 }
             }
 
-            ButtonStyle.LEGACY_PRIMARY, ButtonStyle.LEGACY_SECONDARY, ButtonStyle.LEGACY_TERTIARY, ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE -> {
+            ButtonStyle.LEGACY_PRIMARY,
+            ButtonStyle.LEGACY_SECONDARY,
+            ButtonStyle.LEGACY_TERTIARY,
+            ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE,
+            -> {
                 GdsButtonDefaults.legacySizeProfile(size)
             }
 
-            ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE, ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE, ButtonStyle.LEGACY_TERTIARY_EMPHASIS -> {
+            ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE,
+            ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE,
+            ButtonStyle.LEGACY_TERTIARY_EMPHASIS,
+            -> {
                 GdsButtonDefaults.legacyFullSmallProfile()
             }
         }
@@ -106,7 +113,7 @@ class GdsButtonView @JvmOverloads constructor(
             style = buttonStyle,
             sizeProfile = sizeProfile,
             enabled = _isEnabled,
-            onClick = { onClickListener?.invoke() }
+            onClick = { onClickListener?.invoke() },
         )
     }
 
@@ -120,12 +127,12 @@ class GdsButtonView @JvmOverloads constructor(
         LEGACY_PRIMARY_DESTRUCTIVE,
         LEGACY_SECONDARY_DESTRUCTIVE,
         LEGACY_TERTIARY_DESTRUCTIVE,
-        LEGACY_TERTIARY_EMPHASIS
+        LEGACY_TERTIARY_EMPHASIS,
     }
 
     enum class ButtonSize {
         SMALL,
         MEDIUM,
-        LARGE
+        LARGE,
     }
 }

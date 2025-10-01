@@ -13,7 +13,7 @@ fun CharacterAmountIndicator(
     maxCharacters: Int?,
     currentCharacters: Int,
     textStyle: TextStyle,
-    color: Color
+    color: Color,
 ) {
     val maxCharactersText = maxCharacters.toString()
     val currentCharactersText = currentCharacters.toString()

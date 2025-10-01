@@ -21,9 +21,13 @@ object InputFieldUtil {
         val labelHeight = labelStyle.lineHeight.value.sp
         val buffer = 8.dp
         val padding = 16.dp
-        val minHeight = with(density) {
-            (textHeight.toDp() * textLineCount) + (labelHeight.toDp() * labelLineCount) + buffer + if (hasPadding) padding else 0.dp
-        }
+        val minHeight =
+            with(density) {
+                (textHeight.toDp() * textLineCount) +
+                    (labelHeight.toDp() * labelLineCount) +
+                    buffer +
+                    if (hasPadding) padding else 0.dp
+            }
         return minHeight
     }
 }

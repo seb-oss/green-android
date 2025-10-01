@@ -23,7 +23,6 @@ internal fun FontsScreen(scrollState: ScrollState) {
             .padding(16.dp),
         verticalArrangement = spacedBy(16.dp),
     ) {
-
         FontText(
             name = "TitleLarge",
             style = GdsTheme.legacyTypography.TitleLarge,

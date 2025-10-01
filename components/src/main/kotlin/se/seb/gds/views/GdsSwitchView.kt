@@ -24,7 +24,7 @@ import se.seb.gds.atoms.GdsSwitchDefaults
 class GdsSwitchView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    defStyleAttr: Int = 0,
 ) : AbstractComposeView(context, attrs, defStyleAttr) {
 
     private var _checked by mutableStateOf(false)
@@ -76,6 +76,6 @@ class GdsSwitchView @JvmOverloads constructor(
     enum class SwitchStyle {
         Default,
         Legacy,
-        Neo
+        Neo,
     }
 }

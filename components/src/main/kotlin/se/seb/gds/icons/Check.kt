@@ -19,7 +19,7 @@ fun createCheckIcon(): ImageVector {
         defaultWidth = 16.0.dp,
         defaultHeight = 16.0.dp,
         viewportWidth = 16.0f,
-        viewportHeight = 16.0f
+        viewportHeight = 16.0f,
     ).apply {
         path(
             fill = null,
@@ -31,7 +31,7 @@ fun createCheckIcon(): ImageVector {
                 moveTo(12.5f, 5.0f) // Start at the bottom-left of the checkmark
                 lineTo(7.0f, 11.5f) // Draw the diagonal line up to the middle
                 lineTo(4.0f, 8.5f) // Draw the diagonal line down to the end
-            }
+            },
         )
     }.build()
     return _done!!

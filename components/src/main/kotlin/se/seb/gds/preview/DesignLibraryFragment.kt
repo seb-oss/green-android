@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.compose.ui.graphics.Color
 import androidx.fragment.app.Fragment
 import androidx.fragment.compose.content
-import se.seb.gds.theme.GdsTheme
-import se.seb.gds.theme.colors.LegacyColors
-import se.seb.gds.tokens.darkModeColors
-import se.seb.gds.tokens.lightModeColors
 import kotlin.reflect.KProperty
 import kotlin.reflect.full.isSubtypeOf
 import kotlin.reflect.full.memberProperties
 import kotlin.reflect.typeOf
+import se.seb.gds.theme.GdsTheme
+import se.seb.gds.theme.colors.LegacyColors
+import se.seb.gds.tokens.darkModeColors
+import se.seb.gds.tokens.lightModeColors
 
 /**
  * A simple [androidx.fragment.app.Fragment] subclass.
@@ -22,7 +22,6 @@ import kotlin.reflect.typeOf
  * create an instance of this fragment.
  */
 class DesignLibraryFragment : Fragment() {
-
     private lateinit var themeColors: List<Pair<String, ColorMapping>>
     private lateinit var legacyThemeColors: List<Pair<String, ColorMapping>>
 
@@ -38,19 +37,24 @@ class DesignLibraryFragment : Fragment() {
         val legacyDarkColors = LegacyColors.defaultColors(true)
         val legacyLightThemeColorProperties = extractColorProperties(legacyLightColors)
         val legacyDarkThemeColorProperties = extractColorProperties(legacyDarkColors)
-        legacyThemeColors = combineColorLists(legacyLightThemeColorProperties, legacyDarkThemeColorProperties)
+        legacyThemeColors =
+            combineColorLists(legacyLightThemeColorProperties, legacyDarkThemeColorProperties)
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = content {
-        GdsTheme {
-            DesignLibraryScreen(themeColors, legacyThemeColors)
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? =
+        content {
+            GdsTheme {
+                DesignLibraryScreen(themeColors, legacyThemeColors)
+            }
         }
-    }
 
-    private inline fun <reified T : Any> extractColorProperties(instance: T): List<Pair<String, Color>> {
+    private inline fun <reified T : Any> extractColorProperties(
+        instance: T,
+    ): List<Pair<String, Color>> {
         val colorProperties = mutableListOf<Pair<String, Color>>()
         val kClass = T::class
 
@@ -74,10 +78,11 @@ class DesignLibraryFragment : Fragment() {
         return (lightColorMap.keys + darkColorMap.keys)
             .distinct()
             .map { key ->
-                key to ColorMapping(
-                    lightModeColor = lightColorMap[key] ?: Color.Transparent,
-                    darkModeColor = darkColorMap[key] ?: Color.Transparent,
-                )
+                key to
+                    ColorMapping(
+                        lightModeColor = lightColorMap[key] ?: Color.Transparent,
+                        darkModeColor = darkColorMap[key] ?: Color.Transparent,
+                    )
             }
     }
 

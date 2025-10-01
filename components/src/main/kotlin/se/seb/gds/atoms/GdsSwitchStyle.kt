@@ -30,37 +30,39 @@ import se.seb.gds.theme.GdsTheme
 data class GdsSwitchStyle(
     val colors: SwitchColors,
     val alwaysShowThumb: Boolean,
-    val checkedIcon: ImageVector?
+    val checkedIcon: ImageVector?,
 )
 
 object GdsSwitchDefaults {
-
-    @Composable
     // 2023
-    fun defaultStyle() = GdsSwitchStyle(
-        colors = defaultColors(),
-        alwaysShowThumb = false,
-        checkedIcon = SebIcons.Check
-    )
-
     @Composable
+    fun defaultStyle() =
+        GdsSwitchStyle(
+            colors = defaultColors(),
+            alwaysShowThumb = false,
+            checkedIcon = SebIcons.Check,
+        )
+
     // 2016
-    fun legacyStyle() = GdsSwitchStyle(
-        colors = legacyColors(),
-        alwaysShowThumb = false,
-        checkedIcon = SebIcons.Check
-    )
+    @Composable
+    fun legacyStyle() =
+        GdsSwitchStyle(
+            colors = legacyColors(),
+            alwaysShowThumb = false,
+            checkedIcon = SebIcons.Check,
+        )
 
     @Composable
-    fun neoStyle() = GdsSwitchStyle(
-        colors = neoColors(),
-        alwaysShowThumb = true,
-        checkedIcon = null
-    )
+    fun neoStyle() =
+        GdsSwitchStyle(
+            colors = neoColors(),
+            alwaysShowThumb = true,
+            checkedIcon = null,
+        )
 
     @Composable
-    fun defaultColors(): SwitchColors {
-        return SwitchDefaults.colors(
+    fun defaultColors(): SwitchColors =
+        SwitchDefaults.colors(
             checkedThumbColor = GdsTheme.colors.L3Neutral04,
             checkedTrackColor = GdsTheme.colors.L3Positive01,
             uncheckedThumbColor = GdsTheme.colors.ContentNeutral02,
@@ -71,25 +73,23 @@ object GdsSwitchDefaults {
             disabledCheckedTrackColor = GdsTheme.colors.L3Disabled02,
             disabledCheckedThumbColor = GdsTheme.colors.L3Disabled03,
             disabledUncheckedThumbColor = GdsTheme.colors.ContentDisabled01,
-            disabledUncheckedTrackColor = GdsTheme.colors.L3Disabled03
+            disabledUncheckedTrackColor = GdsTheme.colors.L3Disabled03,
         )
-    }
 
     @Composable
-    fun legacyColors(): SwitchColors {
-        return SwitchDefaults.colors(
+    fun legacyColors(): SwitchColors =
+        SwitchDefaults.colors(
             checkedThumbColor = Color.White,
             checkedTrackColor = GdsTheme.legacyColors.DarkBlue1,
             uncheckedThumbColor = GdsTheme.legacyColors.switchUncheckedTrackColor,
             uncheckedTrackColor = Color.Transparent,
             uncheckedBorderColor = GdsTheme.legacyColors.switchUncheckedTrackColor,
-            checkedIconColor = GdsTheme.legacyColors.DarkBlue1
+            checkedIconColor = GdsTheme.legacyColors.DarkBlue1,
         )
-    }
 
     @Composable
-    fun neoColors(): SwitchColors {
-        return SwitchDefaults.colors(
+    fun neoColors(): SwitchColors =
+        SwitchDefaults.colors(
             checkedThumbColor = Color.White,
             checkedTrackColor = Color(0xFF26BD3F),
             uncheckedThumbColor = Color.White,
@@ -98,5 +98,4 @@ object GdsSwitchDefaults {
             checkedBorderColor = Color.Transparent,
             uncheckedBorderColor = Color.Transparent,
         )
-    }
 }

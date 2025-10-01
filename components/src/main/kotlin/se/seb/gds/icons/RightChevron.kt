@@ -20,7 +20,7 @@ fun createRightChrevronIcon(): ImageVector {
         defaultWidth = 16.0.dp,
         defaultHeight = 16.0.dp,
         viewportWidth = 24.0f,
-        viewportHeight = 24.0f
+        viewportHeight = 24.0f,
     ).apply {
         path(
             fill = SolidColor(Color.Black),
@@ -37,7 +37,7 @@ fun createRightChrevronIcon(): ImageVector {
                 lineToRelative(-6.0f, 6.0f)
                 lineToRelative(-1.41f, -1.41f)
                 close()
-            }
+            },
         )
     }.build()
     return _done!!

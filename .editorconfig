@@ -1,0 +1,46 @@
+root = true
+
+[{*.kt,*.kts}]
+ktlint_experimental = enabled
+ktlint_code_style = android_studio
+ktlint_ignore_back_ticked_identifier = true
+ktlint_standard = enabled
+ktlint_standard_trailing-comma-on-call-site = enabled
+ktlint_standard_backing-property-naming = disabled
+ktlint_function_naming_ignore_when_annotated_with = Composable
+ktlint_standard_function-expression-body = disabled
+ktlint_function_signature_body_expression_wrapping = multiline
+ktlint_function_signature_rule_force_multiline_when_parameter_count_greater_or_equal_than = 2
+ktlint_standard_class-signature = enabled
+ktlint_class_signature_rule_force_multiline_when_parameter_count_greater_or_equal_than = 2
+ij_kotlin_imports_layout = *, ^
+ij_kotlin_allow_trailing_comma = true
+ij_kotlin_allow_trailing_comma_on_call_site = true
+ij_kotlin_assignment_wrap = off
+ij_kotlin_code_style_defaults = KOTLIN_OFFICIAL
+ij_kotlin_extends_list_wrap = on_every_item
+ij_kotlin_field_annotation_wrap = split_into_lines
+ij_kotlin_line_break_after_multiline_when_entry = true
+ij_kotlin_method_call_chain_wrap = on_every_item
+
+[{*.markdown,*.md}]
+max_line_length = unset
+ij_markdown_force_one_space_after_blockquote_symbol = true
+ij_markdown_force_one_space_after_header_symbol = true
+ij_markdown_force_one_space_after_list_bullet = true
+ij_markdown_force_one_space_between_words = true
+ij_markdown_format_tables = true
+ij_markdown_insert_quote_arrows_on_wrap = true
+ij_markdown_keep_indents_on_empty_lines = false
+ij_markdown_keep_line_breaks_inside_text_blocks = true
+ij_markdown_max_lines_around_block_elements = 1
+ij_markdown_max_lines_around_header = 1
+ij_markdown_max_lines_between_paragraphs = 1
+ij_markdown_min_lines_around_block_elements = 1
+ij_markdown_min_lines_around_header = 1
+ij_markdown_min_lines_between_paragraphs = 1
+ij_markdown_wrap_text_if_long = true
+ij_markdown_wrap_text_inside_blockquotes = true
+
+[*.json]
+indent_size = 2

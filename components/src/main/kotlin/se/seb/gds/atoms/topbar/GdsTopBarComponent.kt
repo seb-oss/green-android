@@ -66,7 +66,7 @@ fun GdsTopBarComponent(
                             .focusRequester(focusRequester)
                     } else {
                         Modifier
-                    }
+                    },
                 )
                 .fillMaxWidth(),
             color = color ?: GdsTheme.colors.L1Neutral01,
@@ -93,11 +93,11 @@ fun GdsTopBarComponent(
                         }
                         Row(
                             modifier =
-                                Modifier
-                                    .align(Alignment.CenterVertically)
-                                    .weight(1f),
+                            Modifier
+                                .align(Alignment.CenterVertically)
+                                .weight(1f),
                             horizontalArrangement = applyArrangement(
-                                centeredTitle
+                                centeredTitle,
                             ),
                         ) {
                             title?.let {
@@ -175,7 +175,7 @@ private fun PreviewTopBar() {
                         icon = R.drawable.ic_clear_24,
                         onClick = {},
                     )
-                }
+                },
             )
         }
     }
