@@ -57,7 +57,7 @@ fun IconsScreen() {
         modifier =
             Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(horizontal = 16.dp),
     ) {
         OutlinedTextField(
             value = filterText,

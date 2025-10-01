@@ -31,6 +31,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 private const val CONTENT_ANIMATION_DURATION = 500
@@ -61,7 +62,7 @@ internal fun DesignLibraryScreen(
                     if (currentScreen != LibraryScreen.LIBRARY) {
                         IconButton(onClick = { currentScreen = LibraryScreen.LIBRARY }) {
                             Icon(
-                                Icons.AutoMirrored.Filled.ArrowBack,
+                                GdsIcons.Regular.ArrowLeft,
                                 contentDescription = "Back",
                                 tint = GdsTheme.colors.ContentNeutral01,
                             )

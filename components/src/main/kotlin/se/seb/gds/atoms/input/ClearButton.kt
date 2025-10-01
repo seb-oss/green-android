@@ -15,6 +15,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.tooling.preview.Preview
 import se.seb.gds.components.R
+import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 @Composable
@@ -31,7 +32,7 @@ fun ClearButton(
                     contentDescription = clearButtonDescription
                     role = Role.Button
                 }.clickable(enabled = enabled, onClick = onClick),
-        painter = painterResource(id = R.drawable.ic_clear_24),
+        imageVector = GdsIcons.Regular.CircleX,
         contentDescription = null,
         tint = GdsTheme.colors.ContentNeutral01,
     )

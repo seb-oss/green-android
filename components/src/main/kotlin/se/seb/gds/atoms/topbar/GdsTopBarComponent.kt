@@ -1,7 +1,6 @@
 package se.seb.gds.atoms.topbar
 
 import android.content.res.Configuration
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,7 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.traversalIndex
@@ -36,7 +35,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import se.seb.gds.components.R
+import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 @Composable
@@ -49,6 +48,7 @@ fun GdsTopBarComponent(
     color: Color? = GdsTheme.colors.L1Neutral01,
     contentColor: Color? = GdsTheme.colors.ContentNeutral01,
     centeredTitle: Boolean? = false,
+    applyInsetsPadding: Boolean = true,
     elevation: Dp = 0.dp,
 ) {
     val focusRequester = remember { FocusRequester() }
@@ -76,7 +76,13 @@ fun GdsTopBarComponent(
                 Row(
                     modifier =
                         Modifier
-                            .statusBarsPadding()
+                            .then(
+                                if (applyInsetsPadding) {
+                                    Modifier.statusBarsPadding()
+                                } else {
+                                    Modifier
+                                },
+                            )
                             .height(64.dp),
                     content = {
                         if (leftAction == null) {
@@ -140,13 +146,13 @@ fun GdsTopBarComponent(
 
 @Composable
 fun GdsTopBarAction(
-    @DrawableRes icon: Int,
+    icon: ImageVector,
     tint: Color = GdsTheme.colors.ContentNeutral01,
     contentDescription: String? = null,
     onClick: () -> Unit,
 ) = IconButton(onClick = onClick) {
     Icon(
-        painter = painterResource(icon),
+        imageVector = icon,
         tint = tint,
         contentDescription = contentDescription,
     )
@@ -168,14 +174,14 @@ private fun PreviewTopBar() {
             GdsTopBarComponent(
                 leftAction = {
                     GdsTopBarAction(
-                        icon = R.drawable.ic_back,
+                        icon = GdsIcons.Regular.ArrowLeft,
                         onClick = {},
                     )
                 },
                 title = "Background activity",
                 rightActions = {
                     GdsTopBarAction(
-                        icon = R.drawable.ic_clear_24,
+                        icon = GdsIcons.Regular.CircleX,
                         onClick = {},
                     )
                 },

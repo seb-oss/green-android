@@ -42,10 +42,10 @@ fun GdsSwitch(
     GdsTheme {
         CompositionLocalProvider(
             LocalRippleConfiguration provides
-                RippleConfiguration(
-                    color = GdsTheme.colors.StatePositive03,
-                    rippleAlpha = RippleAlpha(0.16f, 0.1f, 0.08f, 0.1f),
-                ),
+                    RippleConfiguration(
+                        color = GdsTheme.colors.StatePositive03,
+                        rippleAlpha = RippleAlpha(0.16f, 0.1f, 0.08f, 0.1f),
+                    ),
         ) {
             Switch(
                 modifier = modifier,
@@ -56,7 +56,11 @@ fun GdsSwitch(
                 thumbContent = {
                     if (checked || style.alwaysShowThumb) {
                         if (style.checkedIcon != null) {
-                            Icon(imageVector = style.checkedIcon, contentDescription = null)
+                            Icon(
+                                modifier = Modifier.size(SwitchDefaults.IconSize),
+                                imageVector = style.checkedIcon,
+                                contentDescription = null,
+                            )
                         } else if (style.alwaysShowThumb) {
                             Box(modifier = Modifier.size(SwitchDefaults.IconSize))
                         }
