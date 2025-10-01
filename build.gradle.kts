@@ -15,7 +15,11 @@ subprojects {
     configure<com.diffplug.gradle.spotless.SpotlessExtension> {
         kotlin {
             target("src/*/kotlin/**/*.kt")
-            ktlint()
+            ktlint().editorConfigOverride(
+                mapOf(
+                    "ktlint_standard_backing-property-naming" to "disabled",
+                )
+            )
         }
 
         kotlinGradle {

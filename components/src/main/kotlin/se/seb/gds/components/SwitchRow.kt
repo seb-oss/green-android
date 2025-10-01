@@ -33,14 +33,14 @@ fun SwitchRow(
     onCheckedChanged: (Boolean) -> Unit = {},
 ) {
     Row(
-        modifier =
-            modifier
-                .height(64.dp)
-                .fillMaxWidth()
-                .background(
-                    color = GdsTheme.colors.L2Neutral01,
-                    shape = RoundedCornerShape(12.dp),
-                ).padding(16.dp),
+        modifier = modifier
+            .height(64.dp)
+            .fillMaxWidth()
+            .background(
+                color = GdsTheme.colors.L2Neutral01,
+                shape = RoundedCornerShape(12.dp),
+            )
+            .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(

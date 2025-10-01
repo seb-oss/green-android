@@ -34,18 +34,17 @@ internal fun ColorsScreen(allColors: List<Pair<String, ColorMapping>>) {
     var filterText by remember { mutableStateOf("") }
     val listState = rememberLazyListState()
 
-    val filteredColors =
-        remember(filterText, allColors) {
-            if (filterText.isBlank()) {
-                allColors
-            } else {
-                allColors.filter { (name, color) ->
-                    name.contains(filterText, ignoreCase = true) ||
-                        color.lightModeValue.contains(filterText, ignoreCase = true) ||
-                        color.darkModeValue.contains(filterText, ignoreCase = true)
-                }
+    val filteredColors = remember(filterText, allColors) {
+        if (filterText.isBlank()) {
+            allColors
+        } else {
+            allColors.filter { (name, color) ->
+                name.contains(filterText, ignoreCase = true) ||
+                    color.lightModeValue.contains(filterText, ignoreCase = true) ||
+                    color.darkModeValue.contains(filterText, ignoreCase = true)
             }
         }
+    }
 
     Column(
         modifier =

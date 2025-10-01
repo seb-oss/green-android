@@ -46,7 +46,15 @@ internal fun ListItem(
                 .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(modifier = Modifier.weight(1f), text = title, color = GdsTheme.legacyColors.PrimaryText)
-        Icon(imageVector = GdsIcons.Solid.ChevronRight, contentDescription = null, tint = GdsTheme.colors.ContentNeutral01)
+        Text(
+            modifier = Modifier.weight(1f),
+            text = title,
+            color = GdsTheme.legacyColors.PrimaryText,
+        )
+        Icon(
+            imageVector = GdsIcons.Solid.ChevronRight,
+            contentDescription = null,
+            tint = GdsTheme.colors.ContentNeutral01,
+        )
     }
 }

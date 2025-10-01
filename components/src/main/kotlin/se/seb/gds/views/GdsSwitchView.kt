@@ -21,22 +21,21 @@ import se.seb.gds.atoms.GdsSwitchDefaults
  * @param attrs The attribute set containing XML attributes, if any.
  * @param defStyleAttr The default style attribute, if any.
  */
-class GdsSwitchView
-    @JvmOverloads
-    constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0,
-    ) : AbstractComposeView(context, attrs, defStyleAttr) {
-        private var _checked by mutableStateOf(false)
-        var checked: Boolean
-            get() = _checked
-            set(value) {
-                if (_checked != value) {
-                    _checked = value
-                    onCheckedChangedListener?.invoke(value)
-                }
+class GdsSwitchView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0,
+) : AbstractComposeView(context, attrs, defStyleAttr) {
+
+    private var _checked by mutableStateOf(false)
+    var checked: Boolean
+        get() = _checked
+        set(value) {
+            if (_checked != value) {
+                _checked = value
+                onCheckedChangedListener?.invoke(value)
             }
+        }
 
         private var _isEnabled by mutableStateOf(true)
 
@@ -73,9 +72,9 @@ class GdsSwitchView
             )
         }
 
-        enum class SwitchStyle {
-            Default,
-            Legacy,
-            Neo,
-        }
+    enum class SwitchStyle {
+        Default,
+        Legacy,
+        Neo,
     }
+}

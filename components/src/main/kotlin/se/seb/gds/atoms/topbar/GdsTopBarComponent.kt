@@ -58,17 +58,17 @@ fun GdsTopBarComponent(
     }
     Box {
         Surface(
-            modifier =
-                modifier
-                    .then(
-                        if (leftAction == null) {
-                            Modifier
-                                .semantics { traversalIndex = -1f }
-                                .focusRequester(focusRequester)
-                        } else {
-                            Modifier
-                        },
-                    ).fillMaxWidth(),
+            modifier = modifier
+                .then(
+                    if (leftAction == null) {
+                        Modifier
+                            .semantics { traversalIndex = -1f }
+                            .focusRequester(focusRequester)
+                    } else {
+                        Modifier
+                    },
+                )
+                .fillMaxWidth(),
             color = color ?: GdsTheme.colors.L1Neutral01,
             contentColor = contentColor ?: GdsTheme.colors.ContentNeutral01,
             shadowElevation = elevation,
@@ -100,13 +100,12 @@ fun GdsTopBarComponent(
                         }
                         Row(
                             modifier =
-                                Modifier
-                                    .align(Alignment.CenterVertically)
-                                    .weight(1f),
-                            horizontalArrangement =
-                                applyArrangement(
-                                    centeredTitle,
-                                ),
+                            Modifier
+                                .align(Alignment.CenterVertically)
+                                .weight(1f),
+                            horizontalArrangement = applyArrangement(
+                                centeredTitle,
+                            ),
                         ) {
                             title?.let {
                                 MagnifierText(

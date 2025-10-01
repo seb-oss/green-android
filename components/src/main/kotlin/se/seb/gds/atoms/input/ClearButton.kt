@@ -26,12 +26,12 @@ fun ClearButton(
 ) {
     val clearButtonDescription = stringResource(id = R.string.clear_button_description)
     Icon(
-        modifier =
-            modifier
-                .clearAndSetSemantics {
-                    contentDescription = clearButtonDescription
-                    role = Role.Button
-                }.clickable(enabled = enabled, onClick = onClick),
+        modifier = modifier
+            .clearAndSetSemantics {
+                contentDescription = clearButtonDescription
+                role = Role.Button
+            }
+            .clickable(enabled = enabled, onClick = onClick),
         imageVector = GdsIcons.Regular.CircleX,
         contentDescription = null,
         tint = GdsTheme.colors.ContentNeutral01,

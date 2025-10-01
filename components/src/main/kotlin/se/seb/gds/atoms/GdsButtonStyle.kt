@@ -100,9 +100,7 @@ sealed class ButtonWidthType {
 
     data object Dynamic : ButtonWidthType()
 
-    data class Fixed(
-        val width: Dp,
-    ) : ButtonWidthType()
+    data class Fixed(val width: Dp) : ButtonWidthType()
 }
 
 /**

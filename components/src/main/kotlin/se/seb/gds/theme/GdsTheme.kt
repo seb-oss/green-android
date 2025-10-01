@@ -10,12 +10,11 @@ import se.seb.gds.tokens.lightModeColors
 
 @Composable
 fun GdsTheme(content: @Composable () -> Unit) {
-    val colors =
-        if (isSystemInDarkTheme()) {
-            darkModeColors
-        } else {
-            lightModeColors
-        }
+    val colors = if (isSystemInDarkTheme()) {
+        darkModeColors
+    } else {
+        lightModeColors
+    }
     val legacyColors = LegacyColors.defaultColors(isSystemDarkMode = isSystemInDarkTheme())
 
     CompositionLocalProvider(

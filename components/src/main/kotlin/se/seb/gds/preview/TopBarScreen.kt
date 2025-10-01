@@ -15,10 +15,9 @@ import se.seb.gds.theme.GdsTheme
 @Composable
 fun TopBarScreen() {
     Column(
-        modifier =
-            Modifier
-                .fillMaxSize()
-                .background(GdsTheme.colors.L1Neutral01),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(GdsTheme.colors.L1Neutral01),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         GdsTopBarComponent(

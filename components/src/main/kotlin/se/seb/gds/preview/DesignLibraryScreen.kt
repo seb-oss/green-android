@@ -52,12 +52,13 @@ internal fun DesignLibraryScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                colors =
-                    TopAppBarDefaults.topAppBarColors(
-                        containerColor = GdsTheme.colors.L1Neutral02,
-                        titleContentColor = GdsTheme.colors.ContentNeutral01,
-                    ),
-                title = { Text(text = currentScreen.name, style = GdsTheme.legacyTypography.Headline) },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = GdsTheme.colors.L1Neutral02,
+                    titleContentColor = GdsTheme.colors.ContentNeutral01,
+                ),
+                title = {
+                    Text(text = currentScreen.name, style = GdsTheme.legacyTypography.Headline)
+                },
                 navigationIcon = {
                     if (currentScreen != LibraryScreen.LIBRARY) {
                         IconButton(onClick = { currentScreen = LibraryScreen.LIBRARY }) {
@@ -109,12 +110,17 @@ internal fun DesignLibraryScreen(
                     }
 
                 LibraryScreen.COLORS -> ColorsScreen(allColors)
+
                 LibraryScreen.LEGACY_COLORS -> ColorsScreen(legacyColors)
 
                 LibraryScreen.FONTS -> FontsScreen(scrollState = scrollState)
+
                 LibraryScreen.SWITCHES -> SwitchesScreen(scrollState = scrollState)
+
                 LibraryScreen.BUTTONS -> ButtonsScreen(scrollState = scrollState)
+
                 LibraryScreen.INPUT -> InputScreen(scrollState = scrollState)
+
                 LibraryScreen.TOP_BAR -> TopBarScreen()
                 LibraryScreen.ICONS -> IconsScreen()
             }

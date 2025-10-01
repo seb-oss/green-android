@@ -124,10 +124,9 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Primary Button",
-                style =
-                    GdsButtonDefaults.TwentyThree.primaryStyle().copy(
-                        iconPosition = iconPositionSelected,
-                    ),
+                style = GdsButtonDefaults.TwentyThree.primaryStyle().copy(
+                    iconPosition = iconPositionSelected,
+                ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
                 enabled = enabled,
                 icon = icon,
@@ -135,10 +134,9 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Secondary Button",
-                style =
-                    GdsButtonDefaults.TwentyThree.secondaryStyle().copy(
-                        iconPosition = iconPositionSelected,
-                    ),
+                style = GdsButtonDefaults.TwentyThree.secondaryStyle().copy(
+                    iconPosition = iconPositionSelected,
+                ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
                 enabled = enabled,
                 icon = icon,
@@ -146,10 +144,9 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Tertiary Button",
-                style =
-                    GdsButtonDefaults.TwentyThree.tertiaryStyle().copy(
-                        iconPosition = iconPositionSelected,
-                    ),
+                style = GdsButtonDefaults.TwentyThree.tertiaryStyle().copy(
+                    iconPosition = iconPositionSelected,
+                ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
                 enabled = enabled,
                 icon = icon,
@@ -157,10 +154,9 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Outline Button",
-                style =
-                    GdsButtonDefaults.TwentyThree.outlineStyle().copy(
-                        iconPosition = iconPositionSelected,
-                    ),
+                style = GdsButtonDefaults.TwentyThree.outlineStyle().copy(
+                    iconPosition = iconPositionSelected,
+                ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
                 enabled = enabled,
                 icon = icon,
@@ -168,10 +164,9 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Negative Button",
-                style =
-                    GdsButtonDefaults.TwentyThree.negativeStyle().copy(
-                        iconPosition = iconPositionSelected,
-                    ),
+                style = GdsButtonDefaults.TwentyThree.negativeStyle().copy(
+                    iconPosition = iconPositionSelected,
+                ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
                 enabled = enabled,
                 icon = icon,
@@ -278,14 +273,14 @@ fun SelectRow(
     label: String,
 ) {
     Row(
-        modifier =
-            Modifier
-                .height(64.dp)
-                .fillMaxWidth()
-                .background(
-                    color = GdsTheme.colors.L2Neutral01,
-                    shape = RoundedCornerShape(12.dp),
-                ).padding(16.dp),
+        modifier = Modifier
+            .height(64.dp)
+            .fillMaxWidth()
+            .background(
+                color = GdsTheme.colors.L2Neutral01,
+                shape = RoundedCornerShape(12.dp),
+            )
+            .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         var expanded by remember { mutableStateOf(false) }

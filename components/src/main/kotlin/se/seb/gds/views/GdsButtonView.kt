@@ -22,19 +22,18 @@ import se.seb.gds.atoms.LegacyButtonSize
  * @param defStyleAttr An attribute in the current theme that contains a reference to a style
  * resource that supplies default values for the view. Can be 0 to not look for defaults.
  */
-class GdsButtonView
-    @JvmOverloads
-    constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0,
-    ) : AbstractComposeView(context, attrs, defStyleAttr) {
-        private var _title by mutableStateOf("")
-        var title: String
-            get() = _title
-            set(value) {
-                _title = value
-            }
+class GdsButtonView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0,
+) : AbstractComposeView(context, attrs, defStyleAttr) {
+
+    private var _title by mutableStateOf("")
+    var title: String
+        get() = _title
+        set(value) {
+            _title = value
+        }
 
         private var _isEnabled by mutableStateOf(true)
 
@@ -95,47 +94,47 @@ class GdsButtonView
                         }
                     }
 
-                    ButtonStyle.LEGACY_PRIMARY,
-                    ButtonStyle.LEGACY_SECONDARY,
-                    ButtonStyle.LEGACY_TERTIARY,
-                    ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE,
-                    -> {
-                        GdsButtonDefaults.legacySizeProfile(size)
-                    }
+            ButtonStyle.LEGACY_PRIMARY,
+            ButtonStyle.LEGACY_SECONDARY,
+            ButtonStyle.LEGACY_TERTIARY,
+            ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE,
+            -> {
+                GdsButtonDefaults.legacySizeProfile(size)
+            }
 
-                    ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE,
-                    ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE,
-                    ButtonStyle.LEGACY_TERTIARY_EMPHASIS,
-                    -> {
-                        GdsButtonDefaults.legacyFullSmallProfile()
-                    }
-                }
-
-            GdsButton(
-                title = title,
-                style = buttonStyle,
-                sizeProfile = sizeProfile,
-                enabled = _isEnabled,
-                onClick = { onClickListener?.invoke() },
-            )
+            ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE,
+            ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE,
+            ButtonStyle.LEGACY_TERTIARY_EMPHASIS,
+            -> {
+                GdsButtonDefaults.legacyFullSmallProfile()
+            }
         }
 
-        enum class ButtonStyle {
-            PRIMARY,
-            SECONDARY,
-            TERTIARY,
-            LEGACY_PRIMARY,
-            LEGACY_SECONDARY,
-            LEGACY_TERTIARY,
-            LEGACY_PRIMARY_DESTRUCTIVE,
-            LEGACY_SECONDARY_DESTRUCTIVE,
-            LEGACY_TERTIARY_DESTRUCTIVE,
-            LEGACY_TERTIARY_EMPHASIS,
-        }
-
-        enum class ButtonSize {
-            SMALL,
-            MEDIUM,
-            LARGE,
-        }
+        GdsButton(
+            title = title,
+            style = buttonStyle,
+            sizeProfile = sizeProfile,
+            enabled = _isEnabled,
+            onClick = { onClickListener?.invoke() },
+        )
     }
+
+    enum class ButtonStyle {
+        PRIMARY,
+        SECONDARY,
+        TERTIARY,
+        LEGACY_PRIMARY,
+        LEGACY_SECONDARY,
+        LEGACY_TERTIARY,
+        LEGACY_PRIMARY_DESTRUCTIVE,
+        LEGACY_SECONDARY_DESTRUCTIVE,
+        LEGACY_TERTIARY_DESTRUCTIVE,
+        LEGACY_TERTIARY_EMPHASIS,
+    }
+
+    enum class ButtonSize {
+        SMALL,
+        MEDIUM,
+        LARGE,
+    }
+}

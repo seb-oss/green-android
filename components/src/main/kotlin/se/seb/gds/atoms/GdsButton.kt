@@ -76,7 +76,10 @@ fun GdsButton(
 
     val paddingValues =
         when {
-            title == null && sizeProfile.widthType is ButtonWidthType.Fixed -> PaddingValues(horizontal = 0.dp)
+            title == null && sizeProfile.widthType is ButtonWidthType.Fixed -> PaddingValues(
+                horizontal = 0.dp,
+            )
+
             else -> PaddingValues(horizontal = sizeProfile.horizontalPadding, vertical = 8.dp)
         }
 
@@ -106,6 +109,7 @@ fun GdsButton(
                         } else {
                             Color.White
                         }
+
                     else -> GdsTheme.colors.StateNeutral05
                 }
 
@@ -114,12 +118,12 @@ fun GdsButton(
                     RippleConfiguration(
                         color = rippleColor,
                         rippleAlpha =
-                            RippleAlpha(
-                                draggedAlpha = 0.16f,
-                                focusedAlpha = 0.12f,
-                                hoveredAlpha = 0.08f,
-                                pressedAlpha = 0.1f,
-                            ),
+                        RippleAlpha(
+                            draggedAlpha = 0.16f,
+                            focusedAlpha = 0.12f,
+                            hoveredAlpha = 0.08f,
+                            pressedAlpha = 0.1f,
+                        ),
                     ),
             ) {
                 buttonContent()
@@ -325,15 +329,14 @@ private fun GdsButton2016PrimaryPreview() {
     GdsTheme {
         GdsButton(
             style = GdsButtonDefaults.primary(),
-            sizeProfile =
-                GdsButtonSizeProfile(
-                    widthType = ButtonWidthType.Full,
-                    height = 50.dp,
-                    shape = seb2016Shape(LegacyButtonSize.LARGE),
-                    horizontalPadding = 16.dp,
-                    textStyle = GdsTheme.legacyTypography.Title6,
-                    iconSize = 24.dp,
-                ),
+            sizeProfile = GdsButtonSizeProfile(
+                widthType = ButtonWidthType.Full,
+                height = 50.dp,
+                shape = seb2016Shape(LegacyButtonSize.LARGE),
+                horizontalPadding = 16.dp,
+                textStyle = GdsTheme.legacyTypography.Title6,
+                iconSize = 24.dp,
+            ),
             title = "Button",
             onClick = {},
         )
