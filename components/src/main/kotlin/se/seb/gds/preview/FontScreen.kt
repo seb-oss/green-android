@@ -111,12 +111,13 @@ fun FontText(
     name: String,
     style: TextStyle,
 ) {
-    fun FontWeight.name(): String = when (weight) {
-        700 -> " - Bold"
-        500 -> " - Medium"
-        400 -> " - Normal"
-        else -> ""
-    }
+    fun FontWeight.name(): String =
+        when (weight) {
+            700 -> " - Bold"
+            500 -> " - Medium"
+            400 -> " - Normal"
+            else -> ""
+        }
 
     val title = with(style) {
         "$name ${fontSize.value}/${lineHeight.value}/(${letterSpacing.value})${fontWeight?.name()}"

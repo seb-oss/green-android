@@ -65,11 +65,10 @@ fun IconsScreen() {
                 .fillMaxWidth()
                 .padding(bottom = 16.dp),
             label = { Text("Filter Icons") },
-            keyboardOptions =
-                KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
-                    imeAction = ImeAction.Done,
-                ),
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Text,
+                imeAction = ImeAction.Done,
+            ),
         )
 
         LazyVerticalGrid(
@@ -105,11 +104,10 @@ fun IconPreviewCard(
                 imageVector = imageVector,
                 contentDescription = fullName,
                 tint = GdsTheme.colors.ContentNeutral01,
-                modifier =
-                    Modifier
-                        .size(40.dp)
-                        .weight(1f)
-                        .wrapContentSize(Alignment.Center),
+                modifier = Modifier
+                    .size(40.dp)
+                    .weight(1f)
+                    .wrapContentSize(Alignment.Center),
             )
 
             Spacer(modifier = Modifier.height(4.dp))

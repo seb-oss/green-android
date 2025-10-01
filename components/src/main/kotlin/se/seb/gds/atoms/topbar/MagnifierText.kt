@@ -51,10 +51,9 @@ fun MagnifierText(
         text = text,
         modifier = modifier.pointerInput(Unit) {
             detectTapGestures(
-                onTap =
-                    onClick?.let { onClick ->
-                        { onClick() }
-                    },
+                onTap = onClick?.let { onClick ->
+                    { onClick() }
+                },
                 onLongPress = { offset ->
                     // Move up the magnifier to be above the text
                     val offsetAboveText = 100f

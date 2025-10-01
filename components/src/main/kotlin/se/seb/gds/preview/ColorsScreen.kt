@@ -40,8 +40,8 @@ internal fun ColorsScreen(allColors: List<Pair<String, ColorMapping>>) {
         } else {
             allColors.filter { (name, color) ->
                 name.contains(filterText, ignoreCase = true) ||
-                        color.lightModeValue.contains(filterText, ignoreCase = true) ||
-                        color.darkModeValue.contains(filterText, ignoreCase = true)
+                    color.lightModeValue.contains(filterText, ignoreCase = true) ||
+                    color.darkModeValue.contains(filterText, ignoreCase = true)
             }
         }
     }

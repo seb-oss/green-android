@@ -107,13 +107,12 @@ fun GdsTopBarComponent(
                         ) {
                             title?.let {
                                 MagnifierText(
-                                    modifier =
-                                        Modifier
-                                            .wrapContentWidth()
-                                            .align(Alignment.CenterVertically)
-                                            .semantics {
-                                                heading()
-                                            },
+                                    modifier = Modifier
+                                        .wrapContentWidth()
+                                        .align(Alignment.CenterVertically)
+                                        .semantics {
+                                            heading()
+                                        },
                                     text = title,
                                     style = titleStyle,
                                     color = GdsTheme.colors.ContentNeutral01,

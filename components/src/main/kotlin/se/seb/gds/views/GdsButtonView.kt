@@ -95,14 +95,14 @@ class GdsButtonView @JvmOverloads constructor(
             ButtonStyle.LEGACY_SECONDARY,
             ButtonStyle.LEGACY_TERTIARY,
             ButtonStyle.LEGACY_PRIMARY_DESTRUCTIVE,
-                -> {
+            -> {
                 GdsButtonDefaults.legacySizeProfile(size)
             }
 
             ButtonStyle.LEGACY_SECONDARY_DESTRUCTIVE,
             ButtonStyle.LEGACY_TERTIARY_DESTRUCTIVE,
             ButtonStyle.LEGACY_TERTIARY_EMPHASIS,
-                -> {
+            -> {
                 GdsButtonDefaults.legacyFullSmallProfile()
             }
         }
