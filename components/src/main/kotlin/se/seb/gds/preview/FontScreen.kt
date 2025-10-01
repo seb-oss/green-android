@@ -17,8 +17,7 @@ import se.seb.gds.theme.GdsTheme
 @Composable
 internal fun FontsScreen(scrollState: ScrollState) {
     Column(
-        modifier =
-        Modifier
+        modifier = Modifier
             .fillMaxSize()
             .verticalScroll(scrollState)
             .padding(16.dp),
@@ -112,18 +111,16 @@ fun FontText(
     name: String,
     style: TextStyle,
 ) {
-    fun FontWeight.name(): String =
-        when (weight) {
-            700 -> " - Bold"
-            500 -> " - Medium"
-            400 -> " - Normal"
-            else -> ""
-        }
+    fun FontWeight.name(): String = when (weight) {
+        700 -> " - Bold"
+        500 -> " - Medium"
+        400 -> " - Normal"
+        else -> ""
+    }
 
-    val title =
-        with(style) {
-            "$name ${fontSize.value}/${lineHeight.value}/(${letterSpacing.value})${fontWeight?.name()}"
-        }
+    val title = with(style) {
+        "$name ${fontSize.value}/${lineHeight.value}/(${letterSpacing.value})${fontWeight?.name()}"
+    }
 
     Text(text = title, style = style)
 }

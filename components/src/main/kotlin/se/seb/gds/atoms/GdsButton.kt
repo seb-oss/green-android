@@ -115,16 +115,16 @@ fun GdsButton(
 
             CompositionLocalProvider(
                 LocalRippleConfiguration provides
-                    RippleConfiguration(
-                        color = rippleColor,
-                        rippleAlpha =
-                        RippleAlpha(
-                            draggedAlpha = 0.16f,
-                            focusedAlpha = 0.12f,
-                            hoveredAlpha = 0.08f,
-                            pressedAlpha = 0.1f,
+                        RippleConfiguration(
+                            color = rippleColor,
+                            rippleAlpha =
+                                RippleAlpha(
+                                    draggedAlpha = 0.16f,
+                                    focusedAlpha = 0.12f,
+                                    hoveredAlpha = 0.08f,
+                                    pressedAlpha = 0.1f,
+                                ),
                         ),
-                    ),
             ) {
                 buttonContent()
             }
@@ -148,8 +148,7 @@ private fun ButtonContent(
 ) {
     if (style.textButton) {
         TextButton(
-            modifier =
-            modifier
+            modifier = modifier
                 .then(widthModifier)
                 .heightIn(min = sizeProfile.height),
             colors = style.colors,
@@ -169,8 +168,7 @@ private fun ButtonContent(
         }
     } else {
         Button(
-            modifier =
-            modifier
+            modifier = modifier
                 .then(widthModifier)
                 .heightIn(min = sizeProfile.height),
             colors = style.colors,

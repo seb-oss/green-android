@@ -42,8 +42,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
     var showLegacyButtons by rememberSaveable { mutableStateOf(false) }
 
     Column(
-        modifier =
-        Modifier
+        modifier = Modifier
             .background(GdsTheme.colors.L1Neutral01)
             .fillMaxSize()
             .verticalScroll(scrollState)
@@ -72,13 +71,12 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                 label = "Height Type:",
             )
 
-            val buttonSizeProfile =
-                when (selectedHeight) {
-                    "XLarge" -> GdsButtonDefaults.TwentyThree.xLarge()
-                    "Large" -> GdsButtonDefaults.TwentyThree.large()
-                    "Medium" -> GdsButtonDefaults.TwentyThree.medium()
-                    else -> GdsButtonDefaults.TwentyThree.small()
-                }
+            val buttonSizeProfile = when (selectedHeight) {
+                "XLarge" -> GdsButtonDefaults.TwentyThree.xLarge()
+                "Large" -> GdsButtonDefaults.TwentyThree.large()
+                "Medium" -> GdsButtonDefaults.TwentyThree.medium()
+                else -> GdsButtonDefaults.TwentyThree.small()
+            }
 
             var selectedWidth by rememberSaveable { mutableStateOf("Full") }
             SelectRow(
@@ -90,12 +88,11 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                 label = "Width Type:",
             )
 
-            val widthType =
-                when (selectedWidth) {
-                    "Full" -> ButtonWidthType.Full
-                    "Dynamic" -> ButtonWidthType.Dynamic
-                    else -> ButtonWidthType.Fixed(200.dp)
-                }
+            val widthType = when (selectedWidth) {
+                "Full" -> ButtonWidthType.Full
+                "Dynamic" -> ButtonWidthType.Dynamic
+                else -> ButtonWidthType.Fixed(200.dp)
+            }
 
             var hasIcon by rememberSaveable { mutableStateOf(false) }
 
@@ -116,11 +113,10 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                 )
             }
 
-            val iconPositionSelected =
-                when (iconPosition) {
-                    IconPosition.Left.name -> IconPosition.Left
-                    else -> IconPosition.Right
-                }
+            val iconPositionSelected = when (iconPosition) {
+                IconPosition.Left.name -> IconPosition.Left
+                else -> IconPosition.Right
+            }
 
             GdsButton(
                 title = "Primary Button",

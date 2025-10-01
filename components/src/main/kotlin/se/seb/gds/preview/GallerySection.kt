@@ -38,8 +38,7 @@ internal fun ListItem(
     onClick: () -> Unit,
 ) {
     Row(
-        modifier =
-        Modifier
+        modifier = Modifier
             .fillMaxWidth()
             .height(40.dp)
             .clickable { onClick() }

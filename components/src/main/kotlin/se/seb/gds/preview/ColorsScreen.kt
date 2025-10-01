@@ -40,28 +40,25 @@ internal fun ColorsScreen(allColors: List<Pair<String, ColorMapping>>) {
         } else {
             allColors.filter { (name, color) ->
                 name.contains(filterText, ignoreCase = true) ||
-                    color.lightModeValue.contains(filterText, ignoreCase = true) ||
-                    color.darkModeValue.contains(filterText, ignoreCase = true)
+                        color.lightModeValue.contains(filterText, ignoreCase = true) ||
+                        color.darkModeValue.contains(filterText, ignoreCase = true)
             }
         }
     }
 
     Column(
-        modifier =
-        Modifier
+        modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
     ) {
         OutlinedTextField(
             value = filterText,
             onValueChange = { filterText = it },
-            modifier =
-            Modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 16.dp),
             label = { Text("Filter Colors") },
-            keyboardOptions =
-            KeyboardOptions(
+            keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Done,
             ),
@@ -99,22 +96,19 @@ internal data class ColorMapping(
 @Composable
 private fun ColorRow(colorMapping: ColorMapping) {
     Row(
-        modifier =
-        Modifier
+        modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
         horizontalArrangement = spacedBy(8.dp),
     ) {
         Column(
-            modifier =
-            Modifier
+            modifier = Modifier
                 .weight(1f)
                 .background(color = Color.LightGray, shape = RoundedCornerShape(2.dp))
                 .padding(2.dp),
         ) {
             Box(
-                modifier =
-                Modifier
+                modifier = Modifier
                     .fillMaxWidth()
                     .height(80.dp)
                     .background(color = colorMapping.lightModeColor),
@@ -128,15 +122,13 @@ private fun ColorRow(colorMapping: ColorMapping) {
         }
 
         Column(
-            modifier =
-            Modifier
+            modifier = Modifier
                 .weight(1f)
                 .background(color = Color.Black, shape = RoundedCornerShape(2.dp))
                 .padding(2.dp),
         ) {
             Box(
-                modifier =
-                Modifier
+                modifier = Modifier
                     .fillMaxWidth()
                     .height(80.dp)
                     .background(color = colorMapping.darkModeColor),

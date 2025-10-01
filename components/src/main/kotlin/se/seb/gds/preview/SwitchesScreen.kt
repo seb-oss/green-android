@@ -19,8 +19,7 @@ import se.seb.gds.components.SwitchRow
 @Composable
 internal fun SwitchesScreen(scrollState: ScrollState) {
     Column(
-        modifier =
-        Modifier
+        modifier = Modifier
             .fillMaxSize()
             .verticalScroll(scrollState)
             .padding(16.dp),

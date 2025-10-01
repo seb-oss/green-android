@@ -54,24 +54,22 @@ fun IconsScreen() {
         }
 
     Column(
-        modifier =
-        Modifier
+        modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
     ) {
         OutlinedTextField(
             value = filterText,
             onValueChange = { filterText = it },
-            modifier =
-            Modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 16.dp),
             label = { Text("Filter Icons") },
             keyboardOptions =
-            KeyboardOptions(
-                keyboardType = KeyboardType.Text,
-                imeAction = ImeAction.Done,
-            ),
+                KeyboardOptions(
+                    keyboardType = KeyboardType.Text,
+                    imeAction = ImeAction.Done,
+                ),
         )
 
         LazyVerticalGrid(
@@ -108,10 +106,10 @@ fun IconPreviewCard(
                 contentDescription = fullName,
                 tint = GdsTheme.colors.ContentNeutral01,
                 modifier =
-                Modifier
-                    .size(40.dp)
-                    .weight(1f)
-                    .wrapContentSize(Alignment.Center),
+                    Modifier
+                        .size(40.dp)
+                        .weight(1f)
+                        .wrapContentSize(Alignment.Center),
             )
 
             Spacer(modifier = Modifier.height(4.dp))

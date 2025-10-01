@@ -74,8 +74,7 @@ fun GdsTopBarComponent(
             shadowElevation = elevation,
             content = {
                 Row(
-                    modifier =
-                    Modifier
+                    modifier = Modifier
                         .then(
                             if (applyInsetsPadding) {
                                 Modifier.statusBarsPadding()
@@ -99,8 +98,7 @@ fun GdsTopBarComponent(
                             )
                         }
                         Row(
-                            modifier =
-                            Modifier
+                            modifier = Modifier
                                 .align(Alignment.CenterVertically)
                                 .weight(1f),
                             horizontalArrangement = applyArrangement(
@@ -110,12 +108,12 @@ fun GdsTopBarComponent(
                             title?.let {
                                 MagnifierText(
                                     modifier =
-                                    Modifier
-                                        .wrapContentWidth()
-                                        .align(Alignment.CenterVertically)
-                                        .semantics {
-                                            heading()
-                                        },
+                                        Modifier
+                                            .wrapContentWidth()
+                                            .align(Alignment.CenterVertically)
+                                            .semantics {
+                                                heading()
+                                            },
                                     text = title,
                                     style = titleStyle,
                                     color = GdsTheme.colors.ContentNeutral01,

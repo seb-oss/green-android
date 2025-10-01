@@ -56,12 +56,11 @@ class GdsSwitchView @JvmOverloads constructor(
 
     @Composable
     override fun Content() {
-        val style =
-            when (_style) {
-                SwitchStyle.Default -> GdsSwitchDefaults.defaultStyle()
-                SwitchStyle.Legacy -> GdsSwitchDefaults.legacyStyle()
-                SwitchStyle.Neo -> GdsSwitchDefaults.neoStyle()
-            }
+        val style = when (_style) {
+            SwitchStyle.Default -> GdsSwitchDefaults.defaultStyle()
+            SwitchStyle.Legacy -> GdsSwitchDefaults.legacyStyle()
+            SwitchStyle.Neo -> GdsSwitchDefaults.neoStyle()
+        }
         GdsSwitch(
             checked = checked,
             enabled = _isEnabled,

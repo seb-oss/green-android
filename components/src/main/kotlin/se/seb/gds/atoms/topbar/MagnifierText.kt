@@ -36,35 +36,31 @@ fun MagnifierText(
     onClick: (() -> Unit)? = null,
 ) {
     val localDensity = LocalDensity.current
-    val textSize =
-        with(localDensity) {
-            style.fontSize.value.dp
-                .toSp()
-        }
-    val lineHeight =
-        with(localDensity) {
-            style.lineHeight.value.dp
-                .toSp()
-        }
+    val textSize = with(localDensity) {
+        style.fontSize.value.dp
+            .toSp()
+    }
+    val lineHeight = with(localDensity) {
+        style.lineHeight.value.dp
+            .toSp()
+    }
     var showMagnifier by remember { mutableStateOf(false) }
     var magnifierPosition by remember { mutableStateOf(IntOffset.Zero) }
 
     Text(
         text = text,
-        modifier =
-        modifier.pointerInput(Unit) {
+        modifier = modifier.pointerInput(Unit) {
             detectTapGestures(
                 onTap =
-                onClick?.let { onClick ->
-                    { onClick() }
-                },
+                    onClick?.let { onClick ->
+                        { onClick() }
+                    },
                 onLongPress = { offset ->
                     // Move up the magnifier to be above the text
                     val offsetAboveText = 100f
-                    magnifierPosition =
-                        offset
-                            .copy(y = offset.y - offsetAboveText)
-                            .round()
+                    magnifierPosition = offset
+                        .copy(y = offset.y - offsetAboveText)
+                        .round()
                     showMagnifier = true
                 },
             )
@@ -81,12 +77,12 @@ fun MagnifierText(
             onDismissRequest = { showMagnifier = false },
         ) {
             Box(
-                modifier =
-                Modifier
+                modifier = Modifier
                     .background(
                         GdsTheme.colors.ContentNeutral01.copy(alpha = 0.9f),
                         RoundedCornerShape(3.dp),
-                    ).clickable { showMagnifier = false },
+                    )
+                    .clickable { showMagnifier = false },
             ) {
                 Text(
                     text = text,
