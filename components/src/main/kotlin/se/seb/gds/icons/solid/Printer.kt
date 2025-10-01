@@ -21,147 +21,61 @@ val Printer: ImageVector
         val current = _printer
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Printer",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    fill = SolidColor(Color(0xFF000000)),
-                    pathFillType = PathFillType.EvenOdd,
-                ) {
-                    moveTo(x = 6.75f, y = 2.0f)
-                    curveTo(
-                        x1 = 6.33579f,
-                        y1 = 2.0f,
-                        x2 = 6.0f,
-                        y2 = 2.33579f,
-                        x3 = 6.0f,
-                        y3 = 2.75f,
-                    )
-                    verticalLineTo(y = 6.0f)
-                    horizontalLineTo(x = 2.75f)
-                    curveTo(
-                        x1 = 2.33579f,
-                        y1 = 6.0f,
-                        x2 = 2.0f,
-                        y2 = 6.33579f,
-                        x3 = 2.0f,
-                        y3 = 6.75f,
-                    )
-                    verticalLineTo(y = 17.25f)
-                    curveTo(
-                        x1 = 2.0f,
-                        y1 = 17.6642f,
-                        x2 = 2.33579f,
-                        y2 = 18.0f,
-                        x3 = 2.75f,
-                        y3 = 18.0f,
-                    )
-                    horizontalLineTo(x = 6.0f)
-                    verticalLineTo(y = 21.25f)
-                    curveTo(
-                        x1 = 6.0f,
-                        y1 = 21.6642f,
-                        x2 = 6.33579f,
-                        y2 = 22.0f,
-                        x3 = 6.75f,
-                        y3 = 22.0f,
-                    )
-                    horizontalLineTo(x = 17.25f)
-                    curveTo(
-                        x1 = 17.6642f,
-                        y1 = 22.0f,
-                        x2 = 18.0f,
-                        y2 = 21.6642f,
-                        x3 = 18.0f,
-                        y3 = 21.25f,
-                    )
-                    verticalLineTo(y = 18.0f)
-                    horizontalLineTo(x = 21.25f)
-                    curveTo(
-                        x1 = 21.6642f,
-                        y1 = 18.0f,
-                        x2 = 22.0f,
-                        y2 = 17.6642f,
-                        x3 = 22.0f,
-                        y3 = 17.25f,
-                    )
-                    verticalLineTo(y = 6.75f)
-                    curveTo(
-                        x1 = 22.0f,
-                        y1 = 6.33579f,
-                        x2 = 21.6642f,
-                        y2 = 6.0f,
-                        x3 = 21.25f,
-                        y3 = 6.0f,
-                    )
-                    horizontalLineTo(x = 18.0f)
-                    verticalLineTo(y = 2.75f)
-                    curveTo(
-                        x1 = 18.0f,
-                        y1 = 2.33579f,
-                        x2 = 17.6642f,
-                        y2 = 2.0f,
-                        x3 = 17.25f,
-                        y3 = 2.0f,
-                    )
-                    horizontalLineTo(x = 6.75f)
-                    close()
-                    moveTo(x = 16.5f, y = 6.0f)
-                    verticalLineTo(y = 3.5f)
-                    horizontalLineTo(x = 7.5f)
-                    verticalLineTo(y = 6.0f)
-                    horizontalLineTo(x = 16.5f)
-                    close()
-                    moveTo(x = 16.5f, y = 14.5f)
-                    horizontalLineTo(x = 7.5f)
-                    verticalLineTo(y = 20.5f)
-                    horizontalLineTo(x = 16.5f)
-                    verticalLineTo(y = 14.5f)
-                    close()
-                    moveTo(x = 6.0f, y = 10.75f)
-                    curveTo(
-                        x1 = 6.0f,
-                        y1 = 10.3358f,
-                        x2 = 6.33579f,
-                        y2 = 10.0f,
-                        x3 = 6.75f,
-                        y3 = 10.0f,
-                    )
-                    horizontalLineTo(x = 9.25f)
-                    curveTo(
-                        x1 = 9.66421f,
-                        y1 = 10.0f,
-                        x2 = 10.0f,
-                        y2 = 10.3358f,
-                        x3 = 10.0f,
-                        y3 = 10.75f,
-                    )
-                    curveTo(
-                        x1 = 10.0f,
-                        y1 = 11.1642f,
-                        x2 = 9.66421f,
-                        y2 = 11.5f,
-                        x3 = 9.25f,
-                        y3 = 11.5f,
-                    )
-                    horizontalLineTo(x = 6.75f)
-                    curveTo(
-                        x1 = 6.33579f,
-                        y1 = 11.5f,
-                        x2 = 6.0f,
-                        y2 = 11.1642f,
-                        x3 = 6.0f,
-                        y3 = 10.75f,
-                    )
-                    close()
-                }
-            }.build()
-            .also { _printer = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Printer",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                fill = SolidColor(Color(0xFF000000)),
+                pathFillType = PathFillType.EvenOdd,
+            ) {
+                moveTo(x = 6.75f, y = 2.0f)
+                curveTo(x1 = 6.33579f, y1 = 2.0f, x2 = 6.0f, y2 = 2.33579f, x3 = 6.0f, y3 = 2.75f)
+                verticalLineTo(y = 6.0f)
+                horizontalLineTo(x = 2.75f)
+                curveTo(x1 = 2.33579f, y1 = 6.0f, x2 = 2.0f, y2 = 6.33579f, x3 = 2.0f, y3 = 6.75f)
+                verticalLineTo(y = 17.25f)
+                curveTo(x1 = 2.0f, y1 = 17.6642f, x2 = 2.33579f, y2 = 18.0f, x3 = 2.75f, y3 = 18.0f)
+                horizontalLineTo(x = 6.0f)
+                verticalLineTo(y = 21.25f)
+                curveTo(x1 = 6.0f, y1 = 21.6642f, x2 = 6.33579f, y2 = 22.0f, x3 = 6.75f, y3 = 22.0f)
+                horizontalLineTo(x = 17.25f)
+                curveTo(x1 = 17.6642f, y1 = 22.0f, x2 = 18.0f, y2 = 21.6642f, x3 = 18.0f, y3 = 21.25f)
+                verticalLineTo(y = 18.0f)
+                horizontalLineTo(x = 21.25f)
+                curveTo(x1 = 21.6642f, y1 = 18.0f, x2 = 22.0f, y2 = 17.6642f, x3 = 22.0f, y3 = 17.25f)
+                verticalLineTo(y = 6.75f)
+                curveTo(x1 = 22.0f, y1 = 6.33579f, x2 = 21.6642f, y2 = 6.0f, x3 = 21.25f, y3 = 6.0f)
+                horizontalLineTo(x = 18.0f)
+                verticalLineTo(y = 2.75f)
+                curveTo(x1 = 18.0f, y1 = 2.33579f, x2 = 17.6642f, y2 = 2.0f, x3 = 17.25f, y3 = 2.0f)
+                horizontalLineTo(x = 6.75f)
+                close()
+                moveTo(x = 16.5f, y = 6.0f)
+                verticalLineTo(y = 3.5f)
+                horizontalLineTo(x = 7.5f)
+                verticalLineTo(y = 6.0f)
+                horizontalLineTo(x = 16.5f)
+                close()
+                moveTo(x = 16.5f, y = 14.5f)
+                horizontalLineTo(x = 7.5f)
+                verticalLineTo(y = 20.5f)
+                horizontalLineTo(x = 16.5f)
+                verticalLineTo(y = 14.5f)
+                close()
+                moveTo(x = 6.0f, y = 10.75f)
+                curveTo(x1 = 6.0f, y1 = 10.3358f, x2 = 6.33579f, y2 = 10.0f, x3 = 6.75f, y3 = 10.0f)
+                horizontalLineTo(x = 9.25f)
+                curveTo(x1 = 9.66421f, y1 = 10.0f, x2 = 10.0f, y2 = 10.3358f, x3 = 10.0f, y3 = 10.75f)
+                curveTo(x1 = 10.0f, y1 = 11.1642f, x2 = 9.66421f, y2 = 11.5f, x3 = 9.25f, y3 = 11.5f)
+                horizontalLineTo(x = 6.75f)
+                curveTo(x1 = 6.33579f, y1 = 11.5f, x2 = 6.0f, y2 = 11.1642f, x3 = 6.0f, y3 = 10.75f)
+                close()
+            }
+        }.build().also { _printer = it }
     }
 
 @Preview
@@ -175,8 +89,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Printer,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

@@ -22,43 +22,41 @@ val Car: ImageVector
         val current = _car
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Car",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 2.25f, y = 10.75f)
-                    lineTo(x = 6.0f, y = 4.75f)
-                    horizontalLineTo(x = 18.0f)
-                    lineTo(x = 21.75f, y = 10.75f)
-                    moveTo(x = 2.25f, y = 10.75f)
-                    horizontalLineTo(x = 0.75f)
-                    moveTo(x = 2.25f, y = 10.75f)
-                    verticalLineTo(y = 19.25f)
-                    horizontalLineTo(x = 5.75f)
-                    verticalLineTo(y = 17.1786f)
-                    horizontalLineTo(x = 18.25f)
-                    verticalLineTo(y = 19.25f)
-                    horizontalLineTo(x = 21.75f)
-                    verticalLineTo(y = 10.75f)
-                    moveTo(x = 21.75f, y = 10.75f)
-                    horizontalLineTo(x = 23.25f)
-                    moveTo(x = 5.75f, y = 13.0357f)
-                    horizontalLineTo(x = 7.75f)
-                    moveTo(x = 16.25f, y = 13.0357f)
-                    horizontalLineTo(x = 18.25f)
-                }
-            }.build()
-            .also { _car = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Car",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 2.25f, y = 10.75f)
+                lineTo(x = 6.0f, y = 4.75f)
+                horizontalLineTo(x = 18.0f)
+                lineTo(x = 21.75f, y = 10.75f)
+                moveTo(x = 2.25f, y = 10.75f)
+                horizontalLineTo(x = 0.75f)
+                moveTo(x = 2.25f, y = 10.75f)
+                verticalLineTo(y = 19.25f)
+                horizontalLineTo(x = 5.75f)
+                verticalLineTo(y = 17.1786f)
+                horizontalLineTo(x = 18.25f)
+                verticalLineTo(y = 19.25f)
+                horizontalLineTo(x = 21.75f)
+                verticalLineTo(y = 10.75f)
+                moveTo(x = 21.75f, y = 10.75f)
+                horizontalLineTo(x = 23.25f)
+                moveTo(x = 5.75f, y = 13.0357f)
+                horizontalLineTo(x = 7.75f)
+                moveTo(x = 16.25f, y = 13.0357f)
+                horizontalLineTo(x = 18.25f)
+            }
+        }.build().also { _car = it }
     }
 
 @Preview
@@ -72,8 +70,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Car,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

@@ -20,202 +20,67 @@ val CalenderAdd: ImageVector
         val current = _calenderAdd
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.CalenderAdd",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    fill = SolidColor(Color(0xFF000000)),
-                ) {
-                    moveTo(x = 8.5f, y = 2.75f)
-                    curveTo(
-                        x1 = 8.5f,
-                        y1 = 2.33579f,
-                        x2 = 8.16421f,
-                        y2 = 2.0f,
-                        x3 = 7.75f,
-                        y3 = 2.0f,
-                    )
-                    curveTo(
-                        x1 = 7.33579f,
-                        y1 = 2.0f,
-                        x2 = 7.0f,
-                        y2 = 2.33579f,
-                        x3 = 7.0f,
-                        y3 = 2.75f,
-                    )
-                    verticalLineTo(y = 4.0f)
-                    horizontalLineTo(x = 3.75f)
-                    curveTo(
-                        x1 = 3.33579f,
-                        y1 = 4.0f,
-                        x2 = 3.0f,
-                        y2 = 4.33579f,
-                        x3 = 3.0f,
-                        y3 = 4.75f,
-                    )
-                    verticalLineTo(y = 20.25f)
-                    curveTo(
-                        x1 = 3.0f,
-                        y1 = 20.6642f,
-                        x2 = 3.33579f,
-                        y2 = 21.0f,
-                        x3 = 3.75f,
-                        y3 = 21.0f,
-                    )
-                    horizontalLineTo(x = 11.25f)
-                    curveTo(
-                        x1 = 11.6642f,
-                        y1 = 21.0f,
-                        x2 = 12.0f,
-                        y2 = 20.6642f,
-                        x3 = 12.0f,
-                        y3 = 20.25f,
-                    )
-                    curveTo(
-                        x1 = 12.0f,
-                        y1 = 19.8358f,
-                        x2 = 11.6642f,
-                        y2 = 19.5f,
-                        x3 = 11.25f,
-                        y3 = 19.5f,
-                    )
-                    horizontalLineTo(x = 4.5f)
-                    verticalLineTo(y = 10.0f)
-                    horizontalLineTo(x = 19.5f)
-                    verticalLineTo(y = 11.25f)
-                    curveTo(
-                        x1 = 19.5f,
-                        y1 = 11.6642f,
-                        x2 = 19.8358f,
-                        y2 = 12.0f,
-                        x3 = 20.25f,
-                        y3 = 12.0f,
-                    )
-                    curveTo(
-                        x1 = 20.6642f,
-                        y1 = 12.0f,
-                        x2 = 21.0f,
-                        y2 = 11.6642f,
-                        x3 = 21.0f,
-                        y3 = 11.25f,
-                    )
-                    verticalLineTo(y = 4.75f)
-                    curveTo(
-                        x1 = 21.0f,
-                        y1 = 4.33579f,
-                        x2 = 20.6642f,
-                        y2 = 4.0f,
-                        x3 = 20.25f,
-                        y3 = 4.0f,
-                    )
-                    horizontalLineTo(x = 17.0f)
-                    verticalLineTo(y = 2.75f)
-                    curveTo(
-                        x1 = 17.0f,
-                        y1 = 2.33579f,
-                        x2 = 16.6642f,
-                        y2 = 2.0f,
-                        x3 = 16.25f,
-                        y3 = 2.0f,
-                    )
-                    curveTo(
-                        x1 = 15.8358f,
-                        y1 = 2.0f,
-                        x2 = 15.5f,
-                        y2 = 2.33579f,
-                        x3 = 15.5f,
-                        y3 = 2.75f,
-                    )
-                    verticalLineTo(y = 4.0f)
-                    horizontalLineTo(x = 8.5f)
-                    verticalLineTo(y = 2.75f)
-                    close()
-                }
-                path(
-                    fill = SolidColor(Color(0xFF000000)),
-                ) {
-                    moveTo(x = 18.5f, y = 14.75f)
-                    curveTo(
-                        x1 = 18.5f,
-                        y1 = 14.3358f,
-                        x2 = 18.1642f,
-                        y2 = 14.0f,
-                        x3 = 17.75f,
-                        y3 = 14.0f,
-                    )
-                    curveTo(
-                        x1 = 17.3358f,
-                        y1 = 14.0f,
-                        x2 = 17.0f,
-                        y2 = 14.3358f,
-                        x3 = 17.0f,
-                        y3 = 14.75f,
-                    )
-                    verticalLineTo(y = 17.25f)
-                    horizontalLineTo(x = 14.5f)
-                    curveTo(
-                        x1 = 14.0858f,
-                        y1 = 17.25f,
-                        x2 = 13.75f,
-                        y2 = 17.5858f,
-                        x3 = 13.75f,
-                        y3 = 18.0f,
-                    )
-                    curveTo(
-                        x1 = 13.75f,
-                        y1 = 18.4142f,
-                        x2 = 14.0858f,
-                        y2 = 18.75f,
-                        x3 = 14.5f,
-                        y3 = 18.75f,
-                    )
-                    horizontalLineTo(x = 17.0f)
-                    verticalLineTo(y = 21.25f)
-                    curveTo(
-                        x1 = 17.0f,
-                        y1 = 21.6642f,
-                        x2 = 17.3358f,
-                        y2 = 22.0f,
-                        x3 = 17.75f,
-                        y3 = 22.0f,
-                    )
-                    curveTo(
-                        x1 = 18.1642f,
-                        y1 = 22.0f,
-                        x2 = 18.5f,
-                        y2 = 21.6642f,
-                        x3 = 18.5f,
-                        y3 = 21.25f,
-                    )
-                    verticalLineTo(y = 18.75f)
-                    horizontalLineTo(x = 21.0f)
-                    curveTo(
-                        x1 = 21.4142f,
-                        y1 = 18.75f,
-                        x2 = 21.75f,
-                        y2 = 18.4142f,
-                        x3 = 21.75f,
-                        y3 = 18.0f,
-                    )
-                    curveTo(
-                        x1 = 21.75f,
-                        y1 = 17.5858f,
-                        x2 = 21.4142f,
-                        y2 = 17.25f,
-                        x3 = 21.0f,
-                        y3 = 17.25f,
-                    )
-                    horizontalLineTo(x = 18.5f)
-                    verticalLineTo(y = 14.75f)
-                    close()
-                }
-            }.build()
-            .also { _calenderAdd = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.CalenderAdd",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                fill = SolidColor(Color(0xFF000000)),
+            ) {
+                moveTo(x = 8.5f, y = 2.75f)
+                curveTo(x1 = 8.5f, y1 = 2.33579f, x2 = 8.16421f, y2 = 2.0f, x3 = 7.75f, y3 = 2.0f)
+                curveTo(x1 = 7.33579f, y1 = 2.0f, x2 = 7.0f, y2 = 2.33579f, x3 = 7.0f, y3 = 2.75f)
+                verticalLineTo(y = 4.0f)
+                horizontalLineTo(x = 3.75f)
+                curveTo(x1 = 3.33579f, y1 = 4.0f, x2 = 3.0f, y2 = 4.33579f, x3 = 3.0f, y3 = 4.75f)
+                verticalLineTo(y = 20.25f)
+                curveTo(x1 = 3.0f, y1 = 20.6642f, x2 = 3.33579f, y2 = 21.0f, x3 = 3.75f, y3 = 21.0f)
+                horizontalLineTo(x = 11.25f)
+                curveTo(x1 = 11.6642f, y1 = 21.0f, x2 = 12.0f, y2 = 20.6642f, x3 = 12.0f, y3 = 20.25f)
+                curveTo(x1 = 12.0f, y1 = 19.8358f, x2 = 11.6642f, y2 = 19.5f, x3 = 11.25f, y3 = 19.5f)
+                horizontalLineTo(x = 4.5f)
+                verticalLineTo(y = 10.0f)
+                horizontalLineTo(x = 19.5f)
+                verticalLineTo(y = 11.25f)
+                curveTo(x1 = 19.5f, y1 = 11.6642f, x2 = 19.8358f, y2 = 12.0f, x3 = 20.25f, y3 = 12.0f)
+                curveTo(x1 = 20.6642f, y1 = 12.0f, x2 = 21.0f, y2 = 11.6642f, x3 = 21.0f, y3 = 11.25f)
+                verticalLineTo(y = 4.75f)
+                curveTo(x1 = 21.0f, y1 = 4.33579f, x2 = 20.6642f, y2 = 4.0f, x3 = 20.25f, y3 = 4.0f)
+                horizontalLineTo(x = 17.0f)
+                verticalLineTo(y = 2.75f)
+                curveTo(x1 = 17.0f, y1 = 2.33579f, x2 = 16.6642f, y2 = 2.0f, x3 = 16.25f, y3 = 2.0f)
+                curveTo(x1 = 15.8358f, y1 = 2.0f, x2 = 15.5f, y2 = 2.33579f, x3 = 15.5f, y3 = 2.75f)
+                verticalLineTo(y = 4.0f)
+                horizontalLineTo(x = 8.5f)
+                verticalLineTo(y = 2.75f)
+                close()
+            }
+            path(
+                fill = SolidColor(Color(0xFF000000)),
+            ) {
+                moveTo(x = 18.5f, y = 14.75f)
+                curveTo(x1 = 18.5f, y1 = 14.3358f, x2 = 18.1642f, y2 = 14.0f, x3 = 17.75f, y3 = 14.0f)
+                curveTo(x1 = 17.3358f, y1 = 14.0f, x2 = 17.0f, y2 = 14.3358f, x3 = 17.0f, y3 = 14.75f)
+                verticalLineTo(y = 17.25f)
+                horizontalLineTo(x = 14.5f)
+                curveTo(x1 = 14.0858f, y1 = 17.25f, x2 = 13.75f, y2 = 17.5858f, x3 = 13.75f, y3 = 18.0f)
+                curveTo(x1 = 13.75f, y1 = 18.4142f, x2 = 14.0858f, y2 = 18.75f, x3 = 14.5f, y3 = 18.75f)
+                horizontalLineTo(x = 17.0f)
+                verticalLineTo(y = 21.25f)
+                curveTo(x1 = 17.0f, y1 = 21.6642f, x2 = 17.3358f, y2 = 22.0f, x3 = 17.75f, y3 = 22.0f)
+                curveTo(x1 = 18.1642f, y1 = 22.0f, x2 = 18.5f, y2 = 21.6642f, x3 = 18.5f, y3 = 21.25f)
+                verticalLineTo(y = 18.75f)
+                horizontalLineTo(x = 21.0f)
+                curveTo(x1 = 21.4142f, y1 = 18.75f, x2 = 21.75f, y2 = 18.4142f, x3 = 21.75f, y3 = 18.0f)
+                curveTo(x1 = 21.75f, y1 = 17.5858f, x2 = 21.4142f, y2 = 17.25f, x3 = 21.0f, y3 = 17.25f)
+                horizontalLineTo(x = 18.5f)
+                verticalLineTo(y = 14.75f)
+                close()
+            }
+        }.build().also { _calenderAdd = it }
     }
 
 @Preview
@@ -229,8 +94,7 @@ private fun IconPreview() {
             Image(
                 imageVector = CalenderAdd,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

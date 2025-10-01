@@ -22,36 +22,34 @@ val BubbleText: ImageVector
         val current = _bubbleText
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.BubbleText",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 15.25f, y = 9.0f)
-                    horizontalLineTo(x = 8.75f)
-                    moveTo(x = 15.25f, y = 13.0f)
-                    horizontalLineTo(x = 8.75f)
-                    moveTo(x = 3.75f, y = 3.75f)
-                    horizontalLineTo(x = 20.25f)
-                    verticalLineTo(y = 18.25f)
-                    horizontalLineTo(x = 15.0155f)
-                    lineTo(x = 11.9979f, y = 20.75f)
-                    lineTo(x = 9.0155f, y = 18.25f)
-                    horizontalLineTo(x = 3.75f)
-                    verticalLineTo(y = 3.75f)
-                    close()
-                }
-            }.build()
-            .also { _bubbleText = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.BubbleText",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 15.25f, y = 9.0f)
+                horizontalLineTo(x = 8.75f)
+                moveTo(x = 15.25f, y = 13.0f)
+                horizontalLineTo(x = 8.75f)
+                moveTo(x = 3.75f, y = 3.75f)
+                horizontalLineTo(x = 20.25f)
+                verticalLineTo(y = 18.25f)
+                horizontalLineTo(x = 15.0155f)
+                lineTo(x = 11.9979f, y = 20.75f)
+                lineTo(x = 9.0155f, y = 18.25f)
+                horizontalLineTo(x = 3.75f)
+                verticalLineTo(y = 3.75f)
+                close()
+            }
+        }.build().also { _bubbleText = it }
     }
 
 @Preview
@@ -65,8 +63,7 @@ private fun IconPreview() {
             Image(
                 imageVector = BubbleText,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

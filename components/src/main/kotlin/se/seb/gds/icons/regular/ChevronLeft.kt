@@ -22,26 +22,24 @@ val ChevronLeft: ImageVector
         val current = _chevronLeft
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.ChevronLeft",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 15.0f, y = 20.0f)
-                    lineTo(x = 7.0f, y = 12.0f)
-                    lineTo(x = 15.0f, y = 4.0f)
-                }
-            }.build()
-            .also { _chevronLeft = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.ChevronLeft",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 15.0f, y = 20.0f)
+                lineTo(x = 7.0f, y = 12.0f)
+                lineTo(x = 15.0f, y = 4.0f)
+            }
+        }.build().also { _chevronLeft = it }
     }
 
 @Preview
@@ -55,8 +53,7 @@ private fun IconPreview() {
             Image(
                 imageVector = ChevronLeft,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

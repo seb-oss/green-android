@@ -22,28 +22,26 @@ val ArrowDown: ImageVector
         val current = _arrowDown
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.ArrowDown",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 18.25f, y = 14.0f)
-                    lineTo(x = 12.0f, y = 20.25f)
-                    lineTo(x = 5.75f, y = 14.0f)
-                    moveTo(x = 12.0f, y = 19.5f)
-                    verticalLineTo(y = 3.75f)
-                }
-            }.build()
-            .also { _arrowDown = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.ArrowDown",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 18.25f, y = 14.0f)
+                lineTo(x = 12.0f, y = 20.25f)
+                lineTo(x = 5.75f, y = 14.0f)
+                moveTo(x = 12.0f, y = 19.5f)
+                verticalLineTo(y = 3.75f)
+            }
+        }.build().also { _arrowDown = it }
     }
 
 @Preview
@@ -57,8 +55,7 @@ private fun IconPreview() {
             Image(
                 imageVector = ArrowDown,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

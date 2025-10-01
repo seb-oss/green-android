@@ -22,31 +22,29 @@ val PaperPlaneTopRight: ImageVector
         val current = _paperPlaneTopRight
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.PaperPlaneTopRight",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Square,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 9.45244f, y = 10.8687f)
-                    lineTo(x = 21.0f, y = 4.44532f)
-                    moveTo(x = 11.9936f, y = 21.25f)
-                    lineTo(x = 22.25f, y = 3.75f)
-                    horizontalLineTo(x = 2.25f)
-                    lineTo(x = 9.14026f, y = 11.0423f)
-                    lineTo(x = 11.9936f, y = 21.25f)
-                    close()
-                }
-            }.build()
-            .also { _paperPlaneTopRight = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.PaperPlaneTopRight",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Square,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 9.45244f, y = 10.8687f)
+                lineTo(x = 21.0f, y = 4.44532f)
+                moveTo(x = 11.9936f, y = 21.25f)
+                lineTo(x = 22.25f, y = 3.75f)
+                horizontalLineTo(x = 2.25f)
+                lineTo(x = 9.14026f, y = 11.0423f)
+                lineTo(x = 11.9936f, y = 21.25f)
+                close()
+            }
+        }.build().also { _paperPlaneTopRight = it }
     }
 
 @Preview
@@ -60,8 +58,7 @@ private fun IconPreview() {
             Image(
                 imageVector = PaperPlaneTopRight,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

@@ -21,129 +21,43 @@ val BarsThree: ImageVector
         val current = _barsThree
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.BarsThree",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    fill = SolidColor(Color(0xFF000000)),
-                    pathFillType = PathFillType.EvenOdd,
-                ) {
-                    moveTo(x = 2.0f, y = 5.75f)
-                    curveTo(
-                        x1 = 2.0f,
-                        y1 = 5.33579f,
-                        x2 = 2.33579f,
-                        y2 = 5.0f,
-                        x3 = 2.75f,
-                        y3 = 5.0f,
-                    )
-                    horizontalLineTo(x = 21.25f)
-                    curveTo(
-                        x1 = 21.6642f,
-                        y1 = 5.0f,
-                        x2 = 22.0f,
-                        y2 = 5.33579f,
-                        x3 = 22.0f,
-                        y3 = 5.75f,
-                    )
-                    curveTo(
-                        x1 = 22.0f,
-                        y1 = 6.16421f,
-                        x2 = 21.6642f,
-                        y2 = 6.5f,
-                        x3 = 21.25f,
-                        y3 = 6.5f,
-                    )
-                    horizontalLineTo(x = 2.75f)
-                    curveTo(
-                        x1 = 2.33579f,
-                        y1 = 6.5f,
-                        x2 = 2.0f,
-                        y2 = 6.16421f,
-                        x3 = 2.0f,
-                        y3 = 5.75f,
-                    )
-                    close()
-                    moveTo(x = 2.0f, y = 12.0f)
-                    curveTo(
-                        x1 = 2.0f,
-                        y1 = 11.5858f,
-                        x2 = 2.33579f,
-                        y2 = 11.25f,
-                        x3 = 2.75f,
-                        y3 = 11.25f,
-                    )
-                    horizontalLineTo(x = 21.25f)
-                    curveTo(
-                        x1 = 21.6642f,
-                        y1 = 11.25f,
-                        x2 = 22.0f,
-                        y2 = 11.5858f,
-                        x3 = 22.0f,
-                        y3 = 12.0f,
-                    )
-                    curveTo(
-                        x1 = 22.0f,
-                        y1 = 12.4142f,
-                        x2 = 21.6642f,
-                        y2 = 12.75f,
-                        x3 = 21.25f,
-                        y3 = 12.75f,
-                    )
-                    horizontalLineTo(x = 2.75f)
-                    curveTo(
-                        x1 = 2.33579f,
-                        y1 = 12.75f,
-                        x2 = 2.0f,
-                        y2 = 12.4142f,
-                        x3 = 2.0f,
-                        y3 = 12.0f,
-                    )
-                    close()
-                    moveTo(x = 2.0f, y = 18.25f)
-                    curveTo(
-                        x1 = 2.0f,
-                        y1 = 17.8358f,
-                        x2 = 2.33579f,
-                        y2 = 17.5f,
-                        x3 = 2.75f,
-                        y3 = 17.5f,
-                    )
-                    horizontalLineTo(x = 21.25f)
-                    curveTo(
-                        x1 = 21.6642f,
-                        y1 = 17.5f,
-                        x2 = 22.0f,
-                        y2 = 17.8358f,
-                        x3 = 22.0f,
-                        y3 = 18.25f,
-                    )
-                    curveTo(
-                        x1 = 22.0f,
-                        y1 = 18.6642f,
-                        x2 = 21.6642f,
-                        y2 = 19.0f,
-                        x3 = 21.25f,
-                        y3 = 19.0f,
-                    )
-                    horizontalLineTo(x = 2.75f)
-                    curveTo(
-                        x1 = 2.33579f,
-                        y1 = 19.0f,
-                        x2 = 2.0f,
-                        y2 = 18.6642f,
-                        x3 = 2.0f,
-                        y3 = 18.25f,
-                    )
-                    close()
-                }
-            }.build()
-            .also { _barsThree = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.BarsThree",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                fill = SolidColor(Color(0xFF000000)),
+                pathFillType = PathFillType.EvenOdd,
+            ) {
+                moveTo(x = 2.0f, y = 5.75f)
+                curveTo(x1 = 2.0f, y1 = 5.33579f, x2 = 2.33579f, y2 = 5.0f, x3 = 2.75f, y3 = 5.0f)
+                horizontalLineTo(x = 21.25f)
+                curveTo(x1 = 21.6642f, y1 = 5.0f, x2 = 22.0f, y2 = 5.33579f, x3 = 22.0f, y3 = 5.75f)
+                curveTo(x1 = 22.0f, y1 = 6.16421f, x2 = 21.6642f, y2 = 6.5f, x3 = 21.25f, y3 = 6.5f)
+                horizontalLineTo(x = 2.75f)
+                curveTo(x1 = 2.33579f, y1 = 6.5f, x2 = 2.0f, y2 = 6.16421f, x3 = 2.0f, y3 = 5.75f)
+                close()
+                moveTo(x = 2.0f, y = 12.0f)
+                curveTo(x1 = 2.0f, y1 = 11.5858f, x2 = 2.33579f, y2 = 11.25f, x3 = 2.75f, y3 = 11.25f)
+                horizontalLineTo(x = 21.25f)
+                curveTo(x1 = 21.6642f, y1 = 11.25f, x2 = 22.0f, y2 = 11.5858f, x3 = 22.0f, y3 = 12.0f)
+                curveTo(x1 = 22.0f, y1 = 12.4142f, x2 = 21.6642f, y2 = 12.75f, x3 = 21.25f, y3 = 12.75f)
+                horizontalLineTo(x = 2.75f)
+                curveTo(x1 = 2.33579f, y1 = 12.75f, x2 = 2.0f, y2 = 12.4142f, x3 = 2.0f, y3 = 12.0f)
+                close()
+                moveTo(x = 2.0f, y = 18.25f)
+                curveTo(x1 = 2.0f, y1 = 17.8358f, x2 = 2.33579f, y2 = 17.5f, x3 = 2.75f, y3 = 17.5f)
+                horizontalLineTo(x = 21.25f)
+                curveTo(x1 = 21.6642f, y1 = 17.5f, x2 = 22.0f, y2 = 17.8358f, x3 = 22.0f, y3 = 18.25f)
+                curveTo(x1 = 22.0f, y1 = 18.6642f, x2 = 21.6642f, y2 = 19.0f, x3 = 21.25f, y3 = 19.0f)
+                horizontalLineTo(x = 2.75f)
+                curveTo(x1 = 2.33579f, y1 = 19.0f, x2 = 2.0f, y2 = 18.6642f, x3 = 2.0f, y3 = 18.25f)
+                close()
+            }
+        }.build().also { _barsThree = it }
     }
 
 @Preview
@@ -157,8 +71,7 @@ private fun IconPreview() {
             Image(
                 imageVector = BarsThree,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

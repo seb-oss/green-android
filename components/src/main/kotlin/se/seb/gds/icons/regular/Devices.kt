@@ -22,41 +22,39 @@ val Devices: ImageVector
         val current = _devices
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Devices",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 17.25f, y = 18.25f)
-                    horizontalLineTo(x = 19.5f)
-                    moveTo(x = 3.75f, y = 16.75f)
-                    verticalLineTo(y = 3.75f)
-                    horizontalLineTo(x = 20.25f)
-                    verticalLineTo(y = 8.75f)
-                    moveTo(x = 3.75f, y = 16.75f)
-                    horizontalLineTo(x = 1.75f)
-                    verticalLineTo(y = 20.25f)
-                    horizontalLineTo(x = 14.25f)
-                    moveTo(x = 3.75f, y = 16.75f)
-                    horizontalLineTo(x = 14.25f)
-                    moveTo(x = 14.25f, y = 8.75f)
-                    horizontalLineTo(x = 22.25f)
-                    verticalLineTo(y = 21.25f)
-                    horizontalLineTo(x = 14.25f)
-                    verticalLineTo(y = 8.75f)
-                    close()
-                }
-            }.build()
-            .also { _devices = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Devices",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 17.25f, y = 18.25f)
+                horizontalLineTo(x = 19.5f)
+                moveTo(x = 3.75f, y = 16.75f)
+                verticalLineTo(y = 3.75f)
+                horizontalLineTo(x = 20.25f)
+                verticalLineTo(y = 8.75f)
+                moveTo(x = 3.75f, y = 16.75f)
+                horizontalLineTo(x = 1.75f)
+                verticalLineTo(y = 20.25f)
+                horizontalLineTo(x = 14.25f)
+                moveTo(x = 3.75f, y = 16.75f)
+                horizontalLineTo(x = 14.25f)
+                moveTo(x = 14.25f, y = 8.75f)
+                horizontalLineTo(x = 22.25f)
+                verticalLineTo(y = 21.25f)
+                horizontalLineTo(x = 14.25f)
+                verticalLineTo(y = 8.75f)
+                close()
+            }
+        }.build().also { _devices = it }
     }
 
 @Preview
@@ -70,8 +68,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Devices,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

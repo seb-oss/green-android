@@ -22,44 +22,42 @@ val Buildings: ImageVector
         val current = _buildings
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Buildings",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 3.75f, y = 19.25f)
-                    horizontalLineTo(x = 14.25f)
-                    moveTo(x = 3.75f, y = 19.25f)
-                    verticalLineTo(y = 3.75f)
-                    horizontalLineTo(x = 14.25f)
-                    verticalLineTo(y = 8.0f)
-                    moveTo(x = 3.75f, y = 19.25f)
-                    horizontalLineTo(x = 1.75f)
-                    moveTo(x = 20.25f, y = 19.25f)
-                    horizontalLineTo(x = 14.25f)
-                    moveTo(x = 20.25f, y = 19.25f)
-                    verticalLineTo(y = 8.0f)
-                    horizontalLineTo(x = 14.25f)
-                    moveTo(x = 20.25f, y = 19.25f)
-                    horizontalLineTo(x = 22.25f)
-                    moveTo(x = 14.25f, y = 19.25f)
-                    verticalLineTo(y = 8.0f)
-                    moveTo(x = 10.25f, y = 8.75f)
-                    horizontalLineTo(x = 7.75f)
-                    moveTo(x = 7.75f, y = 12.75f)
-                    horizontalLineTo(x = 10.25f)
-                }
-            }.build()
-            .also { _buildings = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Buildings",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 3.75f, y = 19.25f)
+                horizontalLineTo(x = 14.25f)
+                moveTo(x = 3.75f, y = 19.25f)
+                verticalLineTo(y = 3.75f)
+                horizontalLineTo(x = 14.25f)
+                verticalLineTo(y = 8.0f)
+                moveTo(x = 3.75f, y = 19.25f)
+                horizontalLineTo(x = 1.75f)
+                moveTo(x = 20.25f, y = 19.25f)
+                horizontalLineTo(x = 14.25f)
+                moveTo(x = 20.25f, y = 19.25f)
+                verticalLineTo(y = 8.0f)
+                horizontalLineTo(x = 14.25f)
+                moveTo(x = 20.25f, y = 19.25f)
+                horizontalLineTo(x = 22.25f)
+                moveTo(x = 14.25f, y = 19.25f)
+                verticalLineTo(y = 8.0f)
+                moveTo(x = 10.25f, y = 8.75f)
+                horizontalLineTo(x = 7.75f)
+                moveTo(x = 7.75f, y = 12.75f)
+                horizontalLineTo(x = 10.25f)
+            }
+        }.build().also { _buildings = it }
     }
 
 @Preview
@@ -73,8 +71,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Buildings,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

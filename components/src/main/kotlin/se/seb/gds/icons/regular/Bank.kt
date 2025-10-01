@@ -22,44 +22,42 @@ val Bank: ImageVector
         val current = _bank
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Bank",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Square,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 19.25f, y = 9.25f)
-                    verticalLineTo(y = 17.25f)
-                    moveTo(x = 15.25f, y = 17.25f)
-                    verticalLineTo(y = 9.25f)
-                    moveTo(x = 4.75f, y = 9.25f)
-                    verticalLineTo(y = 17.25f)
-                    moveTo(x = 8.75f, y = 17.25f)
-                    verticalLineTo(y = 9.25f)
-                    moveTo(x = 2.75f, y = 7.17308f)
-                    lineTo(x = 12.0f, y = 2.5f)
-                    lineTo(x = 21.25f, y = 7.17308f)
-                    verticalLineTo(y = 9.25f)
-                    horizontalLineTo(x = 2.75f)
-                    verticalLineTo(y = 7.17308f)
-                    close()
-                    moveTo(x = 2.75f, y = 20.25f)
-                    horizontalLineTo(x = 21.25f)
-                    lineTo(x = 20.25f, y = 17.25f)
-                    horizontalLineTo(x = 3.75f)
-                    lineTo(x = 2.75f, y = 20.25f)
-                    close()
-                }
-            }.build()
-            .also { _bank = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Bank",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Square,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 19.25f, y = 9.25f)
+                verticalLineTo(y = 17.25f)
+                moveTo(x = 15.25f, y = 17.25f)
+                verticalLineTo(y = 9.25f)
+                moveTo(x = 4.75f, y = 9.25f)
+                verticalLineTo(y = 17.25f)
+                moveTo(x = 8.75f, y = 17.25f)
+                verticalLineTo(y = 9.25f)
+                moveTo(x = 2.75f, y = 7.17308f)
+                lineTo(x = 12.0f, y = 2.5f)
+                lineTo(x = 21.25f, y = 7.17308f)
+                verticalLineTo(y = 9.25f)
+                horizontalLineTo(x = 2.75f)
+                verticalLineTo(y = 7.17308f)
+                close()
+                moveTo(x = 2.75f, y = 20.25f)
+                horizontalLineTo(x = 21.25f)
+                lineTo(x = 20.25f, y = 17.25f)
+                horizontalLineTo(x = 3.75f)
+                lineTo(x = 2.75f, y = 20.25f)
+                close()
+            }
+        }.build().also { _bank = it }
     }
 
 @Preview
@@ -73,8 +71,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Bank,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

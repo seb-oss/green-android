@@ -22,44 +22,42 @@ val Smartwatch: ImageVector
         val current = _smartwatch
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Smartwatch",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 12.0f, y = 8.75f)
-                    verticalLineTo(y = 12.0f)
-                    lineTo(x = 13.5f, y = 13.5f)
-                    moveTo(x = 4.75f, y = 4.75f)
-                    horizontalLineTo(x = 19.25f)
-                    verticalLineTo(y = 19.25f)
-                    horizontalLineTo(x = 4.75f)
-                    verticalLineTo(y = 4.75f)
-                    close()
-                    moveTo(x = 7.0f, y = 4.75f)
-                    lineTo(x = 8.0f, y = 1.75f)
-                    horizontalLineTo(x = 16.0f)
-                    lineTo(x = 17.0f, y = 4.75f)
-                    horizontalLineTo(x = 7.0f)
-                    close()
-                    moveTo(x = 7.0f, y = 19.25f)
-                    lineTo(x = 8.0f, y = 22.25f)
-                    horizontalLineTo(x = 16.0f)
-                    lineTo(x = 17.0f, y = 19.25f)
-                    horizontalLineTo(x = 7.0f)
-                    close()
-                }
-            }.build()
-            .also { _smartwatch = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Smartwatch",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 12.0f, y = 8.75f)
+                verticalLineTo(y = 12.0f)
+                lineTo(x = 13.5f, y = 13.5f)
+                moveTo(x = 4.75f, y = 4.75f)
+                horizontalLineTo(x = 19.25f)
+                verticalLineTo(y = 19.25f)
+                horizontalLineTo(x = 4.75f)
+                verticalLineTo(y = 4.75f)
+                close()
+                moveTo(x = 7.0f, y = 4.75f)
+                lineTo(x = 8.0f, y = 1.75f)
+                horizontalLineTo(x = 16.0f)
+                lineTo(x = 17.0f, y = 4.75f)
+                horizontalLineTo(x = 7.0f)
+                close()
+                moveTo(x = 7.0f, y = 19.25f)
+                lineTo(x = 8.0f, y = 22.25f)
+                horizontalLineTo(x = 16.0f)
+                lineTo(x = 17.0f, y = 19.25f)
+                horizontalLineTo(x = 7.0f)
+                close()
+            }
+        }.build().also { _smartwatch = it }
     }
 
 @Preview
@@ -73,8 +71,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Smartwatch,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

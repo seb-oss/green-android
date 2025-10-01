@@ -22,29 +22,27 @@ val ChevronDoubleDown: ImageVector
         val current = _chevronDoubleDown
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.ChevronDoubleDown",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 8.0f, y = 13.5f)
-                    lineTo(x = 12.0f, y = 17.5f)
-                    lineTo(x = 16.0f, y = 13.5f)
-                    moveTo(x = 8.0f, y = 6.5f)
-                    lineTo(x = 12.0f, y = 10.5f)
-                    lineTo(x = 16.0f, y = 6.5f)
-                }
-            }.build()
-            .also { _chevronDoubleDown = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.ChevronDoubleDown",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 8.0f, y = 13.5f)
+                lineTo(x = 12.0f, y = 17.5f)
+                lineTo(x = 16.0f, y = 13.5f)
+                moveTo(x = 8.0f, y = 6.5f)
+                lineTo(x = 12.0f, y = 10.5f)
+                lineTo(x = 16.0f, y = 6.5f)
+            }
+        }.build().also { _chevronDoubleDown = it }
     }
 
 @Preview
@@ -58,8 +56,7 @@ private fun IconPreview() {
             Image(
                 imageVector = ChevronDoubleDown,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

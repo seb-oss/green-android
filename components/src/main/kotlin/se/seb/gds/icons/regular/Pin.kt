@@ -22,33 +22,31 @@ val Pin: ImageVector
         val current = _pin
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Pin",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 3.75f, y = 20.25f)
-                    lineTo(x = 8.38235f, y = 15.6176f)
-                    moveTo(x = 11.5f, y = 7.5f)
-                    lineTo(x = 14.5f, y = 2.75f)
-                    lineTo(x = 21.25f, y = 9.5f)
-                    lineTo(x = 16.5f, y = 12.5f)
-                    lineTo(x = 14.0f, y = 20.25f)
-                    lineTo(x = 3.75f, y = 10.0f)
-                    lineTo(x = 11.5f, y = 7.5f)
-                    close()
-                }
-            }.build()
-            .also { _pin = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Pin",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 3.75f, y = 20.25f)
+                lineTo(x = 8.38235f, y = 15.6176f)
+                moveTo(x = 11.5f, y = 7.5f)
+                lineTo(x = 14.5f, y = 2.75f)
+                lineTo(x = 21.25f, y = 9.5f)
+                lineTo(x = 16.5f, y = 12.5f)
+                lineTo(x = 14.0f, y = 20.25f)
+                lineTo(x = 3.75f, y = 10.0f)
+                lineTo(x = 11.5f, y = 7.5f)
+                close()
+            }
+        }.build().also { _pin = it }
     }
 
 @Preview
@@ -62,8 +60,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Pin,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

@@ -22,42 +22,33 @@ val CreditCard: ImageVector
         val current = _creditCard
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.CreditCard",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 2.75f, y = 9.75005f)
-                    verticalLineTo(y = 19.2461f)
-                    horizontalLineTo(x = 21.2461f)
-                    verticalLineTo(y = 9.75005f)
-                    moveTo(x = 2.75f, y = 9.75005f)
-                    verticalLineTo(y = 4.75293f)
-                    horizontalLineTo(x = 21.2422f)
-                    curveTo(
-                        x1 = 21.247f,
-                        y1 = 6.41863f,
-                        x2 = 21.2461f,
-                        y2 = 8.08434f,
-                        x3 = 21.2461f,
-                        y3 = 9.75005f,
-                    )
-                    moveTo(x = 2.75f, y = 9.75005f)
-                    horizontalLineTo(x = 21.2461f)
-                    moveTo(x = 6.75f, y = 13.25f)
-                    horizontalLineTo(x = 9.75f)
-                }
-            }.build()
-            .also { _creditCard = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.CreditCard",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 2.75f, y = 9.75005f)
+                verticalLineTo(y = 19.2461f)
+                horizontalLineTo(x = 21.2461f)
+                verticalLineTo(y = 9.75005f)
+                moveTo(x = 2.75f, y = 9.75005f)
+                verticalLineTo(y = 4.75293f)
+                horizontalLineTo(x = 21.2422f)
+                curveTo(x1 = 21.247f, y1 = 6.41863f, x2 = 21.2461f, y2 = 8.08434f, x3 = 21.2461f, y3 = 9.75005f)
+                moveTo(x = 2.75f, y = 9.75005f)
+                horizontalLineTo(x = 21.2461f)
+                moveTo(x = 6.75f, y = 13.25f)
+                horizontalLineTo(x = 9.75f)
+            }
+        }.build().also { _creditCard = it }
     }
 
 @Preview
@@ -71,8 +62,7 @@ private fun IconPreview() {
             Image(
                 imageVector = CreditCard,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

@@ -22,32 +22,30 @@ val WarningSign: ImageVector
         val current = _warningSign
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.WarningSign",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 2.75f, y = 20.25f)
-                    lineTo(x = 6.75f, y = 3.75f)
-                    horizontalLineTo(x = 17.25f)
-                    moveTo(x = 17.25f, y = 3.75f)
-                    lineTo(x = 21.25f, y = 20.25f)
-                    moveTo(x = 17.25f, y = 3.75f)
-                    lineTo(x = 13.25f, y = 20.25f)
-                    moveTo(x = 4.0f, y = 16.75f)
-                    horizontalLineTo(x = 20.0f)
-                }
-            }.build()
-            .also { _warningSign = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.WarningSign",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 2.75f, y = 20.25f)
+                lineTo(x = 6.75f, y = 3.75f)
+                horizontalLineTo(x = 17.25f)
+                moveTo(x = 17.25f, y = 3.75f)
+                lineTo(x = 21.25f, y = 20.25f)
+                moveTo(x = 17.25f, y = 3.75f)
+                lineTo(x = 13.25f, y = 20.25f)
+                moveTo(x = 4.0f, y = 16.75f)
+                horizontalLineTo(x = 20.0f)
+            }
+        }.build().also { _warningSign = it }
     }
 
 @Preview
@@ -61,8 +59,7 @@ private fun IconPreview() {
             Image(
                 imageVector = WarningSign,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

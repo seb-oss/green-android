@@ -22,29 +22,27 @@ val ChevronDoubleLeft: ImageVector
         val current = _chevronDoubleLeft
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.ChevronDoubleLeft",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 10.0f, y = 16.0f)
-                    lineTo(x = 6.0f, y = 12.0f)
-                    lineTo(x = 10.0f, y = 8.0f)
-                    moveTo(x = 17.0f, y = 16.0f)
-                    lineTo(x = 13.0f, y = 12.0f)
-                    lineTo(x = 17.0f, y = 8.0f)
-                }
-            }.build()
-            .also { _chevronDoubleLeft = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.ChevronDoubleLeft",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 10.0f, y = 16.0f)
+                lineTo(x = 6.0f, y = 12.0f)
+                lineTo(x = 10.0f, y = 8.0f)
+                moveTo(x = 17.0f, y = 16.0f)
+                lineTo(x = 13.0f, y = 12.0f)
+                lineTo(x = 17.0f, y = 8.0f)
+            }
+        }.build().also { _chevronDoubleLeft = it }
     }
 
 @Preview
@@ -58,8 +56,7 @@ private fun IconPreview() {
             Image(
                 imageVector = ChevronDoubleLeft,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

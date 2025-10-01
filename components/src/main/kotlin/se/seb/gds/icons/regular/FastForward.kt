@@ -22,34 +22,32 @@ val FastForward: ImageVector
         val current = _fastForward
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.FastForward",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Square,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 12.75f, y = 11.6324f)
-                    verticalLineTo(y = 5.75f)
-                    lineTo(x = 21.25f, y = 12.0f)
-                    lineTo(x = 12.75f, y = 18.25f)
-                    verticalLineTo(y = 12.3676f)
-                    moveTo(x = 12.75f, y = 11.6324f)
-                    lineTo(x = 4.75f, y = 5.75f)
-                    verticalLineTo(y = 18.25f)
-                    lineTo(x = 12.75f, y = 12.3676f)
-                    moveTo(x = 12.75f, y = 11.6324f)
-                    verticalLineTo(y = 12.3676f)
-                }
-            }.build()
-            .also { _fastForward = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.FastForward",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Square,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 12.75f, y = 11.6324f)
+                verticalLineTo(y = 5.75f)
+                lineTo(x = 21.25f, y = 12.0f)
+                lineTo(x = 12.75f, y = 18.25f)
+                verticalLineTo(y = 12.3676f)
+                moveTo(x = 12.75f, y = 11.6324f)
+                lineTo(x = 4.75f, y = 5.75f)
+                verticalLineTo(y = 18.25f)
+                lineTo(x = 12.75f, y = 12.3676f)
+                moveTo(x = 12.75f, y = 11.6324f)
+                verticalLineTo(y = 12.3676f)
+            }
+        }.build().also { _fastForward = it }
     }
 
 @Preview
@@ -63,8 +61,7 @@ private fun IconPreview() {
             Image(
                 imageVector = FastForward,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

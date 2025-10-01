@@ -21,34 +21,32 @@ val SuitcaseWork: ImageVector
         val current = _suitcaseWork
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.SuitcaseWork",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 7.75f, y = 6.75f)
-                    horizontalLineTo(x = 2.75f)
-                    verticalLineTo(y = 20.25f)
-                    horizontalLineTo(x = 21.25f)
-                    verticalLineTo(y = 6.75f)
-                    horizontalLineTo(x = 16.25f)
-                    moveTo(x = 7.75f, y = 6.75f)
-                    verticalLineTo(y = 2.75f)
-                    horizontalLineTo(x = 16.25f)
-                    verticalLineTo(y = 6.75f)
-                    moveTo(x = 7.75f, y = 6.75f)
-                    horizontalLineTo(x = 16.25f)
-                }
-            }.build()
-            .also { _suitcaseWork = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.SuitcaseWork",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 7.75f, y = 6.75f)
+                horizontalLineTo(x = 2.75f)
+                verticalLineTo(y = 20.25f)
+                horizontalLineTo(x = 21.25f)
+                verticalLineTo(y = 6.75f)
+                horizontalLineTo(x = 16.25f)
+                moveTo(x = 7.75f, y = 6.75f)
+                verticalLineTo(y = 2.75f)
+                horizontalLineTo(x = 16.25f)
+                verticalLineTo(y = 6.75f)
+                moveTo(x = 7.75f, y = 6.75f)
+                horizontalLineTo(x = 16.25f)
+            }
+        }.build().also { _suitcaseWork = it }
     }
 
 @Preview
@@ -62,8 +60,7 @@ private fun IconPreview() {
             Image(
                 imageVector = SuitcaseWork,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

@@ -22,30 +22,28 @@ val Bookmark: ImageVector
         val current = _bookmark
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Bookmark",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 19.25f, y = 21.25f)
-                    verticalLineTo(y = 2.75f)
-                    horizontalLineTo(x = 4.75f)
-                    verticalLineTo(y = 21.25f)
-                    lineTo(x = 12.0f, y = 17.25f)
-                    lineTo(x = 19.25f, y = 21.25f)
-                    close()
-                }
-            }.build()
-            .also { _bookmark = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Bookmark",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 19.25f, y = 21.25f)
+                verticalLineTo(y = 2.75f)
+                horizontalLineTo(x = 4.75f)
+                verticalLineTo(y = 21.25f)
+                lineTo(x = 12.0f, y = 17.25f)
+                lineTo(x = 19.25f, y = 21.25f)
+                close()
+            }
+        }.build().also { _bookmark = it }
     }
 
 @Preview
@@ -59,8 +57,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Bookmark,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

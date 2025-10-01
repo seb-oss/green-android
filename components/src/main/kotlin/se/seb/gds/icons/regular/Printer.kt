@@ -22,45 +22,43 @@ val Printer: ImageVector
         val current = _printer
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Printer",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 9.25f, y = 10.75f)
-                    horizontalLineTo(x = 6.75f)
-                    moveTo(x = 6.75f, y = 13.75f)
-                    verticalLineTo(y = 21.25f)
-                    horizontalLineTo(x = 17.25f)
-                    verticalLineTo(y = 13.75f)
-                    moveTo(x = 6.75f, y = 13.75f)
-                    horizontalLineTo(x = 17.25f)
-                    moveTo(x = 6.75f, y = 13.75f)
-                    verticalLineTo(y = 17.25f)
-                    horizontalLineTo(x = 2.75f)
-                    verticalLineTo(y = 6.75f)
-                    horizontalLineTo(x = 21.25f)
-                    verticalLineTo(y = 17.25f)
-                    horizontalLineTo(x = 17.25f)
-                    verticalLineTo(y = 13.75f)
-                    moveTo(x = 6.75f, y = 2.75f)
-                    horizontalLineTo(x = 17.25f)
-                    verticalLineTo(y = 6.75f)
-                    horizontalLineTo(x = 6.75f)
-                    verticalLineTo(y = 2.75f)
-                    close()
-                }
-            }.build()
-            .also { _printer = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Printer",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 9.25f, y = 10.75f)
+                horizontalLineTo(x = 6.75f)
+                moveTo(x = 6.75f, y = 13.75f)
+                verticalLineTo(y = 21.25f)
+                horizontalLineTo(x = 17.25f)
+                verticalLineTo(y = 13.75f)
+                moveTo(x = 6.75f, y = 13.75f)
+                horizontalLineTo(x = 17.25f)
+                moveTo(x = 6.75f, y = 13.75f)
+                verticalLineTo(y = 17.25f)
+                horizontalLineTo(x = 2.75f)
+                verticalLineTo(y = 6.75f)
+                horizontalLineTo(x = 21.25f)
+                verticalLineTo(y = 17.25f)
+                horizontalLineTo(x = 17.25f)
+                verticalLineTo(y = 13.75f)
+                moveTo(x = 6.75f, y = 2.75f)
+                horizontalLineTo(x = 17.25f)
+                verticalLineTo(y = 6.75f)
+                horizontalLineTo(x = 6.75f)
+                verticalLineTo(y = 2.75f)
+                close()
+            }
+        }.build().also { _printer = it }
     }
 
 @Preview
@@ -74,8 +72,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Printer,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

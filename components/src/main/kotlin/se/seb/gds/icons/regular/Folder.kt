@@ -22,31 +22,29 @@ val Folder: ImageVector
         val current = _folder
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Folder",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 2.75f, y = 3.75f)
-                    verticalLineTo(y = 19.25f)
-                    horizontalLineTo(x = 21.25f)
-                    verticalLineTo(y = 6.75f)
-                    horizontalLineTo(x = 12.0f)
-                    lineTo(x = 10.0f, y = 3.75f)
-                    horizontalLineTo(x = 2.75f)
-                    close()
-                }
-            }.build()
-            .also { _folder = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Folder",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 2.75f, y = 3.75f)
+                verticalLineTo(y = 19.25f)
+                horizontalLineTo(x = 21.25f)
+                verticalLineTo(y = 6.75f)
+                horizontalLineTo(x = 12.0f)
+                lineTo(x = 10.0f, y = 3.75f)
+                horizontalLineTo(x = 2.75f)
+                close()
+            }
+        }.build().also { _folder = it }
     }
 
 @Preview
@@ -60,8 +58,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Folder,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

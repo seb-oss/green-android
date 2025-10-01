@@ -22,41 +22,39 @@ val SettingsSliderThree: ImageVector
         val current = _settingsSliderThree
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.SettingsSliderThree",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 5.70142f, y = 20.254f)
-                    verticalLineTo(y = 14.0015f)
-                    moveTo(x = 5.70142f, y = 10.25f)
-                    verticalLineTo(y = 3.74707f)
-                    moveTo(x = 12.0f, y = 20.0038f)
-                    verticalLineTo(y = 12.7505f)
-                    moveTo(x = 12.0f, y = 8.99915f)
-                    verticalLineTo(y = 3.99707f)
-                    moveTo(x = 18.2986f, y = 20.2536f)
-                    verticalLineTo(y = 16.002f)
-                    moveTo(x = 18.2986f, y = 12.2508f)
-                    verticalLineTo(y = 3.74707f)
-                    moveTo(x = 3.74628f, y = 13.7515f)
-                    horizontalLineTo(x = 7.75f)
-                    moveTo(x = 10.0f, y = 9.24902f)
-                    horizontalLineTo(x = 14.0f)
-                    moveTo(x = 16.25f, y = 15.752f)
-                    horizontalLineTo(x = 20.25f)
-                }
-            }.build()
-            .also { _settingsSliderThree = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.SettingsSliderThree",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 5.70142f, y = 20.254f)
+                verticalLineTo(y = 14.0015f)
+                moveTo(x = 5.70142f, y = 10.25f)
+                verticalLineTo(y = 3.74707f)
+                moveTo(x = 12.0f, y = 20.0038f)
+                verticalLineTo(y = 12.7505f)
+                moveTo(x = 12.0f, y = 8.99915f)
+                verticalLineTo(y = 3.99707f)
+                moveTo(x = 18.2986f, y = 20.2536f)
+                verticalLineTo(y = 16.002f)
+                moveTo(x = 18.2986f, y = 12.2508f)
+                verticalLineTo(y = 3.74707f)
+                moveTo(x = 3.74628f, y = 13.7515f)
+                horizontalLineTo(x = 7.75f)
+                moveTo(x = 10.0f, y = 9.24902f)
+                horizontalLineTo(x = 14.0f)
+                moveTo(x = 16.25f, y = 15.752f)
+                horizontalLineTo(x = 20.25f)
+            }
+        }.build().also { _settingsSliderThree = it }
     }
 
 @Preview
@@ -70,8 +68,7 @@ private fun IconPreview() {
             Image(
                 imageVector = SettingsSliderThree,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

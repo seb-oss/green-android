@@ -22,29 +22,27 @@ val ChevronGrabberVertical: ImageVector
         val current = _chevronGrabberVertical
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.ChevronGrabberVertical",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 8.0f, y = 9.0f)
-                    lineTo(x = 12.0f, y = 5.0f)
-                    lineTo(x = 16.0f, y = 9.0f)
-                    moveTo(x = 16.0f, y = 15.0f)
-                    lineTo(x = 12.0f, y = 19.0f)
-                    lineTo(x = 8.0f, y = 15.0f)
-                }
-            }.build()
-            .also { _chevronGrabberVertical = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.ChevronGrabberVertical",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 8.0f, y = 9.0f)
+                lineTo(x = 12.0f, y = 5.0f)
+                lineTo(x = 16.0f, y = 9.0f)
+                moveTo(x = 16.0f, y = 15.0f)
+                lineTo(x = 12.0f, y = 19.0f)
+                lineTo(x = 8.0f, y = 15.0f)
+            }
+        }.build().also { _chevronGrabberVertical = it }
     }
 
 @Preview
@@ -58,8 +56,7 @@ private fun IconPreview() {
             Image(
                 imageVector = ChevronGrabberVertical,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

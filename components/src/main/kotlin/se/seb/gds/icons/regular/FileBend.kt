@@ -22,33 +22,31 @@ val FileBend: ImageVector
         val current = _fileBend
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.FileBend",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 12.75f, y = 2.75f)
-                    horizontalLineTo(x = 4.75f)
-                    verticalLineTo(y = 21.25f)
-                    horizontalLineTo(x = 19.25f)
-                    verticalLineTo(y = 9.25f)
-                    moveTo(x = 12.75f, y = 2.75f)
-                    lineTo(x = 19.25f, y = 9.25f)
-                    moveTo(x = 12.75f, y = 2.75f)
-                    verticalLineTo(y = 9.25f)
-                    horizontalLineTo(x = 19.25f)
-                }
-            }.build()
-            .also { _fileBend = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.FileBend",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 12.75f, y = 2.75f)
+                horizontalLineTo(x = 4.75f)
+                verticalLineTo(y = 21.25f)
+                horizontalLineTo(x = 19.25f)
+                verticalLineTo(y = 9.25f)
+                moveTo(x = 12.75f, y = 2.75f)
+                lineTo(x = 19.25f, y = 9.25f)
+                moveTo(x = 12.75f, y = 2.75f)
+                verticalLineTo(y = 9.25f)
+                horizontalLineTo(x = 19.25f)
+            }
+        }.build().also { _fileBend = it }
     }
 
 @Preview
@@ -62,8 +60,7 @@ private fun IconPreview() {
             Image(
                 imageVector = FileBend,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

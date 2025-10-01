@@ -22,48 +22,32 @@ val ShoppingBag: ImageVector
         val current = _shoppingBag
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.ShoppingBag",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 15.25f, y = 7.75f)
-                    verticalLineTo(y = 6.0f)
-                    curveTo(
-                        x1 = 15.25f,
-                        y1 = 4.20507f,
-                        x2 = 13.7949f,
-                        y2 = 2.75f,
-                        x3 = 12.0f,
-                        y3 = 2.75f,
-                    )
-                    curveTo(
-                        x1 = 10.2051f,
-                        y1 = 2.75f,
-                        x2 = 8.75f,
-                        y2 = 4.20507f,
-                        x3 = 8.75f,
-                        y3 = 6.0f,
-                    )
-                    verticalLineTo(y = 7.75f)
-                    moveTo(x = 6.25f, y = 7.75f)
-                    horizontalLineTo(x = 17.75f)
-                    lineTo(x = 19.75f, y = 21.25f)
-                    horizontalLineTo(x = 4.25f)
-                    lineTo(x = 6.25f, y = 7.75f)
-                    close()
-                }
-            }.build()
-            .also { _shoppingBag = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.ShoppingBag",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 15.25f, y = 7.75f)
+                verticalLineTo(y = 6.0f)
+                curveTo(x1 = 15.25f, y1 = 4.20507f, x2 = 13.7949f, y2 = 2.75f, x3 = 12.0f, y3 = 2.75f)
+                curveTo(x1 = 10.2051f, y1 = 2.75f, x2 = 8.75f, y2 = 4.20507f, x3 = 8.75f, y3 = 6.0f)
+                verticalLineTo(y = 7.75f)
+                moveTo(x = 6.25f, y = 7.75f)
+                horizontalLineTo(x = 17.75f)
+                lineTo(x = 19.75f, y = 21.25f)
+                horizontalLineTo(x = 4.25f)
+                lineTo(x = 6.25f, y = 7.75f)
+                close()
+            }
+        }.build().also { _shoppingBag = it }
     }
 
 @Preview
@@ -77,8 +61,7 @@ private fun IconPreview() {
             Image(
                 imageVector = ShoppingBag,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

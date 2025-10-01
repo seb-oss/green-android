@@ -22,38 +22,36 @@ val Backward: ImageVector
         val current = _backward
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Backward",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 15.0f, y = 9.75f)
-                    lineTo(x = 12.75f, y = 12.0f)
-                    moveTo(x = 12.75f, y = 12.0f)
-                    lineTo(x = 10.5f, y = 14.25f)
-                    moveTo(x = 12.75f, y = 12.0f)
-                    lineTo(x = 10.5f, y = 9.75f)
-                    moveTo(x = 12.75f, y = 12.0f)
-                    lineTo(x = 15.0f, y = 14.25f)
-                    moveTo(x = 6.0f, y = 4.75f)
-                    horizontalLineTo(x = 21.25f)
-                    verticalLineTo(y = 19.25f)
-                    horizontalLineTo(x = 6.0f)
-                    lineTo(x = 1.5f, y = 12.0f)
-                    lineTo(x = 6.0f, y = 4.75f)
-                    close()
-                }
-            }.build()
-            .also { _backward = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Backward",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 15.0f, y = 9.75f)
+                lineTo(x = 12.75f, y = 12.0f)
+                moveTo(x = 12.75f, y = 12.0f)
+                lineTo(x = 10.5f, y = 14.25f)
+                moveTo(x = 12.75f, y = 12.0f)
+                lineTo(x = 10.5f, y = 9.75f)
+                moveTo(x = 12.75f, y = 12.0f)
+                lineTo(x = 15.0f, y = 14.25f)
+                moveTo(x = 6.0f, y = 4.75f)
+                horizontalLineTo(x = 21.25f)
+                verticalLineTo(y = 19.25f)
+                horizontalLineTo(x = 6.0f)
+                lineTo(x = 1.5f, y = 12.0f)
+                lineTo(x = 6.0f, y = 4.75f)
+                close()
+            }
+        }.build().also { _backward = it }
     }
 
 @Preview
@@ -67,8 +65,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Backward,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

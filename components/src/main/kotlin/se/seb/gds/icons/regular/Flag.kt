@@ -22,45 +22,29 @@ val Flag: ImageVector
         val current = _flag
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Flag",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 4.75f, y = 21.2498f)
-                    verticalLineTo(y = 15.0831f)
-                    moveTo(x = 4.75f, y = 15.0831f)
-                    verticalLineTo(y = 3.77755f)
-                    curveTo(
-                        x1 = 10.0003f,
-                        y1 = 1.18383f,
-                        x2 = 13.9997f,
-                        y2 = 6.37127f,
-                        x3 = 19.25f,
-                        y3 = 3.77755f,
-                    )
-                    verticalLineTo(y = 15.0831f)
-                    curveTo(
-                        x1 = 13.9997f,
-                        y1 = 17.6768f,
-                        x2 = 10.0003f,
-                        y2 = 12.4894f,
-                        x3 = 4.75f,
-                        y3 = 15.0831f,
-                    )
-                    close()
-                }
-            }.build()
-            .also { _flag = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Flag",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 4.75f, y = 21.2498f)
+                verticalLineTo(y = 15.0831f)
+                moveTo(x = 4.75f, y = 15.0831f)
+                verticalLineTo(y = 3.77755f)
+                curveTo(x1 = 10.0003f, y1 = 1.18383f, x2 = 13.9997f, y2 = 6.37127f, x3 = 19.25f, y3 = 3.77755f)
+                verticalLineTo(y = 15.0831f)
+                curveTo(x1 = 13.9997f, y1 = 17.6768f, x2 = 10.0003f, y2 = 12.4894f, x3 = 4.75f, y3 = 15.0831f)
+                close()
+            }
+        }.build().also { _flag = it }
     }
 
 @Preview
@@ -74,8 +58,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Flag,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

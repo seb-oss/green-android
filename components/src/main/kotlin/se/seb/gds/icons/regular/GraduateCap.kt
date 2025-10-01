@@ -22,36 +22,34 @@ val GraduateCap: ImageVector
         val current = _graduateCap
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.GraduateCap",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 23.25f, y = 9.0f)
-                    lineTo(x = 12.0f, y = 14.25f)
-                    lineTo(x = 0.75f, y = 9.0f)
-                    lineTo(x = 12.0f, y = 3.75f)
-                    lineTo(x = 23.25f, y = 9.0f)
-                    close()
-                    moveTo(x = 23.25f, y = 9.0f)
-                    verticalLineTo(y = 15.25f)
-                    moveTo(x = 4.75002f, y = 10.9688f)
-                    verticalLineTo(y = 16.6406f)
-                    lineTo(x = 12.0f, y = 20.25f)
-                    lineTo(x = 19.25f, y = 16.6406f)
-                    verticalLineTo(y = 10.9688f)
-                }
-            }.build()
-            .also { _graduateCap = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.GraduateCap",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 23.25f, y = 9.0f)
+                lineTo(x = 12.0f, y = 14.25f)
+                lineTo(x = 0.75f, y = 9.0f)
+                lineTo(x = 12.0f, y = 3.75f)
+                lineTo(x = 23.25f, y = 9.0f)
+                close()
+                moveTo(x = 23.25f, y = 9.0f)
+                verticalLineTo(y = 15.25f)
+                moveTo(x = 4.75002f, y = 10.9688f)
+                verticalLineTo(y = 16.6406f)
+                lineTo(x = 12.0f, y = 20.25f)
+                lineTo(x = 19.25f, y = 16.6406f)
+                verticalLineTo(y = 10.9688f)
+            }
+        }.build().also { _graduateCap = it }
     }
 
 @Preview
@@ -65,8 +63,7 @@ private fun IconPreview() {
             Image(
                 imageVector = GraduateCap,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

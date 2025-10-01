@@ -24,46 +24,43 @@ val CodeBrackets: ImageVector
         val current = _codeBrackets
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.CodeBrackets",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                group(
-                    clipPathData =
-                    PathData {
-                        // M 0 0
-                        moveTo(x = 0.0f, y = 0.0f)
-                        // h 24
-                        horizontalLineToRelative(dx = 24.0f)
-                        // v 24
-                        verticalLineToRelative(dy = 24.0f)
-                        // h -24z
-                        horizontalLineToRelative(dx = -24.0f)
-                        close()
-                    },
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.CodeBrackets",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            group(
+                clipPathData = PathData {
+                    // M 0 0
+                    moveTo(x = 0.0f, y = 0.0f)
+                    // h 24
+                    horizontalLineToRelative(dx = 24.0f)
+                    // v 24
+                    verticalLineToRelative(dy = 24.0f)
+                    // h -24z
+                    horizontalLineToRelative(dx = -24.0f)
+                    close()
+                },
+            ) {
+                path(
+                    stroke = SolidColor(Color(0xFF000000)),
+                    strokeLineCap = StrokeCap.Round,
+                    strokeLineJoin = StrokeJoin.Round,
+                    strokeLineWidth = 1.5f,
                 ) {
-                    path(
-                        stroke = SolidColor(Color(0xFF000000)),
-                        strokeLineCap = StrokeCap.Round,
-                        strokeLineJoin = StrokeJoin.Round,
-                        strokeLineWidth = 1.5f,
-                    ) {
-                        moveTo(x = 9.75f, y = 20.25f)
-                        lineTo(x = 14.25f, y = 3.75f)
-                        moveTo(x = 18.25f, y = 7.75f)
-                        lineTo(x = 22.25f, y = 12.0f)
-                        lineTo(x = 18.25f, y = 16.25f)
-                        moveTo(x = 5.75f, y = 16.25f)
-                        lineTo(x = 1.75f, y = 12.0f)
-                        lineTo(x = 5.75f, y = 7.75f)
-                    }
+                    moveTo(x = 9.75f, y = 20.25f)
+                    lineTo(x = 14.25f, y = 3.75f)
+                    moveTo(x = 18.25f, y = 7.75f)
+                    lineTo(x = 22.25f, y = 12.0f)
+                    lineTo(x = 18.25f, y = 16.25f)
+                    moveTo(x = 5.75f, y = 16.25f)
+                    lineTo(x = 1.75f, y = 12.0f)
+                    lineTo(x = 5.75f, y = 7.75f)
                 }
-            }.build()
-            .also { _codeBrackets = it }
+            }
+        }.build().also { _codeBrackets = it }
     }
 
 @Preview
@@ -77,8 +74,7 @@ private fun IconPreview() {
             Image(
                 imageVector = CodeBrackets,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

@@ -22,55 +22,32 @@ val PencilSign: ImageVector
         val current = _pencilSign
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.PencilSign",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 21.0f, y = 18.0f)
-                    curveTo(
-                        x1 = 21.0f,
-                        y1 = 18.0f,
-                        x2 = 19.666f,
-                        y2 = 19.5444f,
-                        x3 = 18.166f,
-                        y3 = 19.5444f,
-                    )
-                    curveTo(
-                        x1 = 16.666f,
-                        y1 = 19.5444f,
-                        x2 = 15.4594f,
-                        y2 = 18.115f,
-                        x3 = 13.9866f,
-                        y3 = 18.115f,
-                    )
-                    curveTo(
-                        x1 = 12.5138f,
-                        y1 = 18.115f,
-                        x2 = 11.6598f,
-                        y2 = 18.786f,
-                        x3 = 10.75f,
-                        y3 = 19.75f,
-                    )
-                    moveTo(x = 17.0f, y = 2.75f)
-                    lineTo(x = 20.25f, y = 6.0f)
-                    lineTo(x = 6.0f, y = 20.25f)
-                    horizontalLineTo(x = 2.75f)
-                    verticalLineTo(y = 17.0f)
-                    lineTo(x = 17.0f, y = 2.75f)
-                    close()
-                }
-            }.build()
-            .also { _pencilSign = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.PencilSign",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 21.0f, y = 18.0f)
+                curveTo(x1 = 21.0f, y1 = 18.0f, x2 = 19.666f, y2 = 19.5444f, x3 = 18.166f, y3 = 19.5444f)
+                curveTo(x1 = 16.666f, y1 = 19.5444f, x2 = 15.4594f, y2 = 18.115f, x3 = 13.9866f, y3 = 18.115f)
+                curveTo(x1 = 12.5138f, y1 = 18.115f, x2 = 11.6598f, y2 = 18.786f, x3 = 10.75f, y3 = 19.75f)
+                moveTo(x = 17.0f, y = 2.75f)
+                lineTo(x = 20.25f, y = 6.0f)
+                lineTo(x = 6.0f, y = 20.25f)
+                horizontalLineTo(x = 2.75f)
+                verticalLineTo(y = 17.0f)
+                lineTo(x = 17.0f, y = 2.75f)
+                close()
+            }
+        }.build().also { _pencilSign = it }
     }
 
 @Preview
@@ -84,8 +61,7 @@ private fun IconPreview() {
             Image(
                 imageVector = PencilSign,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

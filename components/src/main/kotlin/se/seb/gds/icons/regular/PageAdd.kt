@@ -22,40 +22,38 @@ val PageAdd: ImageVector
         val current = _pageAdd
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.PageAdd",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 12.25f, y = 21.25f)
-                    horizontalLineTo(x = 4.75f)
-                    verticalLineTo(y = 2.75f)
-                    horizontalLineTo(x = 19.25f)
-                    verticalLineTo(y = 12.25f)
-                    moveTo(x = 18.25f, y = 15.25f)
-                    verticalLineTo(y = 18.25f)
-                    moveTo(x = 18.25f, y = 18.25f)
-                    verticalLineTo(y = 21.25f)
-                    moveTo(x = 18.25f, y = 18.25f)
-                    horizontalLineTo(x = 15.25f)
-                    moveTo(x = 18.25f, y = 18.25f)
-                    horizontalLineTo(x = 21.25f)
-                    moveTo(x = 8.75f, y = 6.75f)
-                    horizontalLineTo(x = 15.25f)
-                    moveTo(x = 8.75f, y = 10.75f)
-                    horizontalLineTo(x = 11.25f)
-                }
-            }.build()
-            .also { _pageAdd = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.PageAdd",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 12.25f, y = 21.25f)
+                horizontalLineTo(x = 4.75f)
+                verticalLineTo(y = 2.75f)
+                horizontalLineTo(x = 19.25f)
+                verticalLineTo(y = 12.25f)
+                moveTo(x = 18.25f, y = 15.25f)
+                verticalLineTo(y = 18.25f)
+                moveTo(x = 18.25f, y = 18.25f)
+                verticalLineTo(y = 21.25f)
+                moveTo(x = 18.25f, y = 18.25f)
+                horizontalLineTo(x = 15.25f)
+                moveTo(x = 18.25f, y = 18.25f)
+                horizontalLineTo(x = 21.25f)
+                moveTo(x = 8.75f, y = 6.75f)
+                horizontalLineTo(x = 15.25f)
+                moveTo(x = 8.75f, y = 10.75f)
+                horizontalLineTo(x = 11.25f)
+            }
+        }.build().also { _pageAdd = it }
     }
 
 @Preview
@@ -69,8 +67,7 @@ private fun IconPreview() {
             Image(
                 imageVector = PageAdd,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

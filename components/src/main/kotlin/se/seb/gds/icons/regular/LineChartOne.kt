@@ -22,32 +22,30 @@ val LineChartOne: ImageVector
         val current = _lineChartOne
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.LineChartOne",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 9.25f, y = 10.75f)
-                    verticalLineTo(y = 16.25f)
-                    moveTo(x = 14.25f, y = 4.75f)
-                    verticalLineTo(y = 16.25f)
-                    moveTo(x = 19.25f, y = 12.75f)
-                    verticalLineTo(y = 16.25f)
-                    moveTo(x = 3.75f, y = 3.75f)
-                    verticalLineTo(y = 20.25f)
-                    horizontalLineTo(x = 21.25f)
-                }
-            }.build()
-            .also { _lineChartOne = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.LineChartOne",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 9.25f, y = 10.75f)
+                verticalLineTo(y = 16.25f)
+                moveTo(x = 14.25f, y = 4.75f)
+                verticalLineTo(y = 16.25f)
+                moveTo(x = 19.25f, y = 12.75f)
+                verticalLineTo(y = 16.25f)
+                moveTo(x = 3.75f, y = 3.75f)
+                verticalLineTo(y = 20.25f)
+                horizontalLineTo(x = 21.25f)
+            }
+        }.build().also { _lineChartOne = it }
     }
 
 @Preview
@@ -61,8 +59,7 @@ private fun IconPreview() {
             Image(
                 imageVector = LineChartOne,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

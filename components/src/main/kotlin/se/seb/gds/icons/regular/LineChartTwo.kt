@@ -22,31 +22,29 @@ val LineChartTwo: ImageVector
         val current = _lineChartTwo
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.LineChartTwo",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 2.75f, y = 10.75f)
-                    verticalLineTo(y = 19.25f)
-                    moveTo(x = 8.91602f, y = 4.75f)
-                    verticalLineTo(y = 19.25f)
-                    moveTo(x = 15.082f, y = 13.75f)
-                    verticalLineTo(y = 19.25f)
-                    moveTo(x = 21.248f, y = 7.75f)
-                    verticalLineTo(y = 19.25f)
-                }
-            }.build()
-            .also { _lineChartTwo = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.LineChartTwo",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 2.75f, y = 10.75f)
+                verticalLineTo(y = 19.25f)
+                moveTo(x = 8.91602f, y = 4.75f)
+                verticalLineTo(y = 19.25f)
+                moveTo(x = 15.082f, y = 13.75f)
+                verticalLineTo(y = 19.25f)
+                moveTo(x = 21.248f, y = 7.75f)
+                verticalLineTo(y = 19.25f)
+            }
+        }.build().also { _lineChartTwo = it }
     }
 
 @Preview
@@ -60,8 +58,7 @@ private fun IconPreview() {
             Image(
                 imageVector = LineChartTwo,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

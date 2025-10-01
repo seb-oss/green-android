@@ -22,41 +22,39 @@ val BatteryLoading: ImageVector
         val current = _batteryLoading
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.BatteryLoading",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 7.75f, y = 5.75f)
-                    horizontalLineTo(x = 1.75f)
-                    verticalLineTo(y = 18.25f)
-                    horizontalLineTo(x = 5.25f)
-                    moveTo(x = 15.75f, y = 5.75f)
-                    horizontalLineTo(x = 19.25f)
-                    verticalLineTo(y = 18.25f)
-                    horizontalLineTo(x = 13.25f)
-                    moveTo(x = 12.25f, y = 5.75f)
-                    lineTo(x = 7.5f, y = 12.0f)
-                    horizontalLineTo(x = 13.5f)
-                    lineTo(x = 8.75f, y = 18.25f)
-                    moveTo(x = 19.25f, y = 8.75f)
-                    horizontalLineTo(x = 22.25f)
-                    verticalLineTo(y = 15.25f)
-                    horizontalLineTo(x = 19.25f)
-                    verticalLineTo(y = 8.75f)
-                    close()
-                }
-            }.build()
-            .also { _batteryLoading = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.BatteryLoading",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 7.75f, y = 5.75f)
+                horizontalLineTo(x = 1.75f)
+                verticalLineTo(y = 18.25f)
+                horizontalLineTo(x = 5.25f)
+                moveTo(x = 15.75f, y = 5.75f)
+                horizontalLineTo(x = 19.25f)
+                verticalLineTo(y = 18.25f)
+                horizontalLineTo(x = 13.25f)
+                moveTo(x = 12.25f, y = 5.75f)
+                lineTo(x = 7.5f, y = 12.0f)
+                horizontalLineTo(x = 13.5f)
+                lineTo(x = 8.75f, y = 18.25f)
+                moveTo(x = 19.25f, y = 8.75f)
+                horizontalLineTo(x = 22.25f)
+                verticalLineTo(y = 15.25f)
+                horizontalLineTo(x = 19.25f)
+                verticalLineTo(y = 8.75f)
+                close()
+            }
+        }.build().also { _batteryLoading = it }
     }
 
 @Preview
@@ -70,8 +68,7 @@ private fun IconPreview() {
             Image(
                 imageVector = BatteryLoading,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

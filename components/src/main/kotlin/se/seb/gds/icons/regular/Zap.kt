@@ -21,30 +21,28 @@ val Zap: ImageVector
         val current = _zap
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Zap",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 20.25f, y = 8.75f)
-                    horizontalLineTo(x = 13.25f)
-                    verticalLineTo(y = 1.75f)
-                    lineTo(x = 3.75f, y = 15.0473f)
-                    horizontalLineTo(x = 10.75f)
-                    verticalLineTo(y = 22.25f)
-                    lineTo(x = 20.25f, y = 8.75f)
-                    close()
-                }
-            }.build()
-            .also { _zap = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Zap",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 20.25f, y = 8.75f)
+                horizontalLineTo(x = 13.25f)
+                verticalLineTo(y = 1.75f)
+                lineTo(x = 3.75f, y = 15.0473f)
+                horizontalLineTo(x = 10.75f)
+                verticalLineTo(y = 22.25f)
+                lineTo(x = 20.25f, y = 8.75f)
+                close()
+            }
+        }.build().also { _zap = it }
     }
 
 @Preview
@@ -58,8 +56,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Zap,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

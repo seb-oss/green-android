@@ -22,31 +22,29 @@ val PhoneDynamicIsland: ImageVector
         val current = _phoneDynamicIsland
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.PhoneDynamicIsland",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 10.75f, y = 4.25f)
-                    horizontalLineTo(x = 13.25f)
-                    moveTo(x = 5.75f, y = 1.75f)
-                    horizontalLineTo(x = 18.25f)
-                    verticalLineTo(y = 22.25f)
-                    horizontalLineTo(x = 5.75f)
-                    verticalLineTo(y = 1.75f)
-                    close()
-                }
-            }.build()
-            .also { _phoneDynamicIsland = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.PhoneDynamicIsland",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 10.75f, y = 4.25f)
+                horizontalLineTo(x = 13.25f)
+                moveTo(x = 5.75f, y = 1.75f)
+                horizontalLineTo(x = 18.25f)
+                verticalLineTo(y = 22.25f)
+                horizontalLineTo(x = 5.75f)
+                verticalLineTo(y = 1.75f)
+                close()
+            }
+        }.build().also { _phoneDynamicIsland = it }
     }
 
 @Preview
@@ -60,8 +58,7 @@ private fun IconPreview() {
             Image(
                 imageVector = PhoneDynamicIsland,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

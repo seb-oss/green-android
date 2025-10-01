@@ -22,65 +22,35 @@ val VolumeFull: ImageVector
         val current = _volumeFull
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.VolumeFull",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 19.2478f, y = 4.75195f)
-                    curveTo(
-                        x1 = 21.1027f,
-                        y1 = 6.60684f,
-                        x2 = 22.25f,
-                        y2 = 9.16934f,
-                        x3 = 22.25f,
-                        y3 = 11.9998f,
-                    )
-                    curveTo(
-                        x1 = 22.25f,
-                        y1 = 14.8303f,
-                        x2 = 21.1027f,
-                        y2 = 17.3928f,
-                        x3 = 19.2478f,
-                        y3 = 19.2476f,
-                    )
-                    moveTo(x = 15.8891f, y = 8.11133f)
-                    curveTo(
-                        x1 = 16.8844f,
-                        y1 = 9.10663f,
-                        x2 = 17.5f,
-                        y2 = 10.4816f,
-                        x3 = 17.5f,
-                        y3 = 12.0004f,
-                    )
-                    curveTo(
-                        x1 = 17.5f,
-                        y1 = 13.5192f,
-                        x2 = 16.8844f,
-                        y2 = 14.8942f,
-                        x3 = 15.8891f,
-                        y3 = 15.8895f,
-                    )
-                    moveTo(x = 1.75f, y = 7.75f)
-                    horizontalLineTo(x = 6.0f)
-                    lineTo(x = 12.25f, y = 3.75f)
-                    verticalLineTo(y = 20.25f)
-                    lineTo(x = 6.0f, y = 16.25f)
-                    horizontalLineTo(x = 1.75f)
-                    verticalLineTo(y = 7.75f)
-                    close()
-                }
-            }.build()
-            .also { _volumeFull = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.VolumeFull",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 19.2478f, y = 4.75195f)
+                curveTo(x1 = 21.1027f, y1 = 6.60684f, x2 = 22.25f, y2 = 9.16934f, x3 = 22.25f, y3 = 11.9998f)
+                curveTo(x1 = 22.25f, y1 = 14.8303f, x2 = 21.1027f, y2 = 17.3928f, x3 = 19.2478f, y3 = 19.2476f)
+                moveTo(x = 15.8891f, y = 8.11133f)
+                curveTo(x1 = 16.8844f, y1 = 9.10663f, x2 = 17.5f, y2 = 10.4816f, x3 = 17.5f, y3 = 12.0004f)
+                curveTo(x1 = 17.5f, y1 = 13.5192f, x2 = 16.8844f, y2 = 14.8942f, x3 = 15.8891f, y3 = 15.8895f)
+                moveTo(x = 1.75f, y = 7.75f)
+                horizontalLineTo(x = 6.0f)
+                lineTo(x = 12.25f, y = 3.75f)
+                verticalLineTo(y = 20.25f)
+                lineTo(x = 6.0f, y = 16.25f)
+                horizontalLineTo(x = 1.75f)
+                verticalLineTo(y = 7.75f)
+                close()
+            }
+        }.build().also { _volumeFull = it }
     }
 
 @Preview
@@ -94,8 +64,7 @@ private fun IconPreview() {
             Image(
                 imageVector = VolumeFull,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

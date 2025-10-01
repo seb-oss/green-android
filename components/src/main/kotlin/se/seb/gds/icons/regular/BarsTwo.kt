@@ -21,26 +21,24 @@ val BarsTwo: ImageVector
         val current = _barsTwo
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.BarsTwo",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 2.75f, y = 7.25f)
-                    horizontalLineTo(x = 21.25f)
-                    moveTo(x = 2.75f, y = 16.75f)
-                    horizontalLineTo(x = 21.25f)
-                }
-            }.build()
-            .also { _barsTwo = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.BarsTwo",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 2.75f, y = 7.25f)
+                horizontalLineTo(x = 21.25f)
+                moveTo(x = 2.75f, y = 16.75f)
+                horizontalLineTo(x = 21.25f)
+            }
+        }.build().also { _barsTwo = it }
     }
 
 @Preview
@@ -54,8 +52,7 @@ private fun IconPreview() {
             Image(
                 imageVector = BarsTwo,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

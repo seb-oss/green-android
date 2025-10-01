@@ -22,46 +22,37 @@ val Ticket: ImageVector
         val current = _ticket
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Ticket",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 15.25f, y = 7.75f)
-                    verticalLineTo(y = 8.25f)
-                    moveTo(x = 15.25f, y = 11.75f)
-                    verticalLineTo(y = 12.25f)
-                    moveTo(x = 15.25f, y = 15.75f)
-                    verticalLineTo(y = 16.25f)
-                    moveTo(x = 2.75f, y = 4.75f)
-                    horizontalLineTo(x = 21.25f)
-                    verticalLineTo(y = 9.25f)
-                    curveTo(
-                        x1 = 18.5f,
-                        y1 = 10.0f,
-                        x2 = 18.5f,
-                        y2 = 14.0f,
-                        x3 = 21.25f,
-                        y3 = 14.75f,
-                    )
-                    verticalLineTo(y = 19.25f)
-                    horizontalLineTo(x = 2.75f)
-                    verticalLineTo(y = 14.75f)
-                    curveTo(x1 = 5.5f, y1 = 14.0f, x2 = 5.5f, y2 = 10.0f, x3 = 2.75f, y3 = 9.25f)
-                    verticalLineTo(y = 4.75f)
-                    close()
-                }
-            }.build()
-            .also { _ticket = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Ticket",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 15.25f, y = 7.75f)
+                verticalLineTo(y = 8.25f)
+                moveTo(x = 15.25f, y = 11.75f)
+                verticalLineTo(y = 12.25f)
+                moveTo(x = 15.25f, y = 15.75f)
+                verticalLineTo(y = 16.25f)
+                moveTo(x = 2.75f, y = 4.75f)
+                horizontalLineTo(x = 21.25f)
+                verticalLineTo(y = 9.25f)
+                curveTo(x1 = 18.5f, y1 = 10.0f, x2 = 18.5f, y2 = 14.0f, x3 = 21.25f, y3 = 14.75f)
+                verticalLineTo(y = 19.25f)
+                horizontalLineTo(x = 2.75f)
+                verticalLineTo(y = 14.75f)
+                curveTo(x1 = 5.5f, y1 = 14.0f, x2 = 5.5f, y2 = 10.0f, x3 = 2.75f, y3 = 9.25f)
+                verticalLineTo(y = 4.75f)
+                close()
+            }
+        }.build().also { _ticket = it }
     }
 
 @Preview
@@ -75,8 +66,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Ticket,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

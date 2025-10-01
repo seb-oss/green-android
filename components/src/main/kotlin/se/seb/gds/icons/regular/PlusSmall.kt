@@ -21,30 +21,28 @@ val PlusSmall: ImageVector
         val current = _plusSmall
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.PlusSmall",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 12.0f, y = 6.75f)
-                    verticalLineTo(y = 12.0f)
-                    moveTo(x = 12.0f, y = 12.0f)
-                    verticalLineTo(y = 17.25f)
-                    moveTo(x = 12.0f, y = 12.0f)
-                    horizontalLineTo(x = 6.75f)
-                    moveTo(x = 12.0f, y = 12.0f)
-                    horizontalLineTo(x = 17.25f)
-                }
-            }.build()
-            .also { _plusSmall = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.PlusSmall",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 12.0f, y = 6.75f)
+                verticalLineTo(y = 12.0f)
+                moveTo(x = 12.0f, y = 12.0f)
+                verticalLineTo(y = 17.25f)
+                moveTo(x = 12.0f, y = 12.0f)
+                horizontalLineTo(x = 6.75f)
+                moveTo(x = 12.0f, y = 12.0f)
+                horizontalLineTo(x = 17.25f)
+            }
+        }.build().also { _plusSmall = it }
     }
 
 @Preview
@@ -58,8 +56,7 @@ private fun IconPreview() {
             Image(
                 imageVector = PlusSmall,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

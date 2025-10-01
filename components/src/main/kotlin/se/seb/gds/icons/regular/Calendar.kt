@@ -22,35 +22,33 @@ val Calendar: ImageVector
         val current = _calendar
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Calendar",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 3.75f, y = 9.75f)
-                    horizontalLineTo(x = 20.25f)
-                    moveTo(x = 7.75f, y = 4.75f)
-                    verticalLineTo(y = 2.75f)
-                    moveTo(x = 16.25f, y = 4.75f)
-                    verticalLineTo(y = 2.75f)
-                    moveTo(x = 3.75f, y = 4.75f)
-                    horizontalLineTo(x = 20.25f)
-                    verticalLineTo(y = 20.25f)
-                    horizontalLineTo(x = 3.75f)
-                    verticalLineTo(y = 4.75f)
-                    close()
-                }
-            }.build()
-            .also { _calendar = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Calendar",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 3.75f, y = 9.75f)
+                horizontalLineTo(x = 20.25f)
+                moveTo(x = 7.75f, y = 4.75f)
+                verticalLineTo(y = 2.75f)
+                moveTo(x = 16.25f, y = 4.75f)
+                verticalLineTo(y = 2.75f)
+                moveTo(x = 3.75f, y = 4.75f)
+                horizontalLineTo(x = 20.25f)
+                verticalLineTo(y = 20.25f)
+                horizontalLineTo(x = 3.75f)
+                verticalLineTo(y = 4.75f)
+                close()
+            }
+        }.build().also { _calendar = it }
     }
 
 @Preview
@@ -64,8 +62,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Calendar,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

@@ -21,105 +21,47 @@ val Banknote2: ImageVector
         val current = _banknote2
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Banknote2",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    fill = SolidColor(Color(0xFF000000)),
-                    pathFillType = PathFillType.EvenOdd,
-                ) {
-                    moveTo(x = 1.0f, y = 5.25f)
-                    curveTo(
-                        x1 = 1.0f,
-                        y1 = 4.83579f,
-                        x2 = 1.33579f,
-                        y2 = 4.5f,
-                        x3 = 1.75f,
-                        y3 = 4.5f,
-                    )
-                    horizontalLineTo(x = 22.25f)
-                    curveTo(
-                        x1 = 22.6642f,
-                        y1 = 4.5f,
-                        x2 = 23.0f,
-                        y2 = 4.83579f,
-                        x3 = 23.0f,
-                        y3 = 5.25f,
-                    )
-                    verticalLineTo(y = 18.75f)
-                    curveTo(
-                        x1 = 23.0f,
-                        y1 = 19.1642f,
-                        x2 = 22.6642f,
-                        y2 = 19.5f,
-                        x3 = 22.25f,
-                        y3 = 19.5f,
-                    )
-                    horizontalLineTo(x = 1.75f)
-                    curveTo(
-                        x1 = 1.33579f,
-                        y1 = 19.5f,
-                        x2 = 1.0f,
-                        y2 = 19.1642f,
-                        x3 = 1.0f,
-                        y3 = 18.75f,
-                    )
-                    verticalLineTo(y = 5.25f)
-                    close()
-                    moveTo(x = 3.0f, y = 7.0f)
-                    verticalLineTo(y = 8.5f)
-                    horizontalLineTo(x = 5.5f)
-                    verticalLineTo(y = 7.0f)
-                    horizontalLineTo(x = 3.0f)
-                    close()
-                    moveTo(x = 18.5f, y = 15.5f)
-                    horizontalLineTo(x = 21.0f)
-                    verticalLineTo(y = 17.0f)
-                    horizontalLineTo(x = 18.5f)
-                    verticalLineTo(y = 15.5f)
-                    close()
-                    moveTo(x = 9.5f, y = 12.0f)
-                    curveTo(
-                        x1 = 9.5f,
-                        y1 = 10.6193f,
-                        x2 = 10.6193f,
-                        y2 = 9.5f,
-                        x3 = 12.0f,
-                        y3 = 9.5f,
-                    )
-                    curveTo(
-                        x1 = 13.3807f,
-                        y1 = 9.5f,
-                        x2 = 14.5f,
-                        y2 = 10.6193f,
-                        x3 = 14.5f,
-                        y3 = 12.0f,
-                    )
-                    curveTo(
-                        x1 = 14.5f,
-                        y1 = 13.3807f,
-                        x2 = 13.3807f,
-                        y2 = 14.5f,
-                        x3 = 12.0f,
-                        y3 = 14.5f,
-                    )
-                    curveTo(
-                        x1 = 10.6193f,
-                        y1 = 14.5f,
-                        x2 = 9.5f,
-                        y2 = 13.3807f,
-                        x3 = 9.5f,
-                        y3 = 12.0f,
-                    )
-                    close()
-                }
-            }.build()
-            .also { _banknote2 = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Banknote2",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                fill = SolidColor(Color(0xFF000000)),
+                pathFillType = PathFillType.EvenOdd,
+            ) {
+                moveTo(x = 1.0f, y = 5.25f)
+                curveTo(x1 = 1.0f, y1 = 4.83579f, x2 = 1.33579f, y2 = 4.5f, x3 = 1.75f, y3 = 4.5f)
+                horizontalLineTo(x = 22.25f)
+                curveTo(x1 = 22.6642f, y1 = 4.5f, x2 = 23.0f, y2 = 4.83579f, x3 = 23.0f, y3 = 5.25f)
+                verticalLineTo(y = 18.75f)
+                curveTo(x1 = 23.0f, y1 = 19.1642f, x2 = 22.6642f, y2 = 19.5f, x3 = 22.25f, y3 = 19.5f)
+                horizontalLineTo(x = 1.75f)
+                curveTo(x1 = 1.33579f, y1 = 19.5f, x2 = 1.0f, y2 = 19.1642f, x3 = 1.0f, y3 = 18.75f)
+                verticalLineTo(y = 5.25f)
+                close()
+                moveTo(x = 3.0f, y = 7.0f)
+                verticalLineTo(y = 8.5f)
+                horizontalLineTo(x = 5.5f)
+                verticalLineTo(y = 7.0f)
+                horizontalLineTo(x = 3.0f)
+                close()
+                moveTo(x = 18.5f, y = 15.5f)
+                horizontalLineTo(x = 21.0f)
+                verticalLineTo(y = 17.0f)
+                horizontalLineTo(x = 18.5f)
+                verticalLineTo(y = 15.5f)
+                close()
+                moveTo(x = 9.5f, y = 12.0f)
+                curveTo(x1 = 9.5f, y1 = 10.6193f, x2 = 10.6193f, y2 = 9.5f, x3 = 12.0f, y3 = 9.5f)
+                curveTo(x1 = 13.3807f, y1 = 9.5f, x2 = 14.5f, y2 = 10.6193f, x3 = 14.5f, y3 = 12.0f)
+                curveTo(x1 = 14.5f, y1 = 13.3807f, x2 = 13.3807f, y2 = 14.5f, x3 = 12.0f, y3 = 14.5f)
+                curveTo(x1 = 10.6193f, y1 = 14.5f, x2 = 9.5f, y2 = 13.3807f, x3 = 9.5f, y3 = 12.0f)
+                close()
+            }
+        }.build().also { _banknote2 = it }
     }
 
 @Preview
@@ -133,8 +75,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Banknote2,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

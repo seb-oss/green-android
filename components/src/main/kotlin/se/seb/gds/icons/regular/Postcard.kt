@@ -22,39 +22,37 @@ val Postcard: ImageVector
         val current = _postcard
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Postcard",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 6.75f, y = 9.75f)
-                    horizontalLineTo(x = 11.25f)
-                    moveTo(x = 6.75f, y = 12.75f)
-                    horizontalLineTo(x = 9.27f)
-                    moveTo(x = 2.75f, y = 4.75f)
-                    horizontalLineTo(x = 21.25f)
-                    verticalLineTo(y = 19.25f)
-                    horizontalLineTo(x = 2.75f)
-                    verticalLineTo(y = 4.75f)
-                    close()
-                    moveTo(x = 14.75f, y = 9.75f)
-                    horizontalLineTo(x = 17.25f)
-                    verticalLineTo(y = 13.25f)
-                    horizontalLineTo(x = 14.75f)
-                    verticalLineTo(y = 9.75f)
-                    close()
-                }
-            }.build()
-            .also { _postcard = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Postcard",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 6.75f, y = 9.75f)
+                horizontalLineTo(x = 11.25f)
+                moveTo(x = 6.75f, y = 12.75f)
+                horizontalLineTo(x = 9.27f)
+                moveTo(x = 2.75f, y = 4.75f)
+                horizontalLineTo(x = 21.25f)
+                verticalLineTo(y = 19.25f)
+                horizontalLineTo(x = 2.75f)
+                verticalLineTo(y = 4.75f)
+                close()
+                moveTo(x = 14.75f, y = 9.75f)
+                horizontalLineTo(x = 17.25f)
+                verticalLineTo(y = 13.25f)
+                horizontalLineTo(x = 14.75f)
+                verticalLineTo(y = 9.75f)
+                close()
+            }
+        }.build().also { _postcard = it }
     }
 
 @Preview
@@ -68,8 +66,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Postcard,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

@@ -22,55 +22,53 @@ val Office: ImageVector
         val current = _office
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Office",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 1.75f, y = 19.25f)
-                    horizontalLineTo(x = 2.75f)
-                    moveTo(x = 22.25f, y = 19.25f)
-                    horizontalLineTo(x = 21.25f)
-                    moveTo(x = 21.25f, y = 19.25f)
-                    verticalLineTo(y = 8.75f)
-                    horizontalLineTo(x = 17.25f)
-                    moveTo(x = 21.25f, y = 19.25f)
-                    horizontalLineTo(x = 17.25f)
-                    moveTo(x = 17.25f, y = 8.75f)
-                    verticalLineTo(y = 19.25f)
-                    moveTo(x = 17.25f, y = 8.75f)
-                    verticalLineTo(y = 4.75f)
-                    horizontalLineTo(x = 6.75f)
-                    verticalLineTo(y = 8.75f)
-                    moveTo(x = 17.25f, y = 19.25f)
-                    horizontalLineTo(x = 14.25f)
-                    moveTo(x = 6.75f, y = 19.25f)
-                    verticalLineTo(y = 8.75f)
-                    moveTo(x = 6.75f, y = 19.25f)
-                    horizontalLineTo(x = 2.75f)
-                    moveTo(x = 6.75f, y = 19.25f)
-                    horizontalLineTo(x = 9.75f)
-                    moveTo(x = 6.75f, y = 8.75f)
-                    horizontalLineTo(x = 2.75f)
-                    verticalLineTo(y = 19.25f)
-                    moveTo(x = 9.75f, y = 19.25f)
-                    verticalLineTo(y = 14.75f)
-                    horizontalLineTo(x = 14.25f)
-                    verticalLineTo(y = 19.25f)
-                    moveTo(x = 9.75f, y = 19.25f)
-                    horizontalLineTo(x = 14.25f)
-                }
-            }.build()
-            .also { _office = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Office",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 1.75f, y = 19.25f)
+                horizontalLineTo(x = 2.75f)
+                moveTo(x = 22.25f, y = 19.25f)
+                horizontalLineTo(x = 21.25f)
+                moveTo(x = 21.25f, y = 19.25f)
+                verticalLineTo(y = 8.75f)
+                horizontalLineTo(x = 17.25f)
+                moveTo(x = 21.25f, y = 19.25f)
+                horizontalLineTo(x = 17.25f)
+                moveTo(x = 17.25f, y = 8.75f)
+                verticalLineTo(y = 19.25f)
+                moveTo(x = 17.25f, y = 8.75f)
+                verticalLineTo(y = 4.75f)
+                horizontalLineTo(x = 6.75f)
+                verticalLineTo(y = 8.75f)
+                moveTo(x = 17.25f, y = 19.25f)
+                horizontalLineTo(x = 14.25f)
+                moveTo(x = 6.75f, y = 19.25f)
+                verticalLineTo(y = 8.75f)
+                moveTo(x = 6.75f, y = 19.25f)
+                horizontalLineTo(x = 2.75f)
+                moveTo(x = 6.75f, y = 19.25f)
+                horizontalLineTo(x = 9.75f)
+                moveTo(x = 6.75f, y = 8.75f)
+                horizontalLineTo(x = 2.75f)
+                verticalLineTo(y = 19.25f)
+                moveTo(x = 9.75f, y = 19.25f)
+                verticalLineTo(y = 14.75f)
+                horizontalLineTo(x = 14.25f)
+                verticalLineTo(y = 19.25f)
+                moveTo(x = 9.75f, y = 19.25f)
+                horizontalLineTo(x = 14.25f)
+            }
+        }.build().also { _office = it }
     }
 
 @Preview
@@ -84,8 +82,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Office,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

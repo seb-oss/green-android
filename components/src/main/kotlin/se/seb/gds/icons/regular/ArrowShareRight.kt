@@ -21,30 +21,28 @@ val ArrowShareRight: ImageVector
         val current = _arrowShareRight
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.ArrowShareRight",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 22.0f, y = 12.0f)
-                    lineTo(x = 12.5f, y = 3.75f)
-                    verticalLineTo(y = 8.5f)
-                    curveTo(x1 = 4.0f, y1 = 8.5f, x2 = 1.75f, y2 = 11.75f, x3 = 1.75f, y3 = 20.25f)
-                    curveTo(x1 = 3.25f, y1 = 17.25f, x2 = 4.0f, y2 = 15.5f, x3 = 12.5f, y3 = 15.5f)
-                    verticalLineTo(y = 20.25f)
-                    lineTo(x = 22.0f, y = 12.0f)
-                    close()
-                }
-            }.build()
-            .also { _arrowShareRight = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.ArrowShareRight",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 22.0f, y = 12.0f)
+                lineTo(x = 12.5f, y = 3.75f)
+                verticalLineTo(y = 8.5f)
+                curveTo(x1 = 4.0f, y1 = 8.5f, x2 = 1.75f, y2 = 11.75f, x3 = 1.75f, y3 = 20.25f)
+                curveTo(x1 = 3.25f, y1 = 17.25f, x2 = 4.0f, y2 = 15.5f, x3 = 12.5f, y3 = 15.5f)
+                verticalLineTo(y = 20.25f)
+                lineTo(x = 22.0f, y = 12.0f)
+                close()
+            }
+        }.build().also { _arrowShareRight = it }
     }
 
 @Preview
@@ -58,8 +56,7 @@ private fun IconPreview() {
             Image(
                 imageVector = ArrowShareRight,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

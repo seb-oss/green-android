@@ -21,62 +21,32 @@ val CainLink: ImageVector
         val current = _cainLink
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.CainLink",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Square,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 9.75027f, y = 5.52371f)
-                    lineTo(x = 10.7168f, y = 4.55722f)
-                    curveTo(
-                        x1 = 13.1264f,
-                        y1 = 2.14759f,
-                        x2 = 17.0332f,
-                        y2 = 2.14759f,
-                        x3 = 19.4428f,
-                        y3 = 4.55722f,
-                    )
-                    curveTo(
-                        x1 = 21.8524f,
-                        y1 = 6.96684f,
-                        x2 = 21.8524f,
-                        y2 = 10.8736f,
-                        x3 = 19.4428f,
-                        y3 = 13.2832f,
-                    )
-                    lineTo(x = 18.4742f, y = 14.2519f)
-                    moveTo(x = 5.52886f, y = 9.74513f)
-                    lineTo(x = 4.55722f, y = 10.7168f)
-                    curveTo(
-                        x1 = 2.14759f,
-                        y1 = 13.1264f,
-                        x2 = 2.1476f,
-                        y2 = 17.0332f,
-                        x3 = 4.55722f,
-                        y3 = 19.4428f,
-                    )
-                    curveTo(
-                        x1 = 6.96684f,
-                        y1 = 21.8524f,
-                        x2 = 10.8736f,
-                        y2 = 21.8524f,
-                        x3 = 13.2832f,
-                        y3 = 19.4428f,
-                    )
-                    lineTo(x = 14.2478f, y = 18.4782f)
-                    moveTo(x = 9.5f, y = 14.5f)
-                    lineTo(x = 14.5f, y = 9.5f)
-                }
-            }.build()
-            .also { _cainLink = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.CainLink",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Square,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 9.75027f, y = 5.52371f)
+                lineTo(x = 10.7168f, y = 4.55722f)
+                curveTo(x1 = 13.1264f, y1 = 2.14759f, x2 = 17.0332f, y2 = 2.14759f, x3 = 19.4428f, y3 = 4.55722f)
+                curveTo(x1 = 21.8524f, y1 = 6.96684f, x2 = 21.8524f, y2 = 10.8736f, x3 = 19.4428f, y3 = 13.2832f)
+                lineTo(x = 18.4742f, y = 14.2519f)
+                moveTo(x = 5.52886f, y = 9.74513f)
+                lineTo(x = 4.55722f, y = 10.7168f)
+                curveTo(x1 = 2.14759f, y1 = 13.1264f, x2 = 2.1476f, y2 = 17.0332f, x3 = 4.55722f, y3 = 19.4428f)
+                curveTo(x1 = 6.96684f, y1 = 21.8524f, x2 = 10.8736f, y2 = 21.8524f, x3 = 13.2832f, y3 = 19.4428f)
+                lineTo(x = 14.2478f, y = 18.4782f)
+                moveTo(x = 9.5f, y = 14.5f)
+                lineTo(x = 14.5f, y = 9.5f)
+            }
+        }.build().also { _cainLink = it }
     }
 
 @Preview
@@ -90,8 +60,7 @@ private fun IconPreview() {
             Image(
                 imageVector = CainLink,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

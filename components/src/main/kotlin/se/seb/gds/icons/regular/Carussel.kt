@@ -22,51 +22,49 @@ val Carussel: ImageVector
         val current = _carussel
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Carussel",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 17.5f, y = 3.75f)
-                    horizontalLineTo(x = 6.5f)
-                    verticalLineTo(y = 20.25f)
-                    horizontalLineTo(x = 17.5f)
-                    verticalLineTo(y = 3.75f)
-                    close()
-                }
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 17.5f, y = 5.75f)
-                    horizontalLineTo(x = 21.25f)
-                    verticalLineTo(y = 18.25f)
-                    horizontalLineTo(x = 17.5f)
-                }
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 6.5f, y = 18.25f)
-                    horizontalLineTo(x = 2.75f)
-                    verticalLineTo(y = 5.75f)
-                    horizontalLineTo(x = 6.5f)
-                }
-            }.build()
-            .also { _carussel = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Carussel",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 17.5f, y = 3.75f)
+                horizontalLineTo(x = 6.5f)
+                verticalLineTo(y = 20.25f)
+                horizontalLineTo(x = 17.5f)
+                verticalLineTo(y = 3.75f)
+                close()
+            }
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 17.5f, y = 5.75f)
+                horizontalLineTo(x = 21.25f)
+                verticalLineTo(y = 18.25f)
+                horizontalLineTo(x = 17.5f)
+            }
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 6.5f, y = 18.25f)
+                horizontalLineTo(x = 2.75f)
+                verticalLineTo(y = 5.75f)
+                horizontalLineTo(x = 6.5f)
+            }
+        }.build().also { _carussel = it }
     }
 
 @Preview
@@ -80,8 +78,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Carussel,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

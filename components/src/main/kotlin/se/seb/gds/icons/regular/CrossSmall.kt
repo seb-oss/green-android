@@ -21,26 +21,24 @@ val CrossSmall: ImageVector
         val current = _crossSmall
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.CrossSmall",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 7.75f, y = 7.75f)
-                    lineTo(x = 16.25f, y = 16.25f)
-                    moveTo(x = 16.25f, y = 7.75f)
-                    lineTo(x = 7.75f, y = 16.25f)
-                }
-            }.build()
-            .also { _crossSmall = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.CrossSmall",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 7.75f, y = 7.75f)
+                lineTo(x = 16.25f, y = 16.25f)
+                moveTo(x = 16.25f, y = 7.75f)
+                lineTo(x = 7.75f, y = 16.25f)
+            }
+        }.build().also { _crossSmall = it }
     }
 
 @Preview
@@ -54,8 +52,7 @@ private fun IconPreview() {
             Image(
                 imageVector = CrossSmall,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

@@ -22,45 +22,29 @@ val Refund: ImageVector
         val current = _refund
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Refund",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 6.75f, y = 3.25f)
-                    lineTo(x = 3.75f, y = 6.25f)
-                    lineTo(x = 6.75f, y = 9.25f)
-                    moveTo(x = 4.5f, y = 6.25f)
-                    horizontalLineTo(x = 14.25f)
-                    curveTo(
-                        x1 = 17.7018f,
-                        y1 = 6.25f,
-                        x2 = 20.5f,
-                        y2 = 9.04822f,
-                        x3 = 20.5f,
-                        y3 = 12.5f,
-                    )
-                    curveTo(
-                        x1 = 20.5f,
-                        y1 = 15.9518f,
-                        x2 = 17.7018f,
-                        y2 = 18.75f,
-                        x3 = 14.25f,
-                        y3 = 18.75f,
-                    )
-                    horizontalLineTo(x = 5.75f)
-                }
-            }.build()
-            .also { _refund = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Refund",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 6.75f, y = 3.25f)
+                lineTo(x = 3.75f, y = 6.25f)
+                lineTo(x = 6.75f, y = 9.25f)
+                moveTo(x = 4.5f, y = 6.25f)
+                horizontalLineTo(x = 14.25f)
+                curveTo(x1 = 17.7018f, y1 = 6.25f, x2 = 20.5f, y2 = 9.04822f, x3 = 20.5f, y3 = 12.5f)
+                curveTo(x1 = 20.5f, y1 = 15.9518f, x2 = 17.7018f, y2 = 18.75f, x3 = 14.25f, y3 = 18.75f)
+                horizontalLineTo(x = 5.75f)
+            }
+        }.build().also { _refund = it }
     }
 
 @Preview
@@ -74,8 +58,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Refund,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

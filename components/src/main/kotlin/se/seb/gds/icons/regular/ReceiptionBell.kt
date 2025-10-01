@@ -22,52 +22,36 @@ val ReceiptionBell: ImageVector
         val current = _receiptionBell
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.ReceiptionBell",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 12.0f, y = 6.75f)
-                    curveTo(
-                        x1 = 7.44365f,
-                        y1 = 6.75f,
-                        x2 = 3.75f,
-                        y2 = 10.6172f,
-                        x3 = 3.75f,
-                        y3 = 16.2891f,
-                    )
-                    verticalLineTo(y = 17.25f)
-                    horizontalLineTo(x = 20.25f)
-                    verticalLineTo(y = 16.2891f)
-                    curveTo(
-                        x1 = 20.25f,
-                        y1 = 10.6172f,
-                        x2 = 16.5563f,
-                        y2 = 6.75f,
-                        x3 = 12.0f,
-                        y3 = 6.75f,
-                    )
-                    close()
-                    moveTo(x = 12.0f, y = 6.75f)
-                    verticalLineTo(y = 3.75f)
-                    moveTo(x = 3.7478f, y = 20.25f)
-                    horizontalLineTo(x = 20.2478f)
-                    moveTo(x = 12.0f, y = 17.5f)
-                    verticalLineTo(y = 20.25f)
-                    moveTo(x = 9.75f, y = 3.75f)
-                    horizontalLineTo(x = 14.25f)
-                }
-            }.build()
-            .also { _receiptionBell = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.ReceiptionBell",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 12.0f, y = 6.75f)
+                curveTo(x1 = 7.44365f, y1 = 6.75f, x2 = 3.75f, y2 = 10.6172f, x3 = 3.75f, y3 = 16.2891f)
+                verticalLineTo(y = 17.25f)
+                horizontalLineTo(x = 20.25f)
+                verticalLineTo(y = 16.2891f)
+                curveTo(x1 = 20.25f, y1 = 10.6172f, x2 = 16.5563f, y2 = 6.75f, x3 = 12.0f, y3 = 6.75f)
+                close()
+                moveTo(x = 12.0f, y = 6.75f)
+                verticalLineTo(y = 3.75f)
+                moveTo(x = 3.7478f, y = 20.25f)
+                horizontalLineTo(x = 20.2478f)
+                moveTo(x = 12.0f, y = 17.5f)
+                verticalLineTo(y = 20.25f)
+                moveTo(x = 9.75f, y = 3.75f)
+                horizontalLineTo(x = 14.25f)
+            }
+        }.build().also { _receiptionBell = it }
     }
 
 @Preview
@@ -81,8 +65,7 @@ private fun IconPreview() {
             Image(
                 imageVector = ReceiptionBell,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

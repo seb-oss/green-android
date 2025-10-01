@@ -20,799 +20,265 @@ val Signature: ImageVector
         val current = _signature
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Signature",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    fill = SolidColor(Color(0xFF000000)),
-                ) {
-                    moveTo(x = 1.75f, y = 16.0f)
-                    curveTo(
-                        x1 = 1.33579f,
-                        y1 = 16.0f,
-                        x2 = 1.0f,
-                        y2 = 16.3358f,
-                        x3 = 1.0f,
-                        y3 = 16.75f,
-                    )
-                    curveTo(
-                        x1 = 1.0f,
-                        y1 = 17.1642f,
-                        x2 = 1.33579f,
-                        y2 = 17.5f,
-                        x3 = 1.75f,
-                        y3 = 17.5f,
-                    )
-                    verticalLineTo(y = 16.75f)
-                    verticalLineTo(y = 16.0f)
-                    close()
-                    moveTo(x = 22.25f, y = 17.5f)
-                    curveTo(
-                        x1 = 22.6642f,
-                        y1 = 17.5f,
-                        x2 = 23.0f,
-                        y2 = 17.1642f,
-                        x3 = 23.0f,
-                        y3 = 16.75f,
-                    )
-                    curveTo(
-                        x1 = 23.0f,
-                        y1 = 16.3358f,
-                        x2 = 22.6642f,
-                        y2 = 16.0f,
-                        x3 = 22.25f,
-                        y3 = 16.0f,
-                    )
-                    verticalLineTo(y = 16.75f)
-                    verticalLineTo(y = 17.5f)
-                    close()
-                    moveTo(x = 16.9439f, y = 13.9919f)
-                    lineTo(x = 16.249f, y = 14.2743f)
-                    lineTo(x = 16.9439f, y = 13.9919f)
-                    close()
-                    moveTo(x = 19.8388f, y = 11.418f)
-                    lineTo(x = 19.4856f, y = 12.0796f)
-                    lineTo(x = 19.8388f, y = 11.418f)
-                    close()
-                    moveTo(x = 22.25f, y = 15.0f)
-                    curveTo(
-                        x1 = 22.6642f,
-                        y1 = 15.0f,
-                        x2 = 23.0f,
-                        y2 = 14.6642f,
-                        x3 = 23.0f,
-                        y3 = 14.25f,
-                    )
-                    curveTo(
-                        x1 = 23.0f,
-                        y1 = 13.8358f,
-                        x2 = 22.6642f,
-                        y2 = 13.5f,
-                        x3 = 22.25f,
-                        y3 = 13.5f,
-                    )
-                    verticalLineTo(y = 14.25f)
-                    verticalLineTo(y = 15.0f)
-                    close()
-                    moveTo(x = 13.5664f, y = 7.81456f)
-                    lineTo(x = 14.2973f, y = 7.64631f)
-                    verticalLineTo(y = 7.64631f)
-                    lineTo(x = 13.5664f, y = 7.81456f)
-                    close()
-                    moveTo(x = 10.189f, y = 20.1692f)
-                    lineTo(x = 10.0412f, y = 19.4339f)
-                    lineTo(x = 10.189f, y = 20.1692f)
-                    close()
-                    moveTo(x = 10.7396f, y = 14.6179f)
-                    curveTo(
-                        x1 = 11.0853f,
-                        y1 = 14.846f,
-                        x2 = 11.5506f,
-                        y2 = 14.7507f,
-                        x3 = 11.7787f,
-                        y3 = 14.405f,
-                    )
-                    curveTo(
-                        x1 = 12.0069f,
-                        y1 = 14.0593f,
-                        x2 = 11.9116f,
-                        y2 = 13.5941f,
-                        x3 = 11.5659f,
-                        y3 = 13.3659f,
-                    )
-                    lineTo(x = 11.1528f, y = 13.9919f)
-                    lineTo(x = 10.7396f, y = 14.6179f)
-                    close()
-                    moveTo(x = 8.25902f, y = 4.21112f)
-                    lineTo(x = 7.83776f, y = 3.59061f)
-                    lineTo(x = 8.25902f, y = 4.21112f)
-                    close()
-                    moveTo(x = 9.224f, y = 13.9919f)
-                    lineTo(x = 8.63988f, y = 13.5215f)
-                    lineTo(x = 9.224f, y = 13.9919f)
-                    close()
-                    moveTo(x = 2.28033f, y = 10.2197f)
-                    curveTo(
-                        x1 = 1.98744f,
-                        y1 = 9.92678f,
-                        x2 = 1.51256f,
-                        y2 = 9.92678f,
-                        x3 = 1.21967f,
-                        y3 = 10.2197f,
-                    )
-                    curveTo(
-                        x1 = 0.926777f,
-                        y1 = 10.5126f,
-                        x2 = 0.926777f,
-                        y2 = 10.9874f,
-                        x3 = 1.21967f,
-                        y3 = 11.2803f,
-                    )
-                    lineTo(x = 1.75f, y = 10.75f)
-                    lineTo(x = 2.28033f, y = 10.2197f)
-                    close()
-                    moveTo(x = 4.71967f, y = 14.7803f)
-                    curveTo(
-                        x1 = 5.01256f,
-                        y1 = 15.0732f,
-                        x2 = 5.48744f,
-                        y2 = 15.0732f,
-                        x3 = 5.78033f,
-                        y3 = 14.7803f,
-                    )
-                    curveTo(
-                        x1 = 6.07322f,
-                        y1 = 14.4874f,
-                        x2 = 6.07322f,
-                        y2 = 14.0126f,
-                        x3 = 5.78033f,
-                        y3 = 13.7197f,
-                    )
-                    lineTo(x = 5.25f, y = 14.25f)
-                    lineTo(x = 4.71967f, y = 14.7803f)
-                    close()
-                    moveTo(x = 5.78033f, y = 11.2803f)
-                    curveTo(
-                        x1 = 6.07322f,
-                        y1 = 10.9874f,
-                        x2 = 6.07322f,
-                        y2 = 10.5126f,
-                        x3 = 5.78033f,
-                        y3 = 10.2197f,
-                    )
-                    curveTo(
-                        x1 = 5.48744f,
-                        y1 = 9.92678f,
-                        x2 = 5.01256f,
-                        y2 = 9.92678f,
-                        x3 = 4.71967f,
-                        y3 = 10.2197f,
-                    )
-                    lineTo(x = 5.25f, y = 10.75f)
-                    lineTo(x = 5.78033f, y = 11.2803f)
-                    close()
-                    moveTo(x = 1.21967f, y = 13.7197f)
-                    curveTo(
-                        x1 = 0.926777f,
-                        y1 = 14.0126f,
-                        x2 = 0.926777f,
-                        y2 = 14.4874f,
-                        x3 = 1.21967f,
-                        y3 = 14.7803f,
-                    )
-                    curveTo(
-                        x1 = 1.51256f,
-                        y1 = 15.0732f,
-                        x2 = 1.98744f,
-                        y2 = 15.0732f,
-                        x3 = 2.28033f,
-                        y3 = 14.7803f,
-                    )
-                    lineTo(x = 1.75f, y = 14.25f)
-                    lineTo(x = 1.21967f, y = 13.7197f)
-                    close()
-                    moveTo(x = 1.75f, y = 16.75f)
-                    verticalLineTo(y = 17.5f)
-                    horizontalLineTo(x = 22.25f)
-                    verticalLineTo(y = 16.75f)
-                    verticalLineTo(y = 16.0f)
-                    horizontalLineTo(x = 1.75f)
-                    verticalLineTo(y = 16.75f)
-                    close()
-                    moveTo(x = 16.9439f, y = 13.9919f)
-                    lineTo(x = 16.249f, y = 14.2743f)
-                    curveTo(
-                        x1 = 16.3661f,
-                        y1 = 14.5622f,
-                        x2 = 16.5605f,
-                        y2 = 14.9313f,
-                        x3 = 16.9266f,
-                        y3 = 15.1194f,
-                    )
-                    curveTo(
-                        x1 = 17.4036f,
-                        y1 = 15.3643f,
-                        x2 = 17.8384f,
-                        y2 = 15.1648f,
-                        x3 = 18.0774f,
-                        y3 = 14.9771f,
-                    )
-                    curveTo(
-                        x1 = 18.2993f,
-                        y1 = 14.8028f,
-                        x2 = 18.4749f,
-                        y2 = 14.5582f,
-                        x3 = 18.6071f,
-                        y3 = 14.3498f,
-                    )
-                    curveTo(
-                        x1 = 18.7478f,
-                        y1 = 14.1282f,
-                        x2 = 18.884f,
-                        y2 = 13.8742f,
-                        x3 = 19.0105f,
-                        y3 = 13.6292f,
-                    )
-                    curveTo(
-                        x1 = 19.2798f,
-                        y1 = 13.1075f,
-                        x2 = 19.5014f,
-                        y2 = 12.6407f,
-                        x3 = 19.7224f,
-                        y3 = 12.3078f,
-                    )
-                    curveTo(
-                        x1 = 19.7735f,
-                        y1 = 12.2308f,
-                        x2 = 19.8172f,
-                        y2 = 12.1728f,
-                        x3 = 19.8531f,
-                        y3 = 12.1312f,
-                    )
-                    curveTo(
-                        x1 = 19.8904f,
-                        y1 = 12.0879f,
-                        x2 = 19.9083f,
-                        y2 = 12.0754f,
-                        x3 = 19.905f,
-                        y3 = 12.0777f,
-                    )
-                    curveTo(
-                        x1 = 19.8816f,
-                        y1 = 12.0943f,
-                        x2 = 19.6952f,
-                        y2 = 12.1915f,
-                        x3 = 19.4856f,
-                        y3 = 12.0796f,
-                    )
-                    lineTo(x = 19.8388f, y = 11.418f)
-                    lineTo(x = 20.192f, y = 10.7564f)
-                    curveTo(
-                        x1 = 19.7413f,
-                        y1 = 10.5158f,
-                        x2 = 19.3099f,
-                        y2 = 10.6614f,
-                        x3 = 19.0389f,
-                        y3 = 10.853f,
-                    )
-                    curveTo(
-                        x1 = 18.7986f,
-                        y1 = 11.023f,
-                        x2 = 18.6114f,
-                        y2 = 11.2692f,
-                        x3 = 18.4727f,
-                        y3 = 11.4782f,
-                    )
-                    curveTo(
-                        x1 = 18.1914f,
-                        y1 = 11.9019f,
-                        x2 = 17.9067f,
-                        y2 = 12.4973f,
-                        x3 = 17.6776f,
-                        y3 = 12.9412f,
-                    )
-                    curveTo(
-                        x1 = 17.5548f,
-                        y1 = 13.179f,
-                        x2 = 17.4437f,
-                        y2 = 13.3836f,
-                        x3 = 17.3406f,
-                        y3 = 13.5461f,
-                    )
-                    curveTo(
-                        x1 = 17.2897f,
-                        y1 = 13.6264f,
-                        x2 = 17.2458f,
-                        y2 = 13.6882f,
-                        x3 = 17.209f,
-                        y3 = 13.7337f,
-                    )
-                    curveTo(
-                        x1 = 17.1707f,
-                        y1 = 13.7811f,
-                        x2 = 17.1509f,
-                        y2 = 13.7975f,
-                        x3 = 17.1509f,
-                        y3 = 13.7975f,
-                    )
-                    curveTo(
-                        x1 = 17.1545f,
-                        y1 = 13.7946f,
-                        x2 = 17.359f,
-                        y2 = 13.6552f,
-                        x3 = 17.612f,
-                        y3 = 13.7851f,
-                    )
-                    curveTo(
-                        x1 = 17.7542f,
-                        y1 = 13.8581f,
-                        x2 = 17.7312f,
-                        y2 = 13.9371f,
-                        x3 = 17.6387f,
-                        y3 = 13.7095f,
-                    )
-                    lineTo(x = 16.9439f, y = 13.9919f)
-                    close()
-                    moveTo(x = 19.8388f, y = 11.418f)
-                    lineTo(x = 19.4856f, y = 12.0796f)
-                    curveTo(
-                        x1 = 19.3984f,
-                        y1 = 12.0331f,
-                        x2 = 19.4396f,
-                        y2 = 11.9727f,
-                        x3 = 19.4711f,
-                        y3 = 12.1785f,
-                    )
-                    curveTo(
-                        x1 = 19.5028f,
-                        y1 = 12.385f,
-                        x2 = 19.4933f,
-                        y2 = 12.6406f,
-                        x3 = 19.4853f,
-                        y3 = 12.9991f,
-                    )
-                    curveTo(
-                        x1 = 19.4788f,
-                        y1 = 13.294f,
-                        x2 = 19.4684f,
-                        y2 = 13.735f,
-                        x3 = 19.5866f,
-                        y3 = 14.1043f,
-                    )
-                    curveTo(
-                        x1 = 19.6516f,
-                        y1 = 14.3075f,
-                        x2 = 19.7721f,
-                        y2 = 14.5471f,
-                        x3 = 20.0033f,
-                        y3 = 14.7329f,
-                    )
-                    curveTo(
-                        x1 = 20.243f,
-                        y1 = 14.9254f,
-                        x2 = 20.5266f,
-                        y2 = 15.0f,
-                        x3 = 20.8038f,
-                        y3 = 15.0f,
-                    )
-                    verticalLineTo(y = 14.25f)
-                    verticalLineTo(y = 13.5f)
-                    curveTo(
-                        x1 = 20.7967f,
-                        y1 = 13.5f,
-                        x2 = 20.8652f,
-                        y2 = 13.5012f,
-                        x3 = 20.9428f,
-                        y3 = 13.5635f,
-                    )
-                    curveTo(
-                        x1 = 21.0118f,
-                        y1 = 13.619f,
-                        x2 = 21.023f,
-                        y2 = 13.6714f,
-                        x3 = 21.0152f,
-                        y3 = 13.647f,
-                    )
-                    curveTo(
-                        x1 = 20.9876f,
-                        y1 = 13.5609f,
-                        x2 = 20.9772f,
-                        y2 = 13.3848f,
-                        x3 = 20.985f,
-                        y3 = 13.0322f,
-                    )
-                    curveTo(
-                        x1 = 20.9914f,
-                        y1 = 12.7433f,
-                        x2 = 21.0105f,
-                        y2 = 12.3211f,
-                        x3 = 20.9538f,
-                        y3 = 11.9513f,
-                    )
-                    curveTo(
-                        x1 = 20.897f,
-                        y1 = 11.5806f,
-                        x2 = 20.7329f,
-                        y2 = 11.0451f,
-                        x3 = 20.192f,
-                        y3 = 10.7564f,
-                    )
-                    lineTo(x = 19.8388f, y = 11.418f)
-                    close()
-                    moveTo(x = 20.8038f, y = 14.25f)
-                    verticalLineTo(y = 15.0f)
-                    horizontalLineTo(x = 22.25f)
-                    verticalLineTo(y = 14.25f)
-                    verticalLineTo(y = 13.5f)
-                    horizontalLineTo(x = 20.8038f)
-                    verticalLineTo(y = 14.25f)
-                    close()
-                    moveTo(x = 13.5664f, y = 7.81456f)
-                    lineTo(x = 12.8355f, y = 7.98282f)
-                    curveTo(
-                        x1 = 13.0105f,
-                        y1 = 8.74297f,
-                        x2 = 13.1363f,
-                        y2 = 9.76649f,
-                        x3 = 13.1725f,
-                        y3 = 10.9046f,
-                    )
-                    lineTo(x = 13.9221f, y = 10.8807f)
-                    lineTo(x = 14.6718f, y = 10.8569f)
-                    curveTo(
-                        x1 = 14.6333f,
-                        y1 = 9.64773f,
-                        x2 = 14.4993f,
-                        y2 = 8.52381f,
-                        x3 = 14.2973f,
-                        y3 = 7.64631f,
-                    )
-                    lineTo(x = 13.5664f, y = 7.81456f)
-                    close()
-                    moveTo(x = 13.9221f, y = 10.8807f)
-                    lineTo(x = 13.1725f, y = 10.9046f)
-                    curveTo(
-                        x1 = 13.2316f,
-                        y1 = 12.7605f,
-                        x2 = 13.05f,
-                        y2 = 14.8384f,
-                        x3 = 12.512f,
-                        y3 = 16.4984f,
-                    )
-                    curveTo(
-                        x1 = 11.9621f,
-                        y1 = 18.1949f,
-                        x2 = 11.1274f,
-                        y2 = 19.2156f,
-                        x3 = 10.0412f,
-                        y3 = 19.4339f,
-                    )
-                    lineTo(x = 10.189f, y = 20.1692f)
-                    lineTo(x = 10.3368f, y = 20.9045f)
-                    curveTo(
-                        x1 = 12.2489f,
-                        y1 = 20.5202f,
-                        x2 = 13.3414f,
-                        y2 = 18.8042f,
-                        x3 = 13.9389f,
-                        y3 = 16.9609f,
-                    )
-                    curveTo(
-                        x1 = 14.5482f,
-                        y1 = 15.081f,
-                        x2 = 14.7341f,
-                        y2 = 12.8161f,
-                        x3 = 14.6718f,
-                        y3 = 10.8569f,
-                    )
-                    lineTo(x = 13.9221f, y = 10.8807f)
-                    close()
-                    moveTo(x = 11.1528f, y = 13.9919f)
-                    lineTo(x = 11.5659f, y = 13.3659f)
-                    curveTo(
-                        x1 = 11.2607f,
-                        y1 = 13.1645f,
-                        x2 = 10.9069f,
-                        y2 = 12.8799f,
-                        x3 = 10.5342f,
-                        y3 = 12.5261f,
-                    )
-                    lineTo(x = 10.0179f, y = 13.0701f)
-                    lineTo(x = 9.50154f, y = 13.614f)
-                    curveTo(
-                        x1 = 9.92202f,
-                        y1 = 14.0132f,
-                        x2 = 10.3445f,
-                        y2 = 14.3571f,
-                        x3 = 10.7396f,
-                        y3 = 14.6179f,
-                    )
-                    lineTo(x = 11.1528f, y = 13.9919f)
-                    close()
-                    moveTo(x = 10.0179f, y = 13.0701f)
-                    lineTo(x = 10.5342f, y = 12.5261f)
-                    curveTo(
-                        x1 = 9.41477f,
-                        y1 = 11.4635f,
-                        x2 = 8.25132f,
-                        y2 = 9.89978f,
-                        x3 = 7.751f,
-                        y3 = 8.3926f,
-                    )
-                    curveTo(
-                        x1 = 7.50273f,
-                        y1 = 7.64472f,
-                        x2 = 7.43398f,
-                        y2 = 6.96017f,
-                        x3 = 7.56575f,
-                        y3 = 6.3753f,
-                    )
-                    curveTo(
-                        x1 = 7.69282f,
-                        y1 = 5.8113f,
-                        x2 = 8.0185f,
-                        y2 = 5.28092f,
-                        x3 = 8.68029f,
-                        y3 = 4.83163f,
-                    )
-                    lineTo(x = 8.25902f, y = 4.21112f)
-                    lineTo(x = 7.83776f, y = 3.59061f)
-                    curveTo(
-                        x1 = 6.87726f,
-                        y1 = 4.24269f,
-                        x2 = 6.31748f,
-                        y2 = 5.09111f,
-                        x3 = 6.10243f,
-                        y3 = 6.04561f,
-                    )
-                    curveTo(
-                        x1 = 5.89208f,
-                        y1 = 6.97925f,
-                        x2 = 6.02455f,
-                        y2 = 7.9529f,
-                        x3 = 6.32739f,
-                        y3 = 8.86518f,
-                    )
-                    curveTo(
-                        x1 = 6.92927f,
-                        y1 = 10.6783f,
-                        x2 = 8.26753f,
-                        y2 = 12.4427f,
-                        x3 = 9.50154f,
-                        y3 = 13.614f,
-                    )
-                    lineTo(x = 10.0179f, y = 13.0701f)
-                    close()
-                    moveTo(x = 8.25902f, y = 4.21112f)
-                    lineTo(x = 8.68029f, y = 4.83163f)
-                    curveTo(
-                        x1 = 9.10456f,
-                        y1 = 4.54359f,
-                        x2 = 9.50336f,
-                        y2 = 4.46673f,
-                        x3 = 9.87534f,
-                        y3 = 4.51213f,
-                    )
-                    curveTo(
-                        x1 = 10.2619f,
-                        y1 = 4.55931f,
-                        x2 = 10.6724f,
-                        y2 = 4.74616f,
-                        x3 = 11.0784f,
-                        y3 = 5.07197f,
-                    )
-                    curveTo(
-                        x1 = 11.9017f,
-                        y1 = 5.7327f,
-                        x2 = 12.5782f,
-                        y2 = 6.86509f,
-                        x3 = 12.8355f,
-                        y3 = 7.98282f,
-                    )
-                    lineTo(x = 13.5664f, y = 7.81456f)
-                    lineTo(x = 14.2973f, y = 7.64631f)
-                    curveTo(
-                        x1 = 13.9734f,
-                        y1 = 6.23948f,
-                        x2 = 13.1336f,
-                        y2 = 4.79801f,
-                        x3 = 12.0172f,
-                        y3 = 3.90209f,
-                    )
-                    curveTo(
-                        x1 = 11.4533f,
-                        y1 = 3.44957f,
-                        x2 = 10.7881f,
-                        y2 = 3.11241f,
-                        x3 = 10.0571f,
-                        y3 = 3.02318f,
-                    )
-                    curveTo(
-                        x1 = 9.31147f,
-                        y1 = 2.93217f,
-                        x2 = 8.55082f,
-                        y2 = 3.10651f,
-                        x3 = 7.83776f,
-                        y3 = 3.59061f,
-                    )
-                    lineTo(x = 8.25902f, y = 4.21112f)
-                    close()
-                    moveTo(x = 10.189f, y = 20.1692f)
-                    lineTo(x = 10.0412f, y = 19.4339f)
-                    curveTo(
-                        x1 = 9.19924f,
-                        y1 = 19.6032f,
-                        x2 = 8.86575f,
-                        y2 = 19.4143f,
-                        x3 = 8.72501f,
-                        y3 = 19.2684f,
-                    )
-                    curveTo(
-                        x1 = 8.54929f,
-                        y1 = 19.0863f,
-                        x2 = 8.41625f,
-                        y2 = 18.7138f,
-                        x3 = 8.44524f,
-                        y3 = 18.0866f,
-                    )
-                    curveTo(
-                        x1 = 8.47316f,
-                        y1 = 17.4825f,
-                        x2 = 8.64781f,
-                        y2 = 16.7754f,
-                        x3 = 8.91071f,
-                        y3 = 16.1017f,
-                    )
-                    curveTo(
-                        x1 = 9.17406f,
-                        y1 = 15.4268f,
-                        x2 = 9.50522f,
-                        y2 = 14.8384f,
-                        x3 = 9.80813f,
-                        y3 = 14.4623f,
-                    )
-                    lineTo(x = 9.224f, y = 13.9919f)
-                    lineTo(x = 8.63988f, y = 13.5215f)
-                    curveTo(
-                        x1 = 8.21596f,
-                        y1 = 14.0479f,
-                        x2 = 7.81588f,
-                        y2 = 14.7811f,
-                        x3 = 7.51333f,
-                        y3 = 15.5564f,
-                    )
-                    curveTo(
-                        x1 = 7.21032f,
-                        y1 = 16.3329f,
-                        x2 = 6.98441f,
-                        y2 = 17.2046f,
-                        x3 = 6.94684f,
-                        y3 = 18.0174f,
-                    )
-                    curveTo(
-                        x1 = 6.91034f,
-                        y1 = 18.8071f,
-                        x2 = 7.04689f,
-                        y2 = 19.6895f,
-                        x3 = 7.64557f,
-                        y3 = 20.31f,
-                    )
-                    curveTo(
-                        x1 = 8.27924f,
-                        y1 = 20.9667f,
-                        x2 = 9.22496f,
-                        y2 = 21.128f,
-                        x3 = 10.3368f,
-                        y3 = 20.9045f,
-                    )
-                    lineTo(x = 10.189f, y = 20.1692f)
-                    close()
-                    moveTo(x = 9.224f, y = 13.9919f)
-                    lineTo(x = 9.80813f, y = 14.4623f)
-                    curveTo(
-                        x1 = 10.068f,
-                        y1 = 14.1397f,
-                        x2 = 10.3212f,
-                        y2 = 13.8459f,
-                        x3 = 10.5678f,
-                        y3 = 13.5801f,
-                    )
-                    lineTo(x = 10.0179f, y = 13.0701f)
-                    lineTo(x = 9.46802f, y = 12.56f)
-                    curveTo(
-                        x1 = 9.19522f,
-                        y1 = 12.8541f,
-                        x2 = 8.91917f,
-                        y2 = 13.1747f,
-                        x3 = 8.63988f,
-                        y3 = 13.5215f,
-                    )
-                    lineTo(x = 9.224f, y = 13.9919f)
-                    close()
-                    moveTo(x = 10.0179f, y = 13.0701f)
-                    lineTo(x = 10.5678f, y = 13.5801f)
-                    curveTo(
-                        x1 = 11.9988f,
-                        y1 = 12.0373f,
-                        x2 = 13.089f,
-                        y2 = 11.5576f,
-                        x3 = 13.8537f,
-                        y3 = 11.6276f,
-                    )
-                    lineTo(x = 13.9221f, y = 10.8807f)
-                    lineTo(x = 13.9906f, y = 10.1339f)
-                    curveTo(
-                        x1 = 12.4934f,
-                        y1 = 9.99672f,
-                        x2 = 10.9695f,
-                        y2 = 10.9413f,
-                        x3 = 9.46802f,
-                        y3 = 12.56f,
-                    )
-                    lineTo(x = 10.0179f, y = 13.0701f)
-                    close()
-                    moveTo(x = 13.9221f, y = 10.8807f)
-                    lineTo(x = 13.8537f, y = 11.6276f)
-                    curveTo(
-                        x1 = 14.6289f,
-                        y1 = 11.6986f,
-                        x2 = 15.4844f,
-                        y2 = 12.393f,
-                        x3 = 16.249f,
-                        y3 = 14.2743f,
-                    )
-                    lineTo(x = 16.9439f, y = 13.9919f)
-                    lineTo(x = 17.6387f, y = 13.7095f)
-                    curveTo(
-                        x1 = 16.826f,
-                        y1 = 11.7099f,
-                        x2 = 15.6529f,
-                        y2 = 10.2862f,
-                        x3 = 13.9906f,
-                        y3 = 10.1339f,
-                    )
-                    lineTo(x = 13.9221f, y = 10.8807f)
-                    close()
-                    moveTo(x = 1.75f, y = 10.75f)
-                    lineTo(x = 1.21967f, y = 11.2803f)
-                    lineTo(x = 2.96967f, y = 13.0303f)
-                    lineTo(x = 3.5f, y = 12.5f)
-                    lineTo(x = 4.03033f, y = 11.9697f)
-                    lineTo(x = 2.28033f, y = 10.2197f)
-                    lineTo(x = 1.75f, y = 10.75f)
-                    close()
-                    moveTo(x = 3.5f, y = 12.5f)
-                    lineTo(x = 2.96967f, y = 13.0303f)
-                    lineTo(x = 4.71967f, y = 14.7803f)
-                    lineTo(x = 5.25f, y = 14.25f)
-                    lineTo(x = 5.78033f, y = 13.7197f)
-                    lineTo(x = 4.03033f, y = 11.9697f)
-                    lineTo(x = 3.5f, y = 12.5f)
-                    close()
-                    moveTo(x = 5.25f, y = 10.75f)
-                    lineTo(x = 4.71967f, y = 10.2197f)
-                    lineTo(x = 2.96967f, y = 11.9697f)
-                    lineTo(x = 3.5f, y = 12.5f)
-                    lineTo(x = 4.03033f, y = 13.0303f)
-                    lineTo(x = 5.78033f, y = 11.2803f)
-                    lineTo(x = 5.25f, y = 10.75f)
-                    close()
-                    moveTo(x = 3.5f, y = 12.5f)
-                    lineTo(x = 2.96967f, y = 11.9697f)
-                    lineTo(x = 1.21967f, y = 13.7197f)
-                    lineTo(x = 1.75f, y = 14.25f)
-                    lineTo(x = 2.28033f, y = 14.7803f)
-                    lineTo(x = 4.03033f, y = 13.0303f)
-                    lineTo(x = 3.5f, y = 12.5f)
-                    close()
-                }
-            }.build()
-            .also { _signature = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Signature",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                fill = SolidColor(Color(0xFF000000)),
+            ) {
+                moveTo(x = 1.75f, y = 16.0f)
+                curveTo(x1 = 1.33579f, y1 = 16.0f, x2 = 1.0f, y2 = 16.3358f, x3 = 1.0f, y3 = 16.75f)
+                curveTo(x1 = 1.0f, y1 = 17.1642f, x2 = 1.33579f, y2 = 17.5f, x3 = 1.75f, y3 = 17.5f)
+                verticalLineTo(y = 16.75f)
+                verticalLineTo(y = 16.0f)
+                close()
+                moveTo(x = 22.25f, y = 17.5f)
+                curveTo(x1 = 22.6642f, y1 = 17.5f, x2 = 23.0f, y2 = 17.1642f, x3 = 23.0f, y3 = 16.75f)
+                curveTo(x1 = 23.0f, y1 = 16.3358f, x2 = 22.6642f, y2 = 16.0f, x3 = 22.25f, y3 = 16.0f)
+                verticalLineTo(y = 16.75f)
+                verticalLineTo(y = 17.5f)
+                close()
+                moveTo(x = 16.9439f, y = 13.9919f)
+                lineTo(x = 16.249f, y = 14.2743f)
+                lineTo(x = 16.9439f, y = 13.9919f)
+                close()
+                moveTo(x = 19.8388f, y = 11.418f)
+                lineTo(x = 19.4856f, y = 12.0796f)
+                lineTo(x = 19.8388f, y = 11.418f)
+                close()
+                moveTo(x = 22.25f, y = 15.0f)
+                curveTo(x1 = 22.6642f, y1 = 15.0f, x2 = 23.0f, y2 = 14.6642f, x3 = 23.0f, y3 = 14.25f)
+                curveTo(x1 = 23.0f, y1 = 13.8358f, x2 = 22.6642f, y2 = 13.5f, x3 = 22.25f, y3 = 13.5f)
+                verticalLineTo(y = 14.25f)
+                verticalLineTo(y = 15.0f)
+                close()
+                moveTo(x = 13.5664f, y = 7.81456f)
+                lineTo(x = 14.2973f, y = 7.64631f)
+                verticalLineTo(y = 7.64631f)
+                lineTo(x = 13.5664f, y = 7.81456f)
+                close()
+                moveTo(x = 10.189f, y = 20.1692f)
+                lineTo(x = 10.0412f, y = 19.4339f)
+                lineTo(x = 10.189f, y = 20.1692f)
+                close()
+                moveTo(x = 10.7396f, y = 14.6179f)
+                curveTo(x1 = 11.0853f, y1 = 14.846f, x2 = 11.5506f, y2 = 14.7507f, x3 = 11.7787f, y3 = 14.405f)
+                curveTo(x1 = 12.0069f, y1 = 14.0593f, x2 = 11.9116f, y2 = 13.5941f, x3 = 11.5659f, y3 = 13.3659f)
+                lineTo(x = 11.1528f, y = 13.9919f)
+                lineTo(x = 10.7396f, y = 14.6179f)
+                close()
+                moveTo(x = 8.25902f, y = 4.21112f)
+                lineTo(x = 7.83776f, y = 3.59061f)
+                lineTo(x = 8.25902f, y = 4.21112f)
+                close()
+                moveTo(x = 9.224f, y = 13.9919f)
+                lineTo(x = 8.63988f, y = 13.5215f)
+                lineTo(x = 9.224f, y = 13.9919f)
+                close()
+                moveTo(x = 2.28033f, y = 10.2197f)
+                curveTo(x1 = 1.98744f, y1 = 9.92678f, x2 = 1.51256f, y2 = 9.92678f, x3 = 1.21967f, y3 = 10.2197f)
+                curveTo(x1 = 0.926777f, y1 = 10.5126f, x2 = 0.926777f, y2 = 10.9874f, x3 = 1.21967f, y3 = 11.2803f)
+                lineTo(x = 1.75f, y = 10.75f)
+                lineTo(x = 2.28033f, y = 10.2197f)
+                close()
+                moveTo(x = 4.71967f, y = 14.7803f)
+                curveTo(x1 = 5.01256f, y1 = 15.0732f, x2 = 5.48744f, y2 = 15.0732f, x3 = 5.78033f, y3 = 14.7803f)
+                curveTo(x1 = 6.07322f, y1 = 14.4874f, x2 = 6.07322f, y2 = 14.0126f, x3 = 5.78033f, y3 = 13.7197f)
+                lineTo(x = 5.25f, y = 14.25f)
+                lineTo(x = 4.71967f, y = 14.7803f)
+                close()
+                moveTo(x = 5.78033f, y = 11.2803f)
+                curveTo(x1 = 6.07322f, y1 = 10.9874f, x2 = 6.07322f, y2 = 10.5126f, x3 = 5.78033f, y3 = 10.2197f)
+                curveTo(x1 = 5.48744f, y1 = 9.92678f, x2 = 5.01256f, y2 = 9.92678f, x3 = 4.71967f, y3 = 10.2197f)
+                lineTo(x = 5.25f, y = 10.75f)
+                lineTo(x = 5.78033f, y = 11.2803f)
+                close()
+                moveTo(x = 1.21967f, y = 13.7197f)
+                curveTo(x1 = 0.926777f, y1 = 14.0126f, x2 = 0.926777f, y2 = 14.4874f, x3 = 1.21967f, y3 = 14.7803f)
+                curveTo(x1 = 1.51256f, y1 = 15.0732f, x2 = 1.98744f, y2 = 15.0732f, x3 = 2.28033f, y3 = 14.7803f)
+                lineTo(x = 1.75f, y = 14.25f)
+                lineTo(x = 1.21967f, y = 13.7197f)
+                close()
+                moveTo(x = 1.75f, y = 16.75f)
+                verticalLineTo(y = 17.5f)
+                horizontalLineTo(x = 22.25f)
+                verticalLineTo(y = 16.75f)
+                verticalLineTo(y = 16.0f)
+                horizontalLineTo(x = 1.75f)
+                verticalLineTo(y = 16.75f)
+                close()
+                moveTo(x = 16.9439f, y = 13.9919f)
+                lineTo(x = 16.249f, y = 14.2743f)
+                curveTo(x1 = 16.3661f, y1 = 14.5622f, x2 = 16.5605f, y2 = 14.9313f, x3 = 16.9266f, y3 = 15.1194f)
+                curveTo(x1 = 17.4036f, y1 = 15.3643f, x2 = 17.8384f, y2 = 15.1648f, x3 = 18.0774f, y3 = 14.9771f)
+                curveTo(x1 = 18.2993f, y1 = 14.8028f, x2 = 18.4749f, y2 = 14.5582f, x3 = 18.6071f, y3 = 14.3498f)
+                curveTo(x1 = 18.7478f, y1 = 14.1282f, x2 = 18.884f, y2 = 13.8742f, x3 = 19.0105f, y3 = 13.6292f)
+                curveTo(x1 = 19.2798f, y1 = 13.1075f, x2 = 19.5014f, y2 = 12.6407f, x3 = 19.7224f, y3 = 12.3078f)
+                curveTo(x1 = 19.7735f, y1 = 12.2308f, x2 = 19.8172f, y2 = 12.1728f, x3 = 19.8531f, y3 = 12.1312f)
+                curveTo(x1 = 19.8904f, y1 = 12.0879f, x2 = 19.9083f, y2 = 12.0754f, x3 = 19.905f, y3 = 12.0777f)
+                curveTo(x1 = 19.8816f, y1 = 12.0943f, x2 = 19.6952f, y2 = 12.1915f, x3 = 19.4856f, y3 = 12.0796f)
+                lineTo(x = 19.8388f, y = 11.418f)
+                lineTo(x = 20.192f, y = 10.7564f)
+                curveTo(x1 = 19.7413f, y1 = 10.5158f, x2 = 19.3099f, y2 = 10.6614f, x3 = 19.0389f, y3 = 10.853f)
+                curveTo(x1 = 18.7986f, y1 = 11.023f, x2 = 18.6114f, y2 = 11.2692f, x3 = 18.4727f, y3 = 11.4782f)
+                curveTo(x1 = 18.1914f, y1 = 11.9019f, x2 = 17.9067f, y2 = 12.4973f, x3 = 17.6776f, y3 = 12.9412f)
+                curveTo(x1 = 17.5548f, y1 = 13.179f, x2 = 17.4437f, y2 = 13.3836f, x3 = 17.3406f, y3 = 13.5461f)
+                curveTo(x1 = 17.2897f, y1 = 13.6264f, x2 = 17.2458f, y2 = 13.6882f, x3 = 17.209f, y3 = 13.7337f)
+                curveTo(x1 = 17.1707f, y1 = 13.7811f, x2 = 17.1509f, y2 = 13.7975f, x3 = 17.1509f, y3 = 13.7975f)
+                curveTo(x1 = 17.1545f, y1 = 13.7946f, x2 = 17.359f, y2 = 13.6552f, x3 = 17.612f, y3 = 13.7851f)
+                curveTo(x1 = 17.7542f, y1 = 13.8581f, x2 = 17.7312f, y2 = 13.9371f, x3 = 17.6387f, y3 = 13.7095f)
+                lineTo(x = 16.9439f, y = 13.9919f)
+                close()
+                moveTo(x = 19.8388f, y = 11.418f)
+                lineTo(x = 19.4856f, y = 12.0796f)
+                curveTo(x1 = 19.3984f, y1 = 12.0331f, x2 = 19.4396f, y2 = 11.9727f, x3 = 19.4711f, y3 = 12.1785f)
+                curveTo(x1 = 19.5028f, y1 = 12.385f, x2 = 19.4933f, y2 = 12.6406f, x3 = 19.4853f, y3 = 12.9991f)
+                curveTo(x1 = 19.4788f, y1 = 13.294f, x2 = 19.4684f, y2 = 13.735f, x3 = 19.5866f, y3 = 14.1043f)
+                curveTo(x1 = 19.6516f, y1 = 14.3075f, x2 = 19.7721f, y2 = 14.5471f, x3 = 20.0033f, y3 = 14.7329f)
+                curveTo(x1 = 20.243f, y1 = 14.9254f, x2 = 20.5266f, y2 = 15.0f, x3 = 20.8038f, y3 = 15.0f)
+                verticalLineTo(y = 14.25f)
+                verticalLineTo(y = 13.5f)
+                curveTo(x1 = 20.7967f, y1 = 13.5f, x2 = 20.8652f, y2 = 13.5012f, x3 = 20.9428f, y3 = 13.5635f)
+                curveTo(x1 = 21.0118f, y1 = 13.619f, x2 = 21.023f, y2 = 13.6714f, x3 = 21.0152f, y3 = 13.647f)
+                curveTo(x1 = 20.9876f, y1 = 13.5609f, x2 = 20.9772f, y2 = 13.3848f, x3 = 20.985f, y3 = 13.0322f)
+                curveTo(x1 = 20.9914f, y1 = 12.7433f, x2 = 21.0105f, y2 = 12.3211f, x3 = 20.9538f, y3 = 11.9513f)
+                curveTo(x1 = 20.897f, y1 = 11.5806f, x2 = 20.7329f, y2 = 11.0451f, x3 = 20.192f, y3 = 10.7564f)
+                lineTo(x = 19.8388f, y = 11.418f)
+                close()
+                moveTo(x = 20.8038f, y = 14.25f)
+                verticalLineTo(y = 15.0f)
+                horizontalLineTo(x = 22.25f)
+                verticalLineTo(y = 14.25f)
+                verticalLineTo(y = 13.5f)
+                horizontalLineTo(x = 20.8038f)
+                verticalLineTo(y = 14.25f)
+                close()
+                moveTo(x = 13.5664f, y = 7.81456f)
+                lineTo(x = 12.8355f, y = 7.98282f)
+                curveTo(x1 = 13.0105f, y1 = 8.74297f, x2 = 13.1363f, y2 = 9.76649f, x3 = 13.1725f, y3 = 10.9046f)
+                lineTo(x = 13.9221f, y = 10.8807f)
+                lineTo(x = 14.6718f, y = 10.8569f)
+                curveTo(x1 = 14.6333f, y1 = 9.64773f, x2 = 14.4993f, y2 = 8.52381f, x3 = 14.2973f, y3 = 7.64631f)
+                lineTo(x = 13.5664f, y = 7.81456f)
+                close()
+                moveTo(x = 13.9221f, y = 10.8807f)
+                lineTo(x = 13.1725f, y = 10.9046f)
+                curveTo(x1 = 13.2316f, y1 = 12.7605f, x2 = 13.05f, y2 = 14.8384f, x3 = 12.512f, y3 = 16.4984f)
+                curveTo(x1 = 11.9621f, y1 = 18.1949f, x2 = 11.1274f, y2 = 19.2156f, x3 = 10.0412f, y3 = 19.4339f)
+                lineTo(x = 10.189f, y = 20.1692f)
+                lineTo(x = 10.3368f, y = 20.9045f)
+                curveTo(x1 = 12.2489f, y1 = 20.5202f, x2 = 13.3414f, y2 = 18.8042f, x3 = 13.9389f, y3 = 16.9609f)
+                curveTo(x1 = 14.5482f, y1 = 15.081f, x2 = 14.7341f, y2 = 12.8161f, x3 = 14.6718f, y3 = 10.8569f)
+                lineTo(x = 13.9221f, y = 10.8807f)
+                close()
+                moveTo(x = 11.1528f, y = 13.9919f)
+                lineTo(x = 11.5659f, y = 13.3659f)
+                curveTo(x1 = 11.2607f, y1 = 13.1645f, x2 = 10.9069f, y2 = 12.8799f, x3 = 10.5342f, y3 = 12.5261f)
+                lineTo(x = 10.0179f, y = 13.0701f)
+                lineTo(x = 9.50154f, y = 13.614f)
+                curveTo(x1 = 9.92202f, y1 = 14.0132f, x2 = 10.3445f, y2 = 14.3571f, x3 = 10.7396f, y3 = 14.6179f)
+                lineTo(x = 11.1528f, y = 13.9919f)
+                close()
+                moveTo(x = 10.0179f, y = 13.0701f)
+                lineTo(x = 10.5342f, y = 12.5261f)
+                curveTo(x1 = 9.41477f, y1 = 11.4635f, x2 = 8.25132f, y2 = 9.89978f, x3 = 7.751f, y3 = 8.3926f)
+                curveTo(x1 = 7.50273f, y1 = 7.64472f, x2 = 7.43398f, y2 = 6.96017f, x3 = 7.56575f, y3 = 6.3753f)
+                curveTo(x1 = 7.69282f, y1 = 5.8113f, x2 = 8.0185f, y2 = 5.28092f, x3 = 8.68029f, y3 = 4.83163f)
+                lineTo(x = 8.25902f, y = 4.21112f)
+                lineTo(x = 7.83776f, y = 3.59061f)
+                curveTo(x1 = 6.87726f, y1 = 4.24269f, x2 = 6.31748f, y2 = 5.09111f, x3 = 6.10243f, y3 = 6.04561f)
+                curveTo(x1 = 5.89208f, y1 = 6.97925f, x2 = 6.02455f, y2 = 7.9529f, x3 = 6.32739f, y3 = 8.86518f)
+                curveTo(x1 = 6.92927f, y1 = 10.6783f, x2 = 8.26753f, y2 = 12.4427f, x3 = 9.50154f, y3 = 13.614f)
+                lineTo(x = 10.0179f, y = 13.0701f)
+                close()
+                moveTo(x = 8.25902f, y = 4.21112f)
+                lineTo(x = 8.68029f, y = 4.83163f)
+                curveTo(x1 = 9.10456f, y1 = 4.54359f, x2 = 9.50336f, y2 = 4.46673f, x3 = 9.87534f, y3 = 4.51213f)
+                curveTo(x1 = 10.2619f, y1 = 4.55931f, x2 = 10.6724f, y2 = 4.74616f, x3 = 11.0784f, y3 = 5.07197f)
+                curveTo(x1 = 11.9017f, y1 = 5.7327f, x2 = 12.5782f, y2 = 6.86509f, x3 = 12.8355f, y3 = 7.98282f)
+                lineTo(x = 13.5664f, y = 7.81456f)
+                lineTo(x = 14.2973f, y = 7.64631f)
+                curveTo(x1 = 13.9734f, y1 = 6.23948f, x2 = 13.1336f, y2 = 4.79801f, x3 = 12.0172f, y3 = 3.90209f)
+                curveTo(x1 = 11.4533f, y1 = 3.44957f, x2 = 10.7881f, y2 = 3.11241f, x3 = 10.0571f, y3 = 3.02318f)
+                curveTo(x1 = 9.31147f, y1 = 2.93217f, x2 = 8.55082f, y2 = 3.10651f, x3 = 7.83776f, y3 = 3.59061f)
+                lineTo(x = 8.25902f, y = 4.21112f)
+                close()
+                moveTo(x = 10.189f, y = 20.1692f)
+                lineTo(x = 10.0412f, y = 19.4339f)
+                curveTo(x1 = 9.19924f, y1 = 19.6032f, x2 = 8.86575f, y2 = 19.4143f, x3 = 8.72501f, y3 = 19.2684f)
+                curveTo(x1 = 8.54929f, y1 = 19.0863f, x2 = 8.41625f, y2 = 18.7138f, x3 = 8.44524f, y3 = 18.0866f)
+                curveTo(x1 = 8.47316f, y1 = 17.4825f, x2 = 8.64781f, y2 = 16.7754f, x3 = 8.91071f, y3 = 16.1017f)
+                curveTo(x1 = 9.17406f, y1 = 15.4268f, x2 = 9.50522f, y2 = 14.8384f, x3 = 9.80813f, y3 = 14.4623f)
+                lineTo(x = 9.224f, y = 13.9919f)
+                lineTo(x = 8.63988f, y = 13.5215f)
+                curveTo(x1 = 8.21596f, y1 = 14.0479f, x2 = 7.81588f, y2 = 14.7811f, x3 = 7.51333f, y3 = 15.5564f)
+                curveTo(x1 = 7.21032f, y1 = 16.3329f, x2 = 6.98441f, y2 = 17.2046f, x3 = 6.94684f, y3 = 18.0174f)
+                curveTo(x1 = 6.91034f, y1 = 18.8071f, x2 = 7.04689f, y2 = 19.6895f, x3 = 7.64557f, y3 = 20.31f)
+                curveTo(x1 = 8.27924f, y1 = 20.9667f, x2 = 9.22496f, y2 = 21.128f, x3 = 10.3368f, y3 = 20.9045f)
+                lineTo(x = 10.189f, y = 20.1692f)
+                close()
+                moveTo(x = 9.224f, y = 13.9919f)
+                lineTo(x = 9.80813f, y = 14.4623f)
+                curveTo(x1 = 10.068f, y1 = 14.1397f, x2 = 10.3212f, y2 = 13.8459f, x3 = 10.5678f, y3 = 13.5801f)
+                lineTo(x = 10.0179f, y = 13.0701f)
+                lineTo(x = 9.46802f, y = 12.56f)
+                curveTo(x1 = 9.19522f, y1 = 12.8541f, x2 = 8.91917f, y2 = 13.1747f, x3 = 8.63988f, y3 = 13.5215f)
+                lineTo(x = 9.224f, y = 13.9919f)
+                close()
+                moveTo(x = 10.0179f, y = 13.0701f)
+                lineTo(x = 10.5678f, y = 13.5801f)
+                curveTo(x1 = 11.9988f, y1 = 12.0373f, x2 = 13.089f, y2 = 11.5576f, x3 = 13.8537f, y3 = 11.6276f)
+                lineTo(x = 13.9221f, y = 10.8807f)
+                lineTo(x = 13.9906f, y = 10.1339f)
+                curveTo(x1 = 12.4934f, y1 = 9.99672f, x2 = 10.9695f, y2 = 10.9413f, x3 = 9.46802f, y3 = 12.56f)
+                lineTo(x = 10.0179f, y = 13.0701f)
+                close()
+                moveTo(x = 13.9221f, y = 10.8807f)
+                lineTo(x = 13.8537f, y = 11.6276f)
+                curveTo(x1 = 14.6289f, y1 = 11.6986f, x2 = 15.4844f, y2 = 12.393f, x3 = 16.249f, y3 = 14.2743f)
+                lineTo(x = 16.9439f, y = 13.9919f)
+                lineTo(x = 17.6387f, y = 13.7095f)
+                curveTo(x1 = 16.826f, y1 = 11.7099f, x2 = 15.6529f, y2 = 10.2862f, x3 = 13.9906f, y3 = 10.1339f)
+                lineTo(x = 13.9221f, y = 10.8807f)
+                close()
+                moveTo(x = 1.75f, y = 10.75f)
+                lineTo(x = 1.21967f, y = 11.2803f)
+                lineTo(x = 2.96967f, y = 13.0303f)
+                lineTo(x = 3.5f, y = 12.5f)
+                lineTo(x = 4.03033f, y = 11.9697f)
+                lineTo(x = 2.28033f, y = 10.2197f)
+                lineTo(x = 1.75f, y = 10.75f)
+                close()
+                moveTo(x = 3.5f, y = 12.5f)
+                lineTo(x = 2.96967f, y = 13.0303f)
+                lineTo(x = 4.71967f, y = 14.7803f)
+                lineTo(x = 5.25f, y = 14.25f)
+                lineTo(x = 5.78033f, y = 13.7197f)
+                lineTo(x = 4.03033f, y = 11.9697f)
+                lineTo(x = 3.5f, y = 12.5f)
+                close()
+                moveTo(x = 5.25f, y = 10.75f)
+                lineTo(x = 4.71967f, y = 10.2197f)
+                lineTo(x = 2.96967f, y = 11.9697f)
+                lineTo(x = 3.5f, y = 12.5f)
+                lineTo(x = 4.03033f, y = 13.0303f)
+                lineTo(x = 5.78033f, y = 11.2803f)
+                lineTo(x = 5.25f, y = 10.75f)
+                close()
+                moveTo(x = 3.5f, y = 12.5f)
+                lineTo(x = 2.96967f, y = 11.9697f)
+                lineTo(x = 1.21967f, y = 13.7197f)
+                lineTo(x = 1.75f, y = 14.25f)
+                lineTo(x = 2.28033f, y = 14.7803f)
+                lineTo(x = 4.03033f, y = 13.0303f)
+                lineTo(x = 3.5f, y = 12.5f)
+                close()
+            }
+        }.build().also { _signature = it }
     }
 
 @Preview
@@ -826,8 +292,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Signature,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

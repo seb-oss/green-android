@@ -22,30 +22,28 @@ val TrendingFour: ImageVector
         val current = _trendingFour
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.TrendingFour",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 15.75f, y = 6.75f)
-                    horizontalLineTo(x = 21.25f)
-                    verticalLineTo(y = 12.25f)
-                    moveTo(x = 20.7361f, y = 7.275f)
-                    lineTo(x = 13.0f, y = 15.0f)
-                    lineTo(x = 9.0f, y = 11.0f)
-                    lineTo(x = 2.75f, y = 17.25f)
-                }
-            }.build()
-            .also { _trendingFour = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.TrendingFour",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 15.75f, y = 6.75f)
+                horizontalLineTo(x = 21.25f)
+                verticalLineTo(y = 12.25f)
+                moveTo(x = 20.7361f, y = 7.275f)
+                lineTo(x = 13.0f, y = 15.0f)
+                lineTo(x = 9.0f, y = 11.0f)
+                lineTo(x = 2.75f, y = 17.25f)
+            }
+        }.build().also { _trendingFour = it }
     }
 
 @Preview
@@ -59,8 +57,7 @@ private fun IconPreview() {
             Image(
                 imageVector = TrendingFour,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

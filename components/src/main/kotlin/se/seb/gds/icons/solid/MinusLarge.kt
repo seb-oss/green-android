@@ -21,57 +21,27 @@ val MinusLarge: ImageVector
         val current = _minusLarge
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.MinusLarge",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    fill = SolidColor(Color(0xFF000000)),
-                    pathFillType = PathFillType.EvenOdd,
-                ) {
-                    moveTo(x = 3.0f, y = 12.0f)
-                    curveTo(
-                        x1 = 3.0f,
-                        y1 = 11.5858f,
-                        x2 = 3.33579f,
-                        y2 = 11.25f,
-                        x3 = 3.75f,
-                        y3 = 11.25f,
-                    )
-                    horizontalLineTo(x = 20.25f)
-                    curveTo(
-                        x1 = 20.6642f,
-                        y1 = 11.25f,
-                        x2 = 21.0f,
-                        y2 = 11.5858f,
-                        x3 = 21.0f,
-                        y3 = 12.0f,
-                    )
-                    curveTo(
-                        x1 = 21.0f,
-                        y1 = 12.4142f,
-                        x2 = 20.6642f,
-                        y2 = 12.75f,
-                        x3 = 20.25f,
-                        y3 = 12.75f,
-                    )
-                    horizontalLineTo(x = 3.75f)
-                    curveTo(
-                        x1 = 3.33579f,
-                        y1 = 12.75f,
-                        x2 = 3.0f,
-                        y2 = 12.4142f,
-                        x3 = 3.0f,
-                        y3 = 12.0f,
-                    )
-                    close()
-                }
-            }.build()
-            .also { _minusLarge = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.MinusLarge",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                fill = SolidColor(Color(0xFF000000)),
+                pathFillType = PathFillType.EvenOdd,
+            ) {
+                moveTo(x = 3.0f, y = 12.0f)
+                curveTo(x1 = 3.0f, y1 = 11.5858f, x2 = 3.33579f, y2 = 11.25f, x3 = 3.75f, y3 = 11.25f)
+                horizontalLineTo(x = 20.25f)
+                curveTo(x1 = 20.6642f, y1 = 11.25f, x2 = 21.0f, y2 = 11.5858f, x3 = 21.0f, y3 = 12.0f)
+                curveTo(x1 = 21.0f, y1 = 12.4142f, x2 = 20.6642f, y2 = 12.75f, x3 = 20.25f, y3 = 12.75f)
+                horizontalLineTo(x = 3.75f)
+                curveTo(x1 = 3.33579f, y1 = 12.75f, x2 = 3.0f, y2 = 12.4142f, x3 = 3.0f, y3 = 12.0f)
+                close()
+            }
+        }.build().also { _minusLarge = it }
     }
 
 @Preview
@@ -85,8 +55,7 @@ private fun IconPreview() {
             Image(
                 imageVector = MinusLarge,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

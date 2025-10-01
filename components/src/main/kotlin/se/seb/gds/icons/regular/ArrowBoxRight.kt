@@ -22,33 +22,31 @@ val ArrowBoxRight: ImageVector
         val current = _arrowBoxRight
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.ArrowBoxRight",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 14.75f, y = 3.75f)
-                    lineTo(x = 20.25f, y = 3.75f)
-                    verticalLineTo(y = 20.25f)
-                    horizontalLineTo(x = 14.75f)
-                    moveTo(x = 15.0f, y = 12.0f)
-                    lineTo(x = 3.75f, y = 12.0f)
-                    moveTo(x = 15.0f, y = 12.0f)
-                    lineTo(x = 11.5f, y = 15.5f)
-                    moveTo(x = 15.0f, y = 12.0f)
-                    lineTo(x = 11.5f, y = 8.5f)
-                }
-            }.build()
-            .also { _arrowBoxRight = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.ArrowBoxRight",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 14.75f, y = 3.75f)
+                lineTo(x = 20.25f, y = 3.75f)
+                verticalLineTo(y = 20.25f)
+                horizontalLineTo(x = 14.75f)
+                moveTo(x = 15.0f, y = 12.0f)
+                lineTo(x = 3.75f, y = 12.0f)
+                moveTo(x = 15.0f, y = 12.0f)
+                lineTo(x = 11.5f, y = 15.5f)
+                moveTo(x = 15.0f, y = 12.0f)
+                lineTo(x = 11.5f, y = 8.5f)
+            }
+        }.build().also { _arrowBoxRight = it }
     }
 
 @Preview
@@ -62,8 +60,7 @@ private fun IconPreview() {
             Image(
                 imageVector = ArrowBoxRight,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

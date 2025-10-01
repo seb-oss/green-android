@@ -21,27 +21,25 @@ val Play: ImageVector
         val current = _play
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Play",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 21.25f, y = 12.0f)
-                    lineTo(x = 5.75f, y = 2.75f)
-                    verticalLineTo(y = 21.25f)
-                    lineTo(x = 21.25f, y = 12.0f)
-                    close()
-                }
-            }.build()
-            .also { _play = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Play",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 21.25f, y = 12.0f)
+                lineTo(x = 5.75f, y = 2.75f)
+                verticalLineTo(y = 21.25f)
+                lineTo(x = 21.25f, y = 12.0f)
+                close()
+            }
+        }.build().also { _play = it }
     }
 
 @Preview
@@ -55,8 +53,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Play,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

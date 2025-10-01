@@ -22,26 +22,24 @@ val ChevronDownSmall: ImageVector
         val current = _chevronDownSmall
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.ChevronDownSmall",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 8.0f, y = 10.0f)
-                    lineTo(x = 12.0f, y = 14.0f)
-                    lineTo(x = 16.0f, y = 10.0f)
-                }
-            }.build()
-            .also { _chevronDownSmall = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.ChevronDownSmall",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 8.0f, y = 10.0f)
+                lineTo(x = 12.0f, y = 14.0f)
+                lineTo(x = 16.0f, y = 10.0f)
+            }
+        }.build().also { _chevronDownSmall = it }
     }
 
 @Preview
@@ -55,8 +53,7 @@ private fun IconPreview() {
             Image(
                 imageVector = ChevronDownSmall,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

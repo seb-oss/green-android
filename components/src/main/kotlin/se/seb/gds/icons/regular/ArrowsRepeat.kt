@@ -22,35 +22,33 @@ val ArrowsRepeat: ImageVector
         val current = _arrowsRepeat
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.ArrowsRepeat",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 3.75f, y = 13.25f)
-                    verticalLineTo(y = 4.75f)
-                    horizontalLineTo(x = 15.1071f)
-                    moveTo(x = 12.6457f, y = 1.75f)
-                    lineTo(x = 15.7529f, y = 4.75f)
-                    lineTo(x = 12.6457f, y = 7.75f)
-                    moveTo(x = 20.25f, y = 10.75f)
-                    verticalLineTo(y = 19.25f)
-                    horizontalLineTo(x = 8.89286f)
-                    moveTo(x = 11.3543f, y = 22.25f)
-                    lineTo(x = 8.24714f, y = 19.25f)
-                    lineTo(x = 11.3543f, y = 16.25f)
-                }
-            }.build()
-            .also { _arrowsRepeat = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.ArrowsRepeat",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 3.75f, y = 13.25f)
+                verticalLineTo(y = 4.75f)
+                horizontalLineTo(x = 15.1071f)
+                moveTo(x = 12.6457f, y = 1.75f)
+                lineTo(x = 15.7529f, y = 4.75f)
+                lineTo(x = 12.6457f, y = 7.75f)
+                moveTo(x = 20.25f, y = 10.75f)
+                verticalLineTo(y = 19.25f)
+                horizontalLineTo(x = 8.89286f)
+                moveTo(x = 11.3543f, y = 22.25f)
+                lineTo(x = 8.24714f, y = 19.25f)
+                lineTo(x = 11.3543f, y = 16.25f)
+            }
+        }.build().also { _arrowsRepeat = it }
     }
 
 @Preview
@@ -64,8 +62,7 @@ private fun IconPreview() {
             Image(
                 imageVector = ArrowsRepeat,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

@@ -22,34 +22,32 @@ val SquareArrowTopRight: ImageVector
         val current = _squareArrowTopRight
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.SquareArrowTopRight",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 9.25f, y = 3.75f)
-                    horizontalLineTo(x = 3.75f)
-                    verticalLineTo(y = 20.25f)
-                    horizontalLineTo(x = 20.25f)
-                    verticalLineTo(y = 14.75f)
-                    moveTo(x = 13.75f, y = 3.75f)
-                    horizontalLineTo(x = 20.25f)
-                    moveTo(x = 20.25f, y = 3.75f)
-                    verticalLineTo(y = 10.25f)
-                    moveTo(x = 20.25f, y = 3.75f)
-                    lineTo(x = 11.0f, y = 13.0f)
-                }
-            }.build()
-            .also { _squareArrowTopRight = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.SquareArrowTopRight",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 9.25f, y = 3.75f)
+                horizontalLineTo(x = 3.75f)
+                verticalLineTo(y = 20.25f)
+                horizontalLineTo(x = 20.25f)
+                verticalLineTo(y = 14.75f)
+                moveTo(x = 13.75f, y = 3.75f)
+                horizontalLineTo(x = 20.25f)
+                moveTo(x = 20.25f, y = 3.75f)
+                verticalLineTo(y = 10.25f)
+                moveTo(x = 20.25f, y = 3.75f)
+                lineTo(x = 11.0f, y = 13.0f)
+            }
+        }.build().also { _squareArrowTopRight = it }
     }
 
 @Preview
@@ -63,8 +61,7 @@ private fun IconPreview() {
             Image(
                 imageVector = SquareArrowTopRight,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

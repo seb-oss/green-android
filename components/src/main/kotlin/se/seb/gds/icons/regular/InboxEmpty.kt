@@ -21,36 +21,34 @@ val InboxEmpty: ImageVector
         val current = _inboxEmpty
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.InboxEmpty",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 2.0f, y = 12.75f)
-                    horizontalLineTo(x = 8.4125f)
-                    lineTo(x = 9.95f, y = 14.75f)
-                    horizontalLineTo(x = 14.05f)
-                    lineTo(x = 15.5875f, y = 12.75f)
-                    horizontalLineTo(x = 22.0f)
-                    moveTo(x = 22.25f, y = 12.75f)
-                    lineTo(x = 18.15f, y = 4.75f)
-                    horizontalLineTo(x = 5.85f)
-                    lineTo(x = 1.75f, y = 12.75f)
-                    verticalLineTo(y = 19.25f)
-                    horizontalLineTo(x = 22.25f)
-                    verticalLineTo(y = 12.75f)
-                    close()
-                }
-            }.build()
-            .also { _inboxEmpty = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.InboxEmpty",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 2.0f, y = 12.75f)
+                horizontalLineTo(x = 8.4125f)
+                lineTo(x = 9.95f, y = 14.75f)
+                horizontalLineTo(x = 14.05f)
+                lineTo(x = 15.5875f, y = 12.75f)
+                horizontalLineTo(x = 22.0f)
+                moveTo(x = 22.25f, y = 12.75f)
+                lineTo(x = 18.15f, y = 4.75f)
+                horizontalLineTo(x = 5.85f)
+                lineTo(x = 1.75f, y = 12.75f)
+                verticalLineTo(y = 19.25f)
+                horizontalLineTo(x = 22.25f)
+                verticalLineTo(y = 12.75f)
+                close()
+            }
+        }.build().also { _inboxEmpty = it }
     }
 
 @Preview
@@ -64,8 +62,7 @@ private fun IconPreview() {
             Image(
                 imageVector = InboxEmpty,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

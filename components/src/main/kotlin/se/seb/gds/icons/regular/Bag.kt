@@ -22,39 +22,37 @@ val Bag: ImageVector
         val current = _bag
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Bag",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 21.0f, y = 12.75f)
-                    horizontalLineTo(x = 12.0f)
-                    moveTo(x = 12.0f, y = 12.75f)
-                    horizontalLineTo(x = 3.0f)
-                    moveTo(x = 12.0f, y = 12.75f)
-                    lineTo(x = 12.0022f, y = 15.25f)
-                    moveTo(x = 8.0022f, y = 7.75f)
-                    verticalLineTo(y = 3.75f)
-                    horizontalLineTo(x = 16.0022f)
-                    verticalLineTo(y = 7.75f)
-                    moveTo(x = 21.25f, y = 20.25f)
-                    horizontalLineTo(x = 2.75f)
-                    verticalLineTo(y = 7.75f)
-                    horizontalLineTo(x = 21.25f)
-                    verticalLineTo(y = 20.25f)
-                    close()
-                }
-            }.build()
-            .also { _bag = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Bag",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 21.0f, y = 12.75f)
+                horizontalLineTo(x = 12.0f)
+                moveTo(x = 12.0f, y = 12.75f)
+                horizontalLineTo(x = 3.0f)
+                moveTo(x = 12.0f, y = 12.75f)
+                lineTo(x = 12.0022f, y = 15.25f)
+                moveTo(x = 8.0022f, y = 7.75f)
+                verticalLineTo(y = 3.75f)
+                horizontalLineTo(x = 16.0022f)
+                verticalLineTo(y = 7.75f)
+                moveTo(x = 21.25f, y = 20.25f)
+                horizontalLineTo(x = 2.75f)
+                verticalLineTo(y = 7.75f)
+                horizontalLineTo(x = 21.25f)
+                verticalLineTo(y = 20.25f)
+                close()
+            }
+        }.build().also { _bag = it }
     }
 
 @Preview
@@ -68,8 +66,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Bag,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

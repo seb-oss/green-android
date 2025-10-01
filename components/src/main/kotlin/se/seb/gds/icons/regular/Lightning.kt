@@ -22,32 +22,30 @@ val Lightning: ImageVector
         val current = _lightning
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Lightning",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 3.75f, y = 12.75f)
-                    lineTo(x = 8.75f, y = 2.75f)
-                    horizontalLineTo(x = 18.0f)
-                    lineTo(x = 15.25f, y = 8.25f)
-                    horizontalLineTo(x = 21.25f)
-                    lineTo(x = 6.75f, y = 21.25f)
-                    lineTo(x = 8.89706f, y = 12.75f)
-                    horizontalLineTo(x = 3.75f)
-                    close()
-                }
-            }.build()
-            .also { _lightning = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Lightning",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 3.75f, y = 12.75f)
+                lineTo(x = 8.75f, y = 2.75f)
+                horizontalLineTo(x = 18.0f)
+                lineTo(x = 15.25f, y = 8.25f)
+                horizontalLineTo(x = 21.25f)
+                lineTo(x = 6.75f, y = 21.25f)
+                lineTo(x = 8.89706f, y = 12.75f)
+                horizontalLineTo(x = 3.75f)
+                close()
+            }
+        }.build().also { _lightning = it }
     }
 
 @Preview
@@ -61,8 +59,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Lightning,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

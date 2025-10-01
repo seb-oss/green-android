@@ -22,38 +22,36 @@ val Files: ImageVector
         val current = _files
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.Files",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 17.25f, y = 18.25f)
-                    verticalLineTo(y = 21.25f)
-                    horizontalLineTo(x = 4.75f)
-                    verticalLineTo(y = 5.75f)
-                    horizontalLineTo(x = 7.75f)
-                    moveTo(x = 15.25f, y = 2.75f)
-                    horizontalLineTo(x = 7.75f)
-                    verticalLineTo(y = 18.25f)
-                    horizontalLineTo(x = 20.25f)
-                    verticalLineTo(y = 7.75f)
-                    moveTo(x = 15.25f, y = 2.75f)
-                    lineTo(x = 20.25f, y = 7.75f)
-                    moveTo(x = 15.25f, y = 2.75f)
-                    verticalLineTo(y = 7.75f)
-                    horizontalLineTo(x = 20.25f)
-                }
-            }.build()
-            .also { _files = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.Files",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 17.25f, y = 18.25f)
+                verticalLineTo(y = 21.25f)
+                horizontalLineTo(x = 4.75f)
+                verticalLineTo(y = 5.75f)
+                horizontalLineTo(x = 7.75f)
+                moveTo(x = 15.25f, y = 2.75f)
+                horizontalLineTo(x = 7.75f)
+                verticalLineTo(y = 18.25f)
+                horizontalLineTo(x = 20.25f)
+                verticalLineTo(y = 7.75f)
+                moveTo(x = 15.25f, y = 2.75f)
+                lineTo(x = 20.25f, y = 7.75f)
+                moveTo(x = 15.25f, y = 2.75f)
+                verticalLineTo(y = 7.75f)
+                horizontalLineTo(x = 20.25f)
+            }
+        }.build().also { _files = it }
     }
 
 @Preview
@@ -67,8 +65,7 @@ private fun IconPreview() {
             Image(
                 imageVector = Files,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )

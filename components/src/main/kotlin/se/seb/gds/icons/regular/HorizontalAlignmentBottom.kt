@@ -22,51 +22,49 @@ val HorizontalAlignmentBottom: ImageVector
         val current = _horizontalAlignmentBottom
         if (current != null) return current
 
-        return ImageVector
-            .Builder(
-                name = "se.seb.gds.theme.GdsTheme.HorizontalAlignmentBottom",
-                defaultWidth = 24.0.dp,
-                defaultHeight = 24.0.dp,
-                viewportWidth = 24.0f,
-                viewportHeight = 24.0f,
-            ).apply {
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 3.75f, y = 20.25f)
-                    horizontalLineTo(x = 20.25f)
-                }
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 13.75f, y = 7.75f)
-                    verticalLineTo(y = 17.25f)
-                    horizontalLineTo(x = 17.25f)
-                    verticalLineTo(y = 7.75f)
-                    horizontalLineTo(x = 13.75f)
-                    close()
-                }
-                path(
-                    stroke = SolidColor(Color(0xFF000000)),
-                    strokeLineCap = StrokeCap.Round,
-                    strokeLineJoin = StrokeJoin.Round,
-                    strokeLineWidth = 1.5f,
-                ) {
-                    moveTo(x = 6.75f, y = 3.75f)
-                    verticalLineTo(y = 17.25f)
-                    horizontalLineTo(x = 10.25f)
-                    verticalLineTo(y = 3.75f)
-                    horizontalLineTo(x = 6.75f)
-                    close()
-                }
-            }.build()
-            .also { _horizontalAlignmentBottom = it }
+        return ImageVector.Builder(
+            name = "se.seb.gds.theme.GdsTheme.HorizontalAlignmentBottom",
+            defaultWidth = 24.0.dp,
+            defaultHeight = 24.0.dp,
+            viewportWidth = 24.0f,
+            viewportHeight = 24.0f,
+        ).apply {
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 3.75f, y = 20.25f)
+                horizontalLineTo(x = 20.25f)
+            }
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 13.75f, y = 7.75f)
+                verticalLineTo(y = 17.25f)
+                horizontalLineTo(x = 17.25f)
+                verticalLineTo(y = 7.75f)
+                horizontalLineTo(x = 13.75f)
+                close()
+            }
+            path(
+                stroke = SolidColor(Color(0xFF000000)),
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
+                strokeLineWidth = 1.5f,
+            ) {
+                moveTo(x = 6.75f, y = 3.75f)
+                verticalLineTo(y = 17.25f)
+                horizontalLineTo(x = 10.25f)
+                verticalLineTo(y = 3.75f)
+                horizontalLineTo(x = 6.75f)
+                close()
+            }
+        }.build().also { _horizontalAlignmentBottom = it }
     }
 
 @Preview
@@ -80,8 +78,7 @@ private fun IconPreview() {
             Image(
                 imageVector = HorizontalAlignmentBottom,
                 contentDescription = null,
-                modifier =
-                Modifier
+                modifier = Modifier
                     .width((24.0).dp)
                     .height((24.0).dp),
             )
