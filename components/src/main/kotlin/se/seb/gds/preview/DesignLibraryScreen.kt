@@ -76,8 +76,7 @@ internal fun DesignLibraryScreen(
         contentColor = GdsTheme.colors.ContentNeutral01,
     ) { paddingValues ->
         AnimatedContent(
-            modifier =
-            Modifier
+            modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize(),
             targetState = currentScreen,
