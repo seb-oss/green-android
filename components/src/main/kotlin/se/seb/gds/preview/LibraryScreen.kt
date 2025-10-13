@@ -10,4 +10,5 @@ internal enum class LibraryScreen {
     INPUT,
     TOP_BAR,
     ICONS,
+    LIST_ITEM,
 }

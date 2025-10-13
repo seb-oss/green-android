@@ -24,72 +24,132 @@ internal fun FontsScreen(scrollState: ScrollState) {
         verticalArrangement = spacedBy(16.dp),
     ) {
         FontText(
-            name = "TitleLarge",
-            style = GdsTheme.legacyTypography.TitleLarge,
+            name = "HeadingXl",
+            style = GdsTheme.typography.HeadingXl,
         )
         FontText(
-            name = "TitleLarge",
-            style = GdsTheme.legacyTypography.TitleLarge,
+            name = "HeadingL",
+            style = GdsTheme.typography.HeadingL,
         )
         FontText(
-            name = "Title1",
-            style = GdsTheme.legacyTypography.Title1,
+            name = "HeadingM",
+            style = GdsTheme.typography.HeadingM,
         )
         FontText(
-            name = "Title2",
-            style = GdsTheme.legacyTypography.Title2,
+            name = "HeadingS",
+            style = GdsTheme.typography.HeadingS,
         )
         FontText(
-            name = "Title3",
-            style = GdsTheme.legacyTypography.Title3,
+            name = "HeadingXs",
+            style = GdsTheme.typography.HeadingXs,
         )
         FontText(
-            name = "Title4",
-            style = GdsTheme.legacyTypography.Title4,
+            name = "Heading2xs",
+            style = GdsTheme.typography.Heading2xs,
         )
         FontText(
-            name = "Title5",
-            style = GdsTheme.legacyTypography.Title5,
+            name = "DetailBookM",
+            style = GdsTheme.typography.DetailBookM,
         )
         FontText(
-            name = "Title6",
-            style = GdsTheme.legacyTypography.Title6,
+            name = "DetailBookS",
+            style = GdsTheme.typography.DetailBookS,
         )
         FontText(
-            name = "HeadlineBold",
-            style = GdsTheme.legacyTypography.HeadlineBold,
+            name = "DetailBookXs",
+            style = GdsTheme.typography.DetailBookXs,
         )
         FontText(
-            name = "Headline",
-            style = GdsTheme.legacyTypography.Headline,
+            name = "DetailRegularM",
+            style = GdsTheme.typography.DetailRegularM,
         )
         FontText(
-            name = "Body",
-            style = GdsTheme.legacyTypography.Body,
+            name = "DetailRegularS",
+            style = GdsTheme.typography.DetailRegularS,
         )
         FontText(
-            name = "SubHeader1",
-            style = GdsTheme.legacyTypography.SubHeader1,
+            name = "DetailRegularXs",
+            style = GdsTheme.typography.DetailRegularXs,
         )
         FontText(
-            name = "SubHeader2",
-            style = GdsTheme.legacyTypography.SubHeader2,
+            name = "BodyBookL",
+            style = GdsTheme.typography.BodyBookL,
         )
         FontText(
-            name = "SubHeader3",
-            style = GdsTheme.legacyTypography.SubHeader3,
+            name = "BodyBookM",
+            style = GdsTheme.typography.BodyBookM,
         )
         FontText(
-            name = "Footnote",
-            style = GdsTheme.legacyTypography.Footnote,
+            name = "BodyBookS",
+            style = GdsTheme.typography.BodyBookS,
         )
         FontText(
-            name = "Caption",
-            style = GdsTheme.legacyTypography.Caption,
+            name = "BodyRegularL",
+            style = GdsTheme.typography.BodyRegularL,
         )
         FontText(
-            name = "Caption2",
-            style = GdsTheme.legacyTypography.Caption2,
+            name = "BodyRegularM",
+            style = GdsTheme.typography.BodyRegularM,
+        )
+        FontText(
+            name = "BodyRegularS",
+            style = GdsTheme.typography.BodyRegularS,
+        )
+        FontText(
+            name = "BodyItalicL",
+            style = GdsTheme.typography.BodyItalicL,
+        )
+        FontText(
+            name = "BodyItalicM",
+            style = GdsTheme.typography.BodyItalicM,
+        )
+        FontText(
+            name = "BodyItalicS",
+            style = GdsTheme.typography.BodyItalicS,
+        )
+        /*FontText(
+            name = "Display2xl",
+            style = GdsTheme.typography.Display2xl,
+        )
+        FontText(
+            name = "DisplayXl",
+            style = GdsTheme.typography.DisplayXl,
+        )
+        FontText(
+            name = "DisplayL",
+            style = GdsTheme.typography.DisplayL,
+        )
+        FontText(
+            name = "DisplayM",
+            style = GdsTheme.typography.DisplayM,
+        )*/
+        FontText(
+            name = "DisplayS",
+            style = GdsTheme.typography.DisplayS,
+        )
+        FontText(
+            name = "Preamble2xl",
+            style = GdsTheme.typography.Preamble2xl,
+        )
+        FontText(
+            name = "PreambleXl",
+            style = GdsTheme.typography.PreambleXl,
+        )
+        FontText(
+            name = "PreambleL",
+            style = GdsTheme.typography.PreambleL,
+        )
+        FontText(
+            name = "PreambleM",
+            style = GdsTheme.typography.PreambleM,
+        )
+        FontText(
+            name = "PreambleS",
+            style = GdsTheme.typography.PreambleS,
+        )
+        FontText(
+            name = "PreambleXs",
+            style = GdsTheme.typography.PreambleXs,
         )
         FontText(
             name = "DetailMediumLarge",
@@ -120,7 +180,7 @@ fun FontText(
         }
 
     val title = with(style) {
-        "$name ${fontSize.value}/${lineHeight.value}/(${letterSpacing.value})${fontWeight?.name()}"
+        "$name ${fontSize.value}/${lineHeight.value}${fontWeight?.name()}"
     }
 
     Text(text = title, style = style)
