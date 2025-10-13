@@ -5,7 +5,7 @@ import androidx.compose.material3.SwitchDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import se.seb.gds.icons.SebIcons
+import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 /**
@@ -40,7 +40,7 @@ object GdsSwitchDefaults {
         GdsSwitchStyle(
             colors = defaultColors(),
             alwaysShowThumb = false,
-            checkedIcon = SebIcons.Check,
+            checkedIcon = GdsIcons.Solid.Checkmark,
         )
 
     // 2016
@@ -49,7 +49,7 @@ object GdsSwitchDefaults {
         GdsSwitchStyle(
             colors = legacyColors(),
             alwaysShowThumb = false,
-            checkedIcon = SebIcons.Check,
+            checkedIcon = GdsIcons.Solid.Checkmark,
         )
 
     @Composable

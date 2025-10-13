@@ -31,6 +31,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 private const val CONTENT_ANIMATION_DURATION = 500
@@ -62,7 +63,7 @@ internal fun DesignLibraryScreen(
                     if (currentScreen != LibraryScreen.LIBRARY) {
                         IconButton(onClick = { currentScreen = LibraryScreen.LIBRARY }) {
                             Icon(
-                                Icons.AutoMirrored.Filled.ArrowBack,
+                                GdsIcons.Regular.ArrowLeft,
                                 contentDescription = "Back",
                                 tint = GdsTheme.colors.ContentNeutral01,
                             )
@@ -102,9 +103,10 @@ internal fun DesignLibraryScreen(
             },
         ) { targetState ->
             when (targetState) {
-                LibraryScreen.LIBRARY -> DesignLibrary(scrollState = scrollState) {
-                    currentScreen = it
-                }
+                LibraryScreen.LIBRARY ->
+                    DesignLibrary(scrollState = scrollState) {
+                        currentScreen = it
+                    }
 
                 LibraryScreen.COLORS -> ColorsScreen(allColors)
 
@@ -119,6 +121,8 @@ internal fun DesignLibraryScreen(
                 LibraryScreen.INPUT -> InputScreen(scrollState = scrollState)
 
                 LibraryScreen.TOP_BAR -> TopBarScreen()
+
+                LibraryScreen.ICONS -> IconsScreen()
             }
         }
     }
@@ -130,7 +134,8 @@ private fun DesignLibrary(
     onNavigateToSection: (screen: LibraryScreen) -> Unit,
 ) {
     Column(
-        modifier = Modifier
+        modifier =
+        Modifier
             .fillMaxWidth()
             .verticalScroll(scrollState)
             .padding(16.dp),
@@ -142,6 +147,8 @@ private fun DesignLibrary(
             ListItem("2016 Colors") { onNavigateToSection(LibraryScreen.LEGACY_COLORS) }
             HorizontalDivider()
             ListItem("Fonts") { onNavigateToSection(LibraryScreen.FONTS) }
+            HorizontalDivider()
+            ListItem("Icons") { onNavigateToSection(LibraryScreen.ICONS) }
         }
 
         GallerySection("Components") {

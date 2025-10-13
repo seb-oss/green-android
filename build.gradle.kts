@@ -15,6 +15,7 @@ subprojects {
     configure<com.diffplug.gradle.spotless.SpotlessExtension> {
         kotlin {
             target("src/*/kotlin/**/*.kt")
+            targetExclude("src/*/kotlin/**/icons/regular/*.kt", "src/*/kotlin/**/icons/solid/*.kt")
             ktlint().editorConfigOverride(
                 mapOf(
                     "ktlint_standard_backing-property-naming" to "disabled",
