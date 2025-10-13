@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Thermostat: ImageVector
+internal val Thermostat: ImageVector
     get() {
         val current = _thermostat
         if (current != null) return current

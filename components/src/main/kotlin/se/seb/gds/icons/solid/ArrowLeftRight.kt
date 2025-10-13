@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val ArrowLeftRight: ImageVector
+internal val ArrowLeftRight: ImageVector
     get() {
         val current = _arrowLeftRight
         if (current != null) return current

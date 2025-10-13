@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Globus: ImageVector
+internal val Globus: ImageVector
     get() {
         val current = _globus
         if (current != null) return current

@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Folder: ImageVector
+internal val Folder: ImageVector
     get() {
         val current = _folder
         if (current != null) return current

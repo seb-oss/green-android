@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val CupHot: ImageVector
+internal val CupHot: ImageVector
     get() {
         val current = _cupHot
         if (current != null) return current

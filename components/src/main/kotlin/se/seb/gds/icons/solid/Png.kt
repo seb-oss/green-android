@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Png: ImageVector
+internal val Png: ImageVector
     get() {
         val current = _png
         if (current != null) return current

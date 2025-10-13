@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Unlocked: ImageVector
+internal val Unlocked: ImageVector
     get() {
         val current = _unlocked
         if (current != null) return current

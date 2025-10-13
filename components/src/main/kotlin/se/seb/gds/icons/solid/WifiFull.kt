@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val WifiFull: ImageVector
+internal val WifiFull: ImageVector
     get() {
         val current = _wifiFull
         if (current != null) return current

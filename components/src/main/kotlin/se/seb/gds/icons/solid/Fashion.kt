@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Fashion: ImageVector
+internal val Fashion: ImageVector
     get() {
         val current = _fashion
         if (current != null) return current

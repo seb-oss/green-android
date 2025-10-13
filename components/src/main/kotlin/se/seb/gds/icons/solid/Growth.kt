@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Growth: ImageVector
+internal val Growth: ImageVector
     get() {
         val current = _growth
         if (current != null) return current

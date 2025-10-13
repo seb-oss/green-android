@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val EmojiSmile: ImageVector
+internal val EmojiSmile: ImageVector
     get() {
         val current = _emojiSmile
         if (current != null) return current

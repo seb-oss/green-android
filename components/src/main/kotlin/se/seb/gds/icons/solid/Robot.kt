@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Robot: ImageVector
+internal val Robot: ImageVector
     get() {
         val current = _robot
         if (current != null) return current

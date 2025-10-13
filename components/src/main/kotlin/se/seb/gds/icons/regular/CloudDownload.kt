@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val CloudDownload: ImageVector
+internal val CloudDownload: ImageVector
     get() {
         val current = _cloudDownload
         if (current != null) return current

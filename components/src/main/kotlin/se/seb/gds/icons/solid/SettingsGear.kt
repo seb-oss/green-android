@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val SettingsGear: ImageVector
+internal val SettingsGear: ImageVector
     get() {
         val current = _settingsGear
         if (current != null) return current

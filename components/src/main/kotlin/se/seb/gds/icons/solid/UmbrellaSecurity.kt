@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val UmbrellaSecurity: ImageVector
+internal val UmbrellaSecurity: ImageVector
     get() {
         val current = _umbrellaSecurity
         if (current != null) return current

@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val SquarePlaceholder: ImageVector
+internal val SquarePlaceholder: ImageVector
     get() {
         val current = _squarePlaceholder
         if (current != null) return current

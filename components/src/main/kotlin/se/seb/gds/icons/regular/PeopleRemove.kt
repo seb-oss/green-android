@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val PeopleRemove: ImageVector
+internal val PeopleRemove: ImageVector
     get() {
         val current = _peopleRemove
         if (current != null) return current

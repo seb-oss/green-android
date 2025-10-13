@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val PencilSign: ImageVector
+internal val PencilSign: ImageVector
     get() {
         val current = _pencilSign
         if (current != null) return current

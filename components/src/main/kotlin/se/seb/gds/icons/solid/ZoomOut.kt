@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val ZoomOut: ImageVector
+internal val ZoomOut: ImageVector
     get() {
         val current = _zoomOut
         if (current != null) return current

@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val CalendarCheck: ImageVector
+internal val CalendarCheck: ImageVector
     get() {
         val current = _calendarCheck
         if (current != null) return current

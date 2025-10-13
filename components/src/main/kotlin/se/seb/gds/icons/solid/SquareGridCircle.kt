@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val SquareGridCircle: ImageVector
+internal val SquareGridCircle: ImageVector
     get() {
         val current = _squareGridCircle
         if (current != null) return current

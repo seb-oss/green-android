@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val ThumbsUp: ImageVector
+internal val ThumbsUp: ImageVector
     get() {
         val current = _thumbsUp
         if (current != null) return current

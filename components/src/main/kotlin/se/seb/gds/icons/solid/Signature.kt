@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Signature: ImageVector
+internal val Signature: ImageVector
     get() {
         val current = _signature
         if (current != null) return current

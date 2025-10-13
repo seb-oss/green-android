@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val ArrowRotateCounterClockwise: ImageVector
+internal val ArrowRotateCounterClockwise: ImageVector
     get() {
         val current = _arrowRotateCounterClockwise
         if (current != null) return current

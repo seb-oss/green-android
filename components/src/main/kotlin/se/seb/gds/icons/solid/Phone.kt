@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Phone: ImageVector
+internal val Phone: ImageVector
     get() {
         val current = _phone
         if (current != null) return current

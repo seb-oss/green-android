@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Play: ImageVector
+internal val Play: ImageVector
     get() {
         val current = _play
         if (current != null) return current

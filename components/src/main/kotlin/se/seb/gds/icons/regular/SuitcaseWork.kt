@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val SuitcaseWork: ImageVector
+internal val SuitcaseWork: ImageVector
     get() {
         val current = _suitcaseWork
         if (current != null) return current

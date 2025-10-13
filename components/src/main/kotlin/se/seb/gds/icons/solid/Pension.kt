@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Pension: ImageVector
+internal val Pension: ImageVector
     get() {
         val current = _pension
         if (current != null) return current

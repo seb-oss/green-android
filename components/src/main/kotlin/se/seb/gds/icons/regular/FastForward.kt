@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val FastForward: ImageVector
+internal val FastForward: ImageVector
     get() {
         val current = _fastForward
         if (current != null) return current

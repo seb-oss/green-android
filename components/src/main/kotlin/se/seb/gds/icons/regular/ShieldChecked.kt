@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val ShieldChecked: ImageVector
+internal val ShieldChecked: ImageVector
     get() {
         val current = _shieldChecked
         if (current != null) return current

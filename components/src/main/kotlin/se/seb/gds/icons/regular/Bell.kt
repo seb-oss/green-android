@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Bell: ImageVector
+internal val Bell: ImageVector
     get() {
         val current = _bell
         if (current != null) return current

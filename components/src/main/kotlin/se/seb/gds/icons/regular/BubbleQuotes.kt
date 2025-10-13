@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val BubbleQuotes: ImageVector
+internal val BubbleQuotes: ImageVector
     get() {
         val current = _bubbleQuotes
         if (current != null) return current

@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val PieChart: ImageVector
+internal val PieChart: ImageVector
     get() {
         val current = _pieChart
         if (current != null) return current

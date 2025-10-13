@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val MinusSmall: ImageVector
+internal val MinusSmall: ImageVector
     get() {
         val current = _minusSmall
         if (current != null) return current

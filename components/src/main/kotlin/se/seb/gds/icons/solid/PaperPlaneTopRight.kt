@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val PaperPlaneTopRight: ImageVector
+internal val PaperPlaneTopRight: ImageVector
     get() {
         val current = _paperPlaneTopRight
         if (current != null) return current

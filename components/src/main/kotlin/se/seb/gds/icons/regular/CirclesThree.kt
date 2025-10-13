@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val CirclesThree: ImageVector
+internal val CirclesThree: ImageVector
     get() {
         val current = _circlesThree
         if (current != null) return current

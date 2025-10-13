@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val CircleCheck: ImageVector
+internal val CircleCheck: ImageVector
     get() {
         val current = _circleCheck
         if (current != null) return current

@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Todos: ImageVector
+internal val Todos: ImageVector
     get() {
         val current = _todos
         if (current != null) return current

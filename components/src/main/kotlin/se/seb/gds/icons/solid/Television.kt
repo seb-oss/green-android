@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Television: ImageVector
+internal val Television: ImageVector
     get() {
         val current = _television
         if (current != null) return current

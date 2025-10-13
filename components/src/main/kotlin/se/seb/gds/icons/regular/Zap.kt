@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Zap: ImageVector
+internal val Zap: ImageVector
     get() {
         val current = _zap
         if (current != null) return current

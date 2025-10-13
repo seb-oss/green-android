@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Solar: ImageVector
+internal val Solar: ImageVector
     get() {
         val current = _solar
         if (current != null) return current

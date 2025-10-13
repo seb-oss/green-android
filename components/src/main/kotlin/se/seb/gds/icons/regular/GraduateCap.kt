@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val GraduateCap: ImageVector
+internal val GraduateCap: ImageVector
     get() {
         val current = _graduateCap
         if (current != null) return current

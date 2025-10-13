@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Brush: ImageVector
+internal val Brush: ImageVector
     get() {
         val current = _brush
         if (current != null) return current

@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Share: ImageVector
+internal val Share: ImageVector
     get() {
         val current = _share
         if (current != null) return current

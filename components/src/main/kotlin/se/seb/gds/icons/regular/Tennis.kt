@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Tennis: ImageVector
+internal val Tennis: ImageVector
     get() {
         val current = _tennis
         if (current != null) return current

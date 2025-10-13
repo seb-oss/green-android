@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Rainy: ImageVector
+internal val Rainy: ImageVector
     get() {
         val current = _rainy
         if (current != null) return current

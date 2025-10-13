@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val VolumeOff: ImageVector
+internal val VolumeOff: ImageVector
     get() {
         val current = _volumeOff
         if (current != null) return current

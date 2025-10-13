@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val SquarePlus: ImageVector
+internal val SquarePlus: ImageVector
     get() {
         val current = _squarePlus
         if (current != null) return current

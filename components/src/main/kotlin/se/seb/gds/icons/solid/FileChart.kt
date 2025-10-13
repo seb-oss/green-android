@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val FileChart: ImageVector
+internal val FileChart: ImageVector
     get() {
         val current = _fileChart
         if (current != null) return current

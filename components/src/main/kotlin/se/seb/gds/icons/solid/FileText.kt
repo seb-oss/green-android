@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val FileText: ImageVector
+internal val FileText: ImageVector
     get() {
         val current = _fileText
         if (current != null) return current

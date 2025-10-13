@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val HorizontalAlignmentBottom: ImageVector
+internal val HorizontalAlignmentBottom: ImageVector
     get() {
         val current = _horizontalAlignmentBottom
         if (current != null) return current

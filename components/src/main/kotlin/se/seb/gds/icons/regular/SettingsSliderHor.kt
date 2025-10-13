@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val SettingsSliderHor: ImageVector
+internal val SettingsSliderHor: ImageVector
     get() {
         val current = _settingsSliderHor
         if (current != null) return current

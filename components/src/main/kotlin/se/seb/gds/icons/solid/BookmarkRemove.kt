@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val BookmarkRemove: ImageVector
+internal val BookmarkRemove: ImageVector
     get() {
         val current = _bookmarkRemove
         if (current != null) return current

@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val DotGridOneVertical: ImageVector
+internal val DotGridOneVertical: ImageVector
     get() {
         val current = _dotGridOneVertical
         if (current != null) return current

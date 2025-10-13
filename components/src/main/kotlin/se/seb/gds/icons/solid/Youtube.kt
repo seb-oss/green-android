@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Youtube: ImageVector
+internal val Youtube: ImageVector
     get() {
         val current = _youtube
         if (current != null) return current

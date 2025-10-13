@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val PencilWave: ImageVector
+internal val PencilWave: ImageVector
     get() {
         val current = _pencilWave
         if (current != null) return current

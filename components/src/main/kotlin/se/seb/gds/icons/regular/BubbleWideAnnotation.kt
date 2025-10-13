@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val BubbleWideAnnotation: ImageVector
+internal val BubbleWideAnnotation: ImageVector
     get() {
         val current = _bubbleWideAnnotation
         if (current != null) return current

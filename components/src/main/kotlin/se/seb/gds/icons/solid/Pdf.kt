@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Pdf: ImageVector
+internal val Pdf: ImageVector
     get() {
         val current = _pdf
         if (current != null) return current

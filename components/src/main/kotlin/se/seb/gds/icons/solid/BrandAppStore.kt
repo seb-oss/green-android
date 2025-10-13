@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val BrandAppStore: ImageVector
+internal val BrandAppStore: ImageVector
     get() {
         val current = _brandAppStore
         if (current != null) return current

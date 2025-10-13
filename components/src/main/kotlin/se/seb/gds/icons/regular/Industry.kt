@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Industry: ImageVector
+internal val Industry: ImageVector
     get() {
         val current = _industry
         if (current != null) return current

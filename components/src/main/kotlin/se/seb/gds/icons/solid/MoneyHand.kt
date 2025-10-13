@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val MoneyHand: ImageVector
+internal val MoneyHand: ImageVector
     get() {
         val current = _moneyHand
         if (current != null) return current

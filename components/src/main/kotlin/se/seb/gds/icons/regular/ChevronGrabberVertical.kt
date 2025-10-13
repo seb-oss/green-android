@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val ChevronGrabberVertical: ImageVector
+internal val ChevronGrabberVertical: ImageVector
     get() {
         val current = _chevronGrabberVertical
         if (current != null) return current

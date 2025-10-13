@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Barcode: ImageVector
+internal val Barcode: ImageVector
     get() {
         val current = _barcode
         if (current != null) return current

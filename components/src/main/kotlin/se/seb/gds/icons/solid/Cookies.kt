@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Cookies: ImageVector
+internal val Cookies: ImageVector
     get() {
         val current = _cookies
         if (current != null) return current

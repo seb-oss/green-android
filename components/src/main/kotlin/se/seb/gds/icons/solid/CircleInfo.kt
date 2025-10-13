@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val CircleInfo: ImageVector
+internal val CircleInfo: ImageVector
     get() {
         val current = _circleInfo
         if (current != null) return current

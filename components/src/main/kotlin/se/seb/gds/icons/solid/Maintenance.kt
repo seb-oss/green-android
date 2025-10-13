@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Maintenance: ImageVector
+internal val Maintenance: ImageVector
     get() {
         val current = _maintenance
         if (current != null) return current

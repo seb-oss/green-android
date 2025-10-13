@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Calendar: ImageVector
+internal val Calendar: ImageVector
     get() {
         val current = _calendar
         if (current != null) return current

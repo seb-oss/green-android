@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val PiggyBank: ImageVector
+internal val PiggyBank: ImageVector
     get() {
         val current = _piggyBank
         if (current != null) return current

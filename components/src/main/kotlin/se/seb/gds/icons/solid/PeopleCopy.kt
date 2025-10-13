@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val PeopleCopy: ImageVector
+internal val PeopleCopy: ImageVector
     get() {
         val current = _peopleCopy
         if (current != null) return current

@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val RaisingHand: ImageVector
+internal val RaisingHand: ImageVector
     get() {
         val current = _raisingHand
         if (current != null) return current

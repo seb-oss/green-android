@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val TrendingThree: ImageVector
+internal val TrendingThree: ImageVector
     get() {
         val current = _trendingThree
         if (current != null) return current

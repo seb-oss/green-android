@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val ChargingStation: ImageVector
+internal val ChargingStation: ImageVector
     get() {
         val current = _chargingStation
         if (current != null) return current

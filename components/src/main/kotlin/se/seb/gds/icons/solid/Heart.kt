@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Heart: ImageVector
+internal val Heart: ImageVector
     get() {
         val current = _heart
         if (current != null) return current

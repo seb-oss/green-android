@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val MacbookAir: ImageVector
+internal val MacbookAir: ImageVector
     get() {
         val current = _macbookAir
         if (current != null) return current

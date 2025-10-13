@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val ArrowSplit: ImageVector
+internal val ArrowSplit: ImageVector
     get() {
         val current = _arrowSplit
         if (current != null) return current

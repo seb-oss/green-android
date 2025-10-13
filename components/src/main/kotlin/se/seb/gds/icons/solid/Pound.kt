@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Pound: ImageVector
+internal val Pound: ImageVector
     get() {
         val current = _pound
         if (current != null) return current

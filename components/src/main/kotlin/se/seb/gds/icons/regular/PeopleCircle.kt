@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val PeopleCircle: ImageVector
+internal val PeopleCircle: ImageVector
     get() {
         val current = _peopleCircle
         if (current != null) return current

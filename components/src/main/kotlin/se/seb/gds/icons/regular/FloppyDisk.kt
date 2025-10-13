@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val FloppyDisk: ImageVector
+internal val FloppyDisk: ImageVector
     get() {
         val current = _floppyDisk
         if (current != null) return current

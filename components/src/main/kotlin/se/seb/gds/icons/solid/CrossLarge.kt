@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val CrossLarge: ImageVector
+internal val CrossLarge: ImageVector
     get() {
         val current = _crossLarge
         if (current != null) return current

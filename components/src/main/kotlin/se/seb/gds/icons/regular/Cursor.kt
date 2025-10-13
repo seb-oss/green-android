@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Cursor: ImageVector
+internal val Cursor: ImageVector
     get() {
         val current = _cursor
         if (current != null) return current

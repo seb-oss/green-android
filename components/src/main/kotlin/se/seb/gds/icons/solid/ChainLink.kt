@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val ChainLink: ImageVector
+internal val ChainLink: ImageVector
     get() {
         val current = _chainLink
         if (current != null) return current

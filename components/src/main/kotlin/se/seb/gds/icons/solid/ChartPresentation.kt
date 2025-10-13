@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val ChartPresentation: ImageVector
+internal val ChartPresentation: ImageVector
     get() {
         val current = _chartPresentation
         if (current != null) return current

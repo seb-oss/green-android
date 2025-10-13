@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Shield: ImageVector
+internal val Shield: ImageVector
     get() {
         val current = _shield
         if (current != null) return current

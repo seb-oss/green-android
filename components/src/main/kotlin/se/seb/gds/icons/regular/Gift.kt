@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Gift: ImageVector
+internal val Gift: ImageVector
     get() {
         val current = _gift
         if (current != null) return current

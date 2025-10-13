@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val ArrowWallRight: ImageVector
+internal val ArrowWallRight: ImageVector
     get() {
         val current = _arrowWallRight
         if (current != null) return current

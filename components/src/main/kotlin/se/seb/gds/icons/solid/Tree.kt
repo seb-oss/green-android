@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Tree: ImageVector
+internal val Tree: ImageVector
     get() {
         val current = _tree
         if (current != null) return current

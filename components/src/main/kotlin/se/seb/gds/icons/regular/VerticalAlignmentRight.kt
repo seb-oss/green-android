@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val VerticalAlignmentRight: ImageVector
+internal val VerticalAlignmentRight: ImageVector
     get() {
         val current = _verticalAlignmentRight
         if (current != null) return current

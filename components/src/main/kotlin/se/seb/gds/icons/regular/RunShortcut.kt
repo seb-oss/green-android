@@ -19,7 +19,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val RunShortcut: ImageVector
+internal val RunShortcut: ImageVector
     get() {
         val current = _runShortcut
         if (current != null) return current

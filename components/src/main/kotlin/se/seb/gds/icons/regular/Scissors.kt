@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Scissors: ImageVector
+internal val Scissors: ImageVector
     get() {
         val current = _scissors
         if (current != null) return current

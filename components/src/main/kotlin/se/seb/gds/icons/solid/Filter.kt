@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Filter: ImageVector
+internal val Filter: ImageVector
     get() {
         val current = _filter
         if (current != null) return current

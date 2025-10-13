@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val BarsTwo: ImageVector
+internal val BarsTwo: ImageVector
     get() {
         val current = _barsTwo
         if (current != null) return current

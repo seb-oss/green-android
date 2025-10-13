@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Paperclip: ImageVector
+internal val Paperclip: ImageVector
     get() {
         val current = _paperclip
         if (current != null) return current

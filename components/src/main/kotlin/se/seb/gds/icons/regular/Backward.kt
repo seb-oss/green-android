@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Backward: ImageVector
+internal val Backward: ImageVector
     get() {
         val current = _backward
         if (current != null) return current

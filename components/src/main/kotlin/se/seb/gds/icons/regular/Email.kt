@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Email: ImageVector
+internal val Email: ImageVector
     get() {
         val current = _email
         if (current != null) return current

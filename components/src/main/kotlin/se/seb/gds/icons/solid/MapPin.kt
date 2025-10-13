@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val MapPin: ImageVector
+internal val MapPin: ImageVector
     get() {
         val current = _mapPin
         if (current != null) return current

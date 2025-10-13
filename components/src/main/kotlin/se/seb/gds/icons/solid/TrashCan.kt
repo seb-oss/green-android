@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val TrashCan: ImageVector
+internal val TrashCan: ImageVector
     get() {
         val current = _trashCan
         if (current != null) return current

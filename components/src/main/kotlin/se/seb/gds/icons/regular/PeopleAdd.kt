@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val PeopleAdd: ImageVector
+internal val PeopleAdd: ImageVector
     get() {
         val current = _peopleAdd
         if (current != null) return current

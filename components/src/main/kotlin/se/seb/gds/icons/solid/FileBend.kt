@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val FileBend: ImageVector
+internal val FileBend: ImageVector
     get() {
         val current = _fileBend
         if (current != null) return current

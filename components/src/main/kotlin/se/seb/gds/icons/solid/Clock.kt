@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Clock: ImageVector
+internal val Clock: ImageVector
     get() {
         val current = _clock
         if (current != null) return current

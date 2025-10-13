@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val BrandChrome: ImageVector
+internal val BrandChrome: ImageVector
     get() {
         val current = _brandChrome
         if (current != null) return current

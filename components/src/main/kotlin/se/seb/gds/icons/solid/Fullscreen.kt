@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Fullscreen: ImageVector
+internal val Fullscreen: ImageVector
     get() {
         val current = _fullscreen
         if (current != null) return current

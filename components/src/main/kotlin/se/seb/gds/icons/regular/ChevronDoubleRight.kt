@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val ChevronDoubleRight: ImageVector
+internal val ChevronDoubleRight: ImageVector
     get() {
         val current = _chevronDoubleRight
         if (current != null) return current

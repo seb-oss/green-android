@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Office: ImageVector
+internal val Office: ImageVector
     get() {
         val current = _office
         if (current != null) return current

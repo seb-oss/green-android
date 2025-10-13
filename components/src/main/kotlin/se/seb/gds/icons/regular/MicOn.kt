@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val MicOn: ImageVector
+internal val MicOn: ImageVector
     get() {
         val current = _micOn
         if (current != null) return current

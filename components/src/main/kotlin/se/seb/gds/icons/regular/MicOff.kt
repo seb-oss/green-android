@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val MicOff: ImageVector
+internal val MicOff: ImageVector
     get() {
         val current = _micOff
         if (current != null) return current

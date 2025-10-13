@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val LineChartThree: ImageVector
+internal val LineChartThree: ImageVector
     get() {
         val current = _lineChartThree
         if (current != null) return current

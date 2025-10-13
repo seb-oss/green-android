@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val CircleDots: ImageVector
+internal val CircleDots: ImageVector
     get() {
         val current = _circleDots
         if (current != null) return current

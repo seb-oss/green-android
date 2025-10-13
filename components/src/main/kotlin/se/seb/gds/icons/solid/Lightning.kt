@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Lightning: ImageVector
+internal val Lightning: ImageVector
     get() {
         val current = _lightning
         if (current != null) return current

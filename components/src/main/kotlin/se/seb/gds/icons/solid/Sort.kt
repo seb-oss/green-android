@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Sort: ImageVector
+internal val Sort: ImageVector
     get() {
         val current = _sort
         if (current != null) return current

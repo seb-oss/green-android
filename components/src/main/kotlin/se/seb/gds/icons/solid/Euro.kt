@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Euro: ImageVector
+internal val Euro: ImageVector
     get() {
         val current = _euro
         if (current != null) return current

@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val GreenPower: ImageVector
+internal val GreenPower: ImageVector
     get() {
         val current = _greenPower
         if (current != null) return current

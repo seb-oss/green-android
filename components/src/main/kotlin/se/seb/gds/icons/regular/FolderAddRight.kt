@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val FolderAddRight: ImageVector
+internal val FolderAddRight: ImageVector
     get() {
         val current = _folderAddRight
         if (current != null) return current

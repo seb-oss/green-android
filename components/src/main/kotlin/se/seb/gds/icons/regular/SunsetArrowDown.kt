@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val SunsetArrowDown: ImageVector
+internal val SunsetArrowDown: ImageVector
     get() {
         val current = _sunsetArrowDown
         if (current != null) return current

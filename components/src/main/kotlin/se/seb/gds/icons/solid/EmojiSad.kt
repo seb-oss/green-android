@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val EmojiSad: ImageVector
+internal val EmojiSad: ImageVector
     get() {
         val current = _emojiSad
         if (current != null) return current

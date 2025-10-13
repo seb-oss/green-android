@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val BrandSeb: ImageVector
+internal val BrandSeb: ImageVector
     get() {
         val current = _brandSeb
         if (current != null) return current

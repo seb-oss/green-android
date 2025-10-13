@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Book: ImageVector
+internal val Book: ImageVector
     get() {
         val current = _book
         if (current != null) return current

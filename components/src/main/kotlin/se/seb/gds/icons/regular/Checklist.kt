@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Checklist: ImageVector
+internal val Checklist: ImageVector
     get() {
         val current = _checklist
         if (current != null) return current

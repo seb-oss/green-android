@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val PowerPlant: ImageVector
+internal val PowerPlant: ImageVector
     get() {
         val current = _powerPlant
         if (current != null) return current

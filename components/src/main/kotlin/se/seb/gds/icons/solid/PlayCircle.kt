@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val PlayCircle: ImageVector
+internal val PlayCircle: ImageVector
     get() {
         val current = _playCircle
         if (current != null) return current

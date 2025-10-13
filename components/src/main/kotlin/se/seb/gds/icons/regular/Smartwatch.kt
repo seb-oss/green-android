@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Smartwatch: ImageVector
+internal val Smartwatch: ImageVector
     get() {
         val current = _smartwatch
         if (current != null) return current
