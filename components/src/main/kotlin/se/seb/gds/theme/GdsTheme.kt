@@ -27,7 +27,7 @@ fun GdsTheme(content: @Composable () -> Unit) {
         LocalLegacyColors provides legacyColors,
         LocalGdsTypography provides GdsTypography,
         LocalLegacyTypography provides LegacyTypography,
-        content = content
+        content = content,
     )
 }
 

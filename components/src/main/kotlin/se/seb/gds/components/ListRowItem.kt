@@ -26,7 +26,7 @@ object ListRowItem {
         @Composable
         fun StartIcon(
             icon: ImageVector,
-            contentDescription: String? = null
+            contentDescription: String? = null,
         ) {
             Icon(
                 modifier = Modifier.size(24.dp),
@@ -38,7 +38,7 @@ object ListRowItem {
         @Composable
         fun EndIcon(
             icon: ImageVector,
-            contentDescription: String? = null
+            contentDescription: String? = null,
         ) {
             Icon(
                 modifier = Modifier.size(24.dp),
@@ -61,7 +61,7 @@ object ListRowItem {
         fun EndLabelWithIcon(
             text: String,
             icon: ImageVector,
-            contentDescription: String? = null
+            contentDescription: String? = null,
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -140,6 +140,5 @@ private fun ListRowItemPreview() {
                 },
             )
         }
-
     }
 }
