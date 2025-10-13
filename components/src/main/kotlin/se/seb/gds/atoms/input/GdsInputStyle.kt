@@ -149,13 +149,13 @@ object GdsInputDefaults {
     @Composable
     fun inputTextStyle() =
         GdsInputTextStyle(
-            smallLabelStyle = GdsTheme.typography.DetailBookSmall,
-            largeLabelStyle = GdsTheme.typography.DetailBookMedium,
-            inputTextStyle = GdsTheme.typography.DetailBookMedium,
-            footerMessageStyle = GdsTheme.typography.DetailRegularSmall,
-            labelStyle = GdsTheme.typography.DetailBookMedium,
-            supportLabelStyle = GdsTheme.typography.DetailRegularSmall,
-            characterCounter = GdsTheme.typography.DetailBookSmall,
+            smallLabelStyle = GdsTheme.typography.DetailBookS,
+            largeLabelStyle = GdsTheme.typography.DetailBookM,
+            inputTextStyle = GdsTheme.typography.DetailBookM,
+            footerMessageStyle = GdsTheme.typography.DetailRegularS,
+            labelStyle = GdsTheme.typography.DetailBookM,
+            supportLabelStyle = GdsTheme.typography.DetailRegularS,
+            characterCounter = GdsTheme.typography.DetailBookS,
         )
 }
 

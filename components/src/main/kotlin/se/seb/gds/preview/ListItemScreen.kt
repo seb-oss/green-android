@@ -1,30 +1,118 @@
 package se.seb.gds.preview
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import se.seb.gds.components.ListRowItem
-import se.seb.gds.components.ListRowItemSize
-import se.seb.gds.icons.SebIcons
+import se.seb.gds.icons.GdsIcons
+import se.seb.gds.theme.GdsTheme
 
 @Preview
 @Composable
 fun ListItemScreen() {
-    Column(modifier = Modifier.fillMaxSize()) {
-        ListRowItem(title = "ListRowItem Big")
-        HorizontalDivider()
-        ListRowItem(title = "ListRowItem Big", startIcon = null, endIcon = SebIcons.RightChevron)
-        HorizontalDivider()
-        ListRowItem(title = "ListRowItem Big", startIcon = SebIcons.Check, endIcon = SebIcons.RightChevron)
-        HorizontalDivider()
-        ListRowItem(title = "ListRowItem Small", size = ListRowItemSize.SMALL)
-        HorizontalDivider()
-        ListRowItem(title = "ListRowItem Small", size = ListRowItemSize.SMALL, startIcon = null, endIcon = SebIcons.RightChevron)
-        HorizontalDivider()
-        ListRowItem(title = "ListRowItem Small", size = ListRowItemSize.SMALL, startIcon = SebIcons.Check, endIcon = SebIcons.RightChevron)
-        HorizontalDivider()
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(GdsTheme.colors.L1Neutral01),
+    ) {
+        ListRowItem(
+            title = "Label 01",
+        )
+        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        ListRowItem(
+            title = "Label 01",
+            endSlot = {
+                EndIcon(
+                    icon = GdsIcons.Regular.ChevronRight,
+                    contentDescription = "Chevron right icon",
+                )
+            },
+        )
+        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        ListRowItem(
+            title = "Label 01",
+            startSlot = {
+                StartIcon(
+                    icon = GdsIcons.Regular.Bell,
+                    contentDescription = "Bell icon",
+                )
+            },
+            endSlot = {
+                EndIcon(
+                    icon = GdsIcons.Regular.ChevronRight,
+                    contentDescription = "Chevron right icon",
+                )
+            },
+        )
+        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        ListRowItem(
+            title = "Label 01",
+            description = "Subtitle",
+        )
+        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        ListRowItem(
+            title = "Label 01",
+            description = "Subtitle",
+            endSlot = {
+                EndIcon(
+                    icon = GdsIcons.Regular.ChevronRight,
+                    contentDescription = "Chevron right icon",
+                )
+            },
+        )
+        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        ListRowItem(
+            title = "Label 01",
+            description = "Subtitle",
+            startSlot = {
+                StartIcon(
+                    icon = GdsIcons.Regular.Bell,
+                    contentDescription = "Bell icon",
+                )
+            },
+            endSlot = {
+                EndIcon(
+                    icon = GdsIcons.Regular.ChevronRight,
+                    contentDescription = "Chevron right icon",
+                )
+            },
+        )
+        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        ListRowItem(
+            title = "Label 01",
+            description = "Subtitle",
+            startSlot = {
+                StartIcon(
+                    icon = GdsIcons.Regular.Bell,
+                    contentDescription = "Bell icon",
+                )
+            },
+            endSlot = {
+                EndLabel(text = "Label 02")
+            },
+        )
+        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        ListRowItem(
+            title = "Label 01",
+            description = "Subtitle",
+            startSlot = {
+                StartIcon(
+                    icon = GdsIcons.Regular.Bell,
+                    contentDescription = "Bell icon",
+                )
+            },
+            endSlot = {
+                EndLabelWithIcon(
+                    text = "Label 02",
+                    icon = GdsIcons.Regular.ChevronRight,
+                    contentDescription = "Chevron right icon",
+                )
+            },
+        )
     }
 }

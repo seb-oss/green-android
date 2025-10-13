@@ -151,18 +151,6 @@ internal fun FontsScreen(scrollState: ScrollState) {
             name = "PreambleXs",
             style = GdsTheme.typography.PreambleXs,
         )
-        FontText(
-            name = "DetailMediumLarge",
-            style = GdsTheme.typography.DetailMediumLarge,
-        )
-        FontText(
-            name = "DetailBookLarge",
-            style = GdsTheme.typography.DetailBookLarge,
-        )
-        FontText(
-            name = "DetailBookMedium",
-            style = GdsTheme.typography.DetailBookMedium,
-        )
     }
 }
 

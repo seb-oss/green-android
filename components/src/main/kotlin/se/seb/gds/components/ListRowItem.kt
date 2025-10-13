@@ -3,10 +3,10 @@ package se.seb.gds.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -18,47 +18,102 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import se.seb.gds.icons.SebIcons
+import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
-@Composable
-fun ListRowItem(
-    title: String,
-    modifier: Modifier = Modifier,
-    size: ListRowItemSize = ListRowItemSize.BIG,
-    startIcon: ImageVector? = null,
-    endIcon: ImageVector? = null,
-    onClick: () -> Unit = { },
-) {
-    val height = when (size) {
-        ListRowItemSize.BIG -> 64.dp
-        ListRowItemSize.SMALL -> 48.dp
-    }
-    Row(
-        modifier = modifier
-            .clickable(onClick = onClick)
-            .heightIn(min = height)
-            .fillMaxWidth()
-            .padding(horizontal = 20.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        startIcon?.let {
-            Icon(modifier = Modifier.size(24.dp), imageVector = startIcon, contentDescription = null)
-            Spacer(modifier = Modifier.width(16.dp))
-        }
-        Text(
-            modifier = Modifier.weight(1f),
-            text = title,
-            style = GdsTheme.typography.DetailBookLarge,
-            color = GdsTheme.colors.ContentNeutral01,
-        )
-        endIcon?.let {
+object ListRowItem {
+    class RowItemScope {
+        @Composable
+        fun StartIcon(
+            icon: ImageVector,
+            contentDescription: String? = null
+        ) {
             Icon(
                 modifier = Modifier.size(24.dp),
-                imageVector = endIcon,
-                tint = GdsTheme.colors.ContentNeutral02,
-                contentDescription = null,
+                imageVector = icon,
+                contentDescription = contentDescription,
             )
+        }
+
+        @Composable
+        fun EndIcon(
+            icon: ImageVector,
+            contentDescription: String? = null
+        ) {
+            Icon(
+                modifier = Modifier.size(24.dp),
+                imageVector = icon,
+                tint = GdsTheme.colors.ContentNeutral04,
+                contentDescription = contentDescription,
+            )
+        }
+
+        @Composable
+        fun EndLabel(text: String) {
+            Text(
+                text = text,
+                style = GdsTheme.typography.DetailBookM,
+                color = GdsTheme.colors.ContentNeutral01,
+            )
+        }
+
+        @Composable
+        fun EndLabelWithIcon(
+            text: String,
+            icon: ImageVector,
+            contentDescription: String? = null
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                EndLabel(text = text)
+                Spacer(modifier = Modifier.width(12.dp))
+                EndIcon(
+                    icon = icon,
+                    contentDescription = contentDescription,
+                )
+            }
+        }
+    }
+
+    @Composable
+    operator fun invoke(
+        title: String,
+        modifier: Modifier = Modifier,
+        description: String? = null,
+        startSlot: (@Composable RowItemScope.() -> Unit)? = null,
+        endSlot: (@Composable RowItemScope.() -> Unit)? = null,
+        onClick: () -> Unit = { },
+    ) {
+        val iconScope = RowItemScope()
+        Row(
+            modifier = modifier
+                .clickable(onClick = onClick)
+                .fillMaxWidth()
+                .padding(horizontal = 20.dp, vertical = 16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            startSlot?.let {
+                with(iconScope) { it() }
+                Spacer(modifier = Modifier.width(16.dp))
+            }
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = title,
+                    style = GdsTheme.typography.DetailBookM,
+                    color = GdsTheme.colors.ContentNeutral01,
+                )
+                description?.let {
+                    Text(
+                        text = it,
+                        style = GdsTheme.typography.DetailRegularS,
+                        color = GdsTheme.colors.ContentNeutral02,
+                    )
+                }
+            }
+            endSlot?.let {
+                with(iconScope) { it() }
+            }
         }
     }
 }
@@ -69,9 +124,20 @@ private fun ListRowItemPreview() {
     GdsTheme {
         Box(modifier = Modifier.background(color = GdsTheme.colors.L1Neutral01)) {
             ListRowItem(
-                startIcon = SebIcons.Check,
+                startSlot = {
+                    StartIcon(
+                        icon = GdsIcons.Regular.Bell,
+                        contentDescription = "Bell icon",
+                    )
+                },
                 title = "Konton",
-                endIcon = SebIcons.RightChevron,
+                description = "0213-1231412",
+                endSlot = {
+                    EndIcon(
+                        icon = GdsIcons.Regular.ChevronRight,
+                        contentDescription = "Chevron right icon",
+                    )
+                },
             )
         }
 
