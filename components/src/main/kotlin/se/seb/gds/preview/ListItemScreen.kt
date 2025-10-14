@@ -3,6 +3,7 @@ package se.seb.gds.preview
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,8 +19,25 @@ fun ListItemScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(GdsTheme.colors.L1Neutral01),
+            .background(GdsTheme.colors.L1Neutral02),
     ) {
+
+        CardColumn(modifier = Modifier.padding(16.dp)) {
+            ListRowItem(
+                title = "Label 01",
+            )
+            HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+            ListRowItem(
+                title = "Label 01",
+                endSlot = {
+                    EndIcon(
+                        icon = GdsIcons.Regular.ChevronRight,
+                        contentDescription = "Chevron right icon",
+                    )
+                },
+            )
+        }
+
         ListRowItem(
             title = "Label 01",
         )

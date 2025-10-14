@@ -28,7 +28,7 @@ internal fun CardColumn(
         modifier = modifier
             .fillMaxWidth()
             .shadow(
-                elevation = 4.dp,
+                elevation = 1.dp,
                 shape = RoundedCornerShape(12.dp),
                 ambientColor = GdsTheme.legacyColors.onSecondary.copy(.4f),
             )
