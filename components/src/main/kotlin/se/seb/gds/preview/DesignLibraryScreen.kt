@@ -123,6 +123,8 @@ internal fun DesignLibraryScreen(
                 LibraryScreen.TOP_BAR -> TopBarScreen()
 
                 LibraryScreen.ICONS -> IconsScreen()
+
+                LibraryScreen.LIST_ITEM -> ListItemScreen()
             }
         }
     }
@@ -159,6 +161,8 @@ private fun DesignLibrary(
             ListItem("Input") { onNavigateToSection(LibraryScreen.INPUT) }
             HorizontalDivider()
             ListItem("Top Bar") { onNavigateToSection(LibraryScreen.TOP_BAR) }
+            HorizontalDivider()
+            ListItem("List items") { onNavigateToSection(LibraryScreen.LIST_ITEM) }
         }
     }
 }

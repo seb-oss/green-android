@@ -256,7 +256,7 @@ object GdsButtonDefaults {
                 widthType = ButtonWidthType.Full,
                 shape = RoundedCornerShape(16.dp),
                 horizontalPadding = 16.dp,
-                textStyle = GdsTheme.typography.DetailBookMedium,
+                textStyle = GdsTheme.typography.DetailBookM,
                 iconSize = 16.dp,
                 iconSpacing = 4.dp,
             )
