@@ -99,7 +99,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
             SwitchRow("Icon", checked = hasIcon) {
                 hasIcon = it
             }
-            val icon = hasIcon.takeIf { it }?.let { GdsIcons.Solid.Checkmark }
+            val icon = hasIcon.takeIf { it }?.let { GdsIcons.Regular.ArrowRight }
 
             var iconPosition by rememberSaveable { mutableStateOf("Left") }
             if (hasIcon) {
