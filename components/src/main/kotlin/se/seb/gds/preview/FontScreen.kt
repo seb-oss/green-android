@@ -6,12 +6,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import se.seb.gds.atoms.GdsText
 import se.seb.gds.theme.GdsTheme
 
 @Composable
@@ -171,5 +171,5 @@ fun FontText(
         "$name ${fontSize.value}/${lineHeight.value}${fontWeight?.name()}"
     }
 
-    Text(text = title, style = style)
+    GdsText(label = title, style = style)
 }

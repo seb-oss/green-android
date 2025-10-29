@@ -11,13 +11,13 @@ import se.seb.gds.theme.GdsTheme
 fun GdsText(
     modifier: Modifier = Modifier,
     label: String,
-    color: Color?,
-    style: TextStyle?,
+    color: Color = GdsTheme.colors.ContentNeutral01,
+    style: TextStyle = GdsTheme.typography.BodyBookM,
 ) {
     Text(
         modifier = modifier,
         text = label,
-        style = style ?: GdsTheme.legacyTypography.Body,
-        color = color ?: GdsTheme.colors.ContentNeutral01,
+        style = style,
+        color = color,
     )
 }
