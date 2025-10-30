@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="common_action_close">Stäng</string>
     <string name="text_field">Textfält</string>
     <string name="text_field_error_in_field">Det finns ett fel i fältet.</string>
     <string name="text_field_edit">ändra</string>

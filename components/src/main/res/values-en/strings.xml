@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="common_action_close">Close</string>
     <string name="text_field">Text field</string>
     <string name="text_field_error_in_field">There is an error in the field.</string>
     <string name="text_field_edit">edit</string>

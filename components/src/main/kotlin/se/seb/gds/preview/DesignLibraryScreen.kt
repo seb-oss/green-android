@@ -14,8 +14,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -125,6 +123,8 @@ internal fun DesignLibraryScreen(
                 LibraryScreen.ICONS -> IconsScreen()
 
                 LibraryScreen.LIST_ITEM -> ListItemScreen()
+
+                LibraryScreen.BOTTOM_SHEET -> BottomSheetScreen()
             }
         }
     }
@@ -163,6 +163,8 @@ private fun DesignLibrary(
             ListItem("Top Bar") { onNavigateToSection(LibraryScreen.TOP_BAR) }
             HorizontalDivider()
             ListItem("List items") { onNavigateToSection(LibraryScreen.LIST_ITEM) }
+            HorizontalDivider()
+            ListItem("Bottom Sheet") { onNavigateToSection(LibraryScreen.BOTTOM_SHEET) }
         }
     }
 }
