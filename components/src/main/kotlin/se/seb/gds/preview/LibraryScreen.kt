@@ -11,4 +11,5 @@ internal enum class LibraryScreen {
     TOP_BAR,
     ICONS,
     LIST_ITEM,
+    BOTTOM_SHEET,
 }
