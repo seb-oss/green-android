@@ -108,7 +108,9 @@ object GdsIcons {
         val ChevronDownSmall = se.seb.gds.icons.solid.ChevronDownSmall
         val ChevronGrabberVertical = se.seb.gds.icons.solid.ChevronGrabberVertical
         val ChevronLeft = se.seb.gds.icons.solid.ChevronLeft
+        val ChevronLeftSmall = se.seb.gds.icons.solid.ChevronLeftSmall
         val ChevronRight = se.seb.gds.icons.solid.ChevronRight
+        val ChevronRightSmall = se.seb.gds.icons.solid.ChevronRightSmall
         val ChevronTop = se.seb.gds.icons.solid.ChevronTop
         val ChevronTopSmall = se.seb.gds.icons.solid.ChevronTopSmall
         val CircleBan = se.seb.gds.icons.solid.CircleBan
@@ -149,6 +151,7 @@ object GdsIcons {
         val EmojiSmile = se.seb.gds.icons.solid.EmojiSmile
         val EmojiSmiley = se.seb.gds.icons.solid.EmojiSmiley
         val Euro = se.seb.gds.icons.solid.Euro
+        val Expand = se.seb.gds.icons.solid.Expand
         val EyeOpen = se.seb.gds.icons.solid.EyeOpen
         val EyeSlash = se.seb.gds.icons.solid.EyeSlash
         val Fashion = se.seb.gds.icons.solid.Fashion
@@ -209,6 +212,7 @@ object GdsIcons {
         val MenuSidebar = se.seb.gds.icons.solid.MenuSidebar
         val MicOff = se.seb.gds.icons.solid.MicOff
         val MicOn = se.seb.gds.icons.solid.MicOn
+        val Minimize = se.seb.gds.icons.solid.Minimize
         val MinusLarge = se.seb.gds.icons.solid.MinusLarge
         val MinusSmall = se.seb.gds.icons.solid.MinusSmall
         val Moneybag = se.seb.gds.icons.solid.Moneybag
@@ -285,6 +289,10 @@ object GdsIcons {
         val Solar = se.seb.gds.icons.solid.Solar
         val SolarPanel = se.seb.gds.icons.solid.SolarPanel
         val Sort = se.seb.gds.icons.solid.Sort
+        val SortAscending = se.seb.gds.icons.solid.SortAscending
+        val SortDescending = se.seb.gds.icons.solid.SortDescending
+        val SortDown = se.seb.gds.icons.solid.SortDown
+        val SortUp = se.seb.gds.icons.solid.SortUp
         val SquareArrowTopRight = se.seb.gds.icons.solid.SquareArrowTopRight
         val SquareBehindSquare = se.seb.gds.icons.solid.SquareBehindSquare
         val SquareCheck = se.seb.gds.icons.solid.SquareCheck
@@ -436,7 +444,9 @@ object GdsIcons {
         val ChevronDownSmall = se.seb.gds.icons.regular.ChevronDownSmall
         val ChevronGrabberVertical = se.seb.gds.icons.regular.ChevronGrabberVertical
         val ChevronLeft = se.seb.gds.icons.regular.ChevronLeft
+        val ChevronLeftSmall = se.seb.gds.icons.regular.ChevronLeftSmall
         val ChevronRight = se.seb.gds.icons.regular.ChevronRight
+        val ChevronRightSmall = se.seb.gds.icons.regular.ChevronRightSmall
         val ChevronTop = se.seb.gds.icons.regular.ChevronTop
         val ChevronTopSmall = se.seb.gds.icons.regular.ChevronTopSmall
         val CircleBan = se.seb.gds.icons.regular.CircleBan
@@ -477,6 +487,7 @@ object GdsIcons {
         val EmojiSmile = se.seb.gds.icons.regular.EmojiSmile
         val EmojiSmiley = se.seb.gds.icons.regular.EmojiSmiley
         val Euro = se.seb.gds.icons.regular.Euro
+        val Expand = se.seb.gds.icons.regular.Expand
         val EyeOpen = se.seb.gds.icons.regular.EyeOpen
         val EyeSlash = se.seb.gds.icons.regular.EyeSlash
         val Fashion = se.seb.gds.icons.regular.Fashion
@@ -537,6 +548,7 @@ object GdsIcons {
         val MenuSidebar = se.seb.gds.icons.regular.MenuSidebar
         val MicOff = se.seb.gds.icons.regular.MicOff
         val MicOn = se.seb.gds.icons.regular.MicOn
+        val Minimize = se.seb.gds.icons.regular.Minimize
         val MinusLarge = se.seb.gds.icons.regular.MinusLarge
         val MinusSmall = se.seb.gds.icons.regular.MinusSmall
         val Moneybag = se.seb.gds.icons.regular.Moneybag
@@ -613,6 +625,10 @@ object GdsIcons {
         val Solar = se.seb.gds.icons.regular.Solar
         val SolarPanel = se.seb.gds.icons.regular.SolarPanel
         val Sort = se.seb.gds.icons.regular.Sort
+        val SortAscending = se.seb.gds.icons.regular.SortAscending
+        val SortDescending = se.seb.gds.icons.regular.SortDescending
+        val SortDown = se.seb.gds.icons.regular.SortDown
+        val SortUp = se.seb.gds.icons.regular.SortUp
         val SquareArrowTopRight = se.seb.gds.icons.regular.SquareArrowTopRight
         val SquareBehindSquare = se.seb.gds.icons.regular.SquareBehindSquare
         val SquareCheck = se.seb.gds.icons.regular.SquareCheck
@@ -764,7 +780,9 @@ object GdsIcons {
         "Solid.ChevronDownSmall" to Solid.ChevronDownSmall,
         "Solid.ChevronGrabberVertical" to Solid.ChevronGrabberVertical,
         "Solid.ChevronLeft" to Solid.ChevronLeft,
+        "Solid.ChevronLeftSmall" to Solid.ChevronLeftSmall,
         "Solid.ChevronRight" to Solid.ChevronRight,
+        "Solid.ChevronRightSmall" to Solid.ChevronRightSmall,
         "Solid.ChevronTop" to Solid.ChevronTop,
         "Solid.ChevronTopSmall" to Solid.ChevronTopSmall,
         "Solid.CircleBan" to Solid.CircleBan,
@@ -805,6 +823,7 @@ object GdsIcons {
         "Solid.EmojiSmile" to Solid.EmojiSmile,
         "Solid.EmojiSmiley" to Solid.EmojiSmiley,
         "Solid.Euro" to Solid.Euro,
+        "Solid.Expand" to Solid.Expand,
         "Solid.EyeOpen" to Solid.EyeOpen,
         "Solid.EyeSlash" to Solid.EyeSlash,
         "Solid.Fashion" to Solid.Fashion,
@@ -865,6 +884,7 @@ object GdsIcons {
         "Solid.MenuSidebar" to Solid.MenuSidebar,
         "Solid.MicOff" to Solid.MicOff,
         "Solid.MicOn" to Solid.MicOn,
+        "Solid.Minimize" to Solid.Minimize,
         "Solid.MinusLarge" to Solid.MinusLarge,
         "Solid.MinusSmall" to Solid.MinusSmall,
         "Solid.Moneybag" to Solid.Moneybag,
@@ -941,6 +961,10 @@ object GdsIcons {
         "Solid.Solar" to Solid.Solar,
         "Solid.SolarPanel" to Solid.SolarPanel,
         "Solid.Sort" to Solid.Sort,
+        "Solid.SortAscending" to Solid.SortAscending,
+        "Solid.SortDescending" to Solid.SortDescending,
+        "Solid.SortDown" to Solid.SortDown,
+        "Solid.SortUp" to Solid.SortUp,
         "Solid.SquareArrowTopRight" to Solid.SquareArrowTopRight,
         "Solid.SquareBehindSquare" to Solid.SquareBehindSquare,
         "Solid.SquareCheck" to Solid.SquareCheck,
@@ -1089,7 +1113,9 @@ object GdsIcons {
         "Regular.ChevronDownSmall" to Regular.ChevronDownSmall,
         "Regular.ChevronGrabberVertical" to Regular.ChevronGrabberVertical,
         "Regular.ChevronLeft" to Regular.ChevronLeft,
+        "Regular.ChevronLeftSmall" to Regular.ChevronLeftSmall,
         "Regular.ChevronRight" to Regular.ChevronRight,
+        "Regular.ChevronRightSmall" to Regular.ChevronRightSmall,
         "Regular.ChevronTop" to Regular.ChevronTop,
         "Regular.ChevronTopSmall" to Regular.ChevronTopSmall,
         "Regular.CircleBan" to Regular.CircleBan,
@@ -1130,6 +1156,7 @@ object GdsIcons {
         "Regular.EmojiSmile" to Regular.EmojiSmile,
         "Regular.EmojiSmiley" to Regular.EmojiSmiley,
         "Regular.Euro" to Regular.Euro,
+        "Regular.Expand" to Regular.Expand,
         "Regular.EyeOpen" to Regular.EyeOpen,
         "Regular.EyeSlash" to Regular.EyeSlash,
         "Regular.Fashion" to Regular.Fashion,
@@ -1190,6 +1217,7 @@ object GdsIcons {
         "Regular.MenuSidebar" to Regular.MenuSidebar,
         "Regular.MicOff" to Regular.MicOff,
         "Regular.MicOn" to Regular.MicOn,
+        "Regular.Minimize" to Regular.Minimize,
         "Regular.MinusLarge" to Regular.MinusLarge,
         "Regular.MinusSmall" to Regular.MinusSmall,
         "Regular.Moneybag" to Regular.Moneybag,
@@ -1266,6 +1294,10 @@ object GdsIcons {
         "Regular.Solar" to Regular.Solar,
         "Regular.SolarPanel" to Regular.SolarPanel,
         "Regular.Sort" to Regular.Sort,
+        "Regular.SortAscending" to Regular.SortAscending,
+        "Regular.SortDescending" to Regular.SortDescending,
+        "Regular.SortDown" to Regular.SortDown,
+        "Regular.SortUp" to Regular.SortUp,
         "Regular.SquareArrowTopRight" to Regular.SquareArrowTopRight,
         "Regular.SquareBehindSquare" to Regular.SquareBehindSquare,
         "Regular.SquareCheck" to Regular.SquareCheck,
@@ -1314,3 +1346,4 @@ object GdsIcons {
         "Regular.ZoomOut" to Regular.ZoomOut,
     )
 }
+

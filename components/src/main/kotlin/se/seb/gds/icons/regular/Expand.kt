@@ -17,13 +17,13 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-internal val Industry: ImageVector
+internal val Expand: ImageVector
     get() {
-        val current = _industry
+        val current = _expand
         if (current != null) return current
 
         return ImageVector.Builder(
-            name = "se.seb.gds.theme.GdsTheme.Industry",
+            name = "se.seb.gds.theme.GdsTheme.Expand",
             defaultWidth = 24.0.dp,
             defaultHeight = 24.0.dp,
             viewportWidth = 24.0f,
@@ -35,37 +35,18 @@ internal val Industry: ImageVector
                 strokeLineJoin = StrokeJoin.Round,
                 strokeLineWidth = 1.5f,
             ) {
-                moveTo(x = 5.75f, y = 7.75f)
+                moveTo(x = 13.75f, y = 3.75f)
+                horizontalLineTo(x = 20.25f)
+                verticalLineTo(y = 10.25f)
+                moveTo(x = 13.75f, y = 10.25f)
+                lineTo(x = 19.4766f, y = 4.52344f)
+                moveTo(x = 10.25f, y = 13.75f)
+                lineTo(x = 4.52344f, y = 19.4766f)
+                moveTo(x = 3.75f, y = 13.75f)
+                verticalLineTo(y = 20.25f)
                 horizontalLineTo(x = 10.25f)
-                lineTo(x = 12.25f, y = 20.25f)
-                horizontalLineTo(x = 3.75f)
-                lineTo(x = 5.75f, y = 7.75f)
-                close()
             }
-            path(
-                stroke = SolidColor(Color(0xFF000000)),
-                strokeLineCap = StrokeCap.Round,
-                strokeLineJoin = StrokeJoin.Round,
-                strokeLineWidth = 1.5f,
-            ) {
-                moveTo(x = 8.0f, y = 5.25f)
-                curveTo(x1 = 8.0f, y1 = 4.14543f, x2 = 8.89543f, y2 = 3.25f, x3 = 10.0f, y3 = 3.25f)
-                horizontalLineTo(x = 19.25f)
-            }
-            path(
-                stroke = SolidColor(Color(0xFF000000)),
-                strokeLineCap = StrokeCap.Round,
-                strokeLineJoin = StrokeJoin.Round,
-                strokeLineWidth = 1.5f,
-            ) {
-                moveTo(x = 12.0f, y = 13.75f)
-                lineTo(x = 15.5714f, y = 12.0f)
-                verticalLineTo(y = 14.5f)
-                lineTo(x = 20.8214f, y = 12.0f)
-                verticalLineTo(y = 20.75f)
-                horizontalLineTo(x = 12.5714f)
-            }
-        }.build().also { _industry = it }
+        }.build().also { _expand = it }
     }
 
 @Preview
@@ -77,7 +58,7 @@ private fun IconPreview() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Image(
-                imageVector = Industry,
+                imageVector = Expand,
                 contentDescription = null,
                 modifier = Modifier
                     .width((24.0).dp)
@@ -88,4 +69,4 @@ private fun IconPreview() {
 }
 
 @Suppress("ObjectPropertyName")
-private var _industry: ImageVector? = null
+private var _expand: ImageVector? = null
