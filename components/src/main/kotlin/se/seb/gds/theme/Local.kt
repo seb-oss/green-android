@@ -2,6 +2,7 @@ package se.seb.gds.theme
 
 import androidx.compose.runtime.staticCompositionLocalOf
 import se.seb.gds.theme.colors.LegacyColors
+import se.seb.gds.tokens.GdsTypographyTokens
 import se.seb.gds.tokens.LightModeColors
 
 val LocalGdsColors =
@@ -16,7 +17,7 @@ val LocalLegacyColors =
 
 val LocalGdsTypography =
     staticCompositionLocalOf {
-        GdsTypography
+        GdsTypographyTokens
     }
 
 val LocalLegacyTypography =

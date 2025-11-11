@@ -72,10 +72,6 @@ internal fun FontsScreen(scrollState: ScrollState) {
             style = GdsTheme.typography.DetailRegularXs,
         )
         FontText(
-            name = "BodyBookL",
-            style = GdsTheme.typography.BodyBookL,
-        )
-        FontText(
             name = "BodyBookM",
             style = GdsTheme.typography.BodyBookM,
         )
@@ -90,14 +86,6 @@ internal fun FontsScreen(scrollState: ScrollState) {
         FontText(
             name = "BodyRegularM",
             style = GdsTheme.typography.BodyRegularM,
-        )
-        FontText(
-            name = "BodyRegularS",
-            style = GdsTheme.typography.BodyRegularS,
-        )
-        FontText(
-            name = "BodyItalicL",
-            style = GdsTheme.typography.BodyItalicL,
         )
         FontText(
             name = "BodyItalicM",

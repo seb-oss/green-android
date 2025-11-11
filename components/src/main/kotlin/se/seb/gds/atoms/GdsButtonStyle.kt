@@ -220,7 +220,7 @@ object GdsButtonDefaults {
                 widthType = ButtonWidthType.Full,
                 shape = RoundedCornerShape(32.dp),
                 horizontalPadding = 24.dp,
-                textStyle = GdsTheme.typography.DetailMediumLarge,
+                textStyle = GdsTheme.typography.DetailBookM,
                 iconSize = 24.dp,
                 iconSpacing = 8.dp,
             )
@@ -232,7 +232,7 @@ object GdsButtonDefaults {
                 widthType = ButtonWidthType.Full,
                 shape = RoundedCornerShape(24.dp),
                 horizontalPadding = 24.dp,
-                textStyle = GdsTheme.typography.DetailBookLarge,
+                textStyle = GdsTheme.typography.DetailBookM,
                 iconSize = 24.dp,
                 iconSpacing = 8.dp,
             )
@@ -244,7 +244,7 @@ object GdsButtonDefaults {
                 widthType = ButtonWidthType.Full,
                 shape = RoundedCornerShape(20.dp),
                 horizontalPadding = 20.dp,
-                textStyle = GdsTheme.typography.DetailBookLarge,
+                textStyle = GdsTheme.typography.DetailBookM,
                 iconSize = 20.dp,
                 iconSpacing = 8.dp,
             )

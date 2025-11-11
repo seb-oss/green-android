@@ -5,6 +5,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
+import se.seb.gds.tokens.GdsSansSerif
 
 private fun createTextStyle(
     fontFamily: FontFamily = GdsSansSerif,
@@ -80,7 +81,7 @@ object LegacyTypography {
         )
     val Headline =
         createTextStyle(
-            fontFamily = GdsSansSerifBook,
+            fontFamily = GdsSansSerif,
             fontSize = 17.sp,
             lineHeight = 17.sp,
             fontWeight = FontWeight.Normal,

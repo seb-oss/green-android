@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.Dp
 import se.seb.gds.theme.colors.LegacyColors
 import se.seb.gds.tokens.DarkModeColors
 import se.seb.gds.tokens.GdsColorTokens
+import se.seb.gds.tokens.GdsTypographyTokens
 import se.seb.gds.tokens.LightModeColors
 
 @Composable
@@ -25,7 +26,7 @@ fun GdsTheme(content: @Composable () -> Unit) {
         LocalGdsColors provides colors,
         LocalIndication provides rippleIndication,
         LocalLegacyColors provides legacyColors,
-        LocalGdsTypography provides GdsTypography,
+        LocalGdsTypography provides GdsTypographyTokens,
         LocalLegacyTypography provides LegacyTypography,
         LocalGdsDimensions provides GdsDimensions(),
         content = content,
@@ -41,7 +42,7 @@ object GdsTheme {
         @Composable
         get() = LocalLegacyColors.current
 
-    val typography: GdsTypography
+    val typography: GdsTypographyTokens
         @Composable
         get() = LocalGdsTypography.current
 
