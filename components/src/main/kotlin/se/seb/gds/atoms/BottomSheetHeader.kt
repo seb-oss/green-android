@@ -54,12 +54,13 @@ fun BottomSheetHeader(
                 modifier = Modifier
                     .weight(1f)
                     .padding(start = GdsTheme.dimensions.spacing.SpaceM)
-                    .then(titleDescription?.let { description ->
-                        Modifier.clearAndSetSemantics {
-                            this.contentDescription = description
-                            this.traversalIndex = 0f
-                        }
-                    } ?: Modifier
+                    .then(
+                        titleDescription?.let { description ->
+                            Modifier.clearAndSetSemantics {
+                                this.contentDescription = description
+                                this.traversalIndex = 0f
+                            }
+                        } ?: Modifier,
                     ),
                 style = titleTextStyle,
                 color = titleColor,

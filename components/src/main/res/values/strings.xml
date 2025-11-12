@@ -8,4 +8,5 @@
     <string name="text_field_characters_written">%d av %d möjliga tecken skrivna.</string>
     <string name="text_field_disabled">inaktiverad</string>
     <string name="clear_button_description">Rensa textfältet</string>
+    <string name="input_info_icon_description">Information</string>
 </resources>

@@ -21,7 +21,6 @@ fun ListItemScreen() {
             .fillMaxSize()
             .background(GdsTheme.colors.L1Neutral02),
     ) {
-
         CardColumn(modifier = Modifier.padding(16.dp)) {
             ListRowItem(
                 title = "Label 01",
