@@ -24,7 +24,7 @@ data class GdsBottomSheetStyle(
     val elevationDp: Dp,
     val shape: Shape,
     val containerColor: Color,
-    val dragHandle: @Composable (() -> Unit)?
+    val dragHandle: @Composable (() -> Unit)?,
 )
 
 /**
@@ -48,6 +48,6 @@ object GdsBottomSheetDefaults {
         cornerRadiusDp = cornerRadiusDp,
         elevationDp = elevationDp,
         shape = shape,
-        dragHandle = dragHandle
+        dragHandle = dragHandle,
     )
 }

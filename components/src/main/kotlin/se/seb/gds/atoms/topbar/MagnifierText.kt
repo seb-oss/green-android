@@ -86,7 +86,7 @@ fun MagnifierText(
                 Text(
                     text = text,
                     color = GdsTheme.colors.ContentNeutral03,
-                    style = GdsTheme.legacyTypography.Headline,
+                    style = GdsTheme.typography.DetailBookM,
                     modifier = Modifier.padding(16.dp),
                 )
             }

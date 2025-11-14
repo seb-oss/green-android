@@ -283,14 +283,14 @@ fun SelectRow(
 
         Text(
             modifier = Modifier.weight(1f),
-            style = GdsTheme.legacyTypography.Headline,
+            style = GdsTheme.typography.DetailBookM,
             text = label,
         )
 
         Box(modifier = Modifier.wrapContentSize()) {
             Text(
                 modifier = Modifier.clickable(onClick = { expanded = true }),
-                style = GdsTheme.legacyTypography.Headline,
+                style = GdsTheme.typography.DetailBookM,
                 text = selectedText,
             )
 

@@ -20,11 +20,6 @@ val LocalGdsTypography =
         GdsTypographyTokens
     }
 
-val LocalLegacyTypography =
-    staticCompositionLocalOf {
-        LegacyTypography
-    }
-
 val LocalGdsDimensions = staticCompositionLocalOf {
     GdsDimensions()
 }

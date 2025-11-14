@@ -1346,4 +1346,3 @@ object GdsIcons {
         "Regular.ZoomOut" to Regular.ZoomOut,
     )
 }
-

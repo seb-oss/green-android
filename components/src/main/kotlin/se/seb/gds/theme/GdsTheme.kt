@@ -27,7 +27,6 @@ fun GdsTheme(content: @Composable () -> Unit) {
         LocalIndication provides rippleIndication,
         LocalLegacyColors provides legacyColors,
         LocalGdsTypography provides GdsTypographyTokens,
-        LocalLegacyTypography provides LegacyTypography,
         LocalGdsDimensions provides GdsDimensions(),
         content = content,
     )
@@ -45,10 +44,6 @@ object GdsTheme {
     val typography: GdsTypographyTokens
         @Composable
         get() = LocalGdsTypography.current
-
-    val legacyTypography: LegacyTypography
-        @Composable
-        get() = LocalLegacyTypography.current
 
     val dimensions: GdsDimensions
         @Composable

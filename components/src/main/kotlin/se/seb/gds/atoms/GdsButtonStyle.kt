@@ -399,7 +399,7 @@ object GdsButtonDefaults {
             height = seb2016HeightType(size),
             shape = seb2016Shape(size),
             horizontalPadding = legacyHorizontalPadding,
-            textStyle = GdsTheme.legacyTypography.Title6,
+            textStyle = GdsTheme.typography.BodyMediumM, // Closest match
             iconSize = legacyIconSize,
             iconSpacing = legacyIconSpacing,
         )
@@ -411,7 +411,7 @@ object GdsButtonDefaults {
             height = 50.dp,
             shape = seb2016Shape(LegacyButtonSize.SMALL),
             horizontalPadding = legacyHorizontalPadding,
-            textStyle = GdsTheme.legacyTypography.Title6,
+            textStyle = GdsTheme.typography.BodyMediumM, // Closest match
             iconSize = legacyIconSize,
             iconSpacing = legacyIconSpacing,
         )
