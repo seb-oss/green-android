@@ -25,8 +25,8 @@ internal fun GallerySection(
         Text(
             modifier = horizontalModifier,
             text = title,
-            color = GdsTheme.legacyColors.PrimaryText,
-            style = GdsTheme.legacyTypography.Title4,
+            color = GdsTheme.colors.ContentNeutral01,
+            style = GdsTheme.typography.HeadingS,
         )
         content()
     }

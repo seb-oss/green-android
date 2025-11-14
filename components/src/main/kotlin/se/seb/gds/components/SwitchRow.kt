@@ -45,7 +45,7 @@ fun SwitchRow(
     ) {
         Text(
             modifier = Modifier.weight(1f),
-            style = GdsTheme.legacyTypography.Headline,
+            style = GdsTheme.typography.DetailBookM,
             text = title,
         )
         GdsSwitch(

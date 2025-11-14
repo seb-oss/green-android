@@ -55,7 +55,7 @@ internal fun DesignLibraryScreen(
                     titleContentColor = GdsTheme.colors.ContentNeutral01,
                 ),
                 title = {
-                    Text(text = currentScreen.name, style = GdsTheme.legacyTypography.Headline)
+                    Text(text = currentScreen.name, style = GdsTheme.typography.DetailBookM)
                 },
                 navigationIcon = {
                     if (currentScreen != LibraryScreen.LIBRARY) {

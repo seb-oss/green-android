@@ -40,116 +40,44 @@ internal fun FontsScreen(scrollState: ScrollState) {
             style = GdsTheme.typography.HeadingS,
         )
         FontText(
-            name = "HeadingXs",
-            style = GdsTheme.typography.HeadingXs,
-        )
-        FontText(
-            name = "Heading2xs",
-            style = GdsTheme.typography.Heading2xs,
-        )
-        FontText(
             name = "DetailBookM",
             style = GdsTheme.typography.DetailBookM,
-        )
-        FontText(
-            name = "DetailBookS",
-            style = GdsTheme.typography.DetailBookS,
-        )
-        FontText(
-            name = "DetailBookXs",
-            style = GdsTheme.typography.DetailBookXs,
         )
         FontText(
             name = "DetailRegularM",
             style = GdsTheme.typography.DetailRegularM,
         )
         FontText(
+            name = "BodyRegularM",
+            style = GdsTheme.typography.BodyRegularM,
+        )
+        FontText(
+            name = "BodyMediumM",
+            style = GdsTheme.typography.BodyMediumM,
+        )
+        FontText(
             name = "DetailRegularS",
             style = GdsTheme.typography.DetailRegularS,
         )
         FontText(
-            name = "DetailRegularXs",
-            style = GdsTheme.typography.DetailRegularXs,
-        )
-        FontText(
-            name = "BodyBookL",
-            style = GdsTheme.typography.BodyBookL,
-        )
-        FontText(
-            name = "BodyBookM",
-            style = GdsTheme.typography.BodyBookM,
-        )
-        FontText(
-            name = "BodyBookS",
-            style = GdsTheme.typography.BodyBookS,
-        )
-        FontText(
-            name = "BodyRegularL",
-            style = GdsTheme.typography.BodyRegularL,
-        )
-        FontText(
-            name = "BodyRegularM",
-            style = GdsTheme.typography.BodyRegularM,
+            name = "DetailBookS",
+            style = GdsTheme.typography.DetailBookS,
         )
         FontText(
             name = "BodyRegularS",
             style = GdsTheme.typography.BodyRegularS,
         )
         FontText(
-            name = "BodyItalicL",
-            style = GdsTheme.typography.BodyItalicL,
+            name = "BodyMediumS",
+            style = GdsTheme.typography.BodyMediumS,
         )
         FontText(
-            name = "BodyItalicM",
-            style = GdsTheme.typography.BodyItalicM,
+            name = "DetailRegularXs",
+            style = GdsTheme.typography.DetailRegularXs,
         )
         FontText(
-            name = "BodyItalicS",
-            style = GdsTheme.typography.BodyItalicS,
-        )
-        /*FontText(
-            name = "Display2xl",
-            style = GdsTheme.typography.Display2xl,
-        )
-        FontText(
-            name = "DisplayXl",
-            style = GdsTheme.typography.DisplayXl,
-        )
-        FontText(
-            name = "DisplayL",
-            style = GdsTheme.typography.DisplayL,
-        )
-        FontText(
-            name = "DisplayM",
-            style = GdsTheme.typography.DisplayM,
-        )*/
-        FontText(
-            name = "DisplayS",
-            style = GdsTheme.typography.DisplayS,
-        )
-        FontText(
-            name = "Preamble2xl",
-            style = GdsTheme.typography.Preamble2xl,
-        )
-        FontText(
-            name = "PreambleXl",
-            style = GdsTheme.typography.PreambleXl,
-        )
-        FontText(
-            name = "PreambleL",
-            style = GdsTheme.typography.PreambleL,
-        )
-        FontText(
-            name = "PreambleM",
-            style = GdsTheme.typography.PreambleM,
-        )
-        FontText(
-            name = "PreambleS",
-            style = GdsTheme.typography.PreambleS,
-        )
-        FontText(
-            name = "PreambleXs",
-            style = GdsTheme.typography.PreambleXs,
+            name = "DetailBookXs",
+            style = GdsTheme.typography.DetailBookXs,
         )
     }
 }
@@ -162,7 +90,9 @@ fun FontText(
     fun FontWeight.name(): String =
         when (weight) {
             700 -> " - Bold"
+            600 -> " - SemiBold"
             500 -> " - Medium"
+            450 -> " - Book"
             400 -> " - Normal"
             else -> ""
         }

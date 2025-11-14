@@ -331,7 +331,7 @@ private fun GdsButton2016PrimaryPreview() {
                 height = 50.dp,
                 shape = seb2016Shape(LegacyButtonSize.LARGE),
                 horizontalPadding = 16.dp,
-                textStyle = GdsTheme.legacyTypography.Title6,
+                textStyle = GdsTheme.typography.BodyMediumM,
                 iconSize = 24.dp,
             ),
             title = "Button",

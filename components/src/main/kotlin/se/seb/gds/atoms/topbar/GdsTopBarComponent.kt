@@ -43,7 +43,7 @@ fun GdsTopBarComponent(
     modifier: Modifier = Modifier,
     leftAction: @Composable (() -> Unit)? = null,
     title: String?,
-    titleStyle: TextStyle = GdsTheme.legacyTypography.Title5,
+    titleStyle: TextStyle = GdsTheme.typography.HeadingS,
     rightActions: @Composable (RowScope.() -> Unit)? = null,
     color: Color? = GdsTheme.colors.L1Neutral01,
     contentColor: Color? = GdsTheme.colors.ContentNeutral01,
