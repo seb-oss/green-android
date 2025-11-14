@@ -99,7 +99,6 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
             SwitchRow("Icon", checked = hasIcon) {
                 hasIcon = it
             }
-            val icon = hasIcon.takeIf { it }?.let { GdsIcons.Regular.ArrowRight }
 
             var iconPosition by rememberSaveable { mutableStateOf("Left") }
             if (hasIcon) {
@@ -116,6 +115,14 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
             val iconPositionSelected = when (iconPosition) {
                 IconPosition.Left.name -> IconPosition.Left
                 else -> IconPosition.Right
+            }
+
+            val icon = hasIcon.takeIf { it }?.let {
+                if (iconPositionSelected == IconPosition.Left) {
+                    GdsIcons.Regular.Euro
+                } else {
+                    GdsIcons.Regular.ArrowRight
+                }
             }
 
             GdsButton(
