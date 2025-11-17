@@ -172,7 +172,7 @@ fun FieldContainer(
     Box(
         modifier = Modifier
             .outlineBorder(
-                show = true,
+                show = style.showBorder || isError,
                 width = style.getBorderWidth(textFieldIsFocused, isError),
                 color = style.colors.borderColor(isError),
                 shape = containerSize.shape,

@@ -33,6 +33,7 @@ data class GdsInputStyle(
     val textStyle: GdsInputTextStyle,
     val unfocusedBorderThickness: Dp,
     val focusedBorderThickness: Dp,
+    val showBorder: Boolean = true,
 ) {
     fun getBorderWidth(
         textFieldIsFocused: Boolean,
@@ -86,6 +87,7 @@ object GdsInputDefaults {
             textStyle = inputTextStyle(),
             unfocusedBorderThickness = 1.dp,
             focusedBorderThickness = 2.dp,
+            showBorder = true
         )
 
     /** Contained style for [GdsInput] with floating label. */
@@ -93,6 +95,7 @@ object GdsInputDefaults {
     fun containedStyle() =
         defaultStyle().copy(
             containerSize = containedInputSizeConfig(),
+            showBorder = false
         )
 
     /** Override default TextField colors to make container and indicator transparent

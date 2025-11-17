@@ -101,7 +101,6 @@ fun GdsInputContained(
         }
 
         FieldContainer(
-            modifier = modifier,
             contentPadding = contentPaddingWithLabel(),
             textFieldIsFocused = textFieldIsFocused,
             readOnly = readOnly,

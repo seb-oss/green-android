@@ -98,7 +98,6 @@ fun GdsInputDefault(
             onInfoIconClick = onInfoIconClick,
         )
         FieldContainer(
-            modifier = modifier,
             contentPadding = contentPaddingWithoutLabel(),
             textFieldIsFocused = textFieldIsFocused,
             readOnly = readOnly,
