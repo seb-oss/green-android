@@ -24,7 +24,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -41,11 +41,13 @@ android {
 }
 
 mavenPublishing {
-    configure(AndroidSingleVariantLibrary(
-        variant = "release",
-        publishJavadocJar = true,
-        sourcesJar = true,
-    ))
+    configure(
+        AndroidSingleVariantLibrary(
+            variant = "release",
+            publishJavadocJar = true,
+            sourcesJar = true,
+        ),
+    )
 }
 
 dependencies {
