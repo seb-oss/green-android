@@ -90,7 +90,8 @@ fun BottomSheetScreen() {
                     )
                     Spacer(Modifier.height(16.dp))
                     GdsText(
-                        label = "Vi svarar inom 24 timmar på vardagar. Du får en notis när du fått ett svar.",
+                        label = "Vi svarar inom 24 timmar på vardagar. " +
+                            "Du får en notis när du fått ett svar.",
                         style = GdsTheme.typography.BodyRegularM,
                     )
                     Spacer(Modifier.height(32.dp))

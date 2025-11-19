@@ -87,7 +87,7 @@ object GdsInputDefaults {
             textStyle = inputTextStyle(),
             unfocusedBorderThickness = 1.dp,
             focusedBorderThickness = 2.dp,
-            showBorder = true
+            showBorder = true,
         )
 
     /** Contained style for [GdsInput] with floating label. */
@@ -95,7 +95,7 @@ object GdsInputDefaults {
     fun containedStyle() =
         defaultStyle().copy(
             containerSize = containedInputSizeConfig(),
-            showBorder = false
+            showBorder = false,
         )
 
     /** Override default TextField colors to make container and indicator transparent

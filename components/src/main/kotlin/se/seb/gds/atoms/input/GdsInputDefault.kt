@@ -331,10 +331,9 @@ private fun TextFieldPreview() {
                     label = "Label",
                     supportLabel = "Support Label",
                     errorMessage = "Error message.",
-                    isError = true
+                    isError = true,
                 )
             }
         }
     }
 }
-

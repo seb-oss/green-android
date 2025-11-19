@@ -268,7 +268,7 @@ private fun TextFieldPreview() {
                     supportLabel = "Support Label",
                     clearable = true,
                     errorMessage = "Error message.",
-                    isError = true
+                    isError = true,
                 )
             }
         }
