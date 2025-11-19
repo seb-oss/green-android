@@ -36,7 +36,6 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import se.seb.gds.atoms.input.GdsInputDefaults.contentPaddingWithoutLabel
-import se.seb.gds.icons.ErrorIcon
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
@@ -274,10 +273,13 @@ private fun InputDefaultError(
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            ErrorIcon(
-                Modifier
+            Icon(
+                modifier = Modifier
                     .size(20.dp)
                     .align(Alignment.CenterVertically),
+                imageVector = GdsIcons.Solid.TriangleExclamation,
+                contentDescription = null,
+                tint = style.colors.errorSupportingTextColor,
             )
             Text(
                 modifier = Modifier

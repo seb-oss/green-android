@@ -24,6 +24,7 @@ import androidx.compose.foundation.text.input.OutputTransformation
 import androidx.compose.foundation.text.input.TextFieldLineLimits
 import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.foundation.text.input.rememberTextFieldState
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
@@ -36,7 +37,7 @@ import androidx.compose.ui.text.lerp
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import se.seb.gds.atoms.input.GdsInputDefaults.contentPaddingWithLabel
-import se.seb.gds.icons.ErrorIcon
+import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 @Composable
@@ -181,10 +182,13 @@ fun InputContainedFooter(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             if (isError) {
-                ErrorIcon(
-                    Modifier
+                Icon(
+                    modifier = Modifier
                         .size(20.dp)
                         .align(Alignment.CenterVertically),
+                    imageVector = GdsIcons.Solid.TriangleExclamation,
+                    contentDescription = null,
+                    tint = style.colors.errorSupportingTextColor,
                 )
             }
             Text(
