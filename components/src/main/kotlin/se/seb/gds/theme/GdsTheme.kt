@@ -7,18 +7,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import se.seb.gds.theme.colors.GdsLocalColorTokens
 import se.seb.gds.theme.colors.LegacyColors
-import se.seb.gds.tokens.DarkModeColors
-import se.seb.gds.tokens.GdsColorTokens
+import se.seb.gds.theme.colors.LocalDarkModeColors
+import se.seb.gds.theme.colors.LocalLightModeColors
 import se.seb.gds.tokens.GdsTypographyTokens
-import se.seb.gds.tokens.LightModeColors
 
 @Composable
 fun GdsTheme(content: @Composable () -> Unit) {
     val colors = if (isSystemInDarkTheme()) {
-        DarkModeColors
+        LocalDarkModeColors
     } else {
-        LightModeColors
+        LocalLightModeColors
     }
     val legacyColors = LegacyColors.defaultColors(isSystemDarkMode = isSystemInDarkTheme())
     val rippleIndication = ripple(true, Dp.Unspecified, Color.Unspecified)
@@ -33,7 +33,7 @@ fun GdsTheme(content: @Composable () -> Unit) {
 }
 
 object GdsTheme {
-    val colors: GdsColorTokens
+    val colors: GdsLocalColorTokens
         @Composable
         get() = LocalGdsColors.current
 
