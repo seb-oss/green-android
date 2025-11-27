@@ -125,6 +125,8 @@ internal fun DesignLibraryScreen(
                 LibraryScreen.LIST_ITEM -> ListItemScreen()
 
                 LibraryScreen.BOTTOM_SHEET -> BottomSheetScreen()
+
+                LibraryScreen.PROGRESS_INDICATOR -> ProgressIndicatorScreen()
             }
         }
     }
@@ -165,6 +167,8 @@ private fun DesignLibrary(
             ListItem("List items") { onNavigateToSection(LibraryScreen.LIST_ITEM) }
             HorizontalDivider()
             ListItem("Bottom Sheet") { onNavigateToSection(LibraryScreen.BOTTOM_SHEET) }
+            HorizontalDivider()
+            ListItem("Progress Indicator") { onNavigateToSection(LibraryScreen.PROGRESS_INDICATOR) }
         }
     }
 }
