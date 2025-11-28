@@ -13,8 +13,8 @@ import kotlin.reflect.full.memberProperties
 import kotlin.reflect.typeOf
 import se.seb.gds.theme.GdsTheme
 import se.seb.gds.theme.colors.LegacyColors
-import se.seb.gds.tokens.DarkModeColors
-import se.seb.gds.tokens.LightModeColors
+import se.seb.gds.theme.colors.LocalDarkModeColors
+import se.seb.gds.theme.colors.LocalLightModeColors
 
 /**
  * A simple [androidx.fragment.app.Fragment] subclass.
@@ -27,8 +27,8 @@ class DesignLibraryFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val lightColors = LightModeColors
-        val darkColors = DarkModeColors
+        val lightColors = LocalLightModeColors
+        val darkColors = LocalDarkModeColors
         val lightThemeColorProperties = extractColorProperties(lightColors)
         val darkThemeColorProperties = extractColorProperties(darkColors)
         themeColors = combineColorLists(lightThemeColorProperties, darkThemeColorProperties)
