@@ -6,7 +6,7 @@ import androidx.compose.ui.unit.dp
 import se.seb.gds.theme.GdsTheme
 
 object GdsLoadingIndicatorDefaults {
-    val Size = 48.dp
+    val size = 48.dp
     
     @Composable
     fun indicatorColor(): Color = GdsTheme.colors.L3NeutralStrong

@@ -162,7 +162,7 @@ private fun GdsIndicatorBox(
     Box(
         modifier =
             modifier
-                .size(GdsLoadingIndicatorDefaults.Size)
+                .size(GdsLoadingIndicatorDefaults.size)
                 .drawWithContent {
                     clipRect(
                         top = 0f,

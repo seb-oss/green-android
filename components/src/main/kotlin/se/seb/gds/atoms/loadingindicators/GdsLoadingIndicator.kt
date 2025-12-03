@@ -35,7 +35,7 @@ import se.seb.gds.theme.GdsTheme
 fun GdsLoadingIndicator(
     modifier: Modifier = Modifier,
     color: Color = GdsLoadingIndicatorDefaults.indicatorColor(),
-    size: Dp = GdsLoadingIndicatorDefaults.Size,
+    size: Dp = GdsLoadingIndicatorDefaults.size,
     polygons: List<RoundedPolygon> = LoadingIndicatorDefaults.IndeterminateIndicatorPolygons,
 ) {
     LoadingIndicator(

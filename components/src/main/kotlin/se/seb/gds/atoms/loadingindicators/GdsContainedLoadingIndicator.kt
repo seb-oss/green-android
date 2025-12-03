@@ -37,7 +37,7 @@ fun GdsContainedLoadingIndicator(
     modifier: Modifier = Modifier,
     indicatorColor: Color = GdsLoadingIndicatorDefaults.indicatorColor(),
     containerColor: Color = GdsLoadingIndicatorDefaults.containerColor(),
-    size: Dp = GdsLoadingIndicatorDefaults.Size,
+    size: Dp = GdsLoadingIndicatorDefaults.size,
     polygons: List<RoundedPolygon> = LoadingIndicatorDefaults.IndeterminateIndicatorPolygons,
 ) {
     ContainedLoadingIndicator(
