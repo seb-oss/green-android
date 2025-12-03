@@ -13,4 +13,5 @@ internal enum class LibraryScreen {
     LIST_ITEM,
     BOTTOM_SHEET,
     PROGRESS_INDICATOR,
+    LOADING_INDICATOR,
 }
