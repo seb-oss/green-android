@@ -1,23 +1,33 @@
 package se.seb.gds.atoms.input
 
 import android.content.res.Configuration
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.scaleIn
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.input.InputTransformation
 import androidx.compose.foundation.text.input.OutputTransformation
@@ -29,14 +39,19 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.role
 import androidx.compose.ui.text.lerp
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import se.seb.gds.atoms.input.GdsInputDefaults.contentPaddingWithLabel
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
@@ -45,23 +60,21 @@ fun GdsInputContained(
     modifier: Modifier = Modifier,
     state: TextFieldState,
     style: GdsInputStyle = GdsInputDefaults.containedStyle(),
-    label: String? = null,
-    supportLabel: String? = null,
+    label: String,
     errorMessage: String? = null,
     overrideTextDescription: String? = null,
     enabled: Boolean = true,
     readOnly: Boolean = false,
     isError: Boolean = false,
     clearable: Boolean = true,
+    showInfoIcon: Boolean = false,
     maxCharacters: Int? = null,
     inputTransformation: InputTransformation? = null,
     outputTransformation: OutputTransformation? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     lineLimits: TextFieldLineLimits = TextFieldLineLimits.Default,
     scrollState: ScrollState = rememberScrollState(),
-    interactionSource: MutableInteractionSource = remember {
-        MutableInteractionSource()
-    },
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onTrailingIconClick: (() -> Unit)? = null,
     trailingIconDescription: String? = null,
     onInteraction: (Interaction) -> Unit = {},
@@ -70,12 +83,14 @@ fun GdsInputContained(
         CharSequence,
     ) -> Boolean = { _: CharSequence, _: CharSequence -> true },
     onValueChange: (String) -> Unit = {},
+    onInfoIconClick: () -> Unit = { },
 ) {
+    var textLineCount by remember { mutableIntStateOf(1) }
+
     BasicInput(
         modifier = modifier,
         state = state,
         label = label,
-        supportLabel = supportLabel,
         overrideTextDescription = overrideTextDescription,
         readOnly = readOnly,
         isError = isError,
@@ -86,7 +101,6 @@ fun GdsInputContained(
         onInteraction = onInteraction,
         onValueChange = onValueChange,
     ) { textFieldIsFocused ->
-
         val labelAnimationProgress by animateFloatAsState(
             targetValue = if (textFieldIsFocused || state.text.isNotEmpty()) 1f else 0f,
         )
@@ -102,7 +116,7 @@ fun GdsInputContained(
         }
 
         FieldContainer(
-            contentPadding = contentPaddingWithLabel(),
+            contentPadding = containerContentPadding(isLandscape()),
             textFieldIsFocused = textFieldIsFocused,
             readOnly = readOnly,
             style = style,
@@ -111,123 +125,155 @@ fun GdsInputContained(
             state = state,
             lineLimits = lineLimits,
             scrollState = scrollState,
+            maxCharacters = maxCharacters,
             interactionSource = interactionSource,
             inputTransformationChain = inputTransformation,
             outputTransformation = outputTransformation,
             keyboardOptions = keyboardOptions,
             characterWhitelistPredicate = characterWhitelistPredicate,
-            innerInputContent = { innerTextField ->
-                InputContainedInnerText(
-                    clearable = clearable,
-                    state = state,
-                    innerTextField = innerTextField,
-                    clearText = { clearText(state) },
-                    textFieldIsFocused = textFieldIsFocused,
-                )
-            },
             labelContent = {
-                label?.let {
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        Text(
-                            modifier = Modifier.weight(1f),
-                            text = it,
-                            style = labelTextStyle.merge(
-                                color = style.colors.floatingLabelColor(
-                                    enabled,
-                                ),
-                            ),
-                        )
-                        if (textFieldIsFocused && !isError) {
-                            CharacterAmountIndicator(
-                                textStyle = style.textStyle.characterCounter,
-                                color = style.colors.floatingLabelColor,
-                                maxCharacters = maxCharacters,
-                                currentCharacters = state.text.length,
-                            )
-                        }
-                    }
+                Row(modifier = Modifier.fillMaxWidth()) {
+                    Text(
+                        modifier = Modifier.weight(1f),
+                        text = label,
+                        style = labelTextStyle.merge(
+                            color = style.colors.floatingLabelColor(enabled = enabled),
+                        ),
+                    )
                 }
             },
+            trailingContent = {
+                val isMultiLine = isMultiLine(lineLimits, textLineCount)
+                val hasCounter = maxCharacters != null
+                val showCounterContainer = (hasCounter && (isMultiLine || textFieldIsFocused)) ||
+                    (!hasCounter && isMultiLine)
+
+                val trailingModifier = if (showCounterContainer) {
+                    Modifier.padding(trailingContentPadding())
+                } else {
+                    Modifier.align(Alignment.CenterVertically)
+                }
+
+                InputContainedTrailing(
+                    modifier = trailingModifier,
+                    showCounterContainer = showCounterContainer,
+                    showClearButton = clearable && state.text.isNotEmpty() && textFieldIsFocused,
+                    showInfoIcon = showInfoIcon,
+                    hasContainedError = isError && errorMessage.isNullOrBlank(),
+                    textFieldIsFocused = textFieldIsFocused,
+                    maxCharacters = maxCharacters,
+                    onInfoIconClick = onInfoIconClick,
+                    style = style,
+                    state = state,
+                    clearText = { clearText(state) },
+                )
+            },
+            onTextLayoutResult = { lineCount -> textLineCount = lineCount },
         )
-        InputContainedFooter(
-            isEnabled = enabled,
-            isError = isError,
-            errorMessage = errorMessage,
-            supportingMessage = supportLabel,
-            style = style,
-        )
+        if (isError && !errorMessage.isNullOrBlank()) {
+            ErrorFooter(errorMessage = errorMessage, style = style)
+        }
     }
 }
 
 @Composable
-fun InputContainedFooter(
-    isEnabled: Boolean,
-    isError: Boolean,
-    errorMessage: String?,
-    supportingMessage: String?,
+private fun InputContainedTrailing(
+    modifier: Modifier = Modifier,
+    showClearButton: Boolean = true,
+    showInfoIcon: Boolean = false,
+    textFieldIsFocused: Boolean = false,
+    hasContainedError: Boolean = false,
+    showCounterContainer: Boolean = true,
+    maxCharacters: Int?,
+    onInfoIconClick: () -> Unit = { },
+    clearText: () -> Unit? = { },
     style: GdsInputStyle,
+    state: TextFieldState,
 ) {
-    val textToShow = when {
-        isError -> errorMessage
-        else -> supportingMessage
-    }
-
-    textToShow?.let {
-        val textColor = style.colors.footerTextColor(enabled = isEnabled, error = isError)
-
+    val showErrorIcon = hasContainedError && !textFieldIsFocused
+    Column(
+        modifier = modifier.padding(start = 8.dp),
+        horizontalAlignment = Alignment.End,
+    ) {
+        if (showCounterContainer) {
+            val alpha = if (textFieldIsFocused && maxCharacters != null) 1f else 0f
+            CharacterAmountIndicator(
+                modifier = Modifier.alpha(alpha = alpha),
+                textStyle = style.textStyle.characterCounter,
+                color = style.colors.floatingLabelColor,
+                maxCharacters = maxCharacters,
+                currentCharacters = state.text.length,
+            )
+        }
         Row(
-            Modifier
-                .padding(top = 8.dp, start = 16.dp, end = 16.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = Modifier
+                .animateContentSizeIf(showInfoIcon)
+                .heightIn(min = 24.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            if (isError) {
+            if (showInfoIcon) {
                 Icon(
                     modifier = Modifier
-                        .size(20.dp)
+                        .size(24.dp)
+                        .clip(CircleShape)
+                        .clearAndSetSemantics { role = Role.Button }
+                        .clickable(onClick = onInfoIconClick),
+                    imageVector = GdsIcons.Regular.CircleInfo,
+                    contentDescription = null,
+                )
+            }
+            AnimatedVisibility(
+                visible = showClearButton,
+                enter = if (showInfoIcon) {
+                    scaleIn(animationSpec = spring(stiffness = Spring.StiffnessMedium))
+                } else {
+                    EnterTransition.None
+                },
+                exit = ExitTransition.None,
+            ) {
+                ClearButton(
+                    onClick = { clearText() },
+                )
+            }
+            if (showErrorIcon) {
+                Icon(
+                    modifier = Modifier
+                        .size(24.dp)
                         .align(Alignment.CenterVertically),
                     imageVector = GdsIcons.Solid.TriangleExclamation,
                     contentDescription = null,
                     tint = style.colors.errorSupportingTextColor,
                 )
             }
-            Text(
-                modifier = Modifier
-                    .weight(1f)
-                    .align(Alignment.CenterVertically),
-                text = it,
-                style = style.textStyle.footerMessageStyle,
-                color = textColor,
-            )
         }
     }
 }
 
-@Composable
-private fun InputContainedInnerText(
-    clearable: Boolean = true,
-    textFieldIsFocused: Boolean = false,
-    innerTextField: @Composable (() -> Unit),
-    state: TextFieldState,
-    clearText: () -> Unit?,
-) {
-    Row(modifier = Modifier.fillMaxWidth()) {
-        Column(
-            modifier = Modifier
-                .weight(1f),
-        ) { innerTextField() }
-
-        Spacer(Modifier.width(8.dp))
-        if (clearable) {
-            ClearButton(
-                modifier = Modifier
-                    .alpha(if (textFieldIsFocused && state.text.isNotEmpty()) 1f else 0f),
-                enabled = state.text.isNotEmpty(),
-                onClick = { clearText() },
-            )
-        }
+private fun Modifier.animateContentSizeIf(condition: Boolean): Modifier {
+    return if (condition) {
+        this.animateContentSize(
+            animationSpec = spring(stiffness = Spring.StiffnessHigh),
+        )
+    } else {
+        this
     }
 }
+
+fun containerContentPadding(isLandscape: Boolean = false): PaddingValues {
+    return if (isLandscape) {
+        PaddingValues(
+            horizontal = 0.dp,
+            vertical = 8.dp,
+        )
+    } else {
+        PaddingValues(
+            horizontal = 0.dp,
+            vertical = 16.dp,
+        )
+    }
+}
+
+fun trailingContentPadding(): PaddingValues = PaddingValues(horizontal = 0.dp, vertical = 16.dp)
 
 @Preview(
     name = "Light Mode GdsInput",
@@ -255,9 +301,7 @@ private fun TextFieldPreview() {
                 GdsInputContained(
                     state = rememberTextFieldState("Text"),
                     label = "Label",
-                    supportLabel = "Support Label",
-                    clearable = true,
-                    maxCharacters = 50,
+                    showInfoIcon = true,
                 )
                 Spacer(Modifier.height(16.dp))
 
@@ -265,8 +309,6 @@ private fun TextFieldPreview() {
                 GdsInputContained(
                     state = rememberTextFieldState(),
                     label = "Label",
-                    supportLabel = "Support Label",
-                    clearable = true,
                     errorMessage = "Error message.",
                     isError = true,
                 )

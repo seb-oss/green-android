@@ -139,12 +139,10 @@ object GdsInputDefaults {
             labelColor = GdsTheme.colors.ContentNeutral01,
             supportLabelColor = GdsTheme.colors.ContentNeutral01,
             inputTextColor = GdsTheme.colors.ContentNeutral01,
-            supportingTextColor = GdsTheme.colors.ContentNeutral01,
             errorSupportingTextColor = GdsTheme.colors.ContentNegative01,
             errorIndicatorColor = GdsTheme.colors.BorderNegative01,
             disabledContainerColor = GdsTheme.colors.L3Disabled01,
             disabledContentColor = GdsTheme.colors.ContentDisabled01,
-            disabledSupportingTextColor = GdsTheme.colors.ContentDisabled01,
             focusedContainerColor = GdsTheme.colors.StateNeutral04,
             cursorColor = GdsTheme.colors.ContentNeutral01,
             borderColor = GdsTheme.colors.BorderInteractive,
@@ -184,25 +182,13 @@ object GdsInputDefaults {
     fun containedInputSizeConfig(): InputSizeConfig =
         InputSizeConfig(
             landscape = InputSize(
-                height = 56.dp,
+                height = 60.dp,
                 shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
             ),
             portrait = InputSize(
                 height = 72.dp,
                 shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
             ),
-        )
-
-    fun contentPaddingWithoutLabel(): PaddingValues =
-        PaddingValues(
-            horizontal = 0.dp,
-            vertical = 16.dp,
-        )
-
-    fun contentPaddingWithLabel(): PaddingValues =
-        PaddingValues(
-            horizontal = 0.dp,
-            vertical = 8.dp,
         )
 }
 
@@ -237,13 +223,11 @@ data class InputSizeConfig(
  *  @property supportLabelColor The color of the supporting label positioned above the container.
  *  @property floatingLabelColor The color of the floating label inside the container.
  *  @property inputTextColor The color of the input text.
- *  @property supportingTextColor The color of the supporting text placed below the container.
  *  @property errorSupportingTextColor The color of the supporting text when the input is in an error state.
  *  @property errorIndicatorColor The color of the indicator (border) when the input is in an error state.
  *  @property focusedContainerColor The background color of the input container when focused.
  *  @property disabledContainerColor The background color of the input container when disabled.
  *  @property disabledContentColor The color of the input text and floating label when the input is disabled.
- *  @property disabledSupportingTextColor The color of the supporting text when the input is disabled.
  *  @property cursorColor The color of the cursor in the input field.
  */
 @Immutable
@@ -253,13 +237,11 @@ data class GdsInputColors(
     val floatingLabelColor: Color,
     val supportLabelColor: Color,
     val inputTextColor: Color,
-    val supportingTextColor: Color,
     val errorSupportingTextColor: Color,
     val errorIndicatorColor: Color,
     val focusedContainerColor: Color,
     val disabledContainerColor: Color,
     val disabledContentColor: Color,
-    val disabledSupportingTextColor: Color,
     val cursorColor: Color,
     val borderColor: Color,
 ) {
@@ -286,15 +268,5 @@ data class GdsInputColors(
         when {
             isError -> errorIndicatorColor
             else -> borderColor
-        }
-
-    fun footerTextColor(
-        enabled: Boolean,
-        error: Boolean,
-    ): Color =
-        when {
-            !enabled -> disabledSupportingTextColor
-            error -> errorSupportingTextColor
-            else -> supportingTextColor
         }
 }

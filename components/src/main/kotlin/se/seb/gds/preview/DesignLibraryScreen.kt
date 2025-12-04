@@ -116,7 +116,9 @@ internal fun DesignLibraryScreen(
 
                 LibraryScreen.BUTTONS -> ButtonsScreen(scrollState = scrollState)
 
-                LibraryScreen.INPUT -> InputScreen(scrollState = scrollState)
+                LibraryScreen.INPUT_DEFAULT -> InputScreen(scrollState = scrollState)
+
+                LibraryScreen.INPUT_CONTAINED -> InputContainedScreen(scrollState = scrollState)
 
                 LibraryScreen.TOP_BAR -> TopBarScreen()
 
@@ -162,7 +164,9 @@ private fun DesignLibrary(
             HorizontalDivider()
             ListItem("Buttons") { onNavigateToSection(LibraryScreen.BUTTONS) }
             HorizontalDivider()
-            ListItem("Input") { onNavigateToSection(LibraryScreen.INPUT) }
+            ListItem("Input Default") { onNavigateToSection(LibraryScreen.INPUT_DEFAULT) }
+            HorizontalDivider()
+            ListItem("Input Contained") { onNavigateToSection(LibraryScreen.INPUT_CONTAINED) }
             HorizontalDivider()
             ListItem("Top Bar") { onNavigateToSection(LibraryScreen.TOP_BAR) }
             HorizontalDivider()

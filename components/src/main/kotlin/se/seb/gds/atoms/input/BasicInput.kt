@@ -1,12 +1,18 @@
 package se.seb.gds.atoms.input
 
 import android.content.res.Configuration
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.DragInteraction
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -15,6 +21,7 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.rememberScrollState
@@ -28,21 +35,19 @@ import androidx.compose.foundation.text.input.delete
 import androidx.compose.foundation.text.input.then
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.graphics.drawOutline
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
@@ -54,18 +59,17 @@ import androidx.compose.ui.semantics.hideFromAccessibility
 import androidx.compose.ui.semantics.onClick
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 import se.seb.gds.components.R
+import se.seb.gds.icons.GdsIcons
 
 @Composable
 internal fun BasicInput(
     modifier: Modifier = Modifier,
     state: TextFieldState,
     label: String? = null,
-    supportLabel: String?,
+    supportLabel: String? = null,
     overrideTextDescription: String? = null,
     readOnly: Boolean = false,
     isError: Boolean = false,
@@ -79,19 +83,16 @@ internal fun BasicInput(
     onValueChange: (String) -> Unit = {},
     content: @Composable ((Boolean) -> Unit),
 ) {
-    val scope = rememberCoroutineScope()
     val focusManager = LocalFocusManager.current
     val textFieldIsFocused by interactionSource.collectIsFocusedAsState()
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
 
-    LaunchedEffect(Unit) {
-        scope.launch {
-            interactionSource.interactions.collectLatest { value ->
-                if (value is DragInteraction.Start) {
-                    focusManager.clearFocus(true)
-                } else {
-                    onInteraction(value)
-                }
+    LaunchedEffect(interactionSource) {
+        interactionSource.interactions.collectLatest { value ->
+            if (value is DragInteraction.Start) {
+                focusManager.clearFocus(true)
+            } else {
+                onInteraction(value)
             }
         }
     }
@@ -156,7 +157,6 @@ fun FieldContainer(
     inputTransformationChain: InputTransformation? = null,
     outputTransformation: OutputTransformation? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    innerInputContent: @Composable ((@Composable (() -> Unit)) -> Unit) = {},
     labelContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (RowScope.() -> Unit)? = null,
     onTextLayoutResult: (textLineCount: Int) -> Unit = { },
@@ -169,21 +169,19 @@ fun FieldContainer(
         )
         .thenIfNotNull(CharacterWhitelistInputTransformation(characterWhitelistPredicate))
 
+    val borderStroke = animateBorderStrokeAsState(
+        style,
+        isError,
+        textFieldIsFocused,
+    )
+
     Box(
-        modifier = Modifier
-            .outlineBorder(
-                show = style.showBorder || isError,
-                width = style.getBorderWidth(textFieldIsFocused, isError),
-                color = style.colors.borderColor(isError),
+        modifier = modifier
+            .borderIf(style.showBorder || isError, borderStroke.value, containerSize.shape)
+            .heightIn(containerSize.height)
+            .background(
                 shape = containerSize.shape,
-            )
-            .then(
-                Modifier
-                    .heightIn(containerSize.height)
-                    .background(
-                        shape = containerSize.shape,
-                        color = style.colors.containerColor(enabled),
-                    ),
+                color = style.colors.containerColor(enabled),
             ),
         contentAlignment = Alignment.TopCenter,
     ) {
@@ -198,7 +196,7 @@ fun FieldContainer(
             ) {
                 BasicTextField(
                     state = state,
-                    modifier = modifier
+                    modifier = Modifier
                         .semantics { hideFromAccessibility() }
                         .weight(1f),
                     enabled = enabled,
@@ -224,11 +222,10 @@ fun FieldContainer(
                             contentPadding = contentPadding,
                             value = state.text.toString(),
                             visualTransformation = VisualTransformation.None,
-                            innerTextField = { innerInputContent(innerTextField) },
+                            innerTextField = { innerTextField() },
                             enabled = enabled,
                             label = labelContent,
                             singleLine = false,
-                            isError = isError,
                             interactionSource = interactionSource,
                             colors = GdsInputDefaults.textFieldColors(),
                         )
@@ -240,29 +237,55 @@ fun FieldContainer(
     }
 }
 
+@Composable
+internal fun ErrorFooter(
+    errorMessage: String = "",
+    style: GdsInputStyle,
+) {
+    Row(
+        Modifier
+            .padding(top = 8.dp, start = 16.dp, end = 16.dp)
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        Icon(
+            modifier = Modifier
+                .size(20.dp)
+                .align(Alignment.CenterVertically),
+            imageVector = GdsIcons.Solid.TriangleExclamation,
+            contentDescription = null,
+            tint = style.colors.errorSupportingTextColor,
+        )
+        Text(
+            modifier = Modifier
+                .weight(1f)
+                .align(Alignment.CenterVertically),
+            text = errorMessage,
+            style = style.textStyle.footerMessageStyle,
+            color = style.colors.errorSupportingTextColor,
+        )
+    }
+}
+
+@Composable
+internal fun animateBorderStrokeAsState(
+    style: GdsInputStyle,
+    isError: Boolean,
+    focused: Boolean,
+): State<BorderStroke> {
+    val targetColor = style.colors.borderColor(isError)
+    val indicatorColor = animateColorAsState(targetColor, tween(durationMillis = 150))
+
+    val targetThickness = style.getBorderWidth(focused, isError)
+    val thickness = animateDpAsState(targetThickness, tween(durationMillis = 150))
+    return rememberUpdatedState(BorderStroke(thickness.value, indicatorColor.value))
+}
+
 private fun InputTransformation?.thenIfNotNull(next: InputTransformation?): InputTransformation? {
     return when {
         this == null -> next
         next == null -> this
         else -> this.then(next)
-    }
-}
-
-private fun Modifier.outlineBorder(
-    show: Boolean,
-    width: Dp,
-    color: Color,
-    shape: Shape,
-) = if (!show || width <= 0.dp) {
-    this
-} else {
-    this.drawBehind {
-        val strokeWidth = width.toPx()
-        drawOutline(
-            outline = shape.createOutline(size, layoutDirection, this),
-            color = color,
-            style = Stroke(width = strokeWidth),
-        )
     }
 }
 
@@ -360,4 +383,23 @@ internal fun isLandscape(): Boolean {
     val configuration = LocalConfiguration.current
     val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
     return isLandscape
+}
+
+internal fun isMultiLine(
+    lineLimits: TextFieldLineLimits,
+    textLineCount: Int,
+): Boolean =
+    lineLimits is TextFieldLineLimits.MultiLine &&
+        (lineLimits.minHeightInLines > 1 || textLineCount > 1)
+
+fun Modifier.borderIf(
+    showBorder: Boolean,
+    border: BorderStroke,
+    shape: androidx.compose.ui.graphics.Shape,
+): Modifier {
+    return if (showBorder) {
+        this.border(border, shape)
+    } else {
+        this
+    }
 }
