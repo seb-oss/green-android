@@ -259,7 +259,7 @@ private fun Modifier.animateContentSizeIf(condition: Boolean): Modifier {
     }
 }
 
-fun containerContentPadding(isLandscape: Boolean = false): PaddingValues {
+private fun containerContentPadding(isLandscape: Boolean = false): PaddingValues {
     return if (isLandscape) {
         PaddingValues(
             horizontal = 0.dp,
@@ -273,7 +273,8 @@ fun containerContentPadding(isLandscape: Boolean = false): PaddingValues {
     }
 }
 
-fun trailingContentPadding(): PaddingValues = PaddingValues(horizontal = 0.dp, vertical = 16.dp)
+private fun trailingContentPadding(): PaddingValues =
+    PaddingValues(horizontal = 0.dp, vertical = 16.dp)
 
 @Preview(
     name = "Light Mode GdsInput",

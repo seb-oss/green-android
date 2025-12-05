@@ -90,7 +90,7 @@ fun GdsInputDefault(
             onInfoIconClick = onInfoIconClick,
         )
         FieldContainer(
-            contentPadding = containerContentPadding(),
+            contentPadding = containerContentPadding,
             textFieldIsFocused = textFieldIsFocused,
             readOnly = readOnly,
             style = style,
@@ -111,7 +111,7 @@ fun GdsInputDefault(
                     .alpha(if (textFieldIsFocused) 1f else 0f)
                     .let {
                         if (isMultiLine) {
-                            it.padding(containerContentPadding())
+                            it.padding(containerContentPadding)
                         } else {
                             it.align(Alignment.CenterVertically)
                         }
@@ -218,11 +218,10 @@ private fun InputDefaultTrailing(
     }
 }
 
-fun containerContentPadding(): PaddingValues =
-    PaddingValues(
-        horizontal = 0.dp,
-        vertical = 16.dp,
-    )
+private val containerContentPadding = PaddingValues(
+    horizontal = 0.dp,
+    vertical = 16.dp,
+)
 
 @Preview(
     name = "Light Mode GdsInput",
