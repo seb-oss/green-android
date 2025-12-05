@@ -122,22 +122,19 @@ enum class LegacyButtonSize {
 object GdsButtonDefaults {
     object TwentyThree {
         @Composable
-        fun brandStyle() =
-            GdsButtonStyle(
-                colors = brandColors(),
-            )
+        fun primaryStyle() = GdsButtonStyle(colors = primaryColors())
 
         @Composable
-        fun primaryStyle() =
-            GdsButtonStyle(
-                colors = primaryColors(),
-            )
+        fun secondaryOnWhiteStyle() = GdsButtonStyle(colors = secondaryOnWhiteColors())
 
         @Composable
-        fun secondaryStyle() =
-            GdsButtonStyle(
-                colors = secondaryColors(),
-            )
+        fun secondaryOnGreyStyle() = GdsButtonStyle(colors = secondaryOnGreyColors())
+
+        @Composable
+        fun secondaryOnWhiteCardStyle() = GdsButtonStyle(colors = secondaryOnWhiteCardColors())
+
+        @Composable
+        fun secondaryOnGreyCardStyle() = GdsButtonStyle(colors = secondaryOnGreyCardColors())
 
         @Composable
         fun tertiaryStyle() =
@@ -162,25 +159,43 @@ object GdsButtonDefaults {
         @Composable
         fun primaryColors() =
             ButtonDefaults.buttonColors(
-                containerColor = GdsTheme.colors.L3Neutral01,
+                containerColor = GdsTheme.colors.L3NeutralStrong,
                 contentColor = GdsTheme.colors.ContentNeutral03,
                 disabledContainerColor = GdsTheme.colors.L3Disabled03,
                 disabledContentColor = GdsTheme.colors.ContentDisabled01,
             )
 
         @Composable
-        fun brandColors() =
+        fun secondaryOnWhiteColors() =
             ButtonDefaults.buttonColors(
-                containerColor = GdsTheme.colors.L3Brand01,
-                contentColor = GdsTheme.colors.ContentInversed,
+                containerColor = GdsTheme.colors.L2Neutral01,
+                contentColor = GdsTheme.colors.ContentNeutral01,
                 disabledContainerColor = GdsTheme.colors.L3Disabled03,
                 disabledContentColor = GdsTheme.colors.ContentDisabled01,
             )
 
         @Composable
-        fun secondaryColors() =
+        fun secondaryOnGreyColors() =
+            ButtonDefaults.buttonColors(
+                containerColor = GdsTheme.colors.L2Neutral02,
+                contentColor = GdsTheme.colors.ContentNeutral01,
+                disabledContainerColor = GdsTheme.colors.L3Disabled03,
+                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+            )
+
+        @Composable
+        fun secondaryOnWhiteCardColors() =
             ButtonDefaults.buttonColors(
                 containerColor = GdsTheme.colors.L3Neutral02,
+                contentColor = GdsTheme.colors.ContentNeutral01,
+                disabledContainerColor = GdsTheme.colors.L3Disabled03,
+                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+            )
+
+        @Composable
+        fun secondaryOnGreyCardColors() =
+            ButtonDefaults.buttonColors(
+                containerColor = GdsTheme.colors.L3Neutral01,
                 contentColor = GdsTheme.colors.ContentNeutral01,
                 disabledContainerColor = GdsTheme.colors.L3Disabled03,
                 disabledContentColor = GdsTheme.colors.ContentDisabled01,
@@ -258,7 +273,7 @@ object GdsButtonDefaults {
                 horizontalPadding = 16.dp,
                 textStyle = GdsTheme.typography.DetailBookM,
                 iconSize = 16.dp,
-                iconSpacing = 4.dp,
+                iconSpacing = 6.dp,
             )
     }
 

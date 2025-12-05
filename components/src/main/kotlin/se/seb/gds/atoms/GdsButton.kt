@@ -245,12 +245,12 @@ private fun ButtonContent(
     uiMode = Configuration.UI_MODE_NIGHT_YES,
 )
 @Composable
-private fun GdsButtonSecondaryPreview() {
+private fun GdsButtonSecondaryOnWhitePreview() {
     GdsTheme {
         GdsButton(
             title = "Button",
             icon = GdsIcons.Solid.Checkmark,
-            style = GdsButtonDefaults.TwentyThree.secondaryStyle(),
+            style = GdsButtonDefaults.TwentyThree.secondaryOnWhiteStyle(),
             onClick = {},
         )
     }
