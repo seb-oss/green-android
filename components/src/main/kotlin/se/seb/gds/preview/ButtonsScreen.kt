@@ -55,12 +55,6 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
         }
 
         if (showLegacyButtons.not()) {
-            var enabled by rememberSaveable { mutableStateOf(true) }
-
-            SwitchRow("Enabled", checked = enabled) {
-                enabled = it
-            }
-
             var selectedHeight by rememberSaveable { mutableStateOf("Large") }
             SelectRow(
                 selectedText = selectedHeight,
@@ -126,22 +120,47 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
             }
 
             GdsButton(
-                title = "Primary Button",
+                title = "Primary",
                 style = GdsButtonDefaults.TwentyThree.primaryStyle().copy(
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                enabled = enabled,
                 icon = icon,
             ) { }
 
             GdsButton(
-                title = "Secondary Button",
-                style = GdsButtonDefaults.TwentyThree.secondaryStyle().copy(
+                title = "Secondary On White",
+                style = GdsButtonDefaults.TwentyThree.secondaryOnWhiteStyle().copy(
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                enabled = enabled,
+                icon = icon,
+            ) { }
+
+            GdsButton(
+                title = "Secondary On Grey",
+                style = GdsButtonDefaults.TwentyThree.secondaryOnGreyStyle().copy(
+                    iconPosition = iconPositionSelected,
+                ),
+                sizeProfile = buttonSizeProfile.copy(widthType = widthType),
+                icon = icon,
+            ) { }
+
+            GdsButton(
+                title = "Secondary On White Card",
+                style = GdsButtonDefaults.TwentyThree.secondaryOnWhiteCardStyle().copy(
+                    iconPosition = iconPositionSelected,
+                ),
+                sizeProfile = buttonSizeProfile.copy(widthType = widthType),
+                icon = icon,
+            ) { }
+
+            GdsButton(
+                title = "Secondary On Grey Card",
+                style = GdsButtonDefaults.TwentyThree.secondaryOnGreyCardStyle().copy(
+                    iconPosition = iconPositionSelected,
+                ),
+                sizeProfile = buttonSizeProfile.copy(widthType = widthType),
                 icon = icon,
             ) { }
 
@@ -151,7 +170,6 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                enabled = enabled,
                 icon = icon,
             ) { }
 
@@ -161,7 +179,6 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                enabled = enabled,
                 icon = icon,
             ) { }
 
@@ -171,7 +188,6 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                enabled = enabled,
                 icon = icon,
             ) { }
         } else {

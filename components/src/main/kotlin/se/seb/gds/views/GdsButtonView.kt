@@ -66,13 +66,18 @@ class GdsButtonView @JvmOverloads constructor(
         val size = when (_size) {
             ButtonSize.SMALL -> LegacyButtonSize.SMALL
             ButtonSize.MEDIUM -> LegacyButtonSize.MEDIUM
-            ButtonSize.LARGE -> LegacyButtonSize.LARGE
+            else -> LegacyButtonSize.LARGE
         }
 
         val buttonStyle = when (_style) {
             ButtonStyle.PRIMARY -> GdsButtonDefaults.TwentyThree.primaryStyle()
-            ButtonStyle.SECONDARY -> GdsButtonDefaults.TwentyThree.secondaryStyle()
+            ButtonStyle.SECONDARY_ON_WHITE -> GdsButtonDefaults.TwentyThree.secondaryOnWhiteStyle()
+            ButtonStyle.SECONDARY_ON_GREY -> GdsButtonDefaults.TwentyThree.secondaryOnGreyStyle()
+            ButtonStyle.SECONDARY_ON_WHITE_CARD -> GdsButtonDefaults.TwentyThree.secondaryOnWhiteCardStyle()
+            ButtonStyle.SECONDARY_ON_GREY_CARD -> GdsButtonDefaults.TwentyThree.secondaryOnGreyCardStyle()
             ButtonStyle.TERTIARY -> GdsButtonDefaults.TwentyThree.tertiaryStyle()
+            ButtonStyle.OUTLINE -> GdsButtonDefaults.TwentyThree.outlineStyle()
+            ButtonStyle.NEGATIVE -> GdsButtonDefaults.TwentyThree.negativeStyle()
             ButtonStyle.LEGACY_PRIMARY -> GdsButtonDefaults.primary()
             ButtonStyle.LEGACY_SECONDARY -> GdsButtonDefaults.secondary()
             ButtonStyle.LEGACY_TERTIARY -> GdsButtonDefaults.tertiary()
@@ -83,11 +88,19 @@ class GdsButtonView @JvmOverloads constructor(
         }
 
         val sizeProfile = when (_style) {
-            ButtonStyle.PRIMARY, ButtonStyle.SECONDARY, ButtonStyle.TERTIARY -> {
+            ButtonStyle.PRIMARY,
+            ButtonStyle.SECONDARY_ON_WHITE,
+            ButtonStyle.SECONDARY_ON_GREY,
+            ButtonStyle.SECONDARY_ON_WHITE_CARD,
+            ButtonStyle.SECONDARY_ON_GREY_CARD,
+            ButtonStyle.TERTIARY,
+            ButtonStyle.OUTLINE,
+            ButtonStyle.NEGATIVE -> {
                 when (_size) {
                     ButtonSize.SMALL -> GdsButtonDefaults.TwentyThree.small()
                     ButtonSize.MEDIUM -> GdsButtonDefaults.TwentyThree.medium()
                     ButtonSize.LARGE -> GdsButtonDefaults.TwentyThree.large()
+                    ButtonSize.XLARGE -> GdsButtonDefaults.TwentyThree.xLarge()
                 }
             }
 
@@ -118,7 +131,12 @@ class GdsButtonView @JvmOverloads constructor(
 
     enum class ButtonStyle {
         PRIMARY,
-        SECONDARY,
+        SECONDARY_ON_WHITE,
+        SECONDARY_ON_GREY,
+        SECONDARY_ON_WHITE_CARD,
+        SECONDARY_ON_GREY_CARD,
+        OUTLINE,
+        NEGATIVE,
         TERTIARY,
         LEGACY_PRIMARY,
         LEGACY_SECONDARY,
@@ -133,5 +151,6 @@ class GdsButtonView @JvmOverloads constructor(
         SMALL,
         MEDIUM,
         LARGE,
+        XLARGE,
     }
 }
