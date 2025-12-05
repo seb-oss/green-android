@@ -8,13 +8,12 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.input.InputTransformation
@@ -35,7 +34,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import se.seb.gds.atoms.input.GdsInputDefaults.contentPaddingWithoutLabel
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
@@ -44,7 +42,7 @@ fun GdsInputDefault(
     modifier: Modifier = Modifier,
     state: TextFieldState,
     style: GdsInputStyle = GdsInputDefaults.defaultStyle(),
-    label: String? = null,
+    label: String,
     supportLabel: String? = null,
     errorMessage: String? = null,
     overrideTextDescription: String? = null,
@@ -58,16 +56,11 @@ fun GdsInputDefault(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     lineLimits: TextFieldLineLimits = TextFieldLineLimits.Default,
     scrollState: ScrollState = rememberScrollState(),
-    interactionSource: MutableInteractionSource = remember {
-        MutableInteractionSource()
-    },
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onTrailingIconClick: (() -> Unit)? = null,
     trailingIconDescription: String? = null,
     onInteraction: (Interaction) -> Unit = {},
-    characterWhitelistPredicate: (
-        CharSequence,
-        CharSequence,
-    ) -> Boolean = { _: CharSequence, _: CharSequence -> true },
+    characterWhitelistPredicate: (CharSequence, CharSequence) -> Boolean = { _, _ -> true },
     onValueChange: (String) -> Unit = {},
     showInfoIcon: Boolean = false,
     onInfoIconClick: () -> Unit = { },
@@ -97,7 +90,7 @@ fun GdsInputDefault(
             onInfoIconClick = onInfoIconClick,
         )
         FieldContainer(
-            contentPadding = contentPaddingWithoutLabel(),
+            contentPadding = containerContentPadding,
             textFieldIsFocused = textFieldIsFocused,
             readOnly = readOnly,
             style = style,
@@ -112,26 +105,17 @@ fun GdsInputDefault(
             characterWhitelistPredicate = characterWhitelistPredicate,
             outputTransformation = outputTransformation,
             keyboardOptions = keyboardOptions,
-            innerInputContent = { innerTextField ->
-                Row(modifier = Modifier.fillMaxWidth()) {
-                    Column(
-                        modifier = Modifier.weight(1f),
-                    ) { innerTextField() }
-                }
-            },
             trailingContent = {
-                val isMultiLine = lineLimits is TextFieldLineLimits.MultiLine &&
-                    (lineLimits.minHeightInLines > 1 || textLineCount > 1)
-
+                val isMultiLine = isMultiLine(lineLimits, textLineCount)
                 val trailingModifier = Modifier
                     .alpha(if (textFieldIsFocused) 1f else 0f)
-                    .then(
+                    .let {
                         if (isMultiLine) {
-                            Modifier.padding(contentPaddingWithoutLabel())
+                            it.padding(containerContentPadding)
                         } else {
-                            Modifier.align(Alignment.CenterVertically)
-                        },
-                    )
+                            it.align(Alignment.CenterVertically)
+                        }
+                    }
                 InputDefaultTrailing(
                     modifier = trailingModifier,
                     clearable = clearable,
@@ -141,15 +125,10 @@ fun GdsInputDefault(
                     clearText = { clearText(state) },
                 )
             },
-            onTextLayoutResult = { lineCount ->
-                textLineCount = lineCount
-            },
+            onTextLayoutResult = { lineCount -> textLineCount = lineCount },
         )
-        if (isError) {
-            InputDefaultError(
-                errorMessage = errorMessage,
-                style = style,
-            )
+        if (isError && !errorMessage.isNullOrBlank()) {
+            ErrorFooter(errorMessage = errorMessage, style = style)
         }
     }
 }
@@ -157,36 +136,24 @@ fun GdsInputDefault(
 @Composable
 private fun InputDefaultHeader(
     style: GdsInputStyle,
-    label: String? = null,
+    label: String,
     supportLabel: String? = null,
     showInfoIcon: Boolean = false,
     onInfoIconClick: () -> Unit = { },
 ) {
-    if (label == null && supportLabel == null && !showInfoIcon) return
-    Row(
-        modifier = Modifier.padding(start = 16.dp),
-    ) {
-        var columnModifier = Modifier.weight(1f)
-        columnModifier = if (showInfoIcon) {
-            if (supportLabel != null && label != null) {
-                columnModifier.padding(top = 12.dp)
-            } else {
-                columnModifier.align(Alignment.CenterVertically)
-            }
-        } else {
-            columnModifier
+    Row(modifier = Modifier.padding(start = 16.dp)) {
+        val columnModifier = when {
+            showInfoIcon && supportLabel != null -> Modifier.padding(top = 12.dp)
+            showInfoIcon -> Modifier.align(Alignment.CenterVertically)
+            else -> Modifier
         }
 
-        Column(
-            modifier = columnModifier,
-        ) {
-            label?.let {
-                Text(
-                    color = style.colors.labelColor,
-                    style = style.textStyle.labelStyle,
-                    text = it,
-                )
-            }
+        Column(modifier = columnModifier.weight(1f)) {
+            Text(
+                color = style.colors.labelColor,
+                style = style.textStyle.labelStyle,
+                text = label,
+            )
             supportLabel?.let {
                 Text(
                     style = style.textStyle.supportLabelStyle,
@@ -200,17 +167,12 @@ private fun InputDefaultHeader(
                 modifier = Modifier.padding(start = GdsTheme.dimensions.spacing.SpaceS, end = 4.dp),
                 onClick = onInfoIconClick,
             ) {
-                Icon(
-                    imageVector = GdsIcons.Regular.CircleInfo,
-                    contentDescription = null,
-                )
+                Icon(imageVector = GdsIcons.Regular.CircleInfo, contentDescription = null)
             }
         }
     }
 
-    val bothLabelsArePresent = !label.isNullOrBlank() && !supportLabel.isNullOrBlank()
-
-    if (bothLabelsArePresent || !showInfoIcon) {
+    if (!supportLabel.isNullOrBlank() || !showInfoIcon) {
         Spacer(Modifier.height(8.dp))
     }
 }
@@ -235,8 +197,7 @@ private fun InputDefaultTrailing(
         }
         if (clearable) {
             ClearButton(
-                modifier = Modifier
-                    .alpha(if (state.text.isNotEmpty()) 1f else 0f),
+                modifier = Modifier.alpha(if (state.text.isNotEmpty()) 1f else 0f),
                 enabled = state.text.isNotEmpty(),
                 onClick = { clearText() },
             )
@@ -248,50 +209,19 @@ private fun InputDefaultTrailing(
             modifier = modifier,
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically,
-        ) {
-            content()
-        }
+        ) { content() }
     } else {
         Column(
             modifier = modifier.padding(start = 8.dp),
             horizontalAlignment = Alignment.End,
-        ) {
-            content()
-        }
+        ) { content() }
     }
 }
 
-@Composable
-private fun InputDefaultError(
-    errorMessage: String?,
-    style: GdsInputStyle,
-) {
-    errorMessage?.let {
-        Row(
-            Modifier
-                .padding(top = 8.dp, start = 16.dp, end = 16.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            Icon(
-                modifier = Modifier
-                    .size(20.dp)
-                    .align(Alignment.CenterVertically),
-                imageVector = GdsIcons.Solid.TriangleExclamation,
-                contentDescription = null,
-                tint = style.colors.errorSupportingTextColor,
-            )
-            Text(
-                modifier = Modifier
-                    .weight(1f)
-                    .align(Alignment.CenterVertically),
-                text = it,
-                style = style.textStyle.footerMessageStyle,
-                color = style.colors.errorSupportingTextColor,
-            )
-        }
-    }
-}
+private val containerContentPadding = PaddingValues(
+    horizontal = 0.dp,
+    vertical = 16.dp,
+)
 
 @Preview(
     name = "Light Mode GdsInput",

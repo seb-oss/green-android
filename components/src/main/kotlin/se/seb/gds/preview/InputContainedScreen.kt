@@ -29,7 +29,7 @@ import se.seb.gds.atoms.ButtonWidthType
 import se.seb.gds.atoms.GdsBottomSheet
 import se.seb.gds.atoms.GdsButton
 import se.seb.gds.atoms.GdsButtonDefaults
-import se.seb.gds.atoms.input.GdsInputDefault
+import se.seb.gds.atoms.input.GdsInputContained
 import se.seb.gds.atoms.input.GdsInputDefaults
 import se.seb.gds.atoms.input.GdsInputDefaults.inputColors
 import se.seb.gds.components.SwitchRow
@@ -38,13 +38,13 @@ import se.seb.gds.theme.GdsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InputScreen(scrollState: ScrollState) {
+fun InputContainedScreen(scrollState: ScrollState) {
     var whiteBackground by rememberSaveable { mutableStateOf(false) }
-    var isError by rememberSaveable { mutableStateOf(false) }
+    var errorInside by rememberSaveable { mutableStateOf(false) }
+    var errorOutside by rememberSaveable { mutableStateOf(false) }
     var clearable by rememberSaveable { mutableStateOf(true) }
     var maxChar by rememberSaveable { mutableStateOf(true) }
     var infoIcon by rememberSaveable { mutableStateOf(true) }
-    var supportLabel by rememberSaveable { mutableStateOf(true) }
 
     val sheetState = rememberModalBottomSheetState()
     var showBottomSheet by rememberSaveable { mutableStateOf(false) }
@@ -55,13 +55,16 @@ fun InputScreen(scrollState: ScrollState) {
         GdsTheme.colors.L1Neutral02
     }
 
-    val defaultStyle = if (whiteBackground) {
-        GdsInputDefaults.defaultStyle()
+    val containedStyle = if (whiteBackground) {
+        GdsInputDefaults.containedStyle()
     } else {
-        GdsInputDefaults.defaultStyle().copy(
+        GdsInputDefaults.containedStyle().copy(
             colors = inputColors().copy(containerColor = GdsTheme.colors.L2Neutral02),
         )
     }
+
+    val isError = errorInside || errorOutside
+    val errorMessage = if (errorOutside && !errorInside) "Error message" else null
 
     val context = LocalContext.current
     Column(
@@ -70,7 +73,6 @@ fun InputScreen(scrollState: ScrollState) {
             .background(background)
             .verticalScroll(scrollState)
             .windowInsetsPadding(WindowInsets.ime),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         GdsButton(
             modifier = Modifier
@@ -91,13 +93,13 @@ fun InputScreen(scrollState: ScrollState) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            GdsInputDefault(
-                style = defaultStyle,
-                state = rememberTextFieldState(),
+            val text = rememberTextFieldState("Prefilled value")
+            GdsInputContained(
+                style = containedStyle,
+                state = text,
                 label = "Label",
-                supportLabel = if (supportLabel) "Support Label" else null,
                 maxCharacters = if (maxChar) 50 else null,
-                errorMessage = "Error message",
+                errorMessage = errorMessage,
                 clearable = clearable,
                 isError = isError,
                 showInfoIcon = infoIcon,
@@ -105,13 +107,12 @@ fun InputScreen(scrollState: ScrollState) {
                     Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
                 },
             )
-            GdsInputDefault(
-                style = defaultStyle,
+            GdsInputContained(
+                style = containedStyle,
                 state = rememberTextFieldState(),
                 label = "Label",
-                supportLabel = if (supportLabel) "Support Label" else null,
                 maxCharacters = if (maxChar) 50 else null,
-                errorMessage = "Error message",
+                errorMessage = errorMessage,
                 clearable = clearable,
                 isError = isError,
                 showInfoIcon = infoIcon,
@@ -137,17 +138,23 @@ fun InputScreen(scrollState: ScrollState) {
                 SwitchRow("Info icon", checked = infoIcon) {
                     infoIcon = it
                 }
-                SwitchRow("Error", checked = isError) {
-                    isError = it
+                SwitchRow("Error outside", checked = errorOutside) {
+                    errorOutside = it
+                    if (errorOutside) {
+                        errorInside = false
+                    }
+                }
+                SwitchRow("Error inside", checked = errorInside) {
+                    errorInside = it
+                    if (errorInside) {
+                        errorOutside = false
+                    }
                 }
                 SwitchRow("Max characters", checked = maxChar) {
                     maxChar = it
                 }
                 SwitchRow("Clearable", checked = clearable) {
                     clearable = it
-                }
-                SwitchRow("Support Label", checked = supportLabel) {
-                    supportLabel = it
                 }
             }
         }

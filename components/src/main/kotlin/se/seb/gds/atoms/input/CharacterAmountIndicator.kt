@@ -3,7 +3,6 @@ package se.seb.gds.atoms.input
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 
@@ -20,8 +19,8 @@ fun CharacterAmountIndicator(
     val trailingIconText = "$currentCharactersText/$maxCharactersText"
 
     Text(
+        modifier = modifier,
         text = trailingIconText,
-        modifier = modifier.alpha(if (maxCharacters != null) 1f else 0f),
         style = textStyle,
         color = color,
     )
