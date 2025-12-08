@@ -2,7 +2,7 @@ package se.seb.gds.theme.colors
 
 import androidx.compose.ui.graphics.Color
 
-data class GdsLocalColorTokens (
+data class GdsLocalColorTokens(
     val L1Neutral01: Color,
     val L1Neutral02: Color,
     val L1Elevated01: Color,
@@ -33,6 +33,7 @@ data class GdsLocalColorTokens (
     val L3Positive01: Color,
     val L3Positive02: Color,
     val L3Positive03: Color,
+    val L3Positive04: Color,
     val L3Negative01: Color,
     val L3Negative02: Color,
     val L3Negative03: Color,

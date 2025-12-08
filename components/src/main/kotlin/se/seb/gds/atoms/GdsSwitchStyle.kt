@@ -63,17 +63,18 @@ object GdsSwitchDefaults {
     @Composable
     fun defaultColors(): SwitchColors =
         SwitchDefaults.colors(
-            checkedThumbColor = GdsTheme.colors.L3Neutral04,
-            checkedTrackColor = GdsTheme.colors.L3Positive01,
+            checkedThumbColor = GdsTheme.colors.L3Neutral05,
+            checkedTrackColor = GdsTheme.colors.L3Positive04,
             uncheckedThumbColor = GdsTheme.colors.ContentNeutral02,
-            uncheckedTrackColor = GdsTheme.colors.L1Neutral01,
+            uncheckedTrackColor = Color.Transparent,
             uncheckedBorderColor = GdsTheme.colors.BorderInteractive,
-            checkedIconColor = GdsTheme.colors.ContentPositive01, // Does not look good in dark mode
+            checkedIconColor = GdsTheme.colors.ContentPositive01,
             disabledCheckedIconColor = GdsTheme.colors.ContentDisabled01,
             disabledCheckedTrackColor = GdsTheme.colors.L3Disabled02,
             disabledCheckedThumbColor = GdsTheme.colors.L3Disabled03,
             disabledUncheckedThumbColor = GdsTheme.colors.ContentDisabled01,
-            disabledUncheckedTrackColor = GdsTheme.colors.L3Disabled03,
+            disabledUncheckedTrackColor = Color.Transparent,
+            disabledUncheckedBorderColor = GdsTheme.colors.L3Disabled03,
         )
 
     @Composable
