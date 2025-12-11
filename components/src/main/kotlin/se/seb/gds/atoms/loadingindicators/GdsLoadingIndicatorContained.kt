@@ -33,7 +33,7 @@ import se.seb.gds.theme.GdsTheme
  */
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-fun GdsContainedLoadingIndicator(
+fun GdsLoadingIndicatorContained(
     modifier: Modifier = Modifier,
     indicatorColor: Color = GdsLoadingIndicatorDefaults.indicatorColor(),
     containerColor: Color = GdsLoadingIndicatorDefaults.containerColor(),
@@ -70,7 +70,7 @@ private fun GdsContainedLoadingIndicatorPreview() {
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center,
         ) {
-            GdsContainedLoadingIndicator()
+            GdsLoadingIndicatorContained()
         }
     }
 }

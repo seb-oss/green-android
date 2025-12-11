@@ -44,7 +44,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import se.seb.gds.atoms.loadingindicators.GdsContainedLoadingIndicator
+import se.seb.gds.atoms.loadingindicators.GdsLoadingIndicatorContained
 import se.seb.gds.atoms.loadingindicators.GdsLoadingIndicator
 import se.seb.gds.atoms.loadingindicators.GdsLoadingIndicatorDefaults
 import se.seb.gds.theme.GdsTheme
@@ -77,7 +77,7 @@ internal fun LoadingIndicatorScreen() {
             ) {
                 when (selectedIndicator) {
                     LoadingIndicatorType.LOADING_INDICATOR -> GdsLoadingIndicator()
-                    LoadingIndicatorType.CONTAINED_LOADING_INDICATOR -> GdsContainedLoadingIndicator()
+                    LoadingIndicatorType.CONTAINED_LOADING_INDICATOR -> GdsLoadingIndicatorContained()
                 }
             }
         },
@@ -130,7 +130,7 @@ internal fun LoadingIndicatorScreen() {
                 
                 item {
                     LoadingIndicatorListItem("Loading indicator contained", isRefreshing) {
-                        GdsContainedLoadingIndicator()
+                        GdsLoadingIndicatorContained()
                     }
                 }
             }
