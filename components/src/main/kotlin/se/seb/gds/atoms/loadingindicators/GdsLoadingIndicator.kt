@@ -23,7 +23,7 @@ import se.seb.gds.theme.GdsTheme
  * This variant has no container background, making it suitable for use on solid backgrounds
  * or when a more subtle appearance is desired.
  *
- * For a loading indicator with a container background use [GdsContainedLoadingIndicator].
+ * For a loading indicator with a container background use [GdsLoadingIndicatorContained].
  *
  * @param modifier Modifier to be applied to the indicator.
  * @param color The color of the loading indicator animation.

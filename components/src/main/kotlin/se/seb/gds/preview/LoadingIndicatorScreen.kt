@@ -1,5 +1,7 @@
 package se.seb.gds.preview
 
+import androidx.compose.animation.Crossfade
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,6 +18,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
@@ -41,9 +44,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import se.seb.gds.atoms.loadingindicators.GdsContainedLoadingIndicator
+import se.seb.gds.atoms.loadingindicators.GdsLoadingIndicatorContained
 import se.seb.gds.atoms.loadingindicators.GdsLoadingIndicator
 import se.seb.gds.atoms.loadingindicators.GdsLoadingIndicatorDefaults
+import se.seb.gds.theme.GdsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -52,7 +56,7 @@ internal fun LoadingIndicatorScreen() {
     val state = rememberPullToRefreshState()
     val scope = rememberCoroutineScope()
     var selectedIndicator by remember { mutableStateOf(LoadingIndicatorType.CONTAINED_LOADING_INDICATOR) }
-
+    
     PullToRefreshBox(
         modifier = Modifier,
         state = state,
@@ -60,7 +64,7 @@ internal fun LoadingIndicatorScreen() {
         onRefresh = {
             scope.launch {
                 isRefreshing = true
-                delay(2000) // Simulate network request
+                delay(4000) // Simulate network request
                 isRefreshing = false
             }
         },
@@ -73,7 +77,7 @@ internal fun LoadingIndicatorScreen() {
             ) {
                 when (selectedIndicator) {
                     LoadingIndicatorType.LOADING_INDICATOR -> GdsLoadingIndicator()
-                    LoadingIndicatorType.CONTAINED_LOADING_INDICATOR -> GdsContainedLoadingIndicator()
+                    LoadingIndicatorType.CONTAINED_LOADING_INDICATOR -> GdsLoadingIndicatorContained()
                 }
             }
         },
@@ -101,14 +105,14 @@ internal fun LoadingIndicatorScreen() {
                                         .fillMaxWidth()
                                         .selectable(
                                             selected = (type == selectedIndicator),
-                                            onClick = { selectedIndicator = type }
+                                            onClick = { selectedIndicator = type },
                                         )
                                         .padding(horizontal = 8.dp, vertical = 4.dp),
                                     verticalAlignment = Alignment.CenterVertically,
                                 ) {
                                     RadioButton(
                                         selected = (type == selectedIndicator),
-                                        onClick = null
+                                        onClick = null,
                                     )
                                     Spacer(modifier = Modifier.width(4.dp))
                                     Text(text = type.displayName)
@@ -117,35 +121,55 @@ internal fun LoadingIndicatorScreen() {
                         }
                     }
                 }
-
+                
                 item {
-                    GallerySection("Loading Indicator") {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(32.dp),
-                            contentAlignment = Alignment.Center,
-                        ) {
-                            GdsLoadingIndicator()
-                        }
+                    LoadingIndicatorListItem("Loading indicator", isRefreshing) {
+                        GdsLoadingIndicator()
                     }
                 }
-
+                
                 item {
-                    GallerySection("Contained Loading Indicator") {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(32.dp),
-                            contentAlignment = Alignment.Center,
-                        ) {
-                            GdsContainedLoadingIndicator()
-                        }
+                    LoadingIndicatorListItem("Loading indicator contained", isRefreshing) {
+                        GdsLoadingIndicatorContained()
                     }
                 }
             }
         },
     )
+}
+
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+private fun LoadingIndicatorListItem(
+    title: String,
+    isRefreshing: Boolean,
+    content: @Composable () -> Unit
+) {
+    Box {
+        GallerySection(title) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(32.dp),
+                contentAlignment = Alignment.Center,
+            ) {
+                Crossfade(
+                    targetState = isRefreshing,
+                    animationSpec = tween(durationMillis = 1500),
+                ) { refreshing ->
+                    if (refreshing) {
+                        Box(
+                            modifier = Modifier
+                                .size(GdsLoadingIndicatorDefaults.size)
+                                .background(GdsTheme.colors.L3Neutral01),
+                        )
+                    } else {
+                        content()
+                    }
+                }
+            }
+        }
+    }
 }
 
 @Composable
