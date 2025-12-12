@@ -5,16 +5,20 @@ import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -29,10 +33,12 @@ import se.seb.gds.atoms.ButtonWidthType
 import se.seb.gds.atoms.GdsBottomSheet
 import se.seb.gds.atoms.GdsButton
 import se.seb.gds.atoms.GdsButtonDefaults
+import se.seb.gds.atoms.GdsSwitch
+import se.seb.gds.atoms.GdsSwitchDefaults
+import se.seb.gds.atoms.GdsSwitchStyle
+import se.seb.gds.atoms.input.BasicInputState
 import se.seb.gds.atoms.input.GdsInputContained
 import se.seb.gds.atoms.input.GdsInputDefaults
-import se.seb.gds.atoms.input.GdsInputDefaults.inputColors
-import se.seb.gds.components.SwitchRow
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
@@ -58,9 +64,7 @@ fun InputContainedScreen(scrollState: ScrollState) {
     val containedStyle = if (whiteBackground) {
         GdsInputDefaults.containedStyle()
     } else {
-        GdsInputDefaults.containedStyle().copy(
-            colors = inputColors().copy(containerColor = GdsTheme.colors.L2Neutral02),
-        )
+        GdsInputDefaults.containedOnGreyStyle()
     }
 
     val isError = errorInside || errorOutside
@@ -98,27 +102,31 @@ fun InputContainedScreen(scrollState: ScrollState) {
                 style = containedStyle,
                 state = text,
                 label = "Label",
-                maxCharacters = if (maxChar) 50 else null,
-                errorMessage = errorMessage,
-                clearable = clearable,
-                isError = isError,
-                showInfoIcon = infoIcon,
                 onInfoIconClick = {
                     Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
                 },
+                inputState = BasicInputState(
+                    maxCharacters = if (maxChar) 50 else null,
+                    errorMessage = errorMessage,
+                    clearable = clearable,
+                    isError = isError,
+                    showInfoIcon = infoIcon,
+                ),
             )
             GdsInputContained(
                 style = containedStyle,
                 state = rememberTextFieldState(),
                 label = "Label",
-                maxCharacters = if (maxChar) 50 else null,
-                errorMessage = errorMessage,
-                clearable = clearable,
-                isError = isError,
-                showInfoIcon = infoIcon,
                 onInfoIconClick = {
                     Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
                 },
+                inputState = BasicInputState(
+                    maxCharacters = if (maxChar) 50 else null,
+                    errorMessage = errorMessage,
+                    clearable = clearable,
+                    isError = isError,
+                    showInfoIcon = infoIcon,
+                ),
             )
         }
     }
@@ -129,34 +137,64 @@ fun InputContainedScreen(scrollState: ScrollState) {
             sheetState = sheetState,
         ) {
             Column(
-                modifier = Modifier.padding(16.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp),
+                modifier = Modifier
+                    .padding(16.dp)
+                    .verticalScroll(rememberScrollState()),
             ) {
-                SwitchRow("White Background", checked = whiteBackground) {
+                InputSwitchRow("White Background", checked = whiteBackground) {
                     whiteBackground = it
                 }
-                SwitchRow("Info icon", checked = infoIcon) {
+                InputSwitchRow("Info icon", checked = infoIcon) {
                     infoIcon = it
                 }
-                SwitchRow("Error outside", checked = errorOutside) {
+                InputSwitchRow("Error outside", checked = errorOutside) {
                     errorOutside = it
                     if (errorOutside) {
                         errorInside = false
                     }
                 }
-                SwitchRow("Error inside", checked = errorInside) {
+                InputSwitchRow("Error inside", checked = errorInside) {
                     errorInside = it
                     if (errorInside) {
                         errorOutside = false
                     }
                 }
-                SwitchRow("Max characters", checked = maxChar) {
+                InputSwitchRow("Max characters", checked = maxChar) {
                     maxChar = it
                 }
-                SwitchRow("Clearable", checked = clearable) {
+                InputSwitchRow("Clearable", checked = clearable) {
                     clearable = it
                 }
             }
         }
+    }
+}
+
+@Composable
+internal fun InputSwitchRow(
+    title: String,
+    checked: Boolean,
+    modifier: Modifier = Modifier,
+    style: GdsSwitchStyle = GdsSwitchDefaults.defaultStyle(),
+    enabled: Boolean = true,
+    onCheckedChanged: (Boolean) -> Unit = {},
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            modifier = Modifier.weight(1f),
+            style = GdsTheme.typography.DetailBookM,
+            text = title,
+        )
+        GdsSwitch(
+            checked = checked,
+            onCheckedChanged = onCheckedChanged,
+            style = style,
+            enabled = enabled,
+        )
     }
 }
