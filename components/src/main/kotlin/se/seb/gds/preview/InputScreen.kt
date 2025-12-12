@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -29,9 +30,10 @@ import se.seb.gds.atoms.ButtonWidthType
 import se.seb.gds.atoms.GdsBottomSheet
 import se.seb.gds.atoms.GdsButton
 import se.seb.gds.atoms.GdsButtonDefaults
+import se.seb.gds.atoms.input.BasicInputState
 import se.seb.gds.atoms.input.GdsInputDefault
 import se.seb.gds.atoms.input.GdsInputDefaults
-import se.seb.gds.atoms.input.GdsInputDefaults.inputColors
+import se.seb.gds.atoms.input.GdsInputDefaults.defaultInputColors
 import se.seb.gds.components.SwitchRow
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
@@ -58,9 +60,7 @@ fun InputScreen(scrollState: ScrollState) {
     val defaultStyle = if (whiteBackground) {
         GdsInputDefaults.defaultStyle()
     } else {
-        GdsInputDefaults.defaultStyle().copy(
-            colors = inputColors().copy(containerColor = GdsTheme.colors.L2Neutral02),
-        )
+        GdsInputDefaults.defaultOnGreyStyle()
     }
 
     val context = LocalContext.current
@@ -96,11 +96,13 @@ fun InputScreen(scrollState: ScrollState) {
                 state = rememberTextFieldState(),
                 label = "Label",
                 supportLabel = if (supportLabel) "Support Label" else null,
-                maxCharacters = if (maxChar) 50 else null,
-                errorMessage = "Error message",
-                clearable = clearable,
-                isError = isError,
-                showInfoIcon = infoIcon,
+                inputState = BasicInputState(
+                    maxCharacters = if (maxChar) 50 else null,
+                    errorMessage = "Error message",
+                    clearable = clearable,
+                    isError = isError,
+                    showInfoIcon = infoIcon,
+                ),
                 onInfoIconClick = {
                     Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
                 },
@@ -110,11 +112,13 @@ fun InputScreen(scrollState: ScrollState) {
                 state = rememberTextFieldState(),
                 label = "Label",
                 supportLabel = if (supportLabel) "Support Label" else null,
-                maxCharacters = if (maxChar) 50 else null,
-                errorMessage = "Error message",
-                clearable = clearable,
-                isError = isError,
-                showInfoIcon = infoIcon,
+                inputState = BasicInputState(
+                    maxCharacters = if (maxChar) 50 else null,
+                    errorMessage = "Error message",
+                    clearable = clearable,
+                    isError = isError,
+                    showInfoIcon = infoIcon,
+                ),
                 onInfoIconClick = {
                     Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
                 },
@@ -128,25 +132,26 @@ fun InputScreen(scrollState: ScrollState) {
             sheetState = sheetState,
         ) {
             Column(
-                modifier = Modifier.padding(16.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp),
+                modifier = Modifier
+                    .verticalScroll(rememberScrollState())
+                    .padding(16.dp),
             ) {
-                SwitchRow("White Background", checked = whiteBackground) {
+                InputSwitchRow("White Background", checked = whiteBackground) {
                     whiteBackground = it
                 }
-                SwitchRow("Info icon", checked = infoIcon) {
+                InputSwitchRow("Info icon", checked = infoIcon) {
                     infoIcon = it
                 }
-                SwitchRow("Error", checked = isError) {
+                InputSwitchRow("Error", checked = isError) {
                     isError = it
                 }
-                SwitchRow("Max characters", checked = maxChar) {
+                InputSwitchRow("Max characters", checked = maxChar) {
                     maxChar = it
                 }
-                SwitchRow("Clearable", checked = clearable) {
+                InputSwitchRow("Clearable", checked = clearable) {
                     clearable = it
                 }
-                SwitchRow("Support Label", checked = supportLabel) {
+                InputSwitchRow("Support Label", checked = supportLabel) {
                     supportLabel = it
                 }
             }

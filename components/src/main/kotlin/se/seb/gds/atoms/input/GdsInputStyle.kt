@@ -1,6 +1,5 @@
 package se.seb.gds.atoms.input
 
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material3.TextFieldDefaults
@@ -11,30 +10,41 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import se.seb.gds.common.isLandscape
 import se.seb.gds.theme.GdsTheme
 
 /**
- * Style configuration for a [GdsInput], including sizes, colors, and text styles.
+ * Style configuration for [BasicInput], including sizes, colors, and text styles.
  *
- * See [GdsInputDefaults] for the default implementation.
- *
- * @property containerSize The size of the input container, including height and shape.
+ * @property containerShape The size of the input container, including height and shape.
  * @property colors The colors used by the input in different states.
  * @property textSelectionColors The colors used for text selection in the input field.
- * @property textStyle The text styles used by the input in different states.
+ * @property inputTextStyle The text style for the input text.
+ * @property errorMessageStyle The text style for the error message displayed below the input.
+ * @property characterCounter The text style for the character counter displayed below the input.
  * @property unfocusedBorderThickness The thickness of the border when the input is unfocused.
  * @property focusedBorderThickness The thickness of the border when the input is focused.
+ * @property showBorder A flag indicating whether to display the border around the input container.
  *
  */
-data class GdsInputStyle(
-    val containerSize: InputSizeConfig,
+data class BasicInputStyle(
+    val containerShape: InputContainerShape,
     val colors: GdsInputColors,
     val textSelectionColors: TextSelectionColors,
-    val textStyle: GdsInputTextStyle,
+    val inputTextStyle: TextStyle,
+    val errorMessageStyle: TextStyle,
+    val characterCounter: TextStyle,
     val unfocusedBorderThickness: Dp,
     val focusedBorderThickness: Dp,
     val showBorder: Boolean = true,
 ) {
+    /**
+     * Determines the border width based on the input's focus and error state.
+     *
+     * @param textFieldIsFocused Whether the input field is currently focused.
+     * @param isError Whether the input field is in an error state.
+     * @return The border thickness to be applied.
+     */
     fun getBorderWidth(
         textFieldIsFocused: Boolean,
         isError: Boolean,
@@ -45,190 +55,81 @@ data class GdsInputStyle(
             unfocusedBorderThickness
         }
 
-    fun getContainerSize(isLandscape: Boolean): InputSize =
-        if (isLandscape) containerSize.landscape else containerSize.portrait
+    /**
+     * Retrieves the container size based on the device orientation.
+     *
+     * @param isLandscape Whether the device is in landscape orientation.
+     * @return The appropriate container size for the given orientation.
+     */
+    @Composable
+    fun getCurrentContainerShape(): ContainerShape =
+        if (isLandscape()) containerShape.landscape else containerShape.portrait
 }
 
 /**
- * Text styles used by a [GdsInput] in different states.
+ * Style configuration for [GdsInputDefault].
  *
- * See [GdsInputDefaults.inputTextStyle] for the default text styles.
- * @property smallLabelStyle The text style for the floating label in the small state.
- * @property largeLabelStyle The text style for the floating label in the large state.
- * @property inputTextStyle The text style for the input text.
- * @property footerMessageStyle The text style for the footer message (supporting or error text).
+ * @property basicInputStyle The basic style configuration for the input.
  * @property labelStyle The text style for the label positioned above the container.
  * @property supportLabelStyle The text style for the supporting label positioned above the container.
- * @property characterCounter The text style for the character counter.
  */
-data class GdsInputTextStyle(
-    val smallLabelStyle: TextStyle,
-    val largeLabelStyle: TextStyle,
-    val inputTextStyle: TextStyle,
-    val footerMessageStyle: TextStyle,
+data class InputDefaultStyle(
+    val basicInputStyle: BasicInputStyle,
     val labelStyle: TextStyle,
     val supportLabelStyle: TextStyle,
-    val characterCounter: TextStyle,
 )
 
 /**
- * Creates a [GdsInputColors] that represents the default colors used in
- * a [GdsInput].
+ * Style configuration for [GdsInputContained].
+ *
+ * @property basicInputStyle The basic style configuration for the input.
+ * @property smallLabelStyle The text style for the small floating label inside the container.
+ * @property largeLabelStyle The text style for the large floating label inside the container.
  */
-
-object GdsInputDefaults {
-    /** Default style for [GdsInputDefault] and [GdsInputContained] */
-    @Composable
-    fun defaultStyle() =
-        GdsInputStyle(
-            containerSize = defaultInputSizeConfig(),
-            colors = inputColors(),
-            textSelectionColors = textSelectionColors(),
-            textStyle = inputTextStyle(),
-            unfocusedBorderThickness = 1.dp,
-            focusedBorderThickness = 2.dp,
-            showBorder = true,
-        )
-
-    /** Contained style for [GdsInput] with floating label. */
-    @Composable
-    fun containedStyle() =
-        defaultStyle().copy(
-            containerSize = containedInputSizeConfig(),
-            showBorder = false,
-        )
-
-    /** Override default TextField colors to make container and indicator transparent
-     * as we are using our own container and indicator in GdsInput
-     */
-    @Composable
-    fun textFieldColors() =
-        TextFieldDefaults.colors().copy(
-            disabledContainerColor = Color.Transparent,
-            focusedContainerColor = Color.Transparent,
-            errorContainerColor = Color.Transparent,
-            unfocusedContainerColor = Color.Transparent,
-            focusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent,
-            errorIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-        )
-
-    /**
-     * Default text selection colors for [GdsInputContained] and [GdsInputDefault].
-     *
-     * See [TextSelectionColors] for more details.
-     */
-    @Composable
-    fun textSelectionColors() =
-        TextSelectionColors(
-            handleColor = GdsTheme.colors.ContentNeutral01,
-            backgroundColor = GdsTheme.colors.ContentNeutral01.copy(alpha = 0.2f),
-        )
-
-    /**
-     * Default input colors for [GdsInputDefault] and [GdsInputContained] in different states.
-     *
-     * See [GdsInputColors] for more details.
-     */
-    @Composable
-    fun inputColors(): GdsInputColors =
-        GdsInputColors(
-            containerColor = GdsTheme.colors.L2Neutral01,
-            floatingLabelColor = GdsTheme.colors.ContentNeutral02,
-            labelColor = GdsTheme.colors.ContentNeutral01,
-            supportLabelColor = GdsTheme.colors.ContentNeutral01,
-            inputTextColor = GdsTheme.colors.ContentNeutral01,
-            errorSupportingTextColor = GdsTheme.colors.ContentNegative01,
-            errorIndicatorColor = GdsTheme.colors.BorderNegative01,
-            disabledContainerColor = GdsTheme.colors.L3Disabled01,
-            disabledContentColor = GdsTheme.colors.ContentDisabled01,
-            focusedContainerColor = GdsTheme.colors.StateNeutral04,
-            cursorColor = GdsTheme.colors.ContentNeutral01,
-            borderColor = GdsTheme.colors.BorderInteractive,
-        )
-
-    /**
-     * Default text styles for [GdsInputDefault] and [GdsInputContained] in different states.
-     *
-     * See [GdsInputTextStyle] for more details.
-     */
-    @Composable
-    fun inputTextStyle() =
-        GdsInputTextStyle(
-            smallLabelStyle = GdsTheme.typography.DetailBookS,
-            largeLabelStyle = GdsTheme.typography.DetailBookM,
-            inputTextStyle = GdsTheme.typography.DetailBookM,
-            footerMessageStyle = GdsTheme.typography.DetailBookS,
-            labelStyle = GdsTheme.typography.DetailBookM,
-            supportLabelStyle = GdsTheme.typography.DetailRegularS,
-            characterCounter = GdsTheme.typography.DetailBookS,
-        )
-
-    @Composable
-    fun defaultInputSizeConfig(): InputSizeConfig =
-        InputSizeConfig(
-            landscape = InputSize(
-                height = 56.dp,
-                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
-            ),
-            portrait = InputSize(
-                height = 64.dp,
-                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
-            ),
-        )
-
-    @Composable
-    fun containedInputSizeConfig(): InputSizeConfig =
-        InputSizeConfig(
-            landscape = InputSize(
-                height = 60.dp,
-                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
-            ),
-            portrait = InputSize(
-                height = 72.dp,
-                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
-            ),
-        )
-}
+data class InputContainedStyle(
+    val basicInputStyle: BasicInputStyle,
+    val smallLabelStyle: TextStyle,
+    val largeLabelStyle: TextStyle,
+)
 
 /**
- * Represents the size and shape of an input container.
+ * Represents the style of an input container, including its height and shape.
  *
  * @property height The height of the input container.
  * @property shape The shape of the input container.
  */
-class InputSize(
+class ContainerShape(
     val height: Dp,
     val shape: Shape,
 )
 
 /**
- * Represents the sizes of an input container in landscape and portrait modes.
+ * Represents variants of input container styles for different orientations.
  *
- * @property landscape The size of the input container in landscape mode.
- * @property portrait The size of the input container in portrait mode.
+ * @property landscape The style for landscape orientation.
+ * @property portrait The style for portrait orientation.
  */
-data class InputSizeConfig(
-    val landscape: InputSize,
-    val portrait: InputSize,
+data class InputContainerShape(
+    val landscape: ContainerShape,
+    val portrait: ContainerShape,
 )
 
 /**
- * Represents the colors used by a [GdsInputDefault] and [GdsInputContained] in different states.
+ *  Represents the colors used by a [GdsInputDefault] and [GdsInputContained] in different states.
  *
- * See [GdsInputDefaults.inputColors] for the default colors.
+ *  See [GdsInputDefaults.defaultInputColors] for the default colors.
  *  @property containerColor The background color of the input container.
  *  @property labelColor The color of the label positioned above the container.
  *  @property supportLabelColor The color of the supporting label positioned above the container.
  *  @property floatingLabelColor The color of the floating label inside the container.
  *  @property inputTextColor The color of the input text.
- *  @property errorSupportingTextColor The color of the supporting text when the input is in an error state.
+ *  @property errorTextColor The color of the supporting text when the input is in an error state.
  *  @property errorIndicatorColor The color of the indicator (border) when the input is in an error state.
  *  @property focusedContainerColor The background color of the input container when focused.
  *  @property disabledContainerColor The background color of the input container when disabled.
  *  @property disabledContentColor The color of the input text and floating label when the input is disabled.
  *  @property cursorColor The color of the cursor in the input field.
+ *  @property borderColor The color of the indicator (border) when the input is in normal state.
  */
 @Immutable
 data class GdsInputColors(
@@ -237,7 +138,7 @@ data class GdsInputColors(
     val floatingLabelColor: Color,
     val supportLabelColor: Color,
     val inputTextColor: Color,
-    val errorSupportingTextColor: Color,
+    val errorTextColor: Color,
     val errorIndicatorColor: Color,
     val focusedContainerColor: Color,
     val disabledContainerColor: Color,
@@ -269,4 +170,151 @@ data class GdsInputColors(
             isError -> errorIndicatorColor
             else -> borderColor
         }
+}
+
+object GdsInputDefaults {
+    /** Style for [GdsInputDefault] on white background */
+    @Composable
+    fun defaultStyle() =
+        InputDefaultStyle(
+            basicInputStyle = basicContainerStyle(),
+            labelStyle = GdsTheme.typography.DetailBookM,
+            supportLabelStyle = GdsTheme.typography.DetailRegularS,
+        )
+
+    /** Style for [GdsInputDefault] on grey background */
+    @Composable
+    fun defaultOnGreyStyle() =
+        InputDefaultStyle(
+            basicInputStyle = basicContainerStyle().copy(
+                colors = defaultInputColors().copy(
+                    containerColor = GdsTheme.colors.L2Neutral02,
+                ),
+            ),
+            labelStyle = GdsTheme.typography.DetailBookM,
+            supportLabelStyle = GdsTheme.typography.DetailRegularS,
+        )
+
+    /** Style for [GdsInputContained] on white background */
+    @Composable
+    fun containedStyle() =
+        InputContainedStyle(
+            basicInputStyle = basicContainerStyle().copy(
+                containerShape = containedInputContainer(),
+                showBorder = false,
+            ),
+            smallLabelStyle = GdsTheme.typography.DetailBookS,
+            largeLabelStyle = GdsTheme.typography.DetailBookM,
+        )
+
+    /** Style for [GdsInputContained] on grey background */
+    @Composable
+    fun containedOnGreyStyle() =
+        InputContainedStyle(
+            basicInputStyle = basicContainerStyle().copy(
+                containerShape = containedInputContainer(),
+                colors = defaultInputColors().copy(
+                    containerColor = GdsTheme.colors.L2Neutral02,
+                ),
+                showBorder = false,
+            ),
+            smallLabelStyle = GdsTheme.typography.DetailBookS,
+            largeLabelStyle = GdsTheme.typography.DetailBookM,
+        )
+
+    /** Basic style used by both [GdsInputDefault] and [GdsInputContained] */
+    @Composable
+    fun basicContainerStyle() =
+        BasicInputStyle(
+            containerShape = defaultInputContainer(),
+            colors = defaultInputColors(),
+            textSelectionColors = textSelectionColors(),
+            inputTextStyle = GdsTheme.typography.DetailBookM,
+            errorMessageStyle = GdsTheme.typography.DetailBookS,
+            characterCounter = GdsTheme.typography.DetailBookS,
+            unfocusedBorderThickness = 1.dp,
+            focusedBorderThickness = 2.dp,
+            showBorder = true,
+        )
+
+    /**
+     * Override default TextField colors to make container and indicator transparent
+     * as we are using our own container and indicator in [GdsInputContained] and [GdsInputDefault]
+     */
+    @Composable
+    fun textFieldColors() =
+        TextFieldDefaults.colors().copy(
+            disabledContainerColor = Color.Transparent,
+            focusedContainerColor = Color.Transparent,
+            errorContainerColor = Color.Transparent,
+            unfocusedContainerColor = Color.Transparent,
+            focusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent,
+            errorIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+        )
+
+    /**
+     * Default text selection colors for [GdsInputContained] and [GdsInputDefault].
+     *
+     * See [TextSelectionColors] for more details.
+     */
+    @Composable
+    fun textSelectionColors() =
+        TextSelectionColors(
+            handleColor = GdsTheme.colors.ContentNeutral01,
+            backgroundColor = GdsTheme.colors.ContentNeutral01.copy(alpha = 0.2f),
+        )
+
+    /**
+     * Default input colors for [GdsInputDefault] and [GdsInputContained] in different states.
+     */
+    @Composable
+    fun defaultInputColors(): GdsInputColors =
+        GdsInputColors(
+            containerColor = GdsTheme.colors.L2Neutral01,
+            floatingLabelColor = GdsTheme.colors.ContentNeutral02,
+            labelColor = GdsTheme.colors.ContentNeutral01,
+            supportLabelColor = GdsTheme.colors.ContentNeutral01,
+            inputTextColor = GdsTheme.colors.ContentNeutral01,
+            errorTextColor = GdsTheme.colors.ContentNegative01,
+            errorIndicatorColor = GdsTheme.colors.BorderNegative01,
+            disabledContainerColor = GdsTheme.colors.L3Disabled01,
+            disabledContentColor = GdsTheme.colors.ContentDisabled01,
+            focusedContainerColor = GdsTheme.colors.StateNeutral04,
+            cursorColor = GdsTheme.colors.ContentNeutral01,
+            borderColor = GdsTheme.colors.BorderInteractive,
+        )
+
+    /**
+     * Container configuration for [GdsInputDefault].
+     */
+    @Composable
+    fun defaultInputContainer(): InputContainerShape =
+        InputContainerShape(
+            landscape = ContainerShape(
+                height = 56.dp,
+                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
+            ),
+            portrait = ContainerShape(
+                height = 64.dp,
+                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
+            ),
+        )
+
+    /**
+     * Container configuration for [GdsInputContained].
+     */
+    @Composable
+    fun containedInputContainer(): InputContainerShape =
+        InputContainerShape(
+            landscape = ContainerShape(
+                height = 60.dp,
+                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
+            ),
+            portrait = ContainerShape(
+                height = 72.dp,
+                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
+            ),
+        )
 }
