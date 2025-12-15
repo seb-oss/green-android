@@ -45,13 +45,13 @@ fun GdsCircularProgressIndicator(
 object GdsCircularProgressIndicatorDefaults {
     val Size = 40.dp
     val StrokeWidth = 4.dp
-    
+
     @Composable
     fun strokeCap(): StrokeCap = StrokeCap.Round
-    
+
     @Composable
     fun color(): Color = GdsTheme.colors.BorderStrong
-    
+
     @Composable
     fun trackColor(): Color = GdsTheme.colors.BorderSubtle01
 }

@@ -1,5 +1,6 @@
 package se.seb.gds.atoms
 
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
@@ -30,7 +31,9 @@ fun GdsBottomSheet(
     content: @Composable () -> Unit,
 ) {
     ModalBottomSheet(
-        modifier = modifier.safeDrawingPadding(),
+        modifier = modifier
+            .safeDrawingPadding()
+            .fillMaxHeight(),
         sheetState = sheetState,
         dragHandle = if (showDragHandle) style.dragHandle else null,
         shape = style.shape,

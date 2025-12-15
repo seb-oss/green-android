@@ -7,10 +7,10 @@ import se.seb.gds.theme.GdsTheme
 
 object GdsLoadingIndicatorDefaults {
     val size = 48.dp
-    
+
     @Composable
     fun indicatorColor(): Color = GdsTheme.colors.L3NeutralStrong
-    
+
     @Composable
     fun containerColor(): Color = GdsTheme.colors.L3Neutral02
 }
