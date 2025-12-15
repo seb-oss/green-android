@@ -73,7 +73,7 @@ fun GdsInputDefault(
     characterWhitelistPredicate: (CharSequence, CharSequence) -> Boolean = { _, _ -> true },
     onValueChange: (String) -> Unit = {},
     onInfoIconClick: () -> Unit = { },
-    inputState: BasicInputState = BasicInputState()
+    inputState: BasicInputState = BasicInputState(),
 ) {
     var textLineCount by remember { mutableIntStateOf(1) }
 
@@ -160,7 +160,9 @@ private fun InputDefaultHeader(
         val columnModifier = when {
             // Top padding ensures the ripple effect on the info icon is fully visible.
             showInfoIcon && supportLabel != null -> Modifier.padding(top = 12.dp)
+
             showInfoIcon -> Modifier.align(Alignment.CenterVertically)
+
             else -> Modifier
         }
 

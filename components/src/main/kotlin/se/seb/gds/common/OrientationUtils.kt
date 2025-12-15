@@ -13,4 +13,3 @@ import androidx.compose.ui.platform.LocalConfiguration
 internal fun isLandscape(): Boolean {
     return LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
 }
-

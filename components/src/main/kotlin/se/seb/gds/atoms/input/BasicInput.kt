@@ -229,7 +229,7 @@ fun InputContainer(
             .borderIf(
                 style.showBorder || inputState.isError,
                 borderStroke.value,
-                containerSize.shape
+                containerSize.shape,
             )
             .heightIn(containerSize.height)
             .background(

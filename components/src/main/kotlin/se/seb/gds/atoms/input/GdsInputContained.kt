@@ -102,7 +102,7 @@ fun GdsInputContained(
         interactionSource = interactionSource,
         onValueChange = onValueChange,
         onInteraction = onInteraction,
-        onInfoIconClick = onInfoIconClick
+        onInfoIconClick = onInfoIconClick,
     ) { textFieldIsFocused ->
         val labelAnimationProgress by animateFloatAsState(
             targetValue = if (textFieldIsFocused || state.text.isNotEmpty()) 1f else 0f,
@@ -136,7 +136,9 @@ fun GdsInputContained(
                         modifier = Modifier.weight(1f),
                         text = label,
                         style = labelTextStyle.merge(
-                            color = style.basicInputStyle.colors.floatingLabelColor(enabled = inputState.enabled),
+                            color = style.basicInputStyle.colors.floatingLabelColor(
+                                enabled = inputState.enabled,
+                            ),
                         ),
                     )
                 }
@@ -228,7 +230,8 @@ private fun InputContainedTrailing(
                     contentDescription = null,
                 )
             }
-            val showClearButton = inputState.clearable && state.text.isNotEmpty() && textFieldIsFocused
+            val showClearButton =
+                inputState.clearable && state.text.isNotEmpty() && textFieldIsFocused
             AnimatedVisibility(
                 visible = showClearButton,
                 enter = if (inputState.showInfoIcon) {
@@ -334,7 +337,7 @@ private fun TextFieldPreview() {
                         showInfoIcon = true,
                         isError = true,
                         errorMessage = "Error message.",
-                    )
+                    ),
                 )
                 GdsInputContained(
                     state = rememberTextFieldState(),
@@ -342,7 +345,7 @@ private fun TextFieldPreview() {
                     inputState = BasicInputState(
                         showInfoIcon = true,
                         isError = true,
-                    )
+                    ),
                 )
             }
         }
