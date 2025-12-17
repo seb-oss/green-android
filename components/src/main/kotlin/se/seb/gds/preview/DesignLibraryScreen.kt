@@ -131,6 +131,8 @@ internal fun DesignLibraryScreen(
                 LibraryScreen.PROGRESS_INDICATOR -> ProgressIndicatorScreen()
 
                 LibraryScreen.LOADING_INDICATOR -> LoadingIndicatorScreen()
+
+                LibraryScreen.DIALOGS -> DialogsScreen()
             }
         }
     }
@@ -177,6 +179,8 @@ private fun DesignLibrary(
             ListItem("Progress Indicator") { onNavigateToSection(LibraryScreen.PROGRESS_INDICATOR) }
             HorizontalDivider()
             ListItem("Loading Indicator") { onNavigateToSection(LibraryScreen.LOADING_INDICATOR) }
+            HorizontalDivider()
+            ListItem("Dialogs") { onNavigateToSection(LibraryScreen.DIALOGS) }
         }
     }
 }
