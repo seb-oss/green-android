@@ -47,92 +47,96 @@ internal fun DesignLibraryScreen(
         currentScreen = LibraryScreen.LIBRARY
     }
 
-    Scaffold(
-        topBar = {
-            CenterAlignedTopAppBar(
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = GdsTheme.colors.L1Neutral02,
-                    titleContentColor = GdsTheme.colors.ContentNeutral01,
-                ),
-                title = {
-                    Text(text = currentScreen.name, style = GdsTheme.typography.DetailBookM)
-                },
-                navigationIcon = {
-                    if (currentScreen != LibraryScreen.LIBRARY) {
-                        IconButton(onClick = { currentScreen = LibraryScreen.LIBRARY }) {
-                            Icon(
-                                GdsIcons.Regular.ArrowLeft,
-                                contentDescription = "Back",
-                                tint = GdsTheme.colors.ContentNeutral01,
-                            )
+    if (currentScreen == LibraryScreen.TOP_BAR) {
+        TopBarScreen(onBack = { currentScreen = LibraryScreen.LIBRARY })
+    } else {
+        Scaffold(
+            topBar = {
+                CenterAlignedTopAppBar(
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = GdsTheme.colors.L1Neutral02,
+                        titleContentColor = GdsTheme.colors.ContentNeutral01,
+                    ),
+                    title = {
+                        Text(text = currentScreen.name, style = GdsTheme.typography.DetailBookM)
+                    },
+                    navigationIcon = {
+                        if (currentScreen != LibraryScreen.LIBRARY) {
+                            IconButton(onClick = { currentScreen = LibraryScreen.LIBRARY }) {
+                                Icon(
+                                    GdsIcons.Regular.ArrowLeft,
+                                    contentDescription = "Back",
+                                    tint = GdsTheme.colors.ContentNeutral01,
+                                )
+                            }
                         }
+                    },
+                )
+            },
+            containerColor = GdsTheme.colors.L1Neutral02,
+            contentColor = GdsTheme.colors.ContentNeutral01,
+        ) { paddingValues ->
+            AnimatedContent(
+                modifier = Modifier
+                    .padding(paddingValues)
+                    .fillMaxSize(),
+                targetState = currentScreen,
+                transitionSpec = {
+                    if ((targetState.ordinal) > (initialState.ordinal)) {
+                        slideInHorizontally(
+                            animationSpec = tween(CONTENT_ANIMATION_DURATION),
+                            initialOffsetX = { fullWidth -> fullWidth },
+                        ) togetherWith
+                            slideOutHorizontally(
+                                animationSpec = tween(CONTENT_ANIMATION_DURATION),
+                                targetOffsetX = { fullWidth -> -fullWidth },
+                            )
+                    } else {
+                        slideInHorizontally(
+                            animationSpec = tween(CONTENT_ANIMATION_DURATION),
+                            initialOffsetX = { fullWidth -> -fullWidth },
+                        ) togetherWith
+                            slideOutHorizontally(
+                                animationSpec = tween(CONTENT_ANIMATION_DURATION),
+                                targetOffsetX = { fullWidth -> fullWidth },
+                            )
                     }
                 },
-            )
-        },
-        containerColor = GdsTheme.colors.L1Neutral02,
-        contentColor = GdsTheme.colors.ContentNeutral01,
-    ) { paddingValues ->
-        AnimatedContent(
-            modifier = Modifier
-                .padding(paddingValues)
-                .fillMaxSize(),
-            targetState = currentScreen,
-            transitionSpec = {
-                if ((targetState.ordinal) > (initialState.ordinal)) {
-                    slideInHorizontally(
-                        animationSpec = tween(CONTENT_ANIMATION_DURATION),
-                        initialOffsetX = { fullWidth -> fullWidth },
-                    ) togetherWith
-                        slideOutHorizontally(
-                            animationSpec = tween(CONTENT_ANIMATION_DURATION),
-                            targetOffsetX = { fullWidth -> -fullWidth },
-                        )
-                } else {
-                    slideInHorizontally(
-                        animationSpec = tween(CONTENT_ANIMATION_DURATION),
-                        initialOffsetX = { fullWidth -> -fullWidth },
-                    ) togetherWith
-                        slideOutHorizontally(
-                            animationSpec = tween(CONTENT_ANIMATION_DURATION),
-                            targetOffsetX = { fullWidth -> fullWidth },
-                        )
+            ) { targetState ->
+                when (targetState) {
+                    LibraryScreen.LIBRARY ->
+                        DesignLibrary(scrollState = scrollState) {
+                            currentScreen = it
+                        }
+
+                    LibraryScreen.COLORS -> ColorsScreen(allColors)
+
+                    LibraryScreen.LEGACY_COLORS -> ColorsScreen(legacyColors)
+
+                    LibraryScreen.FONTS -> FontsScreen(scrollState = scrollState)
+
+                    LibraryScreen.SWITCHES -> SwitchesScreen(scrollState = scrollState)
+
+                    LibraryScreen.BUTTONS -> ButtonsScreen(scrollState = scrollState)
+
+                    LibraryScreen.INPUT_DEFAULT -> InputScreen(scrollState = scrollState)
+
+                    LibraryScreen.INPUT_CONTAINED -> InputContainedScreen(scrollState = scrollState)
+
+                    LibraryScreen.ICONS -> IconsScreen()
+
+                    LibraryScreen.LIST_ITEM -> ListItemScreen()
+
+                    LibraryScreen.BOTTOM_SHEET -> BottomSheetScreen()
+
+                    LibraryScreen.PROGRESS_INDICATOR -> ProgressIndicatorScreen()
+
+                    LibraryScreen.LOADING_INDICATOR -> LoadingIndicatorScreen()
+
+                    LibraryScreen.DIALOGS -> DialogsScreen()
+
+                    else -> {}
                 }
-            },
-        ) { targetState ->
-            when (targetState) {
-                LibraryScreen.LIBRARY ->
-                    DesignLibrary(scrollState = scrollState) {
-                        currentScreen = it
-                    }
-
-                LibraryScreen.COLORS -> ColorsScreen(allColors)
-
-                LibraryScreen.LEGACY_COLORS -> ColorsScreen(legacyColors)
-
-                LibraryScreen.FONTS -> FontsScreen(scrollState = scrollState)
-
-                LibraryScreen.SWITCHES -> SwitchesScreen(scrollState = scrollState)
-
-                LibraryScreen.BUTTONS -> ButtonsScreen(scrollState = scrollState)
-
-                LibraryScreen.INPUT_DEFAULT -> InputScreen(scrollState = scrollState)
-
-                LibraryScreen.INPUT_CONTAINED -> InputContainedScreen(scrollState = scrollState)
-
-                LibraryScreen.TOP_BAR -> TopBarScreen()
-
-                LibraryScreen.ICONS -> IconsScreen()
-
-                LibraryScreen.LIST_ITEM -> ListItemScreen()
-
-                LibraryScreen.BOTTOM_SHEET -> BottomSheetScreen()
-
-                LibraryScreen.PROGRESS_INDICATOR -> ProgressIndicatorScreen()
-
-                LibraryScreen.LOADING_INDICATOR -> LoadingIndicatorScreen()
-
-                LibraryScreen.DIALOGS -> DialogsScreen()
             }
         }
     }
