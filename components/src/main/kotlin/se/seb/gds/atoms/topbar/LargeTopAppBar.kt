@@ -15,28 +15,22 @@ import androidx.compose.ui.Modifier
 )
 @Composable
 fun LargeTopAppBar(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     title: String,
+    scrollBehavior: TopAppBarScrollBehavior,
     subtitle: String?,
     style: TopAppBarStyle = AppBarDefaults.largeTopAppBarStyle(),
-    scrollBehavior: TopAppBarScrollBehavior,
     navigationIcon: @Composable (() -> Unit)? = null,
     rightActions: @Composable (RowScope.() -> Unit)? = null,
 ) {
     val textStyle = style.getTitleStyle(scrollBehavior)
     val subtitleStyle = style.getSubtitleStyle(scrollBehavior)
 
-    val subtitle: (@Composable () -> Unit)? = if (subtitle != null) {
-        { Text(text = subtitle, style = subtitleStyle) }
-    } else {
-        null
-    }
-
     LargeFlexibleTopAppBar(
         modifier = modifier,
         colors = style.colors,
         title = { Text(text = title, style = textStyle) },
-        subtitle = subtitle,
+        subtitle = subtitle?.let { { Text(text = it, style = subtitleStyle) } },
         navigationIcon = { navigationIcon?.invoke() },
         actions = { rightActions?.invoke(this) },
         scrollBehavior = scrollBehavior,

@@ -15,11 +15,11 @@ import androidx.compose.ui.Modifier
 )
 @Composable
 fun SmallTopAppBar(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     title: String,
+    scrollBehavior: TopAppBarScrollBehavior,
     subtitle: String? = null,
     style: TopAppBarStyle = AppBarDefaults.smallTopAppBarStyle(),
-    scrollBehavior: TopAppBarScrollBehavior,
     navigationIcon: @Composable (() -> Unit)? = null,
     rightActions: @Composable (RowScope.() -> Unit)? = null,
 ) {

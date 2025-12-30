@@ -18,9 +18,7 @@ data class TopAppBarStyle(
     val collapsedSubtitleStyle: TextStyle,
 ) {
     fun getTitleStyle(scrollBehavior: TopAppBarScrollBehavior): TextStyle {
-        return if (scrollBehavior.state.collapsedFraction <
-            0.5f
-        ) {
+        return if (scrollBehavior.state.collapsedFraction < 0.5f) {
             titleStyle
         } else {
             collapsedTitleStyle
@@ -28,9 +26,7 @@ data class TopAppBarStyle(
     }
 
     fun getSubtitleStyle(scrollBehavior: TopAppBarScrollBehavior): TextStyle {
-        return if (scrollBehavior.state.collapsedFraction <
-            0.5f
-        ) {
+        return if (scrollBehavior.state.collapsedFraction < 0.5f) {
             subtitleStyle
         } else {
             collapsedSubtitleStyle
