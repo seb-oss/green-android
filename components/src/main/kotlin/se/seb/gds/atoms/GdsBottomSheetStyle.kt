@@ -39,8 +39,8 @@ object GdsBottomSheetDefaults {
         cornerRadiusDp: Dp = GdsTheme.dimensions.radius.RadiusM,
         elevationDp: Dp = 16.dp,
         shape: Shape = RoundedCornerShape(
-            topStart = GdsTheme.dimensions.spacing.SpaceM,
-            topEnd = GdsTheme.dimensions.spacing.SpaceM,
+            topStart = GdsTheme.dimensions.radius.RadiusM,
+            topEnd = GdsTheme.dimensions.radius.RadiusM,
         ),
         dragHandle: @Composable (() -> Unit)? = { BottomSheetDefaults.DragHandle() },
     ) = GdsBottomSheetStyle(

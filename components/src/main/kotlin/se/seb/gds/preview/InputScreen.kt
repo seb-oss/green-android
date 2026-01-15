@@ -25,7 +25,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
 import se.seb.gds.atoms.ButtonWidthType
 import se.seb.gds.atoms.GdsBottomSheet
 import se.seb.gds.atoms.GdsButton
@@ -33,8 +32,6 @@ import se.seb.gds.atoms.GdsButtonDefaults
 import se.seb.gds.atoms.input.BasicInputState
 import se.seb.gds.atoms.input.GdsInputDefault
 import se.seb.gds.atoms.input.GdsInputDefaults
-import se.seb.gds.atoms.input.GdsInputDefaults.defaultInputColors
-import se.seb.gds.components.SwitchRow
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
@@ -70,12 +67,12 @@ fun InputScreen(scrollState: ScrollState) {
             .background(background)
             .verticalScroll(scrollState)
             .windowInsetsPadding(WindowInsets.ime),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
+        verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceM),
     ) {
         GdsButton(
             modifier = Modifier
                 .align(Alignment.End)
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
             title = "Settings",
             style = GdsButtonDefaults.TwentyThree.outlineStyle(),
             sizeProfile = GdsButtonDefaults.TwentyThree.small()
@@ -83,13 +80,13 @@ fun InputScreen(scrollState: ScrollState) {
             icon = GdsIcons.Solid.SettingsGear,
             onClick = { showBottomSheet = true },
         )
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
         Column(
             modifier = Modifier
                 .background(background)
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceM),
         ) {
             GdsInputDefault(
                 style = defaultStyle,
@@ -134,7 +131,7 @@ fun InputScreen(scrollState: ScrollState) {
             Column(
                 modifier = Modifier
                     .verticalScroll(rememberScrollState())
-                    .padding(16.dp),
+                    .padding(GdsTheme.dimensions.spacing.SpaceM),
             ) {
                 InputSwitchRow("White Background", checked = whiteBackground) {
                     whiteBackground = it

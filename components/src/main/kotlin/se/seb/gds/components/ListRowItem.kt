@@ -67,7 +67,7 @@ object ListRowItem {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 EndLabel(text = text)
-                Spacer(modifier = Modifier.width(12.dp))
+                Spacer(modifier = Modifier.width(GdsTheme.dimensions.spacing.SpaceS))
                 EndIcon(
                     icon = icon,
                     contentDescription = contentDescription,
@@ -90,12 +90,15 @@ object ListRowItem {
             modifier = modifier
                 .clickable(onClick = onClick)
                 .fillMaxWidth()
-                .padding(horizontal = 20.dp, vertical = 16.dp),
+                .padding(
+                    horizontal = GdsTheme.dimensions.spacing.SpaceL,
+                    vertical = GdsTheme.dimensions.spacing.SpaceM
+                ),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             startSlot?.let {
                 with(iconScope) { it() }
-                Spacer(modifier = Modifier.width(16.dp))
+                Spacer(modifier = Modifier.width(GdsTheme.dimensions.spacing.SpaceM))
             }
             Column(modifier = Modifier.weight(1f)) {
                 Text(

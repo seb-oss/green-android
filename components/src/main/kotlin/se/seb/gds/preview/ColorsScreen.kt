@@ -49,14 +49,14 @@ internal fun ColorsScreen(allColors: List<Pair<String, ColorMapping>>) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(GdsTheme.dimensions.spacing.SpaceM),
     ) {
         OutlinedTextField(
             value = filterText,
             onValueChange = { filterText = it },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 16.dp),
+                .padding(bottom = GdsTheme.dimensions.spacing.SpaceM),
             label = { Text("Filter Colors") },
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Text,
@@ -66,8 +66,8 @@ internal fun ColorsScreen(allColors: List<Pair<String, ColorMapping>>) {
 
         LazyColumn(
             state = listState,
-            contentPadding = PaddingValues(vertical = 16.dp),
-            verticalArrangement = spacedBy(16.dp),
+            contentPadding = PaddingValues(vertical = GdsTheme.dimensions.spacing.SpaceM),
+            verticalArrangement = spacedBy(GdsTheme.dimensions.spacing.SpaceM),
         ) {
             items(
                 items = filteredColors,
@@ -98,14 +98,14 @@ private fun ColorRow(colorMapping: ColorMapping) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
-        horizontalArrangement = spacedBy(8.dp),
+            .padding(GdsTheme.dimensions.spacing.SpaceM),
+        horizontalArrangement = spacedBy(GdsTheme.dimensions.spacing.SpaceXs),
     ) {
         Column(
             modifier = Modifier
                 .weight(1f)
-                .background(color = Color.LightGray, shape = RoundedCornerShape(2.dp))
-                .padding(2.dp),
+                .background(color = Color.LightGray, shape = RoundedCornerShape(GdsTheme.dimensions.radius.Radius4Xs))
+                .padding(GdsTheme.dimensions.spacing.Space4Xs),
         ) {
             Box(
                 modifier = Modifier
@@ -124,8 +124,8 @@ private fun ColorRow(colorMapping: ColorMapping) {
         Column(
             modifier = Modifier
                 .weight(1f)
-                .background(color = Color.Black, shape = RoundedCornerShape(2.dp))
-                .padding(2.dp),
+                .background(color = Color.Black, shape = RoundedCornerShape(GdsTheme.dimensions.radius.Radius4Xs))
+                .padding(GdsTheme.dimensions.spacing.Space4Xs),
         ) {
             Box(
                 modifier = Modifier

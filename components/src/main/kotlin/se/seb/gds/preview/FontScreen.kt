@@ -10,7 +10,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import se.seb.gds.atoms.GdsText
 import se.seb.gds.theme.GdsTheme
 
@@ -20,8 +19,8 @@ internal fun FontsScreen(scrollState: ScrollState) {
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(scrollState)
-            .padding(16.dp),
-        verticalArrangement = spacedBy(16.dp),
+            .padding(GdsTheme.dimensions.spacing.SpaceM),
+        verticalArrangement = spacedBy(GdsTheme.dimensions.spacing.SpaceM),
     ) {
         FontText(
             name = "HeadingXl",

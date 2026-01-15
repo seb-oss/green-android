@@ -28,7 +28,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
 import se.seb.gds.atoms.ButtonWidthType
 import se.seb.gds.atoms.GdsBottomSheet
 import se.seb.gds.atoms.GdsButton
@@ -81,7 +80,7 @@ fun InputContainedScreen(scrollState: ScrollState) {
         GdsButton(
             modifier = Modifier
                 .align(Alignment.End)
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
             title = "Settings",
             style = GdsButtonDefaults.TwentyThree.outlineStyle(),
             sizeProfile = GdsButtonDefaults.TwentyThree.small()
@@ -89,13 +88,13 @@ fun InputContainedScreen(scrollState: ScrollState) {
             icon = GdsIcons.Solid.SettingsGear,
             onClick = { showBottomSheet = true },
         )
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
         Column(
             modifier = Modifier
                 .background(background)
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceM),
         ) {
             val text = rememberTextFieldState("Prefilled value")
             GdsInputContained(
@@ -138,7 +137,7 @@ fun InputContainedScreen(scrollState: ScrollState) {
         ) {
             Column(
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(GdsTheme.dimensions.spacing.SpaceM)
                     .verticalScroll(rememberScrollState()),
             ) {
                 InputSwitchRow("White Background", checked = whiteBackground) {
@@ -182,7 +181,7 @@ internal fun InputSwitchRow(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(

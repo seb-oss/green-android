@@ -23,13 +23,13 @@ internal fun CardColumn(
     accessibilityContentDescription: String = "",
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    val shape = RoundedCornerShape(12.dp)
+    val shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusS)
     Column(
         modifier = modifier
             .fillMaxWidth()
             .shadow(
                 elevation = 1.dp,
-                shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusS),
                 ambientColor = GdsTheme.legacyColors.onSecondary.copy(.4f),
             )
             .background(GdsTheme.legacyColors.background_1dp, shape)
