@@ -77,10 +77,13 @@ fun GdsButton(
     val paddingValues =
         when {
             title == null && sizeProfile.widthType is ButtonWidthType.Fixed -> PaddingValues(
-                horizontal = 0.dp,
+                horizontal = GdsTheme.dimensions.spacing.Space0,
             )
 
-            else -> PaddingValues(horizontal = sizeProfile.horizontalPadding, vertical = 8.dp)
+            else -> PaddingValues(
+                horizontal = sizeProfile.horizontalPadding,
+                vertical = GdsTheme.dimensions.spacing.SpaceXs,
+            )
         }
 
     GdsTheme {
@@ -330,9 +333,10 @@ private fun GdsButton2016PrimaryPreview() {
                 widthType = ButtonWidthType.Full,
                 height = 50.dp,
                 shape = seb2016Shape(LegacyButtonSize.LARGE),
-                horizontalPadding = 16.dp,
+                horizontalPadding = GdsTheme.dimensions.spacing.SpaceM,
                 textStyle = GdsTheme.typography.BodyMediumM,
                 iconSize = 24.dp,
+                iconSpacing = GdsTheme.dimensions.spacing.SpaceXs
             ),
             title = "Button",
             onClick = {},

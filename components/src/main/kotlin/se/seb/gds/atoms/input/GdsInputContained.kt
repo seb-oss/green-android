@@ -200,7 +200,7 @@ private fun InputContainedTrailing(
     inputState: BasicInputState,
 ) {
     Column(
-        modifier = modifier.padding(start = 8.dp),
+        modifier = modifier.padding(start = GdsTheme.dimensions.spacing.SpaceXs),
         horizontalAlignment = Alignment.End,
     ) {
         if (showCounterContainer) {
@@ -217,7 +217,7 @@ private fun InputContainedTrailing(
             modifier = Modifier
                 .animateContentSizeIf(inputState.showInfoIcon)
                 .heightIn(min = 24.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            horizontalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceS),
         ) {
             if (inputState.showInfoIcon) {
                 Icon(
@@ -277,16 +277,17 @@ private fun Modifier.animateContentSizeIf(condition: Boolean): Modifier {
  * @param isLandscape Indicates whether the device is in landscape orientation. Defaults to false.
  * @return A `PaddingValues` object with appropriate horizontal and vertical padding.
  */
+@Composable
 private fun containerContentPadding(isLandscape: Boolean = false): PaddingValues {
     return if (isLandscape) {
         PaddingValues(
-            horizontal = 0.dp,
-            vertical = 8.dp,
+            horizontal = GdsTheme.dimensions.spacing.Space0,
+            vertical = GdsTheme.dimensions.spacing.SpaceXs,
         )
     } else {
         PaddingValues(
-            horizontal = 0.dp,
-            vertical = 16.dp,
+            horizontal = GdsTheme.dimensions.spacing.Space0,
+            vertical = GdsTheme.dimensions.spacing.SpaceM,
         )
     }
 }
@@ -296,8 +297,12 @@ private fun containerContentPadding(isLandscape: Boolean = false): PaddingValues
  *
  * @return A `PaddingValues` with appropriate horizontal and vertical padding.
  */
+@Composable
 private fun trailingContentPadding(): PaddingValues =
-    PaddingValues(horizontal = 0.dp, vertical = 16.dp)
+    PaddingValues(
+        horizontal = GdsTheme.dimensions.spacing.Space0,
+        vertical = GdsTheme.dimensions.spacing.SpaceM,
+    )
 
 @Preview(
     name = "Light Mode GdsInput",
@@ -320,8 +325,8 @@ private fun TextFieldPreview() {
                 .background(GdsTheme.colors.StateNeutral01),
         ) {
             Column(
-                modifier = Modifier.padding(16.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp),
+                modifier = Modifier.padding(GdsTheme.dimensions.spacing.SpaceM),
+                verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceM),
             ) {
                 GdsInputContained(
                     state = rememberTextFieldState("Text"),

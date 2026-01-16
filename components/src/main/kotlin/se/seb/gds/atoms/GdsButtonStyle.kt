@@ -80,10 +80,10 @@ data class GdsButtonStyle(
 data class GdsButtonSizeProfile(
     val widthType: ButtonWidthType = ButtonWidthType.Full,
     val height: Dp = 48.dp,
-    val shape: Shape = RoundedCornerShape(24.dp),
-    val horizontalPadding: Dp = 24.dp,
+    val shape: Shape,
+    val horizontalPadding: Dp,
     val iconSize: Dp = 24.dp,
-    val iconSpacing: Dp = 8.dp,
+    val iconSpacing: Dp,
     val textStyle: TextStyle,
 )
 
@@ -233,11 +233,11 @@ object GdsButtonDefaults {
             GdsButtonSizeProfile(
                 height = 56.dp,
                 widthType = ButtonWidthType.Full,
-                shape = RoundedCornerShape(32.dp),
-                horizontalPadding = 24.dp,
+                shape = RoundedCornerShape(GdsTheme.dimensions.radius.Radius2Xl),
+                horizontalPadding = GdsTheme.dimensions.spacing.SpaceXl,
                 textStyle = GdsTheme.typography.DetailBookM,
                 iconSize = 24.dp,
-                iconSpacing = 8.dp,
+                iconSpacing = GdsTheme.dimensions.spacing.SpaceXs,
             )
 
         @Composable
@@ -245,11 +245,11 @@ object GdsButtonDefaults {
             GdsButtonSizeProfile(
                 height = 48.dp,
                 widthType = ButtonWidthType.Full,
-                shape = RoundedCornerShape(24.dp),
-                horizontalPadding = 24.dp,
+                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusXl),
+                horizontalPadding = GdsTheme.dimensions.spacing.SpaceXl,
                 textStyle = GdsTheme.typography.DetailBookM,
                 iconSize = 24.dp,
-                iconSpacing = 8.dp,
+                iconSpacing = GdsTheme.dimensions.spacing.SpaceXs,
             )
 
         @Composable
@@ -257,11 +257,11 @@ object GdsButtonDefaults {
             GdsButtonSizeProfile(
                 height = 40.dp,
                 widthType = ButtonWidthType.Full,
-                shape = RoundedCornerShape(20.dp),
-                horizontalPadding = 20.dp,
+                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusL),
+                horizontalPadding = GdsTheme.dimensions.spacing.SpaceL,
                 textStyle = GdsTheme.typography.DetailBookM,
                 iconSize = 20.dp,
-                iconSpacing = 8.dp,
+                iconSpacing = GdsTheme.dimensions.spacing.SpaceXs,
             )
 
         @Composable
@@ -269,11 +269,11 @@ object GdsButtonDefaults {
             GdsButtonSizeProfile(
                 height = 32.dp,
                 widthType = ButtonWidthType.Full,
-                shape = RoundedCornerShape(16.dp),
-                horizontalPadding = 16.dp,
+                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
+                horizontalPadding = GdsTheme.dimensions.spacing.SpaceM,
                 textStyle = GdsTheme.typography.DetailBookM,
                 iconSize = 16.dp,
-                iconSpacing = 6.dp,
+                iconSpacing = GdsTheme.dimensions.spacing.Space2Xs,
             )
     }
 
@@ -381,9 +381,9 @@ object GdsButtonDefaults {
     fun seb2016Shape(size: LegacyButtonSize) =
         RoundedCornerShape(
             when (size) {
-                LegacyButtonSize.LARGE -> 12.dp
-                LegacyButtonSize.MEDIUM -> 12.dp
-                LegacyButtonSize.SMALL -> 8.dp
+                LegacyButtonSize.LARGE -> GdsTheme.dimensions.radius.RadiusS
+                LegacyButtonSize.MEDIUM -> GdsTheme.dimensions.radius.RadiusS
+                LegacyButtonSize.SMALL -> GdsTheme.dimensions.radius.RadiusXs
             },
         )
 
@@ -404,8 +404,6 @@ object GdsButtonDefaults {
         }
 
     val legacyIconSize: Dp = 24.dp
-    val legacyIconSpacing: Dp = 12.dp
-    val legacyHorizontalPadding: Dp = 16.dp
 
     @Composable
     fun legacySizeProfile(size: LegacyButtonSize): GdsButtonSizeProfile =
@@ -413,10 +411,10 @@ object GdsButtonDefaults {
             widthType = seb2016WidthType(size),
             height = seb2016HeightType(size),
             shape = seb2016Shape(size),
-            horizontalPadding = legacyHorizontalPadding,
+            horizontalPadding = GdsTheme.dimensions.spacing.SpaceM,
             textStyle = GdsTheme.typography.BodyMediumM, // Closest match
             iconSize = legacyIconSize,
-            iconSpacing = legacyIconSpacing,
+            iconSpacing = GdsTheme.dimensions.spacing.SpaceS,
         )
 
     @Composable
@@ -425,9 +423,9 @@ object GdsButtonDefaults {
             widthType = ButtonWidthType.Full,
             height = 50.dp,
             shape = seb2016Shape(LegacyButtonSize.SMALL),
-            horizontalPadding = legacyHorizontalPadding,
+            horizontalPadding = GdsTheme.dimensions.spacing.SpaceM,
             textStyle = GdsTheme.typography.BodyMediumM, // Closest match
             iconSize = legacyIconSize,
-            iconSpacing = legacyIconSpacing,
+            iconSpacing = GdsTheme.dimensions.spacing.SpaceS,
         )
 }

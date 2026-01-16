@@ -28,7 +28,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
@@ -148,12 +147,11 @@ private fun DesignLibrary(
     onNavigateToSection: (screen: LibraryScreen) -> Unit,
 ) {
     Column(
-        modifier =
-        Modifier
+        modifier = Modifier
             .fillMaxWidth()
             .verticalScroll(scrollState)
-            .padding(16.dp),
-        verticalArrangement = spacedBy(16.dp),
+            .padding(GdsTheme.dimensions.spacing.SpaceM),
+        verticalArrangement = spacedBy(GdsTheme.dimensions.spacing.SpaceM),
     ) {
         GallerySection("Tokens") {
             ListItem("Colors") { onNavigateToSection(LibraryScreen.COLORS) }

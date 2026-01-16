@@ -46,8 +46,8 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
             .background(GdsTheme.colors.L1Neutral01)
             .fillMaxSize()
             .verticalScroll(scrollState)
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
+            .padding(GdsTheme.dimensions.spacing.SpaceM),
+        verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceM),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         SwitchRow("Show 2016 Buttons", checked = showLegacyButtons) {
@@ -297,9 +297,9 @@ fun SelectRow(
             .fillMaxWidth()
             .background(
                 color = GdsTheme.colors.L2Neutral01,
-                shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusS),
             )
-            .padding(16.dp),
+            .padding(GdsTheme.dimensions.spacing.SpaceM),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         var expanded by remember { mutableStateOf(false) }

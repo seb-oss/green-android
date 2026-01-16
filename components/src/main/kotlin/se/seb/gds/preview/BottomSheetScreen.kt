@@ -38,7 +38,7 @@ fun BottomSheetScreen() {
         modifier = Modifier
             .fillMaxSize()
             .background(GdsTheme.colors.L1Neutral02)
-            .padding(16.dp),
+            .padding(GdsTheme.dimensions.spacing.SpaceM),
     ) {
         val bottomSheetState = rememberModalBottomSheetState(
             skipPartiallyExpanded = true,
@@ -49,11 +49,11 @@ fun BottomSheetScreen() {
             onClick = { showBottomSheet = true },
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
         SwitchRow("Drag Handle", checked = showDragHandle) {
             showDragHandle = it
         }
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
         SwitchRow("Header", checked = showHeader) {
             showHeader = it
         }
@@ -75,7 +75,7 @@ fun BottomSheetScreen() {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 24.dp),
+                        .padding(horizontal = GdsTheme.dimensions.spacing.SpaceXl),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Icon(
@@ -83,18 +83,18 @@ fun BottomSheetScreen() {
                         imageVector = GdsIcons.Regular.CircleCheck,
                         contentDescription = null,
                     )
-                    Spacer(Modifier.height(16.dp))
+                    Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
                     GdsText(
                         label = "Ditt meddelande har skickats",
                         style = GdsTheme.typography.HeadingM,
                     )
-                    Spacer(Modifier.height(16.dp))
+                    Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
                     GdsText(
                         label = "Vi svarar inom 24 timmar på vardagar. " +
                             "Du får en notis när du fått ett svar.",
                         style = GdsTheme.typography.BodyRegularM,
                     )
-                    Spacer(Modifier.height(32.dp))
+                    Spacer(Modifier.height(GdsTheme.dimensions.spacing.Space2Xl))
                 }
             }
         }

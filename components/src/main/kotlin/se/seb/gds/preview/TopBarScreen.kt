@@ -1,9 +1,9 @@
 package se.seb.gds.preview
 
 import android.widget.Toast
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -104,20 +104,18 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
         LazyColumn(
             modifier = Modifier
                 .padding(innerPadding)
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
+            verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceXs)
         ) {
             item {
-                Spacer(Modifier.height(8.dp))
                 SwitchRow("Show subtitle", checked = showSubtitle) {
                     showSubtitle = it
                 }
-                Spacer(Modifier.height(8.dp))
             }
             item {
                 SwitchRow("Show right action", checked = showRightAction) {
                     showRightAction = it
                 }
-                Spacer(Modifier.height(8.dp))
             }
             item {
                 Row(Modifier.selectableGroup()) {
@@ -130,7 +128,7 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
                                     onClick = { onOptionSelected(text) },
                                     role = Role.RadioButton,
                                 )
-                                .padding(horizontal = 16.dp),
+                                .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
                             verticalAlignment = Alignment.CenterVertically,
                         ) {
                             RadioButton(
@@ -139,7 +137,7 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
                             )
                             Text(
                                 text = text,
-                                modifier = Modifier.padding(start = 16.dp),
+                                modifier = Modifier.padding(start = GdsTheme.dimensions.spacing.SpaceM),
                             )
                         }
                     }
@@ -150,7 +148,10 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
                     "$it",
                     Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                        .padding(
+                            horizontal = GdsTheme.dimensions.spacing.SpaceM,
+                            vertical = GdsTheme.dimensions.spacing.SpaceXs
+                        ),
                 )
             }
         }

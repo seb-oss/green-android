@@ -32,7 +32,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import se.seb.gds.common.isLandscape
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
@@ -156,10 +155,10 @@ private fun InputDefaultHeader(
     showInfoIcon: Boolean = false,
     onInfoIconClick: () -> Unit = { },
 ) {
-    Row(modifier = Modifier.padding(start = 16.dp)) {
+    Row(modifier = Modifier.padding(start = GdsTheme.dimensions.spacing.SpaceM)) {
         val columnModifier = when {
             // Top padding ensures the ripple effect on the info icon is fully visible.
-            showInfoIcon && supportLabel != null -> Modifier.padding(top = 12.dp)
+            showInfoIcon && supportLabel != null -> Modifier.padding(top = GdsTheme.dimensions.spacing.SpaceS)
 
             showInfoIcon -> Modifier.align(Alignment.CenterVertically)
 
@@ -182,7 +181,10 @@ private fun InputDefaultHeader(
         }
         if (showInfoIcon) {
             IconButton(
-                modifier = Modifier.padding(start = GdsTheme.dimensions.spacing.SpaceS, end = 4.dp),
+                modifier = Modifier.padding(
+                    start = GdsTheme.dimensions.spacing.SpaceS,
+                    end = GdsTheme.dimensions.spacing.Space3Xs,
+                ),
                 onClick = onInfoIconClick,
             ) {
                 Icon(imageVector = GdsIcons.Regular.CircleInfo, contentDescription = null)
@@ -191,7 +193,7 @@ private fun InputDefaultHeader(
     }
 
     if (!supportLabel.isNullOrBlank() || !showInfoIcon) {
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceXs))
     }
 }
 
@@ -240,21 +242,24 @@ private fun InputDefaultTrailing(
     if (isLandscape()) {
         Row(
             modifier = modifier,
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceXs),
             verticalAlignment = Alignment.CenterVertically,
         ) { content() }
     } else {
         Column(
-            modifier = modifier.padding(start = 8.dp),
+            modifier = modifier.padding(start = GdsTheme.dimensions.spacing.SpaceXs),
             horizontalAlignment = Alignment.End,
         ) { content() }
     }
 }
 
-private val containerContentPadding = PaddingValues(
-    horizontal = 0.dp,
-    vertical = 16.dp,
-)
+
+private val containerContentPadding: PaddingValues
+    @Composable
+    get() = PaddingValues(
+        horizontal = GdsTheme.dimensions.spacing.Space0,
+        vertical = GdsTheme.dimensions.spacing.SpaceM,
+    )
 
 @Preview(
     name = "Light Mode GdsInput",
@@ -277,7 +282,7 @@ private fun TextFieldPreview() {
                 .background(GdsTheme.colors.StateNeutral01),
         ) {
             Column(
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(GdsTheme.dimensions.spacing.SpaceM),
             ) {
                 GdsInputDefault(
                     state = rememberTextFieldState("Text"),
@@ -288,9 +293,9 @@ private fun TextFieldPreview() {
                         maxCharacters = 50,
                     ),
                 )
-                Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
 
-                Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
                 GdsInputDefault(
                     state = rememberTextFieldState(),
                     label = "Label",

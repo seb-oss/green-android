@@ -62,6 +62,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.flow.collectLatest
 import se.seb.gds.components.R
 import se.seb.gds.icons.GdsIcons
+import se.seb.gds.theme.GdsTheme
 
 /**
  * Configuration class for the [BasicInput] composable.
@@ -242,7 +243,7 @@ fun InputContainer(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.Center)
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
         ) {
             CompositionLocalProvider(
                 LocalTextSelectionColors provides style.textSelectionColors,
@@ -303,9 +304,13 @@ internal fun ErrorFooter(
 ) {
     Row(
         Modifier
-            .padding(top = 8.dp, start = 16.dp, end = 16.dp)
+            .padding(
+                top = GdsTheme.dimensions.spacing.SpaceXs,
+                start = GdsTheme.dimensions.spacing.SpaceM,
+                end = GdsTheme.dimensions.spacing.SpaceM,
+            )
             .fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceXs),
     ) {
         Icon(
             modifier = Modifier

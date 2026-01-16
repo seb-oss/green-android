@@ -38,9 +38,9 @@ fun SwitchRow(
             .fillMaxWidth()
             .background(
                 color = GdsTheme.colors.L2Neutral02,
-                shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusS),
             )
-            .padding(16.dp),
+            .padding(GdsTheme.dimensions.spacing.SpaceM),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
@@ -61,10 +61,10 @@ fun SwitchRow(
 @Composable
 private fun SwitchRowPreview() {
     GdsTheme {
-        Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = spacedBy(2.dp)) {
+        Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = spacedBy(GdsTheme.dimensions.spacing.Space4Xs)) {
             var checked by remember { mutableStateOf(false) }
             SwitchRow(
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(GdsTheme.dimensions.spacing.SpaceM),
                 title = "Green 2023",
                 checked = checked,
                 onCheckedChanged = { checked = it },
@@ -72,7 +72,7 @@ private fun SwitchRowPreview() {
 
             var legacyChecked by remember { mutableStateOf(false) }
             SwitchRow(
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(GdsTheme.dimensions.spacing.SpaceM),
                 title = "Green 2016",
                 checked = legacyChecked,
                 style = GdsSwitchDefaults.legacyStyle(),
@@ -81,7 +81,7 @@ private fun SwitchRowPreview() {
 
             var neoChecked by remember { mutableStateOf(false) }
             SwitchRow(
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(GdsTheme.dimensions.spacing.SpaceM),
                 title = "Neo",
                 checked = neoChecked,
                 style = GdsSwitchDefaults.neoStyle(),
