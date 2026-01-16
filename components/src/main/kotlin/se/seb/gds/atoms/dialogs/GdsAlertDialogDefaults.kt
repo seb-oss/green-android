@@ -5,7 +5,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import se.seb.gds.theme.GdsTheme
 
-object GdsBasicDialogDefaults {
+object GdsAlertDialogDefaults {
     val iconSize = 24.dp
 
     @Composable

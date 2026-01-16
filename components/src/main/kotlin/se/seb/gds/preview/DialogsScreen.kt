@@ -15,14 +15,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import se.seb.gds.atoms.GdsButton
 import se.seb.gds.atoms.GdsText
-import se.seb.gds.atoms.dialogs.GdsBasicDialog
+import se.seb.gds.atoms.dialogs.GdsAlertDialog
 import se.seb.gds.components.SwitchRow
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 @Composable
 internal fun DialogsScreen() {
-    var showBasicDialog by rememberSaveable { mutableStateOf(false) }
+    var showAlertDialog by rememberSaveable { mutableStateOf(false) }
     var hasIcon by rememberSaveable { mutableStateOf(true) }
     var hasTitle by rememberSaveable { mutableStateOf(true) }
     var hasText by rememberSaveable { mutableStateOf(true) }
@@ -34,7 +34,7 @@ internal fun DialogsScreen() {
     ) {
         GdsText(
             modifier = Modifier.padding(16.dp),
-            label = "Configure Basic Dialog",
+            label = "Configure Alert Dialog",
             style = GdsTheme.typography.HeadingS
         )
         Spacer(modifier = Modifier.size(8.dp))
@@ -65,20 +65,20 @@ internal fun DialogsScreen() {
         
         GdsButton(
             modifier = Modifier.padding(8.dp),
-            title = "Show Basic Dialog",
-            onClick = { showBasicDialog = true },
+            title = "Show Alert Dialog",
+            onClick = { showAlertDialog = true },
         )
     }
     
-    if (showBasicDialog) {
-        GdsBasicDialog(
+    if (showAlertDialog) {
+        GdsAlertDialog(
             icon = if (hasIcon) GdsIcons.Regular.Bank else null,
             title = if (hasTitle) "Alert Dialog" else null,
             text = if (hasText) "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made." else null,
             confirmButtonText = "Ok",
             dismissButtonText = if (hasDismissButton) "Cancel" else null,
-            onDismissRequest = { showBasicDialog = false },
-            onConfirmation = { showBasicDialog = false },
+            onDismissRequest = { showAlertDialog = false },
+            onConfirmation = { showAlertDialog = false },
         )
     }
 }
