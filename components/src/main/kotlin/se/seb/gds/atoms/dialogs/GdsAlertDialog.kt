@@ -20,7 +20,7 @@ import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 @Composable
-fun GdsBasicDialog(
+fun GdsAlertDialog(
     confirmButtonText: String,
     onConfirmation: () -> Unit,
     title: String? = null,
@@ -30,8 +30,8 @@ fun GdsBasicDialog(
     onDismissRequest: () -> Unit = {},
 ) {
     AlertDialog(
-        containerColor = GdsBasicDialogDefaults.containerColor(),
-        iconContentColor = GdsBasicDialogDefaults.iconContentColor(),
+        containerColor = GdsAlertDialogDefaults.containerColor(),
+        iconContentColor = GdsAlertDialogDefaults.iconContentColor(),
         onDismissRequest = onDismissRequest,
         title = title?.let {
             {
@@ -52,7 +52,7 @@ fun GdsBasicDialog(
         icon = icon?.let { iconVector ->
             {
                 Icon(
-                    modifier = Modifier.size(GdsBasicDialogDefaults.iconSize),
+                    modifier = Modifier.size(GdsAlertDialogDefaults.iconSize),
                     imageVector = iconVector,
                     contentDescription = null,
                 )
@@ -94,7 +94,7 @@ fun GdsBasicDialog(
     uiMode = Configuration.UI_MODE_NIGHT_YES,
 )
 @Composable
-private fun GdsBasicDialogPreview() {
+private fun GdsAlertDialogPreview() {
     GdsTheme {
         Box(
             modifier = Modifier
@@ -102,7 +102,7 @@ private fun GdsBasicDialogPreview() {
                 .background(color = GdsTheme.colors.L1Neutral01),
             contentAlignment = Alignment.Center,
         ) {
-            GdsBasicDialog(
+            GdsAlertDialog(
                 icon = GdsIcons.Regular.Bank,
                 title = "Alert Dialog",
                 text = "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.",
