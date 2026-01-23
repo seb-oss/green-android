@@ -61,7 +61,7 @@ fun GdsAlertDialog(
         confirmButton = {
             GdsButton(
                 title = confirmButtonText,
-                style = GdsButtonDefaults.TwentyThree.tertiaryStyle(),
+                style = GdsButtonDefaults.TwentyThree.tertiary(),
                 sizeProfile = GdsButtonDefaults.TwentyThree.large().copy(widthType = ButtonWidthType.Dynamic),
                 onClick = onConfirmation,
             )
@@ -70,7 +70,7 @@ fun GdsAlertDialog(
             {
                 GdsButton(
                     title = it,
-                    style = GdsButtonDefaults.TwentyThree.tertiaryStyle(),
+                    style = GdsButtonDefaults.TwentyThree.tertiary(),
                     sizeProfile = GdsButtonDefaults.TwentyThree.large().copy(widthType = ButtonWidthType.Dynamic),
                     onClick = onDismissRequest,
                 )

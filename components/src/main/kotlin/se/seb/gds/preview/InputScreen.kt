@@ -74,7 +74,7 @@ fun InputScreen(scrollState: ScrollState) {
                 .align(Alignment.End)
                 .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
             title = "Settings",
-            style = GdsButtonDefaults.TwentyThree.outlineStyle(),
+            style = GdsButtonDefaults.TwentyThree.outline(),
             sizeProfile = GdsButtonDefaults.TwentyThree.small()
                 .copy(widthType = ButtonWidthType.Dynamic),
             icon = GdsIcons.Solid.SettingsGear,

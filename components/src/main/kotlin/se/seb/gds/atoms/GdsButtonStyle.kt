@@ -34,7 +34,6 @@ import se.seb.gds.theme.GdsTheme
  *              containerColor = Color.Green,
  *              contentColor = Color.White
  *          ),
- *    pressedColor = Color.Blue,
  *    textButton = false,
  *    border = BorderStroke(1.dp, Color.Black),
  *    iconPosition = IconPosition.Left
@@ -122,36 +121,36 @@ enum class LegacyButtonSize {
 object GdsButtonDefaults {
     object TwentyThree {
         @Composable
-        fun primaryStyle() = GdsButtonStyle(colors = primaryColors())
+        fun primary() = GdsButtonStyle(colors = primaryColors())
 
         @Composable
-        fun secondaryOnWhiteStyle() = GdsButtonStyle(colors = secondaryOnWhiteColors())
+        fun secondaryOnWhite() = GdsButtonStyle(colors = secondaryOnWhiteColors())
 
         @Composable
-        fun secondaryOnGreyStyle() = GdsButtonStyle(colors = secondaryOnGreyColors())
+        fun secondaryOnGrey() = GdsButtonStyle(colors = secondaryOnGreyColors())
 
         @Composable
-        fun secondaryOnWhiteCardStyle() = GdsButtonStyle(colors = secondaryOnWhiteCardColors())
+        fun secondaryOnWhiteCard() = GdsButtonStyle(colors = secondaryOnWhiteCardColors())
 
         @Composable
-        fun secondaryOnGreyCardStyle() = GdsButtonStyle(colors = secondaryOnGreyCardColors())
+        fun secondaryOnGreyCard() = GdsButtonStyle(colors = secondaryOnGreyCardColors())
 
         @Composable
-        fun tertiaryStyle() =
+        fun tertiary() =
             GdsButtonStyle(
                 colors = tertiaryColors(),
                 textButton = true,
             )
 
         @Composable
-        fun outlineStyle() =
+        fun outline() =
             GdsButtonStyle(
                 colors = outlineColors(),
                 border = BorderStroke(width = 1.dp, color = GdsTheme.colors.BorderSubtle01),
             )
 
         @Composable
-        fun negativeStyle() =
+        fun negative() =
             GdsButtonStyle(
                 colors = negativeColors(),
             )

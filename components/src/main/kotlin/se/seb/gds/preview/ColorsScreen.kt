@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -14,7 +15,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.OutlinedTextField
+import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,10 +28,12 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import se.seb.gds.atoms.input.GdsInputContained
+import se.seb.gds.atoms.input.GdsInputDefaults
 import se.seb.gds.theme.GdsTheme
 
 @Composable
-internal fun ColorsScreen(allColors: List<Pair<String, ColorMapping>>) {
+internal fun ColorsScreen(allColors: List<Pair<String, ColorMapping>>, gdsColors: Boolean) {
     var filterText by remember { mutableStateOf("") }
     val listState = rememberLazyListState()
 
@@ -49,15 +52,28 @@ internal fun ColorsScreen(allColors: List<Pair<String, ColorMapping>>) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(GdsTheme.dimensions.spacing.SpaceM),
+            .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
     ) {
-        OutlinedTextField(
-            value = filterText,
+        if (gdsColors) {
+            ComponentHeaderSection(
+                title = "GDS Colors",
+                body = "The following colors are available in GDS Theme for both Light and Dark mode. Example usage:",
+                code = """
+                GdsTheme.colors.L1Neutral02
+                GdsTheme.colors.ContentNeutral01
+            """.trimIndent(),
+            )
+
+            Spacer(modifier = Modifier.height(GdsTheme.dimensions.spacing.SpaceL))
+        }
+        GdsInputContained(
+            state = rememberTextFieldState(filterText),
+            style = GdsInputDefaults.containedOnGreyStyle(),
             onValueChange = { filterText = it },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = GdsTheme.dimensions.spacing.SpaceM),
-            label = { Text("Filter Colors") },
+            label = "Filter Colors",
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Done,
@@ -104,7 +120,10 @@ private fun ColorRow(colorMapping: ColorMapping) {
         Column(
             modifier = Modifier
                 .weight(1f)
-                .background(color = Color.LightGray, shape = RoundedCornerShape(GdsTheme.dimensions.radius.Radius4Xs))
+                .background(
+                    color = Color.LightGray,
+                    shape = RoundedCornerShape(GdsTheme.dimensions.radius.Radius4Xs)
+                )
                 .padding(GdsTheme.dimensions.spacing.Space4Xs),
         ) {
             Box(
@@ -124,7 +143,10 @@ private fun ColorRow(colorMapping: ColorMapping) {
         Column(
             modifier = Modifier
                 .weight(1f)
-                .background(color = Color.Black, shape = RoundedCornerShape(GdsTheme.dimensions.radius.Radius4Xs))
+                .background(
+                    color = Color.Black,
+                    shape = RoundedCornerShape(GdsTheme.dimensions.radius.Radius4Xs)
+                )
                 .padding(GdsTheme.dimensions.spacing.Space4Xs),
         ) {
             Box(

@@ -4,6 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,8 +21,30 @@ fun ListItemScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .background(GdsTheme.colors.L1Neutral02),
     ) {
+        ComponentHeaderSection(
+            modifier = Modifier.padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
+            title = "ListRowItem",
+            body = "Example usage:",
+            code = """
+            ListRowItem(
+              title = "Label 01",
+              description = "Subtitle",
+              startSlot = {
+                StartIcon(
+                  icon = GdsIcons.Regular.Bell,
+                  contentDescription = "Bell icon",
+                )
+              },
+              endSlot = {
+                EndLabel(text = "Label 02")
+              },
+            )
+            """.trimIndent(),
+        )
+
         CardColumn(modifier = Modifier.padding(16.dp)) {
             ListRowItem(
                 title = "Label 01",

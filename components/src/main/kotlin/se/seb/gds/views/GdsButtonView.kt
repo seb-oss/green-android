@@ -70,14 +70,14 @@ class GdsButtonView @JvmOverloads constructor(
         }
 
         val buttonStyle = when (_style) {
-            ButtonStyle.PRIMARY -> GdsButtonDefaults.TwentyThree.primaryStyle()
-            ButtonStyle.SECONDARY_ON_WHITE -> GdsButtonDefaults.TwentyThree.secondaryOnWhiteStyle()
-            ButtonStyle.SECONDARY_ON_GREY -> GdsButtonDefaults.TwentyThree.secondaryOnGreyStyle()
-            ButtonStyle.SECONDARY_ON_WHITE_CARD -> GdsButtonDefaults.TwentyThree.secondaryOnWhiteCardStyle()
-            ButtonStyle.SECONDARY_ON_GREY_CARD -> GdsButtonDefaults.TwentyThree.secondaryOnGreyCardStyle()
-            ButtonStyle.TERTIARY -> GdsButtonDefaults.TwentyThree.tertiaryStyle()
-            ButtonStyle.OUTLINE -> GdsButtonDefaults.TwentyThree.outlineStyle()
-            ButtonStyle.NEGATIVE -> GdsButtonDefaults.TwentyThree.negativeStyle()
+            ButtonStyle.PRIMARY -> GdsButtonDefaults.TwentyThree.primary()
+            ButtonStyle.SECONDARY_ON_WHITE -> GdsButtonDefaults.TwentyThree.secondaryOnWhite()
+            ButtonStyle.SECONDARY_ON_GREY -> GdsButtonDefaults.TwentyThree.secondaryOnGrey()
+            ButtonStyle.SECONDARY_ON_WHITE_CARD -> GdsButtonDefaults.TwentyThree.secondaryOnWhiteCard()
+            ButtonStyle.SECONDARY_ON_GREY_CARD -> GdsButtonDefaults.TwentyThree.secondaryOnGreyCard()
+            ButtonStyle.TERTIARY -> GdsButtonDefaults.TwentyThree.tertiary()
+            ButtonStyle.OUTLINE -> GdsButtonDefaults.TwentyThree.outline()
+            ButtonStyle.NEGATIVE -> GdsButtonDefaults.TwentyThree.negative()
             ButtonStyle.LEGACY_PRIMARY -> GdsButtonDefaults.primary()
             ButtonStyle.LEGACY_SECONDARY -> GdsButtonDefaults.secondary()
             ButtonStyle.LEGACY_TERTIARY -> GdsButtonDefaults.tertiary()
