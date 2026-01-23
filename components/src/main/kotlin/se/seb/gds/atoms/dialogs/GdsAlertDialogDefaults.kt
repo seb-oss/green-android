@@ -10,7 +10,7 @@ object GdsAlertDialogDefaults {
 
     @Composable
     fun containerColor(): Color = GdsTheme.colors.L1Elevated01
-    
+
     @Composable
     fun iconContentColor(): Color = GdsTheme.colors.ContentNeutral01
 }

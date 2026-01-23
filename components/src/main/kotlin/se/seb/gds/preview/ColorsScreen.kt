@@ -33,7 +33,10 @@ import se.seb.gds.atoms.input.GdsInputDefaults
 import se.seb.gds.theme.GdsTheme
 
 @Composable
-internal fun ColorsScreen(allColors: List<Pair<String, ColorMapping>>, gdsColors: Boolean) {
+internal fun ColorsScreen(
+    allColors: List<Pair<String, ColorMapping>>,
+    gdsColors: Boolean,
+) {
     var filterText by remember { mutableStateOf("") }
     val listState = rememberLazyListState()
 
@@ -57,11 +60,12 @@ internal fun ColorsScreen(allColors: List<Pair<String, ColorMapping>>, gdsColors
         if (gdsColors) {
             ComponentHeaderSection(
                 title = "GDS Colors",
-                body = "The following colors are available in GDS Theme for both Light and Dark mode. Example usage:",
+                body = "The following colors are available in GDS " +
+                    "Theme for both Light and Dark mode. Example usage:",
                 code = """
                 GdsTheme.colors.L1Neutral02
                 GdsTheme.colors.ContentNeutral01
-            """.trimIndent(),
+                """.trimIndent(),
             )
 
             Spacer(modifier = Modifier.height(GdsTheme.dimensions.spacing.SpaceL))
@@ -122,7 +126,7 @@ private fun ColorRow(colorMapping: ColorMapping) {
                 .weight(1f)
                 .background(
                     color = Color.LightGray,
-                    shape = RoundedCornerShape(GdsTheme.dimensions.radius.Radius4Xs)
+                    shape = RoundedCornerShape(GdsTheme.dimensions.radius.Radius4Xs),
                 )
                 .padding(GdsTheme.dimensions.spacing.Space4Xs),
         ) {
@@ -145,7 +149,7 @@ private fun ColorRow(colorMapping: ColorMapping) {
                 .weight(1f)
                 .background(
                     color = Color.Black,
-                    shape = RoundedCornerShape(GdsTheme.dimensions.radius.Radius4Xs)
+                    shape = RoundedCornerShape(GdsTheme.dimensions.radius.Radius4Xs),
                 )
                 .padding(GdsTheme.dimensions.spacing.Space4Xs),
         ) {

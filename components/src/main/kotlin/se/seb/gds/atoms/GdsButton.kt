@@ -336,7 +336,7 @@ private fun GdsButton2016PrimaryPreview() {
                 horizontalPadding = GdsTheme.dimensions.spacing.SpaceM,
                 textStyle = GdsTheme.typography.BodyMediumM,
                 iconSize = 24.dp,
-                iconSpacing = GdsTheme.dimensions.spacing.SpaceXs
+                iconSpacing = GdsTheme.dimensions.spacing.SpaceXs,
             ),
             title = "Button",
             onClick = {},

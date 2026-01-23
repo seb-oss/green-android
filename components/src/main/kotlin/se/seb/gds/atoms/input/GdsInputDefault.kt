@@ -158,7 +158,9 @@ private fun InputDefaultHeader(
     Row(modifier = Modifier.padding(start = GdsTheme.dimensions.spacing.SpaceM)) {
         val columnModifier = when {
             // Top padding ensures the ripple effect on the info icon is fully visible.
-            showInfoIcon && supportLabel != null -> Modifier.padding(top = GdsTheme.dimensions.spacing.SpaceS)
+            showInfoIcon && supportLabel != null -> Modifier.padding(
+                top = GdsTheme.dimensions.spacing.SpaceS,
+            )
 
             showInfoIcon -> Modifier.align(Alignment.CenterVertically)
 
@@ -252,7 +254,6 @@ private fun InputDefaultTrailing(
         ) { content() }
     }
 }
-
 
 private val containerContentPadding: PaddingValues
     @Composable

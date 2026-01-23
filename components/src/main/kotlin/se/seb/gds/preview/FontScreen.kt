@@ -33,11 +33,12 @@ internal fun FontsScreen(scrollState: ScrollState) {
     ) {
         ComponentHeaderSection(
             title = "GDS Typography",
-            body = "The following text styles are available in GDS Theme typography. Example usage:",
+            body = "The following text styles are available in GDS Theme typography. " +
+                "Example usage:",
             code = """
                 GdsTheme.typography.HeadingM
                 GdsTheme.typography.HeadingXl
-            """.trimIndent()
+            """.trimIndent(),
         )
 
         Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceL))
@@ -45,7 +46,7 @@ internal fun FontsScreen(scrollState: ScrollState) {
         GdsTypographyTokens::class.declaredMemberProperties.map { property ->
             FontText(
                 name = property.name,
-                style = property.get(GdsTypographyTokens) as TextStyle
+                style = property.get(GdsTypographyTokens) as TextStyle,
             )
         }
     }

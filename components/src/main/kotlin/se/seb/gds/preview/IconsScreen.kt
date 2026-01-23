@@ -62,11 +62,12 @@ fun IconsScreen() {
     ) {
         ComponentHeaderSection(
             title = "GDS Icons",
-            body = "Include icons from the provided ImageVectors in Solid or Regular style. Example usage:",
+            body = "Include icons from the provided ImageVectors in Solid or Regular style." +
+                " Example usage:",
             code = """
                 GdsIcons.Solid.Checkmark
                 GdsIcons.Regular.Checkmark
-            """.trimIndent()
+            """.trimIndent(),
         )
         Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
         GdsInputContained(

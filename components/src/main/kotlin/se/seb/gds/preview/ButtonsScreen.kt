@@ -61,7 +61,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
               style = GdsButtonDefaults.primary(),
               onClick = {}
             )
-            """.trimIndent(),
+                """.trimIndent(),
             )
         }
 
@@ -116,7 +116,6 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                     hasIcon = it
                 }
 
-
                 if (hasIcon) {
                     SelectRow(
                         selectedText = iconPosition,
@@ -128,7 +127,6 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                     )
                 }
             }
-
 
             val iconPositionSelected = when (iconPosition) {
                 IconPosition.Left.name -> IconPosition.Left
@@ -319,7 +317,7 @@ fun SelectRow(
         modifier = Modifier
             .padding(
                 horizontal = GdsTheme.dimensions.spacing.SpaceM,
-                vertical = GdsTheme.dimensions.spacing.SpaceS
+                vertical = GdsTheme.dimensions.spacing.SpaceS,
             )
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,

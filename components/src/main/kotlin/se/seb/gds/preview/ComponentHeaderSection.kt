@@ -18,7 +18,6 @@ import androidx.compose.ui.unit.sp
 import se.seb.gds.atoms.GdsText
 import se.seb.gds.theme.GdsTheme
 
-
 @Composable
 internal fun ComponentHeaderSection(
     modifier: Modifier = Modifier,
@@ -49,7 +48,7 @@ internal fun ComponentHeaderSection(
 @Composable
 internal fun CodeBlock(
     code: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier

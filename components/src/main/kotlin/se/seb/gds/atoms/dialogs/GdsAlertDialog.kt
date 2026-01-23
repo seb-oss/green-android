@@ -62,7 +62,9 @@ fun GdsAlertDialog(
             GdsButton(
                 title = confirmButtonText,
                 style = GdsButtonDefaults.TwentyThree.tertiary(),
-                sizeProfile = GdsButtonDefaults.TwentyThree.large().copy(widthType = ButtonWidthType.Dynamic),
+                sizeProfile = GdsButtonDefaults.TwentyThree.large().copy(
+                    widthType = ButtonWidthType.Dynamic,
+                ),
                 onClick = onConfirmation,
             )
         },
@@ -71,7 +73,9 @@ fun GdsAlertDialog(
                 GdsButton(
                     title = it,
                     style = GdsButtonDefaults.TwentyThree.tertiary(),
-                    sizeProfile = GdsButtonDefaults.TwentyThree.large().copy(widthType = ButtonWidthType.Dynamic),
+                    sizeProfile = GdsButtonDefaults.TwentyThree.large().copy(
+                        widthType = ButtonWidthType.Dynamic,
+                    ),
                     onClick = onDismissRequest,
                 )
             }
@@ -105,7 +109,8 @@ private fun GdsAlertDialogPreview() {
             GdsAlertDialog(
                 icon = GdsIcons.Regular.Bank,
                 title = "Alert Dialog",
-                text = "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.",
+                text = "A dialog is a type of modal window that appears in front of app " +
+                    "content to provide critical information, or prompt for a decision to be made.",
                 confirmButtonText = "Ok",
                 dismissButtonText = "Cancel",
                 onDismissRequest = {},

@@ -29,11 +29,11 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
-import se.seb.gds.atoms.topbar.TopAppBarDefaults
-import se.seb.gds.atoms.topbar.GdsTopBarAction
 import se.seb.gds.atoms.topbar.GdsLargeTopAppBar
 import se.seb.gds.atoms.topbar.GdsMediumTopAppBar
 import se.seb.gds.atoms.topbar.GdsSmallTopAppBar
+import se.seb.gds.atoms.topbar.GdsTopBarAction
+import se.seb.gds.atoms.topbar.TopAppBarDefaults
 import se.seb.gds.components.SwitchRow
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
@@ -105,12 +105,13 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
             modifier = Modifier
                 .padding(innerPadding)
                 .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
-            verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceXs)
+            verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceXs),
         ) {
             item {
                 Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
                 ComponentHeaderSection(
-                    body = "Components:\n- GdsSmallTopAppBar\n- GdsMediumTopAppBar\n- GdsLargeTopAppBar.\nExample usage:",
+                    body = "Components:\n- GdsSmallTopAppBar\n- GdsMediumTopAppBar\n" +
+                        "- GdsLargeTopAppBar.\nExample usage:",
                     code = """
                 GdsSmallTopAppBar(
                   title = "Small Top Bar",
@@ -119,7 +120,7 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
                   navigationIcon = { },
                   rightActions = { },
                 )
-            """.trimIndent(),
+                    """.trimIndent(),
                 )
             }
             item {
@@ -152,7 +153,9 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
                             )
                             Text(
                                 text = text,
-                                modifier = Modifier.padding(start = GdsTheme.dimensions.spacing.SpaceM),
+                                modifier = Modifier.padding(
+                                    start = GdsTheme.dimensions.spacing.SpaceM,
+                                ),
                             )
                         }
                     }
@@ -165,7 +168,7 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
                         .fillMaxWidth()
                         .padding(
                             horizontal = GdsTheme.dimensions.spacing.SpaceM,
-                            vertical = GdsTheme.dimensions.spacing.SpaceXs
+                            vertical = GdsTheme.dimensions.spacing.SpaceXs,
                         ),
                 )
             }
