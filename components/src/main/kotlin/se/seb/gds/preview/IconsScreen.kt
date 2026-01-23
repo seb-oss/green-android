@@ -15,9 +15,9 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -33,6 +33,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import se.seb.gds.atoms.input.GdsInputContained
+import se.seb.gds.atoms.input.GdsInputDefaults
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
@@ -56,15 +58,26 @@ fun IconsScreen() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
     ) {
-        OutlinedTextField(
-            value = filterText,
+        ComponentHeaderSection(
+            title = "GDS Icons",
+            body = "Include icons from the provided ImageVectors in Solid or Regular style." +
+                " Example usage:",
+            code = """
+                GdsIcons.Solid.Checkmark
+                GdsIcons.Regular.Checkmark
+            """.trimIndent(),
+        )
+        Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
+        GdsInputContained(
+            state = rememberTextFieldState(filterText),
+            style = GdsInputDefaults.containedOnGreyStyle(),
             onValueChange = { filterText = it },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 16.dp),
-            label = { Text("Filter Icons") },
+                .padding(bottom = GdsTheme.dimensions.spacing.SpaceM),
+            label = "Filter Icons",
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Done,
@@ -73,7 +86,10 @@ fun IconsScreen() {
 
         LazyVerticalGrid(
             columns = GridCells.Fixed(3),
-            contentPadding = PaddingValues(horizontal = 0.dp, vertical = 8.dp),
+            contentPadding = PaddingValues(
+                horizontal = GdsTheme.dimensions.spacing.Space0,
+                vertical = GdsTheme.dimensions.spacing.SpaceXs,
+            ),
         ) {
             items(filteredIconList) { (name, imageVector) ->
                 IconPreviewCard(name, imageVector)
@@ -90,13 +106,13 @@ fun IconPreviewCard(
     CardColumn(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(4.dp)
+            .padding(GdsTheme.dimensions.spacing.Space3Xs)
             .aspectRatio(1f),
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(8.dp),
+                .padding(GdsTheme.dimensions.spacing.SpaceXs),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
@@ -110,7 +126,7 @@ fun IconPreviewCard(
                     .wrapContentSize(Alignment.Center),
             )
 
-            Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(GdsTheme.dimensions.spacing.Space3Xs))
 
             val text = fullName.split(".").joinToString("\n")
             Text(

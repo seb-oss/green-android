@@ -61,7 +61,10 @@ fun SwitchRow(
 @Composable
 private fun SwitchRowPreview() {
     GdsTheme {
-        Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = spacedBy(GdsTheme.dimensions.spacing.Space4Xs)) {
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            verticalArrangement = spacedBy(GdsTheme.dimensions.spacing.Space4Xs),
+        ) {
             var checked by remember { mutableStateOf(false) }
             SwitchRow(
                 modifier = Modifier.padding(GdsTheme.dimensions.spacing.SpaceM),

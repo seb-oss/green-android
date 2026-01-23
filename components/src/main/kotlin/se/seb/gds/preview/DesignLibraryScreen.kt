@@ -108,9 +108,9 @@ internal fun DesignLibraryScreen(
                             currentScreen = it
                         }
 
-                    LibraryScreen.COLORS -> ColorsScreen(allColors)
+                    LibraryScreen.COLORS -> ColorsScreen(allColors, true)
 
-                    LibraryScreen.LEGACY_COLORS -> ColorsScreen(legacyColors)
+                    LibraryScreen.LEGACY_COLORS -> ColorsScreen(legacyColors, false)
 
                     LibraryScreen.FONTS -> FontsScreen(scrollState = scrollState)
 
@@ -125,8 +125,6 @@ internal fun DesignLibraryScreen(
                     LibraryScreen.ICONS -> IconsScreen()
 
                     LibraryScreen.LIST_ITEM -> ListItemScreen()
-
-                    LibraryScreen.BOTTOM_SHEET -> BottomSheetScreen()
 
                     LibraryScreen.PROGRESS_INDICATOR -> ProgressIndicatorScreen()
 
@@ -175,8 +173,6 @@ private fun DesignLibrary(
             ListItem("Top Bar") { onNavigateToSection(LibraryScreen.TOP_BAR) }
             HorizontalDivider()
             ListItem("List items") { onNavigateToSection(LibraryScreen.LIST_ITEM) }
-            HorizontalDivider()
-            ListItem("Bottom Sheet") { onNavigateToSection(LibraryScreen.BOTTOM_SHEET) }
             HorizontalDivider()
             ListItem("Progress Indicator") { onNavigateToSection(LibraryScreen.PROGRESS_INDICATOR) }
             HorizontalDivider()

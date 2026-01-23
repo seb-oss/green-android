@@ -1,9 +1,11 @@
 package se.seb.gds.preview
 
+import android.widget.Space
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -27,11 +29,11 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
-import se.seb.gds.atoms.topbar.AppBarDefaults
+import se.seb.gds.atoms.topbar.GdsLargeTopAppBar
+import se.seb.gds.atoms.topbar.GdsMediumTopAppBar
+import se.seb.gds.atoms.topbar.GdsSmallTopAppBar
 import se.seb.gds.atoms.topbar.GdsTopBarAction
-import se.seb.gds.atoms.topbar.LargeTopAppBar
-import se.seb.gds.atoms.topbar.MediumTopAppBar
-import se.seb.gds.atoms.topbar.SmallTopAppBar
+import se.seb.gds.atoms.topbar.TopAppBarDefaults
 import se.seb.gds.components.SwitchRow
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
@@ -43,9 +45,9 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[0]) }
 
     val scrollBehavior = when (selectedOption) {
-        "Medium" -> AppBarDefaults.mediumLargeAppBarScrollBehavior()
-        "Large" -> AppBarDefaults.mediumLargeAppBarScrollBehavior()
-        else -> AppBarDefaults.smallAppBarScrollBehavior()
+        "Medium" -> TopAppBarDefaults.mediumLargeAppBarScrollBehavior()
+        "Large" -> TopAppBarDefaults.mediumLargeAppBarScrollBehavior()
+        else -> TopAppBarDefaults.smallAppBarScrollBehavior()
     }
 
     var showSubtitle by rememberSaveable { mutableStateOf(false) }
@@ -68,8 +70,7 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
             .fillMaxSize(),
         topBar = {
             when (selectedOption) {
-                "Small" -> SmallTopAppBar(
-                    modifier = Modifier,
+                "Small" -> GdsSmallTopAppBar(
                     title = "Small Top Bar",
                     subtitle = subtitle,
                     scrollBehavior = scrollBehavior,
@@ -77,8 +78,7 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
                     rightActions = rightAction,
                 )
 
-                "Medium" -> MediumTopAppBar(
-                    modifier = Modifier,
+                "Medium" -> GdsMediumTopAppBar(
                     title = "Medium Top Bar",
                     subtitle = subtitle,
                     scrollBehavior = scrollBehavior,
@@ -86,8 +86,7 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
                     rightActions = rightAction,
                 )
 
-                "Large" -> LargeTopAppBar(
-                    modifier = Modifier,
+                "Large" -> GdsLargeTopAppBar(
                     title = "Large Top Bar",
                     subtitle = subtitle,
                     scrollBehavior = scrollBehavior,
@@ -101,12 +100,29 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
         containerColor = GdsTheme.colors.L1Neutral02,
         contentColor = GdsTheme.colors.ContentNeutral01,
     ) { innerPadding ->
+
         LazyColumn(
             modifier = Modifier
                 .padding(innerPadding)
                 .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
-            verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceXs)
+            verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceXs),
         ) {
+            item {
+                Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
+                ComponentHeaderSection(
+                    body = "Components:\n- GdsSmallTopAppBar\n- GdsMediumTopAppBar\n" +
+                        "- GdsLargeTopAppBar.\nExample usage:",
+                    code = """
+                GdsSmallTopAppBar(
+                  title = "Small Top Bar",
+                  subtitle = "subtitle",
+                  scrollBehavior = scrollBehavior,
+                  navigationIcon = { },
+                  rightActions = { },
+                )
+                    """.trimIndent(),
+                )
+            }
             item {
                 SwitchRow("Show subtitle", checked = showSubtitle) {
                     showSubtitle = it
@@ -137,7 +153,9 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
                             )
                             Text(
                                 text = text,
-                                modifier = Modifier.padding(start = GdsTheme.dimensions.spacing.SpaceM),
+                                modifier = Modifier.padding(
+                                    start = GdsTheme.dimensions.spacing.SpaceM,
+                                ),
                             )
                         }
                     }
@@ -150,7 +168,7 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
                         .fillMaxWidth()
                         .padding(
                             horizontal = GdsTheme.dimensions.spacing.SpaceM,
-                            vertical = GdsTheme.dimensions.spacing.SpaceXs
+                            vertical = GdsTheme.dimensions.spacing.SpaceXs,
                         ),
                 )
             }

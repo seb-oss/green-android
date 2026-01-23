@@ -43,67 +43,89 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
     Column(
         modifier = Modifier
-            .background(GdsTheme.colors.L1Neutral01)
+            .background(GdsTheme.colors.L1Neutral02)
             .fillMaxSize()
             .verticalScroll(scrollState)
             .padding(GdsTheme.dimensions.spacing.SpaceM),
         verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceM),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        if (!showLegacyButtons) {
+            ComponentHeaderSection(
+                title = "GDSButton",
+                body = "Example usage:",
+                code = """
+            GdsButton(
+              title = "Title",
+              icon = icon,
+              style = GdsButtonDefaults.primary(),
+              onClick = {}
+            )
+                """.trimIndent(),
+            )
+        }
+
         SwitchRow("Show 2016 Buttons", checked = showLegacyButtons) {
             showLegacyButtons = it
         }
 
+        var selectedWidth by rememberSaveable { mutableStateOf("Full") }
+        val widthType = when (selectedWidth) {
+            "Full" -> ButtonWidthType.Full
+            "Dynamic" -> ButtonWidthType.Dynamic
+            else -> ButtonWidthType.Fixed(200.dp)
+        }
+        var hasIcon by rememberSaveable { mutableStateOf(false) }
+        var iconPosition by rememberSaveable { mutableStateOf("Left") }
+        var selectedHeight by rememberSaveable { mutableStateOf("Large") }
+        val buttonSizeProfile = when (selectedHeight) {
+            "XLarge" -> GdsButtonDefaults.TwentyThree.xLarge()
+            "Large" -> GdsButtonDefaults.TwentyThree.large()
+            "Medium" -> GdsButtonDefaults.TwentyThree.medium()
+            else -> GdsButtonDefaults.TwentyThree.small()
+        }
+
         if (showLegacyButtons.not()) {
-            var selectedHeight by rememberSaveable { mutableStateOf("Large") }
-            SelectRow(
-                selectedText = selectedHeight,
-                onItemSelected = { newValue ->
-                    selectedHeight = newValue
-                },
-                items = listOf("XLarge", "Large", "Medium", "Small"),
-                label = "Height Type:",
-            )
-
-            val buttonSizeProfile = when (selectedHeight) {
-                "XLarge" -> GdsButtonDefaults.TwentyThree.xLarge()
-                "Large" -> GdsButtonDefaults.TwentyThree.large()
-                "Medium" -> GdsButtonDefaults.TwentyThree.medium()
-                else -> GdsButtonDefaults.TwentyThree.small()
-            }
-
-            var selectedWidth by rememberSaveable { mutableStateOf("Full") }
-            SelectRow(
-                selectedText = selectedWidth,
-                onItemSelected = { newValue ->
-                    selectedWidth = newValue
-                },
-                items = listOf("Full", "Dynamic", "Fixed (200dp)"),
-                label = "Width Type:",
-            )
-
-            val widthType = when (selectedWidth) {
-                "Full" -> ButtonWidthType.Full
-                "Dynamic" -> ButtonWidthType.Dynamic
-                else -> ButtonWidthType.Fixed(200.dp)
-            }
-
-            var hasIcon by rememberSaveable { mutableStateOf(false) }
-
-            SwitchRow("Icon", checked = hasIcon) {
-                hasIcon = it
-            }
-
-            var iconPosition by rememberSaveable { mutableStateOf("Left") }
-            if (hasIcon) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(
+                        color = GdsTheme.colors.L2Neutral02,
+                        shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusS),
+                    ),
+            ) {
                 SelectRow(
-                    selectedText = iconPosition,
+                    selectedText = selectedHeight,
                     onItemSelected = { newValue ->
-                        iconPosition = newValue
+                        selectedHeight = newValue
                     },
-                    items = IconPosition.entries.map { it.name },
-                    label = "Icon Position:",
+                    items = listOf("XLarge", "Large", "Medium", "Small"),
+                    label = "Height Type:",
                 )
+
+                SelectRow(
+                    selectedText = selectedWidth,
+                    onItemSelected = { newValue ->
+                        selectedWidth = newValue
+                    },
+                    items = listOf("Full", "Dynamic", "Fixed (200dp)"),
+                    label = "Width Type:",
+                )
+
+                InputSwitchRow("Icon", checked = hasIcon) {
+                    hasIcon = it
+                }
+
+                if (hasIcon) {
+                    SelectRow(
+                        selectedText = iconPosition,
+                        onItemSelected = { newValue ->
+                            iconPosition = newValue
+                        },
+                        items = IconPosition.entries.map { it.name },
+                        label = "Icon Position:",
+                    )
+                }
             }
 
             val iconPositionSelected = when (iconPosition) {
@@ -121,7 +143,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Primary",
-                style = GdsButtonDefaults.TwentyThree.primaryStyle().copy(
+                style = GdsButtonDefaults.TwentyThree.primary().copy(
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
@@ -130,7 +152,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Secondary On White",
-                style = GdsButtonDefaults.TwentyThree.secondaryOnWhiteStyle().copy(
+                style = GdsButtonDefaults.TwentyThree.secondaryOnWhite().copy(
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
@@ -139,7 +161,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Secondary On Grey",
-                style = GdsButtonDefaults.TwentyThree.secondaryOnGreyStyle().copy(
+                style = GdsButtonDefaults.TwentyThree.secondaryOnGrey().copy(
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
@@ -148,7 +170,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Secondary On White Card",
-                style = GdsButtonDefaults.TwentyThree.secondaryOnWhiteCardStyle().copy(
+                style = GdsButtonDefaults.TwentyThree.secondaryOnWhiteCard().copy(
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
@@ -157,7 +179,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Secondary On Grey Card",
-                style = GdsButtonDefaults.TwentyThree.secondaryOnGreyCardStyle().copy(
+                style = GdsButtonDefaults.TwentyThree.secondaryOnGreyCard().copy(
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
@@ -166,7 +188,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Tertiary Button",
-                style = GdsButtonDefaults.TwentyThree.tertiaryStyle().copy(
+                style = GdsButtonDefaults.TwentyThree.tertiary().copy(
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
@@ -175,7 +197,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Outline Button",
-                style = GdsButtonDefaults.TwentyThree.outlineStyle().copy(
+                style = GdsButtonDefaults.TwentyThree.outline().copy(
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
@@ -184,7 +206,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
             GdsButton(
                 title = "Negative Button",
-                style = GdsButtonDefaults.TwentyThree.negativeStyle().copy(
+                style = GdsButtonDefaults.TwentyThree.negative().copy(
                     iconPosition = iconPositionSelected,
                 ),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
@@ -293,13 +315,11 @@ fun SelectRow(
 ) {
     Row(
         modifier = Modifier
-            .height(64.dp)
-            .fillMaxWidth()
-            .background(
-                color = GdsTheme.colors.L2Neutral01,
-                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusS),
+            .padding(
+                horizontal = GdsTheme.dimensions.spacing.SpaceM,
+                vertical = GdsTheme.dimensions.spacing.SpaceS,
             )
-            .padding(GdsTheme.dimensions.spacing.SpaceM),
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         var expanded by remember { mutableStateOf(false) }

@@ -92,7 +92,7 @@ object ListRowItem {
                 .fillMaxWidth()
                 .padding(
                     horizontal = GdsTheme.dimensions.spacing.SpaceL,
-                    vertical = GdsTheme.dimensions.spacing.SpaceM
+                    vertical = GdsTheme.dimensions.spacing.SpaceM,
                 ),
             verticalAlignment = Alignment.CenterVertically,
         ) {

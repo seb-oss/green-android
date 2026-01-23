@@ -63,15 +63,15 @@ fun GdsButton(
     title: String? = null,
     enabled: Boolean = true,
     icon: ImageVector? = null,
-    style: GdsButtonStyle = GdsButtonDefaults.TwentyThree.primaryStyle(),
+    style: GdsButtonStyle = GdsButtonDefaults.TwentyThree.primary(),
     sizeProfile: GdsButtonSizeProfile = GdsButtonDefaults.TwentyThree.large(),
     onClick: () -> Unit,
 ) {
     val widthModifier =
         when (sizeProfile.widthType) {
-            ButtonWidthType.Dynamic -> modifier
-            is ButtonWidthType.Fixed -> modifier.width(sizeProfile.widthType.width)
-            ButtonWidthType.Full -> modifier.fillMaxWidth()
+            ButtonWidthType.Dynamic -> Modifier
+            is ButtonWidthType.Fixed -> Modifier.width(sizeProfile.widthType.width)
+            ButtonWidthType.Full -> Modifier.fillMaxWidth()
         }
 
     val paddingValues =
@@ -253,7 +253,7 @@ private fun GdsButtonSecondaryOnWhitePreview() {
         GdsButton(
             title = "Button",
             icon = GdsIcons.Solid.Checkmark,
-            style = GdsButtonDefaults.TwentyThree.secondaryOnWhiteStyle(),
+            style = GdsButtonDefaults.TwentyThree.secondaryOnWhite(),
             onClick = {},
         )
     }
@@ -303,7 +303,7 @@ private fun GdsIconButtonPrimaryPreview() {
     GdsTheme {
         GdsButton(
             icon = GdsIcons.Solid.Checkmark,
-            style = GdsButtonDefaults.TwentyThree.primaryStyle(),
+            style = GdsButtonDefaults.TwentyThree.primary(),
             sizeProfile = GdsButtonDefaults.TwentyThree.large(),
             onClick = {},
         )
@@ -336,7 +336,7 @@ private fun GdsButton2016PrimaryPreview() {
                 horizontalPadding = GdsTheme.dimensions.spacing.SpaceM,
                 textStyle = GdsTheme.typography.BodyMediumM,
                 iconSize = 24.dp,
-                iconSpacing = GdsTheme.dimensions.spacing.SpaceXs
+                iconSpacing = GdsTheme.dimensions.spacing.SpaceXs,
             ),
             title = "Button",
             onClick = {},

@@ -14,12 +14,12 @@ import androidx.compose.ui.Modifier
     ExperimentalMaterial3ExpressiveApi::class,
 )
 @Composable
-fun LargeTopAppBar(
+fun GdsLargeTopAppBar(
     modifier: Modifier = Modifier,
     title: String,
     scrollBehavior: TopAppBarScrollBehavior,
     subtitle: String?,
-    style: TopAppBarStyle = AppBarDefaults.largeTopAppBarStyle(),
+    style: TopAppBarStyle = TopAppBarDefaults.large(),
     navigationIcon: @Composable (() -> Unit)? = null,
     rightActions: @Composable (RowScope.() -> Unit)? = null,
 ) {

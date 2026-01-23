@@ -35,10 +35,10 @@ data class TopAppBarStyle(
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-object AppBarDefaults {
+object TopAppBarDefaults {
 
     @Composable
-    fun smallTopAppBarStyle() =
+    fun small() =
         TopAppBarStyle(
             colors = defaultTopAppBarColors(),
             titleStyle = GdsTheme.typography.HeadingS,
@@ -48,7 +48,7 @@ object AppBarDefaults {
         )
 
     @Composable
-    fun mediumTopAppBarStyle() =
+    fun medium() =
         TopAppBarStyle(
             colors = defaultTopAppBarColors(),
             titleStyle = GdsTheme.typography.HeadingL,
@@ -58,7 +58,7 @@ object AppBarDefaults {
         )
 
     @Composable
-    fun largeTopAppBarStyle() =
+    fun large() =
         TopAppBarStyle(
             colors = defaultTopAppBarColors(),
             titleStyle = GdsTheme.typography.HeadingXl,
