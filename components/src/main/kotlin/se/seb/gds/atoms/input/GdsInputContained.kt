@@ -150,7 +150,7 @@ fun GdsInputContained(
                     (!hasCounter && isMultiLine)
 
                 val trailingModifier = if (showCounterContainer) {
-                    Modifier.padding(trailingContentPadding())
+                    Modifier.padding(containerContentPadding(isLandscape()))
                 } else {
                     Modifier.align(Alignment.CenterVertically)
                 }
@@ -182,7 +182,8 @@ fun GdsInputContained(
  *
  * @param modifier Modifier to be applied to the trailing content container.
  * @param textFieldIsFocused Whether the text field is currently focused.
- * @param showCounterContainer Whether to display the character counter container.
+ * @param showCounterContainer Show counter container to align trailing content with text input.
+ * The content inside can be hidden with alpha
  * @param onInfoIconClick Callback invoked when the info icon is clicked.
  * @param clearText Callback invoked to clear the text in the input field.
  * @param style The style configuration for the input field, including text styles and colors.
@@ -292,17 +293,6 @@ private fun containerContentPadding(isLandscape: Boolean = false): PaddingValues
     }
 }
 
-/**
- * Provides padding values for the trailing content of the input field.
- *
- * @return A `PaddingValues` with appropriate horizontal and vertical padding.
- */
-@Composable
-private fun trailingContentPadding(): PaddingValues =
-    PaddingValues(
-        horizontal = GdsTheme.dimensions.spacing.Space0,
-        vertical = GdsTheme.dimensions.spacing.SpaceM,
-    )
 
 @Preview(
     name = "Light Mode GdsInput",
