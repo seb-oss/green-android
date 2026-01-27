@@ -127,5 +127,5 @@ val LocalLightModeColors = GdsLocalColorTokens(
     L3Neutral03 = Color(0xffd5d7d7),
     L3Positive04 = Color(0xff027839),
     L2NeutralLoud = Color(0xff4f5452),
-    L3NeutralTone = Color(0x28ffffff)
+    L3NeutralTone = Color(0x28ffffff),
 )

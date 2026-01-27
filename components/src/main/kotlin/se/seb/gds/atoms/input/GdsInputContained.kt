@@ -293,7 +293,6 @@ private fun containerContentPadding(isLandscape: Boolean = false): PaddingValues
     }
 }
 
-
 @Preview(
     name = "Light Mode GdsInput",
     group = "Themes",
