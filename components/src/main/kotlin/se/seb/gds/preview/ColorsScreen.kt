@@ -57,19 +57,6 @@ internal fun ColorsScreen(
             .fillMaxWidth()
             .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
     ) {
-        if (gdsColors) {
-            ComponentHeaderSection(
-                title = "GDS Colors",
-                body = "The following colors are available in GDS " +
-                    "Theme for both Light and Dark mode. Example usage:",
-                code = """
-                GdsTheme.colors.L1Neutral02
-                GdsTheme.colors.ContentNeutral01
-                """.trimIndent(),
-            )
-
-            Spacer(modifier = Modifier.height(GdsTheme.dimensions.spacing.SpaceL))
-        }
         GdsInputContained(
             state = rememberTextFieldState(filterText),
             style = GdsInputDefaults.containedOnGreyStyle(),
@@ -89,6 +76,19 @@ internal fun ColorsScreen(
             contentPadding = PaddingValues(vertical = GdsTheme.dimensions.spacing.SpaceM),
             verticalArrangement = spacedBy(GdsTheme.dimensions.spacing.SpaceM),
         ) {
+            if (gdsColors) {
+                item {
+                    ComponentHeaderSection(
+                        title = "GDS Colors",
+                        body = "The following colors are available in GDS " +
+                                "Theme for both Light and Dark mode. Example usage:",
+                        code = """
+                GdsTheme.colors.L1Neutral02
+                GdsTheme.colors.ContentNeutral01
+                """.trimIndent(),
+                    )
+                }
+            }
             items(
                 items = filteredColors,
                 key = { item -> item.first },

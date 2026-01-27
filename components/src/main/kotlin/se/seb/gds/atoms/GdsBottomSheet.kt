@@ -18,6 +18,21 @@ import androidx.compose.ui.Modifier
  * @param onDismiss Callback invoked when the Bottom Sheet is dismissed
  * @param header Composable content for the header section of the Bottom Sheet
  * @param content Composable content for the main body of the Bottom Sheet
+ *
+ * Example usage:
+ * ```
+ * val sheetState = rememberModalBottomSheetState()
+ * var showBottomSheet by remember { mutableStateOf(false) }
+ *
+ * if (showBottomSheet) {
+ *     GdsBottomSheet(
+ *         sheetState = sheetState,
+ *         onDismiss = { showBottomSheet = false }
+ *     ) {
+ *         // Bottom sheet content
+ *     }
+ * }
+ * ```
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

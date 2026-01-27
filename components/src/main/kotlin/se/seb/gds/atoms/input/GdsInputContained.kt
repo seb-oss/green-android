@@ -71,6 +71,16 @@ import se.seb.gds.theme.GdsTheme
  * @param characterWhitelistPredicate Predicate function to filter allowed characters in the input.
  * @param onValueChange Callback invoked when the text value changes.
  * @param onInfoIconClick Callback invoked when the info icon is clicked.
+ *
+ * Example usage:
+ * ```
+ * var text by remember { mutableStateOf("") }
+ * GdsInputContained(
+ *     state = rememberTextFieldState(text),
+ *     label = "Label",
+ *     onValueChange = { text = it }
+ * )
+ * ```
  */
 @Composable
 fun GdsInputContained(
