@@ -95,7 +95,8 @@ class GdsButtonView @JvmOverloads constructor(
             ButtonStyle.SECONDARY_ON_GREY_CARD,
             ButtonStyle.TERTIARY,
             ButtonStyle.OUTLINE,
-            ButtonStyle.NEGATIVE -> {
+            ButtonStyle.NEGATIVE,
+            -> {
                 when (_size) {
                     ButtonSize.SMALL -> GdsButtonDefaults.TwentyThree.small()
                     ButtonSize.MEDIUM -> GdsButtonDefaults.TwentyThree.medium()

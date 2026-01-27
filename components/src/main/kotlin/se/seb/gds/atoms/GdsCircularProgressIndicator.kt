@@ -23,6 +23,14 @@ import se.seb.gds.theme.GdsTheme
  * @param size The diameter of the indicator.
  * @param strokeWidth The thickness of the indicator's line.
  * @param strokeCap The shape of the ends of the progress indicator's stroke.
+ *
+ * Example usage:
+ * ```
+ * GdsCircularProgressIndicator(
+ *     size = 50.dp,
+ *     strokeWidth = 5.dp
+ * )
+ * ```
  */
 @Composable
 fun GdsCircularProgressIndicator(

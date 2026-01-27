@@ -9,6 +9,34 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
+/**
+ * A large top app bar that displays a title, subtitle, navigation icon, and actions.
+ *
+ * @param modifier The modifier to be applied to the top app bar.
+ * @param title The title to be displayed in the top app bar.
+ * @param scrollBehavior The scroll behavior for the top app bar.
+ * @param subtitle Optional subtitle to be displayed in the top app bar.
+ * @param style The style to be applied to the top app bar.
+ * @param navigationIcon Optional navigation icon to be displayed at the start of the top app bar.
+ * @param rightActions Optional actions to be displayed at the end of the top app bar.
+ *
+ * Example usage:
+ * ```
+ * val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
+ * GdsLargeTopAppBar(
+ *     title = "Title",
+ *     scrollBehavior = scrollBehavior,
+ *     navigationIcon = {
+ *         IconButton(onClick = { /* doSomething() */ }) {
+ *             Icon(
+ *                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+ *                 contentDescription = "Localized description"
+ *             )
+ *         }
+ *     }
+ * )
+ * ```
+ */
 @OptIn(
     ExperimentalMaterial3Api::class,
     ExperimentalMaterial3ExpressiveApi::class,

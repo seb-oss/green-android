@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.text.KeyboardOptions
@@ -55,27 +56,14 @@ fun IconsScreen() {
             }
         }
 
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
-    ) {
-        ComponentHeaderSection(
-            title = "GDS Icons",
-            body = "Include icons from the provided ImageVectors in Solid or Regular style." +
-                " Example usage:",
-            code = """
-                GdsIcons.Solid.Checkmark
-                GdsIcons.Regular.Checkmark
-            """.trimIndent(),
-        )
-        Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
+    Column(modifier = Modifier.fillMaxWidth()) {
         GdsInputContained(
             state = rememberTextFieldState(filterText),
             style = GdsInputDefaults.containedOnGreyStyle(),
             onValueChange = { filterText = it },
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM)
                 .padding(bottom = GdsTheme.dimensions.spacing.SpaceM),
             label = "Filter Icons",
             keyboardOptions = KeyboardOptions(
@@ -87,10 +75,26 @@ fun IconsScreen() {
         LazyVerticalGrid(
             columns = GridCells.Fixed(3),
             contentPadding = PaddingValues(
-                horizontal = GdsTheme.dimensions.spacing.Space0,
+                horizontal = GdsTheme.dimensions.spacing.SpaceM,
                 vertical = GdsTheme.dimensions.spacing.SpaceXs,
             ),
         ) {
+            item(span = { GridItemSpan(3) }) {
+                Column {
+                    ComponentHeaderSection(
+                        title = "GDS Icons",
+                        body =
+                        "Include icons from the provided ImageVectors in Solid or Regular style." +
+                            " Example usage:",
+                        code = """
+                            GdsIcons.Solid.Checkmark
+                            GdsIcons.Regular.Checkmark
+                        """.trimIndent(),
+                    )
+                    Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
+                }
+            }
+
             items(filteredIconList) { (name, imageVector) ->
                 IconPreviewCard(name, imageVector)
             }

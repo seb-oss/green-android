@@ -29,6 +29,15 @@ import se.seb.gds.theme.GdsTheme
  * @param style The style of the switch. See [GdsSwitchDefaults] for default styles.
  * @param enabled Whether the switch is enabled or not.
  * @param onCheckedChanged Callback invoked when the checked state changes.
+ *
+ * Example usage:
+ * ```
+ * var isChecked by remember { mutableStateOf(false) }
+ * GdsSwitch(
+ *     checked = isChecked,
+ *     onCheckedChanged = { isChecked = it }
+ * )
+ * ```
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

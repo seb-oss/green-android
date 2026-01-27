@@ -30,6 +30,13 @@ import se.seb.gds.theme.GdsTheme
  * @param containerColor The color of the container background behind the indicator.
  * @param size The diameter of the indicator including the container.
  * @param polygons List of RoundedPolygon shapes to be used for the indicator animation.
+ *
+ * Example usage:
+ * ```
+ * GdsLoadingIndicatorContained(
+ *     size = 50.dp
+ * )
+ * ```
  */
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable

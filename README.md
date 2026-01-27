@@ -2,7 +2,7 @@
 
 Green Design System Android is a project that consists of two main parts:
 
-1. **Component Library**: A reusable library of UI components designed for Android applications. This library is distributed via GitHub Packages, making it easy to integrate into your own projects.
+1. **Component Library**: A reusable library of UI components designed for Android applications. This library is distributed via Maven Central, making it easy to integrate into your own projects.
 2. **Companion App**: A demonstration app showcasing the components available in the library. The app provides examples of how to use the components and serves as a reference for developers.
 
 ---
@@ -114,11 +114,34 @@ To build the project locally:
 
 ### Contributing
 
-Contributions are welcome! If you would like to contribute to the project:
+Contributions are welcome! If you would like to contribute to the project, you need to be invited to the repository. Please reach out to the maintainers to request access.
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Submit a pull request with a detailed description of your changes.
+#### Development Guidelines
+
+This library is now in **production mode** (version 1.0.0+), which means we follow semantic versioning and maintain backward compatibility:
+
+- **Avoid breaking changes**: Do not remove or change existing public APIs in minor or patch releases.
+- **Deprecation first**: If you need to change or remove functionality, mark it as `@Deprecated` with a clear message indicating the alternative approach.
+- **Remove in major releases**: Deprecated functionality should only be removed in major version updates (e.g., 2.0.0).
+- **Additive changes**: New features and components can be added in minor releases.
+- **Bug fixes**: Bug fixes and performance improvements go into patch releases.
+
+#### Making Changes
+
+1. Request access to the repository from the maintainers.
+2. Create a new branch for your feature or bug fix from `main`:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Make your changes, ensuring backward compatibility.
+4. Update documentation and add usage examples for new components.
+5. Add any new components to the DesignLibraryScreen.
+6. Test your changes thoroughly with the companion app.
+7. Submit a pull request with a detailed description of your changes, including:
+   - What the change does
+   - Why it's needed
+   - Whether it includes any deprecations
+   - Screenshots or examples (if applicable)
 
 ---
 

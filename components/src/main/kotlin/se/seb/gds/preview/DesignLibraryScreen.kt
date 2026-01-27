@@ -33,6 +33,9 @@ import se.seb.gds.theme.GdsTheme
 
 private const val CONTENT_ANIMATION_DURATION = 500
 
+// When design review is done of the bottom sheet we can enable this entry point again
+private const val SHOW_BOTTOM_SHEET_ENTRY = false
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun DesignLibraryScreen(
@@ -132,6 +135,8 @@ internal fun DesignLibraryScreen(
 
                     LibraryScreen.DIALOGS -> DialogsScreen()
 
+                    LibraryScreen.BOTTOM_SHEET -> BottomSheetScreen()
+
                     else -> {}
                 }
             }
@@ -179,6 +184,10 @@ private fun DesignLibrary(
             ListItem("Loading Indicator") { onNavigateToSection(LibraryScreen.LOADING_INDICATOR) }
             HorizontalDivider()
             ListItem("Dialogs") { onNavigateToSection(LibraryScreen.DIALOGS) }
+            if (SHOW_BOTTOM_SHEET_ENTRY) {
+                HorizontalDivider()
+                ListItem("Bottom sheets") { onNavigateToSection(LibraryScreen.BOTTOM_SHEET) }
+            }
         }
     }
 }

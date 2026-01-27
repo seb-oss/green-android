@@ -52,9 +52,7 @@ class DesignLibraryFragment : Fragment() {
             }
         }
 
-    private inline fun <reified T : Any> extractColorProperties(
-        instance: T,
-    ): List<Pair<String, Color>> {
+    private inline fun <reified T : Any> extractColorProperties(instance: T): List<Pair<String, Color>> {
         val colorProperties = mutableListOf<Pair<String, Color>>()
         val kClass = T::class
 

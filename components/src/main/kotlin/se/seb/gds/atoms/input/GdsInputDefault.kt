@@ -55,6 +55,16 @@ import se.seb.gds.theme.GdsTheme
  * @param onValueChange Callback invoked when the text value changes.
  * @param onInfoIconClick Callback invoked when the info icon is clicked.
  * @param inputState Additional state configuration for the input field.
+ *
+ * Example usage:
+ * ```
+ * var text by remember { mutableStateOf("") }
+ * GdsInputDefault(
+ *     state = rememberTextFieldState(text),
+ *     label = "Label",
+ *     onValueChange = { text = it }
+ * )
+ * ```
  */
 @Composable
 fun GdsInputDefault(

@@ -330,8 +330,7 @@ data class UtilityColors(val UtilityTestColor: Color) {
                 UtilityTestColor = Color.White,
             )
 
-        fun defaultColors(darkTheme: Boolean): UtilityColors =
-            if (darkTheme) darkColors else lightColors
+        fun defaultColors(darkTheme: Boolean): UtilityColors = if (darkTheme) darkColors else lightColors
     }
 }
 
