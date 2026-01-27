@@ -77,10 +77,8 @@ object TopAppBarDefaults {
         )
 
     @Composable
-    fun mediumLargeAppBarScrollBehavior() =
-        TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
+    fun mediumLargeAppBarScrollBehavior() = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
 
     @Composable
-    fun smallAppBarScrollBehavior() =
-        TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
+    fun smallAppBarScrollBehavior() = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
 }

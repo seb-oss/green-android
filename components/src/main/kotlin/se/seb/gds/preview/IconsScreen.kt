@@ -83,7 +83,8 @@ fun IconsScreen() {
                 Column {
                     ComponentHeaderSection(
                         title = "GDS Icons",
-                        body = "Include icons from the provided ImageVectors in Solid or Regular style." +
+                        body =
+                        "Include icons from the provided ImageVectors in Solid or Regular style." +
                             " Example usage:",
                         code = """
                             GdsIcons.Solid.Checkmark

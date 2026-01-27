@@ -81,11 +81,11 @@ internal fun ColorsScreen(
                     ComponentHeaderSection(
                         title = "GDS Colors",
                         body = "The following colors are available in GDS " +
-                                "Theme for both Light and Dark mode. Example usage:",
+                            "Theme for both Light and Dark mode. Example usage:",
                         code = """
                 GdsTheme.colors.L1Neutral02
                 GdsTheme.colors.ContentNeutral01
-                """.trimIndent(),
+                        """.trimIndent(),
                     )
                 }
             }
