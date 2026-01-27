@@ -7,6 +7,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import se.seb.gds.theme.GdsTheme
 
+/**
+ * A composable for creating an action item in a top app bar.
+ *
+ * @param icon The icon to be displayed.
+ * @param tint The tint to be applied to the icon.
+ * @param contentDescription The content description for the icon.
+ * @param onClick The callback to be invoked when the action is clicked.
+ *
+ * Example usage:
+ * ```
+ * GdsTopBarAction(
+ *     icon = GdsIcons.Regular.Search,
+ *     contentDescription = "Search",
+ *     onClick = { /* doSomething() */ }
+ * )
+ * ```
+ */
 @Composable
 fun GdsTopBarAction(
     icon: ImageVector,

@@ -19,6 +19,7 @@ subprojects {
             ktlint().editorConfigOverride(
                 mapOf(
                     "ktlint_standard_backing-property-naming" to "disabled",
+                    "max_line_length" to "180"
                 )
             )
         }

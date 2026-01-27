@@ -19,6 +19,32 @@ import se.seb.gds.atoms.GdsText
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
+/**
+ * A composable for displaying an alert dialog with GDS styling.
+ *
+ * @param confirmButtonText The text for the confirm button.
+ * @param onConfirmation The callback to be invoked when the confirm button is clicked.
+ * @param title The title of the dialog.
+ * @param text The text content of the dialog.
+ * @param icon The icon to be displayed at the top of the dialog.
+ * @param dismissButtonText The text for the dismiss button. If null, the dismiss button is not shown.
+ * @param onDismissRequest The callback to be invoked when the dialog is dismissed.
+ *
+ * Example usage:
+ * ```
+ * var showDialog by remember { mutableStateOf(true) }
+ * if (showDialog) {
+ *     GdsAlertDialog(
+ *         title = "Alert",
+ *         text = "This is an important message.",
+ *         confirmButtonText = "OK",
+ *         onConfirmation = { showDialog = false },
+ *         dismissButtonText = "Cancel",
+ *         onDismissRequest = { showDialog = false }
+ *     )
+ * }
+ * ```
+ */
 @Composable
 fun GdsAlertDialog(
     confirmButtonText: String,

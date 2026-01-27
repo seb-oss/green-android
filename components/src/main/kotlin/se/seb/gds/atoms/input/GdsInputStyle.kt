@@ -62,8 +62,7 @@ data class BasicInputStyle(
      * @return The appropriate container size for the given orientation.
      */
     @Composable
-    fun getCurrentContainerShape(): ContainerShape =
-        if (isLandscape()) containerShape.landscape else containerShape.portrait
+    fun getCurrentContainerShape(): ContainerShape = if (isLandscape()) containerShape.landscape else containerShape.portrait
 }
 
 /**

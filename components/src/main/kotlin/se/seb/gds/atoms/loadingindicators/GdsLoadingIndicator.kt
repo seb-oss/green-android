@@ -29,6 +29,13 @@ import se.seb.gds.theme.GdsTheme
  * @param color The color of the loading indicator animation.
  * @param size The diameter of the indicator.
  * @param polygons List of RoundedPolygon shapes to be used for the indicator animation.
+ *
+ * Example usage:
+ * ```
+ * GdsLoadingIndicator(
+ *     size = 50.dp
+ * )
+ * ```
  */
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable

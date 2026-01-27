@@ -44,8 +44,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import se.seb.gds.atoms.loadingindicators.GdsLoadingIndicatorContained
 import se.seb.gds.atoms.loadingindicators.GdsLoadingIndicator
+import se.seb.gds.atoms.loadingindicators.GdsLoadingIndicatorContained
 import se.seb.gds.atoms.loadingindicators.GdsLoadingIndicatorDefaults
 import se.seb.gds.theme.GdsTheme
 
@@ -55,8 +55,10 @@ internal fun LoadingIndicatorScreen() {
     var isRefreshing by remember { mutableStateOf(false) }
     val state = rememberPullToRefreshState()
     val scope = rememberCoroutineScope()
-    var selectedIndicator by remember { mutableStateOf(LoadingIndicatorType.CONTAINED_LOADING_INDICATOR) }
-    
+    var selectedIndicator by remember {
+        mutableStateOf(LoadingIndicatorType.CONTAINED_LOADING_INDICATOR)
+    }
+
     PullToRefreshBox(
         modifier = Modifier,
         state = state,
@@ -76,8 +78,11 @@ internal fun LoadingIndicatorScreen() {
                 elevation = 0.dp,
             ) {
                 when (selectedIndicator) {
-                    LoadingIndicatorType.LOADING_INDICATOR -> GdsLoadingIndicator()
-                    LoadingIndicatorType.CONTAINED_LOADING_INDICATOR -> GdsLoadingIndicatorContained()
+                    LoadingIndicatorType.LOADING_INDICATOR ->
+                        GdsLoadingIndicator()
+
+                    LoadingIndicatorType.CONTAINED_LOADING_INDICATOR ->
+                        GdsLoadingIndicatorContained()
                 }
             }
         },
@@ -91,14 +96,16 @@ internal fun LoadingIndicatorScreen() {
                 item {
                     GallerySection("Pull down to see pull to refresh mode") {
                         Column(
-                            modifier = Modifier.fillMaxWidth().padding(8.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(8.dp),
                             verticalArrangement = Arrangement.spacedBy(8.dp),
                         ) {
                             Text(
                                 text = "Choose pull to refresh indicator",
                                 modifier = Modifier.padding(8.dp),
                             )
-                            
+
                             LoadingIndicatorType.entries.forEach { type ->
                                 Row(
                                     modifier = Modifier
@@ -121,13 +128,13 @@ internal fun LoadingIndicatorScreen() {
                         }
                     }
                 }
-                
+
                 item {
                     LoadingIndicatorListItem("Loading indicator", isRefreshing) {
                         GdsLoadingIndicator()
                     }
                 }
-                
+
                 item {
                     LoadingIndicatorListItem("Loading indicator contained", isRefreshing) {
                         GdsLoadingIndicatorContained()
@@ -143,7 +150,7 @@ internal fun LoadingIndicatorScreen() {
 private fun LoadingIndicatorListItem(
     title: String,
     isRefreshing: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     Box {
         GallerySection(title) {
@@ -185,37 +192,38 @@ private fun GdsIndicatorBox(
 ) {
     Box(
         modifier =
-            modifier
-                .size(GdsLoadingIndicatorDefaults.size)
-                .drawWithContent {
-                    clipRect(
-                        top = 0f,
-                        left = -Float.MAX_VALUE,
-                        right = Float.MAX_VALUE,
-                        bottom = Float.MAX_VALUE,
-                    ) {
-                        this@drawWithContent.drawContent()
-                    }
+        modifier
+            .size(GdsLoadingIndicatorDefaults.size)
+            .drawWithContent {
+                clipRect(
+                    top = 0f,
+                    left = -Float.MAX_VALUE,
+                    right = Float.MAX_VALUE,
+                    bottom = Float.MAX_VALUE,
+                ) {
+                    this@drawWithContent.drawContent()
                 }
-                .layout { measurable, constraints ->
-                    val placeable = measurable.measure(constraints)
-                    layout(placeable.width, placeable.height) {
-                        placeable.placeWithLayer(
-                            0,
-                            0,
-                            layerBlock = {
-                                val showElevation = state.distanceFraction > 0f || isRefreshing
-                                translationY =
-                                    state.distanceFraction * maxDistance.roundToPx() -
-                                        size.height
-                                shadowElevation = if (showElevation) elevation.toPx() else 0f
-                                this.shape = shape
-                                clip = true
-                            },
-                        )
-                    }
+            }
+            .layout { measurable, constraints ->
+                val placeable = measurable.measure(constraints)
+                layout(placeable.width, placeable.height) {
+                    placeable.placeWithLayer(
+                        0,
+                        0,
+                        layerBlock = {
+                            val showElevation = state.distanceFraction > 0f || isRefreshing
+                            translationY =
+                                state.distanceFraction *
+                                maxDistance.roundToPx() -
+                                size.height
+                            shadowElevation = if (showElevation) elevation.toPx() else 0f
+                            this.shape = shape
+                            clip = true
+                        },
+                    )
                 }
-                .background(color = containerColor, shape = shape),
+            }
+            .background(color = containerColor, shape = shape),
         contentAlignment = Alignment.Center,
         content = content,
     )
@@ -223,5 +231,5 @@ private fun GdsIndicatorBox(
 
 enum class LoadingIndicatorType(val displayName: String) {
     LOADING_INDICATOR("Loading indicator"),
-    CONTAINED_LOADING_INDICATOR("Contained loading indicator")
+    CONTAINED_LOADING_INDICATOR("Contained loading indicator"),
 }
