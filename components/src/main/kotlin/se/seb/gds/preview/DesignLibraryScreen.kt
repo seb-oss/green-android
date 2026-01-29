@@ -137,6 +137,8 @@ internal fun DesignLibraryScreen(
 
                     LibraryScreen.BOTTOM_SHEET -> BottomSheetScreen()
 
+                    LibraryScreen.INFORMATION_CARD -> InformationCardScreen()
+
                     else -> {}
                 }
             }
@@ -188,6 +190,8 @@ private fun DesignLibrary(
                 HorizontalDivider()
                 ListItem("Bottom sheets") { onNavigateToSection(LibraryScreen.BOTTOM_SHEET) }
             }
+            HorizontalDivider()
+            ListItem("Information Card") { onNavigateToSection(LibraryScreen.INFORMATION_CARD) }
         }
     }
 }

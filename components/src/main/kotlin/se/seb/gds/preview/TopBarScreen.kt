@@ -110,6 +110,7 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
             item {
                 Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
                 ComponentHeaderSection(
+                    title = "TopAppBar",
                     body = "Components:\n- GdsSmallTopAppBar\n- GdsMediumTopAppBar\n" +
                         "- GdsLargeTopAppBar.\nExample usage:",
                     code = """
