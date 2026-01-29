@@ -23,7 +23,6 @@ import se.seb.gds.theme.GdsTheme
  * @property textButton A [Boolean] indicating if the button should be styled as a text
  * button (true) or a filled button (false). Default is false.
  * @property border A [Boolean] indicating if the button should have a border. Default is false.
- * @property iconPosition The [IconPosition] that determines the position of an icon within the button (left or right). Default is [IconPosition.Left].
  * @property legacyRipple A [Boolean] indicating if the button should use legacy ripple effect. Default is false.
  *
  * Example usage:
@@ -36,7 +35,6 @@ import se.seb.gds.theme.GdsTheme
  *          ),
  *    textButton = false,
  *    border = BorderStroke(1.dp, Color.Black),
- *    iconPosition = IconPosition.Left
  * )
  * ```
  */
@@ -44,7 +42,6 @@ data class GdsButtonStyle(
     val colors: ButtonColors,
     val textButton: Boolean = false,
     val border: BorderStroke? = null,
-    val iconPosition: IconPosition = IconPosition.Left,
     val legacyRipple: Boolean = false,
 )
 
@@ -100,16 +97,6 @@ sealed class ButtonWidthType {
     data object Dynamic : ButtonWidthType()
 
     data class Fixed(val width: Dp) : ButtonWidthType()
-}
-
-/**
- * Represents the position of an icon within a button.
- *
- * An icon can be positioned either to the left or right of the button's text.
- */
-enum class IconPosition {
-    Left,
-    Right,
 }
 
 enum class LegacyButtonSize {

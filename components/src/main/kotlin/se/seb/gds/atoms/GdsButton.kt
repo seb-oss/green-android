@@ -53,7 +53,8 @@ import se.seb.gds.theme.GdsTheme
  *     title = "Fixed Width Button",
  *     style = GdsButtonDefaults.legacyStyle().copy(
  *         size = GdsButtonSize.legacy(ButtonWidthType.Fixed(200.dp))
- *     )
+ *     ),
+ *     leadingIcon = GdsIcons.Solid.Checkmark,
  * )
  */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -62,7 +63,8 @@ fun GdsButton(
     modifier: Modifier = Modifier,
     title: String? = null,
     enabled: Boolean = true,
-    icon: ImageVector? = null,
+    leadingIcon: ImageVector? = null,
+    trailingIcon: ImageVector? = null,
     style: GdsButtonStyle = GdsButtonDefaults.TwentyThree.primary(),
     sizeProfile: GdsButtonSizeProfile = GdsButtonDefaults.TwentyThree.large(),
     onClick: () -> Unit,
@@ -82,7 +84,7 @@ fun GdsButton(
 
             else -> PaddingValues(
                 horizontal = sizeProfile.horizontalPadding,
-                vertical = GdsTheme.dimensions.spacing.SpaceXs,
+                vertical = GdsTheme.dimensions.spacing.Space2Xs,
             )
         }
 
@@ -96,7 +98,8 @@ fun GdsButton(
                 enabled,
                 paddingValues,
                 onClick,
-                icon,
+                leadingIcon,
+                trailingIcon,
                 title,
             )
         }
@@ -145,7 +148,8 @@ private fun ButtonContent(
     enabled: Boolean,
     paddingValues: PaddingValues,
     onClick: () -> Unit,
-    icon: ImageVector?,
+    leadingIcon: ImageVector?,
+    trailingIcon: ImageVector?,
     title: String?,
 ) {
     if (style.textButton) {
@@ -160,12 +164,12 @@ private fun ButtonContent(
             onClick = onClick,
         ) {
             ButtonContent(
-                icon = icon,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
                 title = title,
                 textStyle = sizeProfile.textStyle,
                 iconSize = sizeProfile.iconSize,
                 iconSpacing = sizeProfile.iconSpacing,
-                iconPosition = style.iconPosition,
             )
         }
     } else {
@@ -181,12 +185,12 @@ private fun ButtonContent(
             onClick = onClick,
         ) {
             ButtonContent(
-                icon = icon,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
                 title = title,
                 textStyle = sizeProfile.textStyle,
                 iconSize = sizeProfile.iconSize,
                 iconSpacing = sizeProfile.iconSpacing,
-                iconPosition = style.iconPosition,
             )
         }
     }
@@ -194,18 +198,18 @@ private fun ButtonContent(
 
 @Composable
 private fun ButtonContent(
-    icon: ImageVector?,
-    iconPosition: IconPosition,
+    leadingIcon: ImageVector?,
+    trailingIcon: ImageVector?,
     title: String?,
     iconSpacing: Dp,
     textStyle: TextStyle,
     iconSize: Dp,
 ) {
     Row(verticalAlignment = Alignment.CenterVertically) {
-        if (icon != null && iconPosition == IconPosition.Left) {
+        if (leadingIcon != null) {
             Icon(
                 modifier = Modifier.size(iconSize),
-                imageVector = icon,
+                imageVector = leadingIcon,
                 contentDescription = null,
             )
             if (title != null) {
@@ -220,13 +224,13 @@ private fun ButtonContent(
                 modifier = Modifier.weight(1f, fill = false),
             )
         }
-        if (icon != null && iconPosition == IconPosition.Right) {
+        if (trailingIcon != null) {
             if (title != null) {
                 Spacer(modifier = Modifier.width(iconSpacing))
             }
             Icon(
                 modifier = Modifier.size(iconSize),
-                imageVector = icon,
+                imageVector = trailingIcon,
                 contentDescription = null,
             )
         }
@@ -252,7 +256,7 @@ private fun GdsButtonSecondaryOnWhitePreview() {
     GdsTheme {
         GdsButton(
             title = "Button",
-            icon = GdsIcons.Solid.Checkmark,
+            leadingIcon = GdsIcons.Solid.Checkmark,
             style = GdsButtonDefaults.TwentyThree.secondaryOnWhite(),
             onClick = {},
         )
@@ -278,7 +282,7 @@ private fun GdsButtonPrimaryPreview() {
     GdsTheme {
         GdsButton(
             title = "Button",
-            icon = GdsIcons.Solid.Checkmark,
+            leadingIcon = GdsIcons.Solid.Checkmark,
             onClick = {},
         )
     }
@@ -302,7 +306,7 @@ private fun GdsButtonPrimaryPreview() {
 private fun GdsIconButtonPrimaryPreview() {
     GdsTheme {
         GdsButton(
-            icon = GdsIcons.Solid.Checkmark,
+            leadingIcon = GdsIcons.Solid.Checkmark,
             style = GdsButtonDefaults.TwentyThree.primary(),
             sizeProfile = GdsButtonDefaults.TwentyThree.large(),
             onClick = {},

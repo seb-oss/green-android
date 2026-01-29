@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
@@ -31,7 +30,6 @@ import androidx.compose.ui.unit.dp
 import se.seb.gds.atoms.ButtonWidthType
 import se.seb.gds.atoms.GdsButton
 import se.seb.gds.atoms.GdsButtonDefaults
-import se.seb.gds.atoms.IconPosition
 import se.seb.gds.atoms.LegacyButtonSize
 import se.seb.gds.components.SwitchRow
 import se.seb.gds.icons.GdsIcons
@@ -57,7 +55,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                 code = """
             GdsButton(
               title = "Title",
-              icon = icon,
+              leadingIcon = icon,
               style = GdsButtonDefaults.primary(),
               onClick = {}
             )
@@ -122,95 +120,79 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                         onItemSelected = { newValue ->
                             iconPosition = newValue
                         },
-                        items = IconPosition.entries.map { it.name },
+                        items = listOf("Left", "Right"),
                         label = "Icon Position:",
                     )
                 }
             }
 
-            val iconPositionSelected = when (iconPosition) {
-                IconPosition.Left.name -> IconPosition.Left
-                else -> IconPosition.Right
-            }
-
-            val icon = hasIcon.takeIf { it }?.let {
-                if (iconPositionSelected == IconPosition.Left) {
-                    GdsIcons.Regular.Euro
-                } else {
-                    GdsIcons.Regular.ArrowRight
-                }
+            val leadingIcon = (GdsIcons.Regular.Euro).takeIf { hasIcon && iconPosition == "Left" }
+            val trailingIcon = (GdsIcons.Regular.ArrowRight).takeIf {
+                hasIcon && iconPosition == "Right"
             }
 
             GdsButton(
                 title = "Primary",
-                style = GdsButtonDefaults.TwentyThree.primary().copy(
-                    iconPosition = iconPositionSelected,
-                ),
+                style = GdsButtonDefaults.TwentyThree.primary(),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                icon = icon,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
             ) { }
 
             GdsButton(
                 title = "Secondary On White",
-                style = GdsButtonDefaults.TwentyThree.secondaryOnWhite().copy(
-                    iconPosition = iconPositionSelected,
-                ),
+                style = GdsButtonDefaults.TwentyThree.secondaryOnWhite(),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                icon = icon,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
             ) { }
 
             GdsButton(
                 title = "Secondary On Grey",
-                style = GdsButtonDefaults.TwentyThree.secondaryOnGrey().copy(
-                    iconPosition = iconPositionSelected,
-                ),
+                style = GdsButtonDefaults.TwentyThree.secondaryOnGrey(),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                icon = icon,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
             ) { }
 
             GdsButton(
                 title = "Secondary On White Card",
-                style = GdsButtonDefaults.TwentyThree.secondaryOnWhiteCard().copy(
-                    iconPosition = iconPositionSelected,
-                ),
+                style = GdsButtonDefaults.TwentyThree.secondaryOnWhiteCard(),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                icon = icon,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
             ) { }
 
             GdsButton(
                 title = "Secondary On Grey Card",
-                style = GdsButtonDefaults.TwentyThree.secondaryOnGreyCard().copy(
-                    iconPosition = iconPositionSelected,
-                ),
+                style = GdsButtonDefaults.TwentyThree.secondaryOnGreyCard(),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                icon = icon,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
             ) { }
 
             GdsButton(
                 title = "Tertiary Button",
-                style = GdsButtonDefaults.TwentyThree.tertiary().copy(
-                    iconPosition = iconPositionSelected,
-                ),
+                style = GdsButtonDefaults.TwentyThree.tertiary(),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                icon = icon,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
             ) { }
 
             GdsButton(
                 title = "Outline Button",
-                style = GdsButtonDefaults.TwentyThree.outline().copy(
-                    iconPosition = iconPositionSelected,
-                ),
+                style = GdsButtonDefaults.TwentyThree.outline(),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                icon = icon,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
             ) { }
 
             GdsButton(
                 title = "Negative Button",
-                style = GdsButtonDefaults.TwentyThree.negative().copy(
-                    iconPosition = iconPositionSelected,
-                ),
+                style = GdsButtonDefaults.TwentyThree.negative(),
                 sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                icon = icon,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
             ) { }
         } else {
             GdsButton(

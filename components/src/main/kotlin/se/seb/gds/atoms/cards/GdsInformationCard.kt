@@ -54,7 +54,7 @@ import se.seb.gds.theme.GdsTheme
  *    onDismiss = { /* Handle dismiss */ },
  *    button = CardButton(
  *      title = "Learn More",
- *      icon = GdsIcons.Regular.ArrowRight,
+ *      trailingIcon = GdsIcons.Regular.ArrowRight,
  *      onClick = { /* Handle button click */ }
  *    ),
  *    onClick = { /* Handle card click */ }
@@ -132,7 +132,8 @@ fun GdsInformationCard(
             ) {
                 GdsButton(
                     title = button.title,
-                    icon = button.icon,
+                    leadingIcon = button.leadingIcon,
+                    trailingIcon = button.trailingIcon,
                     style = style.buttonStyle,
                     sizeProfile = GdsButtonDefaults.TwentyThree.small(),
                     onClick = button.onClick,
@@ -153,7 +154,7 @@ private fun GdsInformationCardPreview() {
             body = "This information card displays important details and optional actions for the user.",
             button = CardButton(
                 title = "Action Button",
-                icon = GdsIcons.Regular.ArrowRight,
+                leadingIcon = GdsIcons.Regular.ArrowRight,
                 onClick = {},
             ),
             onDismiss = {},
@@ -171,7 +172,7 @@ private fun GdsInformationCardHdPreview() {
             body = "This information card displays important details and optional actions for the user.",
             button = CardButton(
                 title = "Action Button",
-                icon = GdsIcons.Regular.ArrowRight,
+                leadingIcon = GdsIcons.Regular.ArrowRight,
                 onClick = {},
             ),
             onDismiss = {},
@@ -189,7 +190,7 @@ private fun GdsInformationCardWhitePreview() {
             body = "This information card displays important details and optional actions for the user.",
             button = CardButton(
                 title = "Action Button",
-                icon = GdsIcons.Regular.ArrowRight,
+                leadingIcon = GdsIcons.Regular.ArrowRight,
                 onClick = {},
             ),
             onDismiss = {},
