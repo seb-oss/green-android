@@ -19,6 +19,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import se.seb.gds.atoms.cards.BasicGdsCard
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
@@ -30,9 +31,8 @@ fun ExpandableCard(
 ) {
     var expanded by rememberSaveable { mutableStateOf(false) }
 
-    Card(
-        colors = CardDefaults.cardColors().copy(containerColor = GdsTheme.colors.L2Neutral02),
-        shape = RoundedCornerShape(GdsTheme.dimensions.spacing.SpaceS),
+    BasicGdsCard(
+        containerColor = GdsTheme.colors.L2Neutral02,
         modifier = modifier
             .fillMaxWidth()
             .clickable {

@@ -31,7 +31,7 @@ import se.seb.gds.theme.GdsTheme
  * A component that displays an information card with a heading, body text, an optional dismiss
  * button, and an optional action button. The card can also be made clickable.
  *
- * This component is built on top of [GdsCard] and is styled using [CardStyle]. Default styles
+ * This component is built on top of [BasicGdsCard] and is styled using [CardStyle]. Default styles
  * are provided by [GdsCardDefaults].
  *
  * @param heading The heading of the card.
@@ -72,7 +72,7 @@ fun GdsInformationCard(
     onClick: (() -> Unit)? = null,
     button: CardButton? = null,
 ) {
-    GdsCard(
+    BasicGdsCard(
         modifier = modifier
             .clickable(
                 enabled = onClick != null,

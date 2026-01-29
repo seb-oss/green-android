@@ -32,7 +32,7 @@ import androidx.compose.ui.graphics.Shape
  * ```
  */
 @Composable
-fun GdsCard(
+internal fun BasicGdsCard(
     modifier: Modifier = Modifier,
     containerColor: Color,
     shape: Shape = GdsCardDefaults.shape,
