@@ -1,11 +1,11 @@
 package se.seb.gds.preview
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import se.seb.gds.atoms.GdsText
 import se.seb.gds.theme.GdsTheme
@@ -21,27 +20,30 @@ import se.seb.gds.theme.GdsTheme
 @Composable
 internal fun ComponentHeaderSection(
     modifier: Modifier = Modifier,
-    title: String? = null,
+    title: String,
     body: String? = null,
     code: String? = null,
 ) {
-    Column(
+    ExpandableCard(
         modifier = modifier,
-        verticalArrangement = spacedBy(GdsTheme.dimensions.spacing.SpaceXs),
+        title = title,
     ) {
-        title?.let {
-            GdsText(
-                label = it,
-                style = GdsTheme.typography.HeadingS,
-            )
+        Column(
+            modifier = Modifier.padding(all = GdsTheme.dimensions.spacing.SpaceXs),
+        ) {
+            body?.let {
+                GdsText(
+                    label = it,
+                    style = GdsTheme.typography.BodyRegularS,
+                )
+            }
+            Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceXs))
+            code?.let {
+                CodeBlock(
+                    code = it,
+                )
+            }
         }
-        body?.let {
-            GdsText(
-                label = it,
-                style = GdsTheme.typography.BodyRegularS,
-            )
-        }
-        code?.let { CodeBlock(it) }
     }
 }
 
@@ -54,12 +56,7 @@ internal fun CodeBlock(
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(GdsTheme.dimensions.radius.RadiusXs))
-            .border(
-                width = 1.dp,
-                color = GdsTheme.colors.BorderInformation02,
-                shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusXs),
-            )
-            .background(GdsTheme.colors.L2Elevated02)
+            .background(GdsTheme.colors.L2Elevated01)
             .padding(GdsTheme.dimensions.spacing.SpaceXs),
     ) {
         Text(

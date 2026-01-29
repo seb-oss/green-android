@@ -16,4 +16,5 @@ internal enum class LibraryScreen {
     PROGRESS_INDICATOR,
     LOADING_INDICATOR,
     DIALOGS,
+    INFORMATION_CARD,
 }
