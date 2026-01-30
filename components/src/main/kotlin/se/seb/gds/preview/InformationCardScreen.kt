@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -26,7 +25,6 @@ import se.seb.gds.atoms.ButtonWidthType
 import se.seb.gds.atoms.GdsButton
 import se.seb.gds.atoms.GdsButtonDefaults
 import se.seb.gds.atoms.GdsText
-import se.seb.gds.atoms.IconPosition
 import se.seb.gds.atoms.cards.CardButton
 import se.seb.gds.atoms.cards.CardStyle
 import se.seb.gds.atoms.cards.GdsCardAnimated
@@ -41,7 +39,7 @@ fun InformationCardScreen() {
     var showActionButton by rememberSaveable { mutableStateOf(true) }
     var showActionCard by rememberSaveable { mutableStateOf(true) }
     var hasIcon by rememberSaveable { mutableStateOf(true) }
-    var iconPosition by rememberSaveable { mutableStateOf(IconPosition.Left) }
+    var iconPosition by rememberSaveable { mutableStateOf("Left") }
 
     var isInfoCardVisible by rememberSaveable { mutableStateOf(true) }
     var isInfoHdCardVisible by rememberSaveable { mutableStateOf(true) }
@@ -108,11 +106,11 @@ fun InformationCardScreen() {
             }
             if (hasIcon) {
                 SelectRow(
-                    selectedText = iconPosition.name,
+                    selectedText = iconPosition,
                     onItemSelected = { newValue ->
-                        iconPosition = IconPosition.valueOf(newValue)
+                        iconPosition = newValue
                     },
-                    items = IconPosition.entries.map { it.name },
+                    items = listOf("Left", "Right"),
                     label = "Icon Position:",
                 )
             }
@@ -130,7 +128,7 @@ fun InformationCardScreen() {
                 showActionButton = true
                 showActionCard = true
                 hasIcon = true
-                iconPosition = IconPosition.Left
+                iconPosition = "Left"
                 isInfoCardVisible = true
                 isInfoHdCardVisible = true
                 isInfoOnWhiteCardVisible = true
@@ -139,16 +137,16 @@ fun InformationCardScreen() {
 
         Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
 
-        val icon = if (hasIcon) {
-            if (iconPosition == IconPosition.Left) GdsIcons.Regular.Euro else GdsIcons.Regular.ArrowRight
-        } else {
-            null
+        val leadingIcon = (GdsIcons.Regular.Euro).takeIf { hasIcon && iconPosition == "Left" }
+        val trailingIcon = (GdsIcons.Regular.ArrowRight).takeIf {
+            hasIcon && iconPosition == "Right"
         }
 
         val button = if (showActionButton) {
             CardButton(
                 title = "Action Button",
-                icon = icon,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
                 onClick = onActionButtonClick,
             )
         } else {
@@ -161,7 +159,6 @@ fun InformationCardScreen() {
             title = "Information Card",
             style = GdsCardDefaults.information(),
             dismissButton = dismissButton,
-            iconPosition = iconPosition,
             isVisible = isInfoCardVisible,
             onDismiss = { isInfoCardVisible = false },
             onClick = onCardClickAction,
@@ -172,7 +169,6 @@ fun InformationCardScreen() {
             title = "Information Card HD",
             style = GdsCardDefaults.informationHd(),
             dismissButton = dismissButton,
-            iconPosition = iconPosition,
             isVisible = isInfoHdCardVisible,
             onDismiss = { isInfoHdCardVisible = false },
             onClick = onCardClickAction,
@@ -184,7 +180,6 @@ fun InformationCardScreen() {
                 title = "Information Card on White Background",
                 style = GdsCardDefaults.informationOnWhite(),
                 dismissButton = dismissButton,
-                iconPosition = iconPosition,
                 isVisible = isInfoOnWhiteCardVisible,
                 onDismiss = { isInfoOnWhiteCardVisible = false },
                 onClick = onCardClickAction,
@@ -199,7 +194,6 @@ private fun CardSection(
     title: String,
     style: CardStyle,
     dismissButton: Boolean,
-    iconPosition: IconPosition,
     isVisible: Boolean,
     onDismiss: () -> Unit,
     onClick: (() -> Unit)?,
@@ -214,11 +208,7 @@ private fun CardSection(
         GdsText(label = title, style = GdsTheme.typography.HeadingM)
         GdsCardAnimated(visible = isVisible) {
             GdsInformationCard(
-                style = style.copy(
-                    buttonStyle = style.buttonStyle.copy(
-                        iconPosition = iconPosition,
-                    ),
-                ),
+                style = style,
                 heading = "Information Card Heading",
                 body = "This information card displays important details and optional actions for the user.",
                 button = button,

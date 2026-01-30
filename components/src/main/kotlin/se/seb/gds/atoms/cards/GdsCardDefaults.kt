@@ -18,13 +18,15 @@ import se.seb.gds.theme.GdsTheme
  *
  * @property title The text displayed on the button.
  * @property onClick The lambda to be executed when the button is clicked.
- * @property icon An optional icon to be displayed on the button.
+ * @property leadingIcon An optional icon to be displayed on the button.
+ * @property trailingIcon An optional icon to be displayed at the end of the button.
  */
 @Immutable
 data class CardButton(
     val title: String,
     val onClick: () -> Unit,
-    val icon: ImageVector? = null,
+    val leadingIcon: ImageVector? = null,
+    val trailingIcon: ImageVector? = null,
 )
 
 /**

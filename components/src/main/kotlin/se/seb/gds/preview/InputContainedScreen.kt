@@ -85,7 +85,7 @@ fun InputContainedScreen(scrollState: ScrollState) {
             style = GdsButtonDefaults.TwentyThree.outline(),
             sizeProfile = GdsButtonDefaults.TwentyThree.small()
                 .copy(widthType = ButtonWidthType.Dynamic),
-            icon = GdsIcons.Solid.SettingsGear,
+            leadingIcon = GdsIcons.Solid.SettingsGear,
             onClick = { showBottomSheet = true },
         )
         Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
