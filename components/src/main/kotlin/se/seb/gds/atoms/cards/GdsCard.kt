@@ -33,7 +33,7 @@ import se.seb.gds.theme.GdsTheme
  * ```
  */
 @Composable
-internal fun GdsCard(
+fun GdsCard(
     modifier: Modifier = Modifier,
     containerColor: Color = GdsTheme.colors.L1Neutral01,
     shape: Shape = GdsCardDefaults.shape,
