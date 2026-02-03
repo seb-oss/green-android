@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import se.seb.gds.theme.GdsTheme
 
 /**
  * A foundational composable for building card-based UI elements within the GDS design system.
@@ -32,9 +33,9 @@ import androidx.compose.ui.graphics.Shape
  * ```
  */
 @Composable
-internal fun BasicGdsCard(
+internal fun GdsCard(
     modifier: Modifier = Modifier,
-    containerColor: Color,
+    containerColor: Color = GdsTheme.colors.L1Neutral01,
     shape: Shape = GdsCardDefaults.shape,
     border: BorderStroke? = GdsCardDefaults.border,
     content: @Composable ColumnScope.() -> Unit,
