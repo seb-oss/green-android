@@ -62,8 +62,8 @@ object GdsCardDefaults {
     fun information() =
         CardStyle(
             colors = CardColors(
-                containerColor = GdsTheme.colors.L2Neutral02,
-                contentColor = GdsTheme.colors.ContentNeutral01,
+                containerColor = GdsTheme.colors.L2.Neutral02,
+                contentColor = GdsTheme.colors.Content.Neutral01,
             ),
             border = border,
             shape = shape,
@@ -74,8 +74,8 @@ object GdsCardDefaults {
     fun informationOnWhite() =
         CardStyle(
             colors = CardColors(
-                containerColor = GdsTheme.colors.L2Neutral01,
-                contentColor = GdsTheme.colors.ContentNeutral01,
+                containerColor = GdsTheme.colors.L2.Neutral01,
+                contentColor = GdsTheme.colors.Content.Neutral01,
             ),
             border = border,
             shape = shape,
@@ -86,22 +86,22 @@ object GdsCardDefaults {
     fun informationHd() =
         CardStyle(
             colors = CardColors(
-                containerColor = GdsTheme.colors.L2NeutralLoud,
-                contentColor = GdsTheme.colors.ContentInversed,
+                containerColor = GdsTheme.colors.L2.NeutralLoud,
+                contentColor = GdsTheme.colors.Content.Inversed,
             ),
             shape = shape,
             buttonStyle = GdsButtonStyle(
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = GdsTheme.colors.L3NeutralTone,
-                    contentColor = GdsTheme.colors.ContentInversed,
-                    disabledContainerColor = GdsTheme.colors.L3Disabled03,
-                    disabledContentColor = GdsTheme.colors.ContentDisabled01,
+                    containerColor = GdsTheme.colors.L3.NeutralTone,
+                    contentColor = GdsTheme.colors.Content.Inversed,
+                    disabledContainerColor = GdsTheme.colors.L3.Disabled03,
+                    disabledContentColor = GdsTheme.colors.Content.Disabled01,
                 ),
             ),
         )
 
     val border: BorderStroke
-        @Composable get() = BorderStroke(width = 1.dp, color = GdsTheme.colors.BorderInformation02)
+        @Composable get() = BorderStroke(width = 1.dp, color = GdsTheme.colors.Border.Information02)
 
     val shape: Shape
         @Composable get() = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM)

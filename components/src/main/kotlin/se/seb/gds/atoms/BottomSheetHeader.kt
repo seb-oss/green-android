@@ -37,7 +37,7 @@ fun BottomSheetHeader(
     closeIconDescription: String = stringResource(R.string.common_action_close),
     titleTextStyle: TextStyle = GdsTheme.typography.HeadingS,
     padding: PaddingValues = PaddingValues(vertical = GdsTheme.dimensions.spacing.SpaceM),
-    titleColor: Color = GdsTheme.colors.ContentNeutral01,
+    titleColor: Color = GdsTheme.colors.Content.Neutral01,
     onDismiss: () -> Unit,
 ) {
     Row(
@@ -81,7 +81,7 @@ fun BottomSheetHeader(
                 Icon(
                     painter = rememberVectorPainter(GdsIcons.Regular.CrossLarge),
                     contentDescription = null,
-                    tint = GdsTheme.colors.ContentNeutral01,
+                    tint = GdsTheme.colors.Content.Neutral01,
                 )
             }
         }

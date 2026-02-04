@@ -97,8 +97,8 @@ fun TopBarScreen(onBack: () -> Unit = {}) {
                 else -> {}
             }
         },
-        containerColor = GdsTheme.colors.L1Neutral02,
-        contentColor = GdsTheme.colors.ContentNeutral01,
+        containerColor = GdsTheme.colors.L1.Neutral02,
+        contentColor = GdsTheme.colors.Content.Neutral01,
     ) { innerPadding ->
 
         LazyColumn(

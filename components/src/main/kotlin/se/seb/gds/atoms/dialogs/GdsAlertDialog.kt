@@ -129,7 +129,7 @@ private fun GdsAlertDialogPreview() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = GdsTheme.colors.L1Neutral01),
+                .background(color = GdsTheme.colors.L1.Neutral01),
             contentAlignment = Alignment.Center,
         ) {
             GdsAlertDialog(

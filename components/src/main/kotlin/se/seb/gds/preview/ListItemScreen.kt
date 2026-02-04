@@ -23,7 +23,7 @@ fun ListItemScreen() {
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .background(GdsTheme.colors.L1Neutral02),
+            .background(GdsTheme.colors.L1.Neutral02),
     ) {
         ComponentHeaderSection(
             modifier = Modifier.padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
@@ -49,12 +49,12 @@ fun ListItemScreen() {
         GdsCard(
             modifier = Modifier.padding(16.dp),
             border = null,
-            containerColor = GdsTheme.colors.L2Neutral02,
+            containerColor = GdsTheme.colors.L2.Neutral02,
         ) {
             ListRowItem(
                 title = "Label 01",
             )
-            HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+            HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
             ListRowItem(
                 title = "Label 01",
                 endSlot = {
@@ -69,7 +69,7 @@ fun ListItemScreen() {
         ListRowItem(
             title = "Label 01",
         )
-        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
         ListRowItem(
             title = "Label 01",
             endSlot = {
@@ -79,7 +79,7 @@ fun ListItemScreen() {
                 )
             },
         )
-        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
         ListRowItem(
             title = "Label 01",
             startSlot = {
@@ -95,12 +95,12 @@ fun ListItemScreen() {
                 )
             },
         )
-        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
         ListRowItem(
             title = "Label 01",
             description = "Subtitle",
         )
-        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
         ListRowItem(
             title = "Label 01",
             description = "Subtitle",
@@ -111,7 +111,7 @@ fun ListItemScreen() {
                 )
             },
         )
-        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
         ListRowItem(
             title = "Label 01",
             description = "Subtitle",
@@ -128,7 +128,7 @@ fun ListItemScreen() {
                 )
             },
         )
-        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
         ListRowItem(
             title = "Label 01",
             description = "Subtitle",
@@ -142,7 +142,7 @@ fun ListItemScreen() {
                 EndLabel(text = "Label 02")
             },
         )
-        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
         ListRowItem(
             title = "Label 01",
             description = "Subtitle",

@@ -41,7 +41,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
 
     Column(
         modifier = Modifier
-            .background(GdsTheme.colors.L1Neutral02)
+            .background(GdsTheme.colors.L1.Neutral02)
             .fillMaxSize()
             .verticalScroll(scrollState)
             .padding(GdsTheme.dimensions.spacing.SpaceM),
@@ -88,7 +88,7 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        color = GdsTheme.colors.L2Neutral02,
+                        color = GdsTheme.colors.L2.Neutral02,
                         shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusS),
                     ),
             ) {

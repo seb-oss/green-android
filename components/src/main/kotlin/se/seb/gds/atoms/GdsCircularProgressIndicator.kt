@@ -58,10 +58,10 @@ object GdsCircularProgressIndicatorDefaults {
     fun strokeCap(): StrokeCap = StrokeCap.Round
 
     @Composable
-    fun color(): Color = GdsTheme.colors.BorderStrong
+    fun color(): Color = GdsTheme.colors.Border.Strong
 
     @Composable
-    fun trackColor(): Color = GdsTheme.colors.BorderSubtle01
+    fun trackColor(): Color = GdsTheme.colors.Border.Subtle01
 }
 
 @Preview(

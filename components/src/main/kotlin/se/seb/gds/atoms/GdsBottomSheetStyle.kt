@@ -35,7 +35,7 @@ object GdsBottomSheetDefaults {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun defaultStyle(
-        containerColor: Color = GdsTheme.colors.L2Neutral02,
+        containerColor: Color = GdsTheme.colors.L2.Neutral02,
         cornerRadiusDp: Dp = GdsTheme.dimensions.radius.RadiusM,
         elevationDp: Dp = 16.dp,
         shape: Shape = RoundedCornerShape(

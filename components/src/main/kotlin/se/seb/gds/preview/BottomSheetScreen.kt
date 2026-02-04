@@ -37,7 +37,7 @@ fun BottomSheetScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(GdsTheme.colors.L1Neutral02)
+            .background(GdsTheme.colors.L1.Neutral02)
             .padding(GdsTheme.dimensions.spacing.SpaceM),
     ) {
         val bottomSheetState = rememberModalBottomSheetState(

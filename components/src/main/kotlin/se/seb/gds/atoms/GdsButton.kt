@@ -116,7 +116,7 @@ fun GdsButton(
                             Color.White
                         }
 
-                    else -> GdsTheme.colors.StateNeutral05
+                    else -> GdsTheme.colors.State.Neutral05
                 }
 
             CompositionLocalProvider(

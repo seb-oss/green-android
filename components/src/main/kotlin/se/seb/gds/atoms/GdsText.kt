@@ -35,6 +35,6 @@ fun GdsText(
         modifier = modifier,
         text = label,
         style = style ?: GdsTheme.typography.BodyBookM,
-        color = color ?: GdsTheme.colors.ContentNeutral01,
+        color = color ?: GdsTheme.colors.Content.Neutral01,
     )
 }

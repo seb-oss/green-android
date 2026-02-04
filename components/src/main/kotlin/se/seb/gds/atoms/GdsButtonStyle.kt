@@ -133,7 +133,7 @@ object GdsButtonDefaults {
         fun outline() =
             GdsButtonStyle(
                 colors = outlineColors(),
-                border = BorderStroke(width = 1.dp, color = GdsTheme.colors.BorderSubtle01),
+                border = BorderStroke(width = 1.dp, color = GdsTheme.colors.Border.Subtle01),
             )
 
         @Composable
@@ -145,73 +145,73 @@ object GdsButtonDefaults {
         @Composable
         fun primaryColors() =
             ButtonDefaults.buttonColors(
-                containerColor = GdsTheme.colors.L3NeutralStrong,
-                contentColor = GdsTheme.colors.ContentNeutral03,
-                disabledContainerColor = GdsTheme.colors.L3Disabled03,
-                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+                containerColor = GdsTheme.colors.L3.NeutralStrong,
+                contentColor = GdsTheme.colors.Content.Neutral03,
+                disabledContainerColor = GdsTheme.colors.L3.Disabled03,
+                disabledContentColor = GdsTheme.colors.Content.Disabled01,
             )
 
         @Composable
         fun secondaryOnWhiteColors() =
             ButtonDefaults.buttonColors(
-                containerColor = GdsTheme.colors.L2Neutral01,
-                contentColor = GdsTheme.colors.ContentNeutral01,
-                disabledContainerColor = GdsTheme.colors.L3Disabled03,
-                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+                containerColor = GdsTheme.colors.L2.Neutral01,
+                contentColor = GdsTheme.colors.Content.Neutral01,
+                disabledContainerColor = GdsTheme.colors.L3.Disabled03,
+                disabledContentColor = GdsTheme.colors.Content.Disabled01,
             )
 
         @Composable
         fun secondaryOnGreyColors() =
             ButtonDefaults.buttonColors(
-                containerColor = GdsTheme.colors.L2Neutral02,
-                contentColor = GdsTheme.colors.ContentNeutral01,
-                disabledContainerColor = GdsTheme.colors.L3Disabled03,
-                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+                containerColor = GdsTheme.colors.L2.Neutral02,
+                contentColor = GdsTheme.colors.Content.Neutral01,
+                disabledContainerColor = GdsTheme.colors.L3.Disabled03,
+                disabledContentColor = GdsTheme.colors.Content.Disabled01,
             )
 
         @Composable
         fun secondaryOnWhiteCardColors() =
             ButtonDefaults.buttonColors(
-                containerColor = GdsTheme.colors.L3Neutral02,
-                contentColor = GdsTheme.colors.ContentNeutral01,
-                disabledContainerColor = GdsTheme.colors.L3Disabled03,
-                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+                containerColor = GdsTheme.colors.L3.Neutral02,
+                contentColor = GdsTheme.colors.Content.Neutral01,
+                disabledContainerColor = GdsTheme.colors.L3.Disabled03,
+                disabledContentColor = GdsTheme.colors.Content.Disabled01,
             )
 
         @Composable
         fun secondaryOnGreyCardColors() =
             ButtonDefaults.buttonColors(
-                containerColor = GdsTheme.colors.L3Neutral01,
-                contentColor = GdsTheme.colors.ContentNeutral01,
-                disabledContainerColor = GdsTheme.colors.L3Disabled03,
-                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+                containerColor = GdsTheme.colors.L3.Neutral01,
+                contentColor = GdsTheme.colors.Content.Neutral01,
+                disabledContainerColor = GdsTheme.colors.L3.Disabled03,
+                disabledContentColor = GdsTheme.colors.Content.Disabled01,
             )
 
         @Composable
         fun tertiaryColors() =
             ButtonDefaults.buttonColors(
                 containerColor = Color.Transparent,
-                contentColor = GdsTheme.colors.ContentNeutral01,
-                disabledContainerColor = GdsTheme.colors.L3Disabled03,
-                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+                contentColor = GdsTheme.colors.Content.Neutral01,
+                disabledContainerColor = GdsTheme.colors.L3.Disabled03,
+                disabledContentColor = GdsTheme.colors.Content.Disabled01,
             )
 
         @Composable
         fun outlineColors() =
             ButtonDefaults.buttonColors(
                 containerColor = Color.Transparent,
-                contentColor = GdsTheme.colors.ContentNeutral01,
-                disabledContainerColor = GdsTheme.colors.L3Disabled03,
-                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+                contentColor = GdsTheme.colors.Content.Neutral01,
+                disabledContainerColor = GdsTheme.colors.L3.Disabled03,
+                disabledContentColor = GdsTheme.colors.Content.Disabled01,
             )
 
         @Composable
         fun negativeColors() =
             ButtonDefaults.buttonColors(
-                containerColor = GdsTheme.colors.L3Negative01,
-                contentColor = GdsTheme.colors.ContentInversed,
-                disabledContainerColor = GdsTheme.colors.L3Disabled03,
-                disabledContentColor = GdsTheme.colors.ContentDisabled01,
+                containerColor = GdsTheme.colors.L3.Negative01,
+                contentColor = GdsTheme.colors.Content.Inversed,
+                disabledContainerColor = GdsTheme.colors.L3.Disabled03,
+                disabledContentColor = GdsTheme.colors.Content.Disabled01,
             )
 
         @Composable

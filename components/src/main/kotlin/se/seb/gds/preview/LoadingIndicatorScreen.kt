@@ -168,7 +168,7 @@ private fun LoadingIndicatorListItem(
                         Box(
                             modifier = Modifier
                                 .size(GdsLoadingIndicatorDefaults.size)
-                                .background(GdsTheme.colors.L3Neutral01),
+                                .background(GdsTheme.colors.L3.Neutral01),
                         )
                     } else {
                         content()

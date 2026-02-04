@@ -123,7 +123,7 @@ fun IconPreviewCard(
             Icon(
                 imageVector = imageVector,
                 contentDescription = fullName,
-                tint = GdsTheme.colors.ContentNeutral01,
+                tint = GdsTheme.colors.Content.Neutral01,
                 modifier = Modifier
                     .size(40.dp)
                     .weight(1f)

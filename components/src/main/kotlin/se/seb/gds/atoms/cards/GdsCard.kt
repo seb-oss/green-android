@@ -35,7 +35,7 @@ import se.seb.gds.theme.GdsTheme
 @Composable
 fun GdsCard(
     modifier: Modifier = Modifier,
-    containerColor: Color = GdsTheme.colors.L1Neutral01,
+    containerColor: Color = GdsTheme.colors.L1.Neutral01,
     shape: Shape = GdsCardDefaults.shape,
     border: BorderStroke? = GdsCardDefaults.border,
     content: @Composable ColumnScope.() -> Unit,

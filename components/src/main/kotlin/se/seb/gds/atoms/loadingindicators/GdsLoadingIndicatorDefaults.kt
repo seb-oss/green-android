@@ -9,8 +9,8 @@ object GdsLoadingIndicatorDefaults {
     val size = 48.dp
 
     @Composable
-    fun indicatorColor(): Color = GdsTheme.colors.L3NeutralStrong
+    fun indicatorColor(): Color = GdsTheme.colors.L3.NeutralStrong
 
     @Composable
-    fun containerColor(): Color = GdsTheme.colors.L3Neutral02
+    fun containerColor(): Color = GdsTheme.colors.L3.Neutral02
 }

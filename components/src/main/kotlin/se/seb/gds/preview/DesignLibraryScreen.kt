@@ -56,8 +56,8 @@ internal fun DesignLibraryScreen(
             topBar = {
                 CenterAlignedTopAppBar(
                     colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = GdsTheme.colors.L1Neutral02,
-                        titleContentColor = GdsTheme.colors.ContentNeutral01,
+                        containerColor = GdsTheme.colors.L1.Neutral02,
+                        titleContentColor = GdsTheme.colors.Content.Neutral01,
                     ),
                     title = {
                         Text(text = currentScreen.name, style = GdsTheme.typography.DetailBookM)
@@ -68,15 +68,15 @@ internal fun DesignLibraryScreen(
                                 Icon(
                                     GdsIcons.Regular.ArrowLeft,
                                     contentDescription = "Back",
-                                    tint = GdsTheme.colors.ContentNeutral01,
+                                    tint = GdsTheme.colors.Content.Neutral01,
                                 )
                             }
                         }
                     },
                 )
             },
-            containerColor = GdsTheme.colors.L1Neutral02,
-            contentColor = GdsTheme.colors.ContentNeutral01,
+            containerColor = GdsTheme.colors.L1.Neutral02,
+            contentColor = GdsTheme.colors.Content.Neutral01,
         ) { paddingValues ->
             AnimatedContent(
                 modifier = Modifier

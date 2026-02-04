@@ -49,9 +49,9 @@ fun InputScreen(scrollState: ScrollState) {
     var showBottomSheet by rememberSaveable { mutableStateOf(false) }
 
     val background = if (whiteBackground) {
-        GdsTheme.colors.L1Neutral01
+        GdsTheme.colors.L1.Neutral01
     } else {
-        GdsTheme.colors.L1Neutral02
+        GdsTheme.colors.L1.Neutral02
     }
 
     val defaultStyle = if (whiteBackground) {

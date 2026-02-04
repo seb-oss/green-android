@@ -39,7 +39,7 @@ fun ClearButton(
             .clickable(enabled = enabled, onClick = onClick),
         imageVector = GdsIcons.Regular.CircleX,
         contentDescription = null,
-        tint = GdsTheme.colors.ContentNeutral01,
+        tint = GdsTheme.colors.Content.Neutral01,
     )
 }
 
@@ -49,7 +49,7 @@ fun ClearButton(
 private fun ClearButtonPreview() {
     GdsTheme {
         Card(
-            modifier = Modifier.background(GdsTheme.colors.ContentNeutral01),
+            modifier = Modifier.background(GdsTheme.colors.Content.Neutral01),
         ) {
             ClearButton {
                 // no-op

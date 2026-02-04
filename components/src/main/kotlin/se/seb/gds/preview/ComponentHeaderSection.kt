@@ -56,14 +56,14 @@ internal fun CodeBlock(
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(GdsTheme.dimensions.radius.RadiusXs))
-            .background(GdsTheme.colors.L2Elevated01)
+            .background(GdsTheme.colors.L2.Elevated01)
             .padding(GdsTheme.dimensions.spacing.SpaceXs),
     ) {
         Text(
             text = code,
             fontFamily = FontFamily.Monospace,
             style = GdsTheme.typography.BodyRegularS.copy(fontSize = 12.sp),
-            color = GdsTheme.colors.ContentNeutral01,
+            color = GdsTheme.colors.Content.Neutral01,
         )
     }
 }

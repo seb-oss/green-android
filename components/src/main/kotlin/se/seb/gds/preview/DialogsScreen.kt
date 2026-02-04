@@ -43,19 +43,19 @@ internal fun DialogsScreen() {
             checked = hasIcon,
             onCheckedChanged = { hasIcon = it },
         )
-        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
         SwitchRow(
             title = "Show Title",
             checked = hasTitle,
             onCheckedChanged = { hasTitle = it },
         )
-        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
         SwitchRow(
             title = "Show Text",
             checked = hasText,
             onCheckedChanged = { hasText = it },
         )
-        HorizontalDivider(color = GdsTheme.colors.BorderSubtle01, thickness = 0.5.dp)
+        HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
         SwitchRow(
             title = "Show Dismiss Button",
             checked = hasDismissButton,

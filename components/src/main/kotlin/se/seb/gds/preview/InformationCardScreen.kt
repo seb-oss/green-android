@@ -58,7 +58,7 @@ fun InformationCardScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(GdsTheme.colors.L1Neutral02)
+            .background(GdsTheme.colors.L1.Neutral02)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -87,7 +87,7 @@ fun InformationCardScreen() {
             modifier = Modifier
                 .padding(horizontal = GdsTheme.dimensions.spacing.SpaceM)
                 .background(
-                    color = GdsTheme.colors.L2Neutral02,
+                    color = GdsTheme.colors.L2.Neutral02,
                     shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusS),
                 )
                 .padding(vertical = GdsTheme.dimensions.spacing.SpaceS),
@@ -175,7 +175,7 @@ fun InformationCardScreen() {
             button = button,
         )
 
-        Column(modifier = Modifier.background(GdsTheme.colors.L1Neutral01)) {
+        Column(modifier = Modifier.background(GdsTheme.colors.L1.Neutral01)) {
             CardSection(
                 title = "Information Card on White Background",
                 style = GdsCardDefaults.informationOnWhite(),
