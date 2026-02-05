@@ -20,7 +20,7 @@ import se.seb.gds.theme.GdsTheme
  * GdsText(
  *     label = "Hello, World!",
  *     style = GdsTheme.typography.DisplayL,
- *     color = GdsTheme.colors.ContentPositive01
+ *     color = GdsTheme.colors.Content.Positive01
  * )
  * ```
  */

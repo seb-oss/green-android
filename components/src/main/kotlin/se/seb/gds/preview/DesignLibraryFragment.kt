@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.ui.graphics.Color
 import androidx.fragment.app.Fragment
 import androidx.fragment.compose.content
-import kotlin.reflect.KProperty
+import kotlin.reflect.KClass
 import kotlin.reflect.full.isSubtypeOf
 import kotlin.reflect.full.memberProperties
 import kotlin.reflect.typeOf
@@ -52,14 +52,18 @@ class DesignLibraryFragment : Fragment() {
             }
         }
 
-    private inline fun <reified T : Any> extractColorProperties(instance: T): List<Pair<String, Color>> {
+    private fun extractColorProperties(instance: Any, prefix: String = ""): List<Pair<String, Color>> {
         val colorProperties = mutableListOf<Pair<String, Color>>()
-        val kClass = T::class
+        val kClass = instance::class
 
-        kClass.memberProperties.forEach { property: KProperty<*> ->
+        kClass.memberProperties.forEach { property ->
+            val propertyName = property.name
+            val propertyValue = property.getter.call(instance)
+
             if (property.returnType.isSubtypeOf(typeOf<Color>())) {
-                val colorValue = property.getter.call(instance) as Color
-                colorProperties.add(Pair(property.name, colorValue))
+                colorProperties.add(Pair(prefix + propertyName, propertyValue as Color))
+            } else if (propertyValue != null && property.returnType.classifier?.let { it as? KClass<*> }?.isData == true) {
+                colorProperties.addAll(extractColorProperties(propertyValue, prefix + propertyName))
             }
         }
 
