@@ -187,7 +187,7 @@ object GdsInputDefaults {
         InputDefaultStyle(
             basicInputStyle = basicContainerStyle().copy(
                 colors = defaultInputColors().copy(
-                    containerColor = GdsTheme.colors.L2Neutral02,
+                    containerColor = GdsTheme.colors.L2.Neutral02,
                 ),
             ),
             labelStyle = GdsTheme.typography.DetailBookM,
@@ -213,7 +213,7 @@ object GdsInputDefaults {
             basicInputStyle = basicContainerStyle().copy(
                 containerShape = containedInputContainer(),
                 colors = defaultInputColors().copy(
-                    containerColor = GdsTheme.colors.L2Neutral02,
+                    containerColor = GdsTheme.colors.L2.Neutral02,
                 ),
                 showBorder = false,
             ),
@@ -261,8 +261,8 @@ object GdsInputDefaults {
     @Composable
     fun textSelectionColors() =
         TextSelectionColors(
-            handleColor = GdsTheme.colors.ContentNeutral01,
-            backgroundColor = GdsTheme.colors.ContentNeutral01.copy(alpha = 0.2f),
+            handleColor = GdsTheme.colors.Content.Neutral01,
+            backgroundColor = GdsTheme.colors.Content.Neutral01.copy(alpha = 0.2f),
         )
 
     /**
@@ -271,18 +271,18 @@ object GdsInputDefaults {
     @Composable
     fun defaultInputColors(): GdsInputColors =
         GdsInputColors(
-            containerColor = GdsTheme.colors.L2Neutral01,
-            floatingLabelColor = GdsTheme.colors.ContentNeutral02,
-            labelColor = GdsTheme.colors.ContentNeutral01,
-            supportLabelColor = GdsTheme.colors.ContentNeutral01,
-            inputTextColor = GdsTheme.colors.ContentNeutral01,
-            errorTextColor = GdsTheme.colors.ContentNegative01,
-            errorIndicatorColor = GdsTheme.colors.BorderNegative01,
-            disabledContainerColor = GdsTheme.colors.L3Disabled01,
-            disabledContentColor = GdsTheme.colors.ContentDisabled01,
-            focusedContainerColor = GdsTheme.colors.StateNeutral04,
-            cursorColor = GdsTheme.colors.ContentNeutral01,
-            borderColor = GdsTheme.colors.BorderInteractive,
+            containerColor = GdsTheme.colors.L2.Neutral01,
+            floatingLabelColor = GdsTheme.colors.Content.Neutral02,
+            labelColor = GdsTheme.colors.Content.Neutral01,
+            supportLabelColor = GdsTheme.colors.Content.Neutral01,
+            inputTextColor = GdsTheme.colors.Content.Neutral01,
+            errorTextColor = GdsTheme.colors.Content.Negative01,
+            errorIndicatorColor = GdsTheme.colors.Border.Negative01,
+            disabledContainerColor = GdsTheme.colors.L3.Disabled01,
+            disabledContentColor = GdsTheme.colors.Content.Disabled01,
+            focusedContainerColor = GdsTheme.colors.State.Neutral04,
+            cursorColor = GdsTheme.colors.Content.Neutral01,
+            borderColor = GdsTheme.colors.Border.Interactive,
         )
 
     /**

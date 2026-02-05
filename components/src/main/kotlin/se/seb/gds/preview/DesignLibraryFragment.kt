@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.compose.ui.graphics.Color
 import androidx.fragment.app.Fragment
 import androidx.fragment.compose.content
+import kotlin.collections.forEach
+import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
 import kotlin.reflect.full.isSubtypeOf
 import kotlin.reflect.full.memberProperties
@@ -29,8 +31,8 @@ class DesignLibraryFragment : Fragment() {
         super.onCreate(savedInstanceState)
         val lightColors = LocalLightModeColors
         val darkColors = LocalDarkModeColors
-        val lightThemeColorProperties = extractColorProperties(lightColors)
-        val darkThemeColorProperties = extractColorProperties(darkColors)
+        val lightThemeColorProperties = extractNestedColorProperties(lightColors)
+        val darkThemeColorProperties = extractNestedColorProperties(darkColors)
         themeColors = combineColorLists(lightThemeColorProperties, darkThemeColorProperties)
 
         val legacyLightColors = LegacyColors.defaultColors(false)
@@ -51,6 +53,27 @@ class DesignLibraryFragment : Fragment() {
                 DesignLibraryScreen(themeColors, legacyThemeColors)
             }
         }
+
+    private fun extractNestedColorProperties(
+        instance: Any,
+        prefix: String = "",
+    ): List<Pair<String, Color>> {
+        val colorProperties = mutableListOf<Pair<String, Color>>()
+        val kClass = instance::class
+
+        kClass.memberProperties.forEach { property ->
+            val propertyName = property.name
+            val propertyValue = property.getter.call(instance)
+
+            if (property.returnType.isSubtypeOf(typeOf<Color>())) {
+                colorProperties.add(Pair("$prefix.$propertyName", propertyValue as Color))
+            } else if (propertyValue != null && property.returnType.classifier?.let { it as? KClass<*> }?.isData == true) {
+                colorProperties.addAll(extractNestedColorProperties(propertyValue, prefix + propertyName))
+            }
+        }
+
+        return colorProperties
+    }
 
     private inline fun <reified T : Any> extractColorProperties(instance: T): List<Pair<String, Color>> {
         val colorProperties = mutableListOf<Pair<String, Color>>()

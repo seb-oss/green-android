@@ -27,7 +27,7 @@ import se.seb.gds.theme.GdsTheme
 @Composable
 fun GdsTopBarAction(
     icon: ImageVector,
-    tint: Color = GdsTheme.colors.ContentNeutral01,
+    tint: Color = GdsTheme.colors.Content.Neutral01,
     contentDescription: String? = null,
     onClick: () -> Unit,
 ) = IconButton(onClick = onClick) {

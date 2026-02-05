@@ -29,7 +29,7 @@ fun ExpandableCard(
     var expanded by rememberSaveable { mutableStateOf(false) }
 
     GdsCard(
-        containerColor = GdsTheme.colors.L2Neutral02,
+        containerColor = GdsTheme.colors.L2.Neutral02,
         modifier = modifier
             .fillMaxWidth()
             .clickable {
@@ -45,13 +45,13 @@ fun ExpandableCard(
             ) {
                 Text(
                     text = title,
-                    color = GdsTheme.colors.ContentNeutral01,
+                    color = GdsTheme.colors.Content.Neutral01,
                     style = GdsTheme.typography.HeadingXs,
                     modifier = Modifier.weight(1f),
                 )
                 Icon(
                     imageVector = if (expanded) GdsIcons.Regular.ChevronTopSmall else GdsIcons.Regular.ChevronDownSmall,
-                    tint = GdsTheme.colors.ContentNeutral02,
+                    tint = GdsTheme.colors.Content.Neutral02,
                     contentDescription = null,
                 )
             }

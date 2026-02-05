@@ -70,10 +70,10 @@ object TopAppBarDefaults {
     @Composable
     fun defaultTopAppBarColors() =
         TopAppBarDefaults.topAppBarColors(
-            containerColor = GdsTheme.colors.L1Elevated01.copy(alpha = 0.1f),
-            titleContentColor = GdsTheme.colors.ContentNeutral01,
-            scrolledContainerColor = GdsTheme.colors.L1Elevated01,
-            subtitleContentColor = GdsTheme.colors.ContentNeutral01,
+            containerColor = GdsTheme.colors.L1.Elevated01.copy(alpha = 0.1f),
+            titleContentColor = GdsTheme.colors.Content.Neutral01,
+            scrolledContainerColor = GdsTheme.colors.L1.Elevated01,
+            subtitleContentColor = GdsTheme.colors.Content.Neutral01,
         )
 
     @Composable

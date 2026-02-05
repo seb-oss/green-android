@@ -9,8 +9,8 @@ object GdsAlertDialogDefaults {
     val iconSize = 24.dp
 
     @Composable
-    fun containerColor(): Color = GdsTheme.colors.L1Elevated01
+    fun containerColor(): Color = GdsTheme.colors.L1.Elevated01
 
     @Composable
-    fun iconContentColor(): Color = GdsTheme.colors.ContentNeutral01
+    fun iconContentColor(): Color = GdsTheme.colors.Content.Neutral01
 }

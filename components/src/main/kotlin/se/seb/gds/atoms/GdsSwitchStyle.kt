@@ -63,18 +63,18 @@ object GdsSwitchDefaults {
     @Composable
     fun defaultColors(): SwitchColors =
         SwitchDefaults.colors(
-            checkedThumbColor = GdsTheme.colors.L3Neutral05,
-            checkedTrackColor = GdsTheme.colors.L3Positive04,
-            uncheckedThumbColor = GdsTheme.colors.ContentNeutral02,
+            checkedThumbColor = GdsTheme.colors.L3.Neutral05,
+            checkedTrackColor = GdsTheme.colors.L3.Positive04,
+            uncheckedThumbColor = GdsTheme.colors.Content.Neutral02,
             uncheckedTrackColor = Color.Transparent,
-            uncheckedBorderColor = GdsTheme.colors.BorderInteractive,
-            checkedIconColor = GdsTheme.colors.ContentPositive01,
-            disabledCheckedIconColor = GdsTheme.colors.ContentDisabled01,
-            disabledCheckedTrackColor = GdsTheme.colors.L3Disabled02,
-            disabledCheckedThumbColor = GdsTheme.colors.L3Disabled03,
-            disabledUncheckedThumbColor = GdsTheme.colors.ContentDisabled01,
+            uncheckedBorderColor = GdsTheme.colors.Border.Interactive,
+            checkedIconColor = GdsTheme.colors.Content.Positive01,
+            disabledCheckedIconColor = GdsTheme.colors.Content.Disabled01,
+            disabledCheckedTrackColor = GdsTheme.colors.L3.Disabled02,
+            disabledCheckedThumbColor = GdsTheme.colors.L3.Disabled03,
+            disabledUncheckedThumbColor = GdsTheme.colors.Content.Disabled01,
             disabledUncheckedTrackColor = Color.Transparent,
-            disabledUncheckedBorderColor = GdsTheme.colors.L3Disabled03,
+            disabledUncheckedBorderColor = GdsTheme.colors.L3.Disabled03,
         )
 
     @Composable

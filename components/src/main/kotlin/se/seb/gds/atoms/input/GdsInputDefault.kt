@@ -290,7 +290,7 @@ private fun TextFieldPreview() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(GdsTheme.colors.StateNeutral01),
+                .background(GdsTheme.colors.State.Neutral01),
         ) {
             Column(
                 modifier = Modifier.padding(GdsTheme.dimensions.spacing.SpaceM),

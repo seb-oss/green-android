@@ -83,8 +83,8 @@ internal fun ColorsScreen(
                         body = "The following colors are available in GDS " +
                             "Theme for both Light and Dark mode. Example usage:",
                         code = """
-                GdsTheme.colors.L1Neutral02
-                GdsTheme.colors.ContentNeutral01
+                GdsTheme.colors.L1.Neutral02
+                GdsTheme.colors.Content.Neutral01
                         """.trimIndent(),
                     )
                 }

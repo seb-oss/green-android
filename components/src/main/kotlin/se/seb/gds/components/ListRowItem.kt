@@ -43,7 +43,7 @@ object ListRowItem {
             Icon(
                 modifier = Modifier.size(24.dp),
                 imageVector = icon,
-                tint = GdsTheme.colors.ContentNeutral04,
+                tint = GdsTheme.colors.Content.Neutral04,
                 contentDescription = contentDescription,
             )
         }
@@ -53,7 +53,7 @@ object ListRowItem {
             Text(
                 text = text,
                 style = GdsTheme.typography.DetailBookM,
-                color = GdsTheme.colors.ContentNeutral01,
+                color = GdsTheme.colors.Content.Neutral01,
             )
         }
 
@@ -104,13 +104,13 @@ object ListRowItem {
                 Text(
                     text = title,
                     style = GdsTheme.typography.DetailBookM,
-                    color = GdsTheme.colors.ContentNeutral01,
+                    color = GdsTheme.colors.Content.Neutral01,
                 )
                 description?.let {
                     Text(
                         text = it,
                         style = GdsTheme.typography.DetailRegularS,
-                        color = GdsTheme.colors.ContentNeutral02,
+                        color = GdsTheme.colors.Content.Neutral02,
                     )
                 }
             }
@@ -125,7 +125,7 @@ object ListRowItem {
 @Composable
 private fun ListRowItemPreview() {
     GdsTheme {
-        Box(modifier = Modifier.background(color = GdsTheme.colors.L1Neutral01)) {
+        Box(modifier = Modifier.background(color = GdsTheme.colors.L1.Neutral01)) {
             ListRowItem(
                 startSlot = {
                     StartIcon(
