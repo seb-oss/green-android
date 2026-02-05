@@ -9,7 +9,7 @@ val LocalDarkModeColors = GdsLocalColorTokens(
         Elevated01 = Color(0xff191a1a),
         Elevated02 = Color(0xff191a1a),
         Brand01 = Color(0xff003824),
-        Inversed = Color(0xffffffff)
+        Inversed = Color(0xffffffff),
     ),
     L2 = L2Colors(
         Neutral01 = Color(0xff191a1a),
@@ -23,7 +23,7 @@ val LocalDarkModeColors = GdsLocalColorTokens(
         Negative01 = Color(0xff451207),
         Notice01 = Color(0xff00294d),
         Warning01 = Color(0xff482a05),
-        Information01 = Color(0xff1e201f)
+        Information01 = Color(0xff1e201f),
     ),
     L3 = L3Colors(
         Neutral01 = Color(0xff282a29),
@@ -57,7 +57,7 @@ val LocalDarkModeColors = GdsLocalColorTokens(
         Overlay = Color(0x330a0b0b),
         Disabled01 = Color(0xff595f5d),
         Disabled02 = Color(0xff595f5d),
-        Disabled03 = Color(0xff818886)
+        Disabled03 = Color(0xff818886),
     ),
     Border = BorderColors(
         Positive01 = Color(0xff8ae58d),
@@ -75,7 +75,7 @@ val LocalDarkModeColors = GdsLocalColorTokens(
         Separator01 = Color(0x994f5452),
         Strong = Color(0xfff7f8f7),
         Subtle01 = Color(0x724f5452),
-        Subtle02 = Color(0xff282a29)
+        Subtle02 = Color(0xff282a29),
     ),
     Content = ContentColors(
         Neutral01 = Color(0xfff7f8f7),
@@ -95,7 +95,7 @@ val LocalDarkModeColors = GdsLocalColorTokens(
         Warning02 = Color(0xfffce8cf),
         Disabled01 = Color(0xffcacecc),
         Disabled02 = Color(0xffcacecc),
-        Inversed = Color(0xfff7f8f7)
+        Inversed = Color(0xfff7f8f7),
     ),
     State = StateColors(
         Neutral01 = Color(0x33000000),
@@ -138,6 +138,6 @@ val LocalDarkModeColors = GdsLocalColorTokens(
         InversedButtons = Color(0x14ffffff),
         LightButtons = Color(0x19ffffff),
         OnPress = Color(0x19ffffff),
-        OnPressInverted = Color(0x14000000)
-    )
+        OnPressInverted = Color(0x14000000),
+    ),
 )

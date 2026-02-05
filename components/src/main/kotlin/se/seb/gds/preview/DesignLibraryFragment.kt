@@ -52,7 +52,10 @@ class DesignLibraryFragment : Fragment() {
             }
         }
 
-    private fun extractColorProperties(instance: Any, prefix: String = ""): List<Pair<String, Color>> {
+    private fun extractColorProperties(
+        instance: Any,
+        prefix: String = "",
+    ): List<Pair<String, Color>> {
         val colorProperties = mutableListOf<Pair<String, Color>>()
         val kClass = instance::class
 

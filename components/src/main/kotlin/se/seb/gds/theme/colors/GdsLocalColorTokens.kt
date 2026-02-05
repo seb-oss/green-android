@@ -8,7 +8,7 @@ data class GdsLocalColorTokens(
     val L3: L3Colors,
     val Border: BorderColors,
     val Content: ContentColors,
-    val State: StateColors
+    val State: StateColors,
 )
 
 data class L1Colors(
@@ -17,7 +17,7 @@ data class L1Colors(
     val Elevated01: Color,
     val Elevated02: Color,
     val Brand01: Color,
-    val Inversed: Color
+    val Inversed: Color,
 )
 
 data class L2Colors(
@@ -32,7 +32,7 @@ data class L2Colors(
     val Negative01: Color,
     val Notice01: Color,
     val Warning01: Color,
-    val Information01: Color
+    val Information01: Color,
 )
 
 data class L3Colors(
@@ -67,7 +67,7 @@ data class L3Colors(
     val Overlay: Color,
     val Disabled01: Color,
     val Disabled02: Color,
-    val Disabled03: Color
+    val Disabled03: Color,
 )
 
 data class BorderColors(
@@ -86,7 +86,7 @@ data class BorderColors(
     val Separator01: Color,
     val Strong: Color,
     val Subtle01: Color,
-    val Subtle02: Color
+    val Subtle02: Color,
 )
 
 data class ContentColors(
@@ -107,7 +107,7 @@ data class ContentColors(
     val Warning02: Color,
     val Disabled01: Color,
     val Disabled02: Color,
-    val Inversed: Color
+    val Inversed: Color,
 )
 
 data class StateColors(
@@ -151,5 +151,5 @@ data class StateColors(
     val InversedButtons: Color,
     val LightButtons: Color,
     val OnPress: Color,
-    val OnPressInverted: Color
+    val OnPressInverted: Color,
 )
