@@ -43,6 +43,8 @@ OUT_DIR="$REPO_ROOT/components/src/main/kotlin/se/seb/gds/icons"
 find "$OUT_DIR" -name "*.kt" -exec sed -i '' 's/0xCURRENTCOLOR/0xFF000000/g' {} +
 
 "$SCRIPT_DIR/generate-icon-manifest"
+# Generate a GdsIcons.kt file which can be moved to the BFF
+"$SCRIPT_DIR/generate-icon-enums"
 
 echo "Applying spotless"
 cd $REPO_ROOT && ./gradlew spotlessKotlinApply

@@ -42,14 +42,23 @@ What it does:
 1. Reads all SVG assets from the Green repository (solid + regular icon sets).
 2. Converts them into Kotlin source files containing Compose `ImageVector`s.
 3. Post-processes the generated Kotlin files to fix known issues in generated output.
-4. Generates/updates the icon manifest (`GdsIcons.kt`) via `generate-icon-manifest`.
+4. Generates/updates the icon manifest used in this Android repo via `generate-icon-manifest`.
+5. Generates a **backend-friendly icon manifest** via `generate-icon-enums`.
 
 Outputs:
+
+**Android (this repo)**
 - Generated `ImageVector` sources under:
   - `components/src/main/kotlin/se/seb/gds/icons/solid/`
   - `components/src/main/kotlin/se/seb/gds/icons/regular/`
-- Generated manifest:
+- Generated manifest used by the Android library:
   - `components/src/main/kotlin/se/seb/gds/icons/GdsIcons.kt`
+
+**Backend/BFF (generated for copying)**
+- Generated file:
+  - `scripts/GdsIcons.kt`
+
+  This file is intentionally **gitignored** in this repo because it’s meant to be copied into the backend/BFF service.
 
 Usage:
 
@@ -64,10 +73,7 @@ Notes:
 
 ### `generate-icon-manifest`
 
-Generates the icon manifest source file (`GdsIcons.kt`) based on the generated icons.
-
-This makes it easier for consuming apps to discover and use the available icons without
-having to know the generated file names/structure.
+Generates the icon manifest source file (`GdsIcons.kt`) used by the Android library, based on the generated icons.
 
 Typically you don’t need to run this manually, since `generate-compose-icons` calls it.
 
@@ -76,6 +82,22 @@ Usage:
 ```bash
 cd scripts
 ./generate-icon-manifest
+```
+
+### `generate-icon-enums`
+
+Generates a backend-friendly icon manifest at `scripts/GdsIcons.kt`.
+
+This is useful when another service (for example a BFF) needs a stable list of icon identifiers
+without depending on the Android library module structure.
+
+The generated file is **gitignored** in this repo because it’s an output artifact intended to be copied elsewhere.
+
+Usage:
+
+```bash
+cd scripts
+./generate-icon-enums
 ```
 
 ### `s2c`
