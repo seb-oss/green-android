@@ -3,9 +3,8 @@
 # --- Configuration ---
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-MANIFEST_PACKAGE="se.seb.gds.icons"
+MANIFEST_PACKAGE="se.seb.sduiengine.uitokens"
 ICON_ROOT_DIR="$REPO_ROOT/components/src/main/kotlin/se/seb/gds/icons"
-MANIFEST_PACKAGE="se.seb.gds.icons"
 ENUM_FILENAME="GdsIcons.kt"
 ENUM_PATH="$SCRIPT_DIR/$ENUM_FILENAME"
 
@@ -62,6 +61,13 @@ for STYLE_DIR in $ICON_STYLES; do
 "
         fi
     done
+
+    # Add companion object with fromValue helper
+    ENUM_CONTENT+="
+        companion object {
+            fun fromValue(value: String): $STYLE_ENUM? = entries.find { it.value == value }
+        }
+"
 
     # Close the enum
     ENUM_CONTENT+="    }
