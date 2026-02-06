@@ -338,7 +338,8 @@ object GdsIconNames {
         Youtube("Solid.Youtube"),
         Zap("Solid.Zap"),
         ZoomIn("Solid.ZoomIn"),
-        ZoomOut("Solid.ZoomOut");
+        ZoomOut("Solid.ZoomOut"),
+        ;
 
         companion object {
             fun fromValue(value: String): Solid? = entries.find { it.value == value }
@@ -680,11 +681,11 @@ object GdsIconNames {
         Youtube("Regular.Youtube"),
         Zap("Regular.Zap"),
         ZoomIn("Regular.ZoomIn"),
-        ZoomOut("Regular.ZoomOut");
+        ZoomOut("Regular.ZoomOut"),
+        ;
 
         companion object {
             fun fromValue(value: String): Regular? = entries.find { it.value == value }
         }
     }
 }
-
