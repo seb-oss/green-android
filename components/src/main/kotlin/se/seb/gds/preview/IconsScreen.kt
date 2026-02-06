@@ -43,7 +43,7 @@ import se.seb.gds.theme.GdsTheme
 fun IconsScreen() {
     var filterText by remember { mutableStateOf("") }
 
-    val iconList = GdsIcons.All.toList().sortedBy { it.first.split(".").last() }
+    val iconList = GdsIcons.allIcons.toList().sortedBy { it.first.split(".").last() }
 
     val filteredIconList =
         remember(filterText) {

@@ -12,6 +12,7 @@ object GdsIcons {
         val Arrow = se.seb.gds.icons.solid.Arrow
         val ArrowBottomTop = se.seb.gds.icons.solid.ArrowBottomTop
         val ArrowBoxLeft = se.seb.gds.icons.solid.ArrowBoxLeft
+        val ArrowBoxLeftAlt = se.seb.gds.icons.solid.ArrowBoxLeftAlt
         val ArrowBoxRight = se.seb.gds.icons.solid.ArrowBoxRight
         val ArrowDown = se.seb.gds.icons.solid.ArrowDown
         val ArrowInbox = se.seb.gds.icons.solid.ArrowInbox
@@ -29,12 +30,12 @@ object GdsIcons {
         val ArrowShareLeft = se.seb.gds.icons.solid.ArrowShareLeft
         val ArrowShareRight = se.seb.gds.icons.solid.ArrowShareRight
         val ArrowSplit = se.seb.gds.icons.solid.ArrowSplit
-        val ArrowsRepeat = se.seb.gds.icons.solid.ArrowsRepeat
         val ArrowUp = se.seb.gds.icons.solid.ArrowUp
         val ArrowWallDown = se.seb.gds.icons.solid.ArrowWallDown
         val ArrowWallLeft = se.seb.gds.icons.solid.ArrowWallLeft
         val ArrowWallRight = se.seb.gds.icons.solid.ArrowWallRight
         val ArrowWallUp = se.seb.gds.icons.solid.ArrowWallUp
+        val ArrowsRepeat = se.seb.gds.icons.solid.ArrowsRepeat
         val At = se.seb.gds.icons.solid.At
         val Back = se.seb.gds.icons.solid.Back
         val Backward = se.seb.gds.icons.solid.Backward
@@ -56,8 +57,8 @@ object GdsIcons {
         val BookmarkPlus = se.seb.gds.icons.solid.BookmarkPlus
         val BookmarkRemove = se.seb.gds.icons.solid.BookmarkRemove
         val Books = se.seb.gds.icons.solid.Books
-        val BrandAppleMusic = se.seb.gds.icons.solid.BrandAppleMusic
         val BrandAppStore = se.seb.gds.icons.solid.BrandAppStore
+        val BrandAppleMusic = se.seb.gds.icons.solid.BrandAppleMusic
         val BrandBankid = se.seb.gds.icons.solid.BrandBankid
         val BrandChrome = se.seb.gds.icons.solid.BrandChrome
         val BrandFacebook = se.seb.gds.icons.solid.BrandFacebook
@@ -79,9 +80,9 @@ object GdsIcons {
         val BubbleDots = se.seb.gds.icons.solid.BubbleDots
         val BubbleQuestion = se.seb.gds.icons.solid.BubbleQuestion
         val BubbleQuotes = se.seb.gds.icons.solid.BubbleQuotes
-        val Bubbles = se.seb.gds.icons.solid.Bubbles
         val BubbleText = se.seb.gds.icons.solid.BubbleText
         val BubbleWideAnnotation = se.seb.gds.icons.solid.BubbleWideAnnotation
+        val Bubbles = se.seb.gds.icons.solid.Bubbles
         val Buildings = se.seb.gds.icons.solid.Buildings
         val BulletList = se.seb.gds.icons.solid.BulletList
         val CainLink = se.seb.gds.icons.solid.CainLink
@@ -121,8 +122,8 @@ object GdsIcons {
         val CirclePlaceholderOn = se.seb.gds.icons.solid.CirclePlaceholderOn
         val CirclePlus = se.seb.gds.icons.solid.CirclePlus
         val CircleQuestionmark = se.seb.gds.icons.solid.CircleQuestionmark
-        val CirclesThree = se.seb.gds.icons.solid.CirclesThree
         val CircleX = se.seb.gds.icons.solid.CircleX
+        val CirclesThree = se.seb.gds.icons.solid.CirclesThree
         val Clock = se.seb.gds.icons.solid.Clock
         val CloudDownload = se.seb.gds.icons.solid.CloudDownload
         val CloudUpload = se.seb.gds.icons.solid.CloudUpload
@@ -158,8 +159,8 @@ object GdsIcons {
         val FastForward = se.seb.gds.icons.solid.FastForward
         val FileBend = se.seb.gds.icons.solid.FileBend
         val FileChart = se.seb.gds.icons.solid.FileChart
-        val Files = se.seb.gds.icons.solid.Files
         val FileText = se.seb.gds.icons.solid.FileText
+        val Files = se.seb.gds.icons.solid.Files
         val Filter = se.seb.gds.icons.solid.Filter
         val Flag = se.seb.gds.icons.solid.Flag
         val FloppyDisk = se.seb.gds.icons.solid.FloppyDisk
@@ -215,16 +216,16 @@ object GdsIcons {
         val Minimize = se.seb.gds.icons.solid.Minimize
         val MinusLarge = se.seb.gds.icons.solid.MinusLarge
         val MinusSmall = se.seb.gds.icons.solid.MinusSmall
-        val Moneybag = se.seb.gds.icons.solid.Moneybag
         val MoneyHand = se.seb.gds.icons.solid.MoneyHand
+        val Moneybag = se.seb.gds.icons.solid.Moneybag
         val Moon = se.seb.gds.icons.solid.Moon
         val Mute = se.seb.gds.icons.solid.Mute
         val Office = se.seb.gds.icons.solid.Office
         val Other = se.seb.gds.icons.solid.Other
         val PageAdd = se.seb.gds.icons.solid.PageAdd
         val PageText = se.seb.gds.icons.solid.PageText
-        val Paperclip = se.seb.gds.icons.solid.Paperclip
         val PaperPlaneTopRight = se.seb.gds.icons.solid.PaperPlaneTopRight
+        val Paperclip = se.seb.gds.icons.solid.Paperclip
         val Pause = se.seb.gds.icons.solid.Pause
         val Pdf = se.seb.gds.icons.solid.Pdf
         val PencelLine = se.seb.gds.icons.solid.PencelLine
@@ -320,6 +321,7 @@ object GdsIcons {
         val TradingViewCandles = se.seb.gds.icons.solid.TradingViewCandles
         val TrashCan = se.seb.gds.icons.solid.TrashCan
         val Tree = se.seb.gds.icons.solid.Tree
+        val TrendingFive = se.seb.gds.icons.solid.TrendingFive
         val TrendingFour = se.seb.gds.icons.solid.TrendingFour
         val TrendingOne = se.seb.gds.icons.solid.TrendingOne
         val TrendingThree = se.seb.gds.icons.solid.TrendingThree
@@ -348,6 +350,7 @@ object GdsIcons {
         val Arrow = se.seb.gds.icons.regular.Arrow
         val ArrowBottomTop = se.seb.gds.icons.regular.ArrowBottomTop
         val ArrowBoxLeft = se.seb.gds.icons.regular.ArrowBoxLeft
+        val ArrowBoxLeftAlt = se.seb.gds.icons.regular.ArrowBoxLeftAlt
         val ArrowBoxRight = se.seb.gds.icons.regular.ArrowBoxRight
         val ArrowDown = se.seb.gds.icons.regular.ArrowDown
         val ArrowInbox = se.seb.gds.icons.regular.ArrowInbox
@@ -365,12 +368,12 @@ object GdsIcons {
         val ArrowShareLeft = se.seb.gds.icons.regular.ArrowShareLeft
         val ArrowShareRight = se.seb.gds.icons.regular.ArrowShareRight
         val ArrowSplit = se.seb.gds.icons.regular.ArrowSplit
-        val ArrowsRepeat = se.seb.gds.icons.regular.ArrowsRepeat
         val ArrowUp = se.seb.gds.icons.regular.ArrowUp
         val ArrowWallDown = se.seb.gds.icons.regular.ArrowWallDown
         val ArrowWallLeft = se.seb.gds.icons.regular.ArrowWallLeft
         val ArrowWallRight = se.seb.gds.icons.regular.ArrowWallRight
         val ArrowWallUp = se.seb.gds.icons.regular.ArrowWallUp
+        val ArrowsRepeat = se.seb.gds.icons.regular.ArrowsRepeat
         val At = se.seb.gds.icons.regular.At
         val Back = se.seb.gds.icons.regular.Back
         val Backward = se.seb.gds.icons.regular.Backward
@@ -392,8 +395,8 @@ object GdsIcons {
         val BookmarkPlus = se.seb.gds.icons.regular.BookmarkPlus
         val BookmarkRemove = se.seb.gds.icons.regular.BookmarkRemove
         val Books = se.seb.gds.icons.regular.Books
-        val BrandAppleMusic = se.seb.gds.icons.regular.BrandAppleMusic
         val BrandAppStore = se.seb.gds.icons.regular.BrandAppStore
+        val BrandAppleMusic = se.seb.gds.icons.regular.BrandAppleMusic
         val BrandBankid = se.seb.gds.icons.regular.BrandBankid
         val BrandChrome = se.seb.gds.icons.regular.BrandChrome
         val BrandFacebook = se.seb.gds.icons.regular.BrandFacebook
@@ -415,9 +418,9 @@ object GdsIcons {
         val BubbleDots = se.seb.gds.icons.regular.BubbleDots
         val BubbleQuestion = se.seb.gds.icons.regular.BubbleQuestion
         val BubbleQuotes = se.seb.gds.icons.regular.BubbleQuotes
-        val Bubbles = se.seb.gds.icons.regular.Bubbles
         val BubbleText = se.seb.gds.icons.regular.BubbleText
         val BubbleWideAnnotation = se.seb.gds.icons.regular.BubbleWideAnnotation
+        val Bubbles = se.seb.gds.icons.regular.Bubbles
         val Buildings = se.seb.gds.icons.regular.Buildings
         val BulletList = se.seb.gds.icons.regular.BulletList
         val CainLink = se.seb.gds.icons.regular.CainLink
@@ -457,8 +460,8 @@ object GdsIcons {
         val CirclePlaceholderOn = se.seb.gds.icons.regular.CirclePlaceholderOn
         val CirclePlus = se.seb.gds.icons.regular.CirclePlus
         val CircleQuestionmark = se.seb.gds.icons.regular.CircleQuestionmark
-        val CirclesThree = se.seb.gds.icons.regular.CirclesThree
         val CircleX = se.seb.gds.icons.regular.CircleX
+        val CirclesThree = se.seb.gds.icons.regular.CirclesThree
         val Clock = se.seb.gds.icons.regular.Clock
         val CloudDownload = se.seb.gds.icons.regular.CloudDownload
         val CloudUpload = se.seb.gds.icons.regular.CloudUpload
@@ -494,8 +497,8 @@ object GdsIcons {
         val FastForward = se.seb.gds.icons.regular.FastForward
         val FileBend = se.seb.gds.icons.regular.FileBend
         val FileChart = se.seb.gds.icons.regular.FileChart
-        val Files = se.seb.gds.icons.regular.Files
         val FileText = se.seb.gds.icons.regular.FileText
+        val Files = se.seb.gds.icons.regular.Files
         val Filter = se.seb.gds.icons.regular.Filter
         val Flag = se.seb.gds.icons.regular.Flag
         val FloppyDisk = se.seb.gds.icons.regular.FloppyDisk
@@ -551,16 +554,16 @@ object GdsIcons {
         val Minimize = se.seb.gds.icons.regular.Minimize
         val MinusLarge = se.seb.gds.icons.regular.MinusLarge
         val MinusSmall = se.seb.gds.icons.regular.MinusSmall
-        val Moneybag = se.seb.gds.icons.regular.Moneybag
         val MoneyHand = se.seb.gds.icons.regular.MoneyHand
+        val Moneybag = se.seb.gds.icons.regular.Moneybag
         val Moon = se.seb.gds.icons.regular.Moon
         val Mute = se.seb.gds.icons.regular.Mute
         val Office = se.seb.gds.icons.regular.Office
         val Other = se.seb.gds.icons.regular.Other
         val PageAdd = se.seb.gds.icons.regular.PageAdd
         val PageText = se.seb.gds.icons.regular.PageText
-        val Paperclip = se.seb.gds.icons.regular.Paperclip
         val PaperPlaneTopRight = se.seb.gds.icons.regular.PaperPlaneTopRight
+        val Paperclip = se.seb.gds.icons.regular.Paperclip
         val Pause = se.seb.gds.icons.regular.Pause
         val Pdf = se.seb.gds.icons.regular.Pdf
         val PencelLine = se.seb.gds.icons.regular.PencelLine
@@ -656,6 +659,7 @@ object GdsIcons {
         val TradingViewCandles = se.seb.gds.icons.regular.TradingViewCandles
         val TrashCan = se.seb.gds.icons.regular.TrashCan
         val Tree = se.seb.gds.icons.regular.Tree
+        val TrendingFive = se.seb.gds.icons.regular.TrendingFive
         val TrendingFour = se.seb.gds.icons.regular.TrendingFour
         val TrendingOne = se.seb.gds.icons.regular.TrendingOne
         val TrendingThree = se.seb.gds.icons.regular.TrendingThree
@@ -677,13 +681,14 @@ object GdsIcons {
         val ZoomOut = se.seb.gds.icons.regular.ZoomOut
     }
 
-    val All: Map<String, ImageVector> = mapOf(
+    val allIcons: Map<String, ImageVector> = mapOf(
         "Solid.Ai" to Solid.Ai,
         "Solid.AirplaneUp" to Solid.AirplaneUp,
         "Solid.Archive" to Solid.Archive,
         "Solid.Arrow" to Solid.Arrow,
         "Solid.ArrowBottomTop" to Solid.ArrowBottomTop,
         "Solid.ArrowBoxLeft" to Solid.ArrowBoxLeft,
+        "Solid.ArrowBoxLeftAlt" to Solid.ArrowBoxLeftAlt,
         "Solid.ArrowBoxRight" to Solid.ArrowBoxRight,
         "Solid.ArrowDown" to Solid.ArrowDown,
         "Solid.ArrowInbox" to Solid.ArrowInbox,
@@ -701,12 +706,12 @@ object GdsIcons {
         "Solid.ArrowShareLeft" to Solid.ArrowShareLeft,
         "Solid.ArrowShareRight" to Solid.ArrowShareRight,
         "Solid.ArrowSplit" to Solid.ArrowSplit,
-        "Solid.ArrowsRepeat" to Solid.ArrowsRepeat,
         "Solid.ArrowUp" to Solid.ArrowUp,
         "Solid.ArrowWallDown" to Solid.ArrowWallDown,
         "Solid.ArrowWallLeft" to Solid.ArrowWallLeft,
         "Solid.ArrowWallRight" to Solid.ArrowWallRight,
         "Solid.ArrowWallUp" to Solid.ArrowWallUp,
+        "Solid.ArrowsRepeat" to Solid.ArrowsRepeat,
         "Solid.At" to Solid.At,
         "Solid.Back" to Solid.Back,
         "Solid.Backward" to Solid.Backward,
@@ -728,8 +733,8 @@ object GdsIcons {
         "Solid.BookmarkPlus" to Solid.BookmarkPlus,
         "Solid.BookmarkRemove" to Solid.BookmarkRemove,
         "Solid.Books" to Solid.Books,
-        "Solid.BrandAppleMusic" to Solid.BrandAppleMusic,
         "Solid.BrandAppStore" to Solid.BrandAppStore,
+        "Solid.BrandAppleMusic" to Solid.BrandAppleMusic,
         "Solid.BrandBankid" to Solid.BrandBankid,
         "Solid.BrandChrome" to Solid.BrandChrome,
         "Solid.BrandFacebook" to Solid.BrandFacebook,
@@ -751,9 +756,9 @@ object GdsIcons {
         "Solid.BubbleDots" to Solid.BubbleDots,
         "Solid.BubbleQuestion" to Solid.BubbleQuestion,
         "Solid.BubbleQuotes" to Solid.BubbleQuotes,
-        "Solid.Bubbles" to Solid.Bubbles,
         "Solid.BubbleText" to Solid.BubbleText,
         "Solid.BubbleWideAnnotation" to Solid.BubbleWideAnnotation,
+        "Solid.Bubbles" to Solid.Bubbles,
         "Solid.Buildings" to Solid.Buildings,
         "Solid.BulletList" to Solid.BulletList,
         "Solid.CainLink" to Solid.CainLink,
@@ -793,8 +798,8 @@ object GdsIcons {
         "Solid.CirclePlaceholderOn" to Solid.CirclePlaceholderOn,
         "Solid.CirclePlus" to Solid.CirclePlus,
         "Solid.CircleQuestionmark" to Solid.CircleQuestionmark,
-        "Solid.CirclesThree" to Solid.CirclesThree,
         "Solid.CircleX" to Solid.CircleX,
+        "Solid.CirclesThree" to Solid.CirclesThree,
         "Solid.Clock" to Solid.Clock,
         "Solid.CloudDownload" to Solid.CloudDownload,
         "Solid.CloudUpload" to Solid.CloudUpload,
@@ -830,8 +835,8 @@ object GdsIcons {
         "Solid.FastForward" to Solid.FastForward,
         "Solid.FileBend" to Solid.FileBend,
         "Solid.FileChart" to Solid.FileChart,
-        "Solid.Files" to Solid.Files,
         "Solid.FileText" to Solid.FileText,
+        "Solid.Files" to Solid.Files,
         "Solid.Filter" to Solid.Filter,
         "Solid.Flag" to Solid.Flag,
         "Solid.FloppyDisk" to Solid.FloppyDisk,
@@ -887,16 +892,16 @@ object GdsIcons {
         "Solid.Minimize" to Solid.Minimize,
         "Solid.MinusLarge" to Solid.MinusLarge,
         "Solid.MinusSmall" to Solid.MinusSmall,
-        "Solid.Moneybag" to Solid.Moneybag,
         "Solid.MoneyHand" to Solid.MoneyHand,
+        "Solid.Moneybag" to Solid.Moneybag,
         "Solid.Moon" to Solid.Moon,
         "Solid.Mute" to Solid.Mute,
         "Solid.Office" to Solid.Office,
         "Solid.Other" to Solid.Other,
         "Solid.PageAdd" to Solid.PageAdd,
         "Solid.PageText" to Solid.PageText,
-        "Solid.Paperclip" to Solid.Paperclip,
         "Solid.PaperPlaneTopRight" to Solid.PaperPlaneTopRight,
+        "Solid.Paperclip" to Solid.Paperclip,
         "Solid.Pause" to Solid.Pause,
         "Solid.Pdf" to Solid.Pdf,
         "Solid.PencelLine" to Solid.PencelLine,
@@ -992,6 +997,7 @@ object GdsIcons {
         "Solid.TradingViewCandles" to Solid.TradingViewCandles,
         "Solid.TrashCan" to Solid.TrashCan,
         "Solid.Tree" to Solid.Tree,
+        "Solid.TrendingFive" to Solid.TrendingFive,
         "Solid.TrendingFour" to Solid.TrendingFour,
         "Solid.TrendingOne" to Solid.TrendingOne,
         "Solid.TrendingThree" to Solid.TrendingThree,
@@ -1017,6 +1023,7 @@ object GdsIcons {
         "Regular.Arrow" to Regular.Arrow,
         "Regular.ArrowBottomTop" to Regular.ArrowBottomTop,
         "Regular.ArrowBoxLeft" to Regular.ArrowBoxLeft,
+        "Regular.ArrowBoxLeftAlt" to Regular.ArrowBoxLeftAlt,
         "Regular.ArrowBoxRight" to Regular.ArrowBoxRight,
         "Regular.ArrowDown" to Regular.ArrowDown,
         "Regular.ArrowInbox" to Regular.ArrowInbox,
@@ -1034,12 +1041,12 @@ object GdsIcons {
         "Regular.ArrowShareLeft" to Regular.ArrowShareLeft,
         "Regular.ArrowShareRight" to Regular.ArrowShareRight,
         "Regular.ArrowSplit" to Regular.ArrowSplit,
-        "Regular.ArrowsRepeat" to Regular.ArrowsRepeat,
         "Regular.ArrowUp" to Regular.ArrowUp,
         "Regular.ArrowWallDown" to Regular.ArrowWallDown,
         "Regular.ArrowWallLeft" to Regular.ArrowWallLeft,
         "Regular.ArrowWallRight" to Regular.ArrowWallRight,
         "Regular.ArrowWallUp" to Regular.ArrowWallUp,
+        "Regular.ArrowsRepeat" to Regular.ArrowsRepeat,
         "Regular.At" to Regular.At,
         "Regular.Back" to Regular.Back,
         "Regular.Backward" to Regular.Backward,
@@ -1061,8 +1068,8 @@ object GdsIcons {
         "Regular.BookmarkPlus" to Regular.BookmarkPlus,
         "Regular.BookmarkRemove" to Regular.BookmarkRemove,
         "Regular.Books" to Regular.Books,
-        "Regular.BrandAppleMusic" to Regular.BrandAppleMusic,
         "Regular.BrandAppStore" to Regular.BrandAppStore,
+        "Regular.BrandAppleMusic" to Regular.BrandAppleMusic,
         "Regular.BrandBankid" to Regular.BrandBankid,
         "Regular.BrandChrome" to Regular.BrandChrome,
         "Regular.BrandFacebook" to Regular.BrandFacebook,
@@ -1084,9 +1091,9 @@ object GdsIcons {
         "Regular.BubbleDots" to Regular.BubbleDots,
         "Regular.BubbleQuestion" to Regular.BubbleQuestion,
         "Regular.BubbleQuotes" to Regular.BubbleQuotes,
-        "Regular.Bubbles" to Regular.Bubbles,
         "Regular.BubbleText" to Regular.BubbleText,
         "Regular.BubbleWideAnnotation" to Regular.BubbleWideAnnotation,
+        "Regular.Bubbles" to Regular.Bubbles,
         "Regular.Buildings" to Regular.Buildings,
         "Regular.BulletList" to Regular.BulletList,
         "Regular.CainLink" to Regular.CainLink,
@@ -1126,8 +1133,8 @@ object GdsIcons {
         "Regular.CirclePlaceholderOn" to Regular.CirclePlaceholderOn,
         "Regular.CirclePlus" to Regular.CirclePlus,
         "Regular.CircleQuestionmark" to Regular.CircleQuestionmark,
-        "Regular.CirclesThree" to Regular.CirclesThree,
         "Regular.CircleX" to Regular.CircleX,
+        "Regular.CirclesThree" to Regular.CirclesThree,
         "Regular.Clock" to Regular.Clock,
         "Regular.CloudDownload" to Regular.CloudDownload,
         "Regular.CloudUpload" to Regular.CloudUpload,
@@ -1163,8 +1170,8 @@ object GdsIcons {
         "Regular.FastForward" to Regular.FastForward,
         "Regular.FileBend" to Regular.FileBend,
         "Regular.FileChart" to Regular.FileChart,
-        "Regular.Files" to Regular.Files,
         "Regular.FileText" to Regular.FileText,
+        "Regular.Files" to Regular.Files,
         "Regular.Filter" to Regular.Filter,
         "Regular.Flag" to Regular.Flag,
         "Regular.FloppyDisk" to Regular.FloppyDisk,
@@ -1220,16 +1227,16 @@ object GdsIcons {
         "Regular.Minimize" to Regular.Minimize,
         "Regular.MinusLarge" to Regular.MinusLarge,
         "Regular.MinusSmall" to Regular.MinusSmall,
-        "Regular.Moneybag" to Regular.Moneybag,
         "Regular.MoneyHand" to Regular.MoneyHand,
+        "Regular.Moneybag" to Regular.Moneybag,
         "Regular.Moon" to Regular.Moon,
         "Regular.Mute" to Regular.Mute,
         "Regular.Office" to Regular.Office,
         "Regular.Other" to Regular.Other,
         "Regular.PageAdd" to Regular.PageAdd,
         "Regular.PageText" to Regular.PageText,
-        "Regular.Paperclip" to Regular.Paperclip,
         "Regular.PaperPlaneTopRight" to Regular.PaperPlaneTopRight,
+        "Regular.Paperclip" to Regular.Paperclip,
         "Regular.Pause" to Regular.Pause,
         "Regular.Pdf" to Regular.Pdf,
         "Regular.PencelLine" to Regular.PencelLine,
@@ -1325,6 +1332,7 @@ object GdsIcons {
         "Regular.TradingViewCandles" to Regular.TradingViewCandles,
         "Regular.TrashCan" to Regular.TrashCan,
         "Regular.Tree" to Regular.Tree,
+        "Regular.TrendingFive" to Regular.TrendingFive,
         "Regular.TrendingFour" to Regular.TrendingFour,
         "Regular.TrendingOne" to Regular.TrendingOne,
         "Regular.TrendingThree" to Regular.TrendingThree,
@@ -1345,4 +1353,6 @@ object GdsIcons {
         "Regular.ZoomIn" to Regular.ZoomIn,
         "Regular.ZoomOut" to Regular.ZoomOut,
     )
+
+    fun fromName(iconName: String): ImageVector? = allIcons[iconName]
 }
