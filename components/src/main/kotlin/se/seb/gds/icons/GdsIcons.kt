@@ -681,7 +681,7 @@ object GdsIcons {
         val ZoomOut = se.seb.gds.icons.regular.ZoomOut
     }
 
-    val All: Map<String, ImageVector> = mapOf(
+    val allIcons: Map<String, ImageVector> = mapOf(
         "Solid.Ai" to Solid.Ai,
         "Solid.AirplaneUp" to Solid.AirplaneUp,
         "Solid.Archive" to Solid.Archive,
@@ -1353,4 +1353,6 @@ object GdsIcons {
         "Regular.ZoomIn" to Regular.ZoomIn,
         "Regular.ZoomOut" to Regular.ZoomOut,
     )
+
+    fun fromName(iconName: String): ImageVector? = allIcons[iconName]
 }
