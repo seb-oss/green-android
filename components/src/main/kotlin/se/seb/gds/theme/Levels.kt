@@ -7,13 +7,15 @@ import androidx.compose.ui.graphics.Color
 enum class Level {
     L1,
     L2,
-    L3;
+    L3,
+    ;
 
-    fun elevate(): Level = when (this) {
-        L1 -> L2
-        L2 -> L3
-        L3 -> L3
-    }
+    fun elevate(): Level =
+        when (this) {
+            L1 -> L2
+            L2 -> L3
+            L3 -> L3
+        }
 }
 
 enum class ColorScheme {
@@ -35,12 +37,14 @@ fun getLevelContainerColor(): Color {
                 ColorScheme.Neutral02 -> GdsTheme.colors.L1.Neutral02
             }
         }
+
         Level.L2 -> {
             when (currentColorScheme) {
                 ColorScheme.Neutral01 -> GdsTheme.colors.L2.Neutral01
                 ColorScheme.Neutral02 -> GdsTheme.colors.L2.Neutral02
             }
         }
+
         Level.L3 -> {
             when (currentColorScheme) {
                 ColorScheme.Neutral01 -> GdsTheme.colors.L3.Neutral01

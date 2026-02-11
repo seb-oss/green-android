@@ -123,15 +123,15 @@ fun GdsLevelledButton(
 
         CompositionLocalProvider(
             LocalRippleConfiguration provides
-                    RippleConfiguration(
-                        color = rippleColor,
-                        rippleAlpha = RippleAlpha(
-                            draggedAlpha = 0.16f,
-                            focusedAlpha = 0.12f,
-                            hoveredAlpha = 0.08f,
-                            pressedAlpha = 0.1f,
-                        ),
+                RippleConfiguration(
+                    color = rippleColor,
+                    rippleAlpha = RippleAlpha(
+                        draggedAlpha = 0.16f,
+                        focusedAlpha = 0.12f,
+                        hoveredAlpha = 0.08f,
+                        pressedAlpha = 0.1f,
                     ),
+                ),
         ) {
             buttonContent()
         }

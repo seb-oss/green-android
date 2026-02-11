@@ -30,8 +30,7 @@ fun GdsLevelSurface(
             color = color,
             contentColor = contentColor,
             border = border,
-            content = content
+            content = content,
         )
     }
-
 }

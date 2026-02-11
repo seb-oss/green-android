@@ -75,7 +75,6 @@ fun GdsLevelledInformationCard(
     onClick: (() -> Unit)? = null,
     button: CardButton? = null,
 ) {
-
     GdsCard(
         modifier = modifier
             .clickable(

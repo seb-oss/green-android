@@ -312,17 +312,17 @@ object GdsInputDefaults {
     @Composable
     fun defaultLevelledInputColors(): GdsInputColors =
         GdsInputColors(
-            containerColor = getLevelContainerColor(),// GdsTheme.colors.L2.Neutral01,
+            containerColor = getLevelContainerColor(),
             floatingLabelColor = GdsTheme.colors.Content.Neutral02,
-            labelColor = getLevelContentColor(), //GdsTheme.colors.Content.Neutral01,
-            supportLabelColor = getLevelContentColor(), //GdsTheme.colors.Content.Neutral01,
-            inputTextColor = getLevelContentColor(), //GdsTheme.colors.Content.Neutral01,
+            labelColor = getLevelContentColor(),
+            supportLabelColor = getLevelContentColor(),
+            inputTextColor = getLevelContentColor(),
             errorTextColor = GdsTheme.colors.Content.Negative01,
             errorIndicatorColor = GdsTheme.colors.Border.Negative01,
             disabledContainerColor = GdsTheme.colors.L3.Disabled01,
             disabledContentColor = GdsTheme.colors.Content.Disabled01,
             focusedContainerColor = GdsTheme.colors.State.Neutral04,
-            cursorColor = getLevelContentColor(), //GdsTheme.colors.Content.Neutral01,
+            cursorColor = getLevelContentColor(),
             borderColor = GdsTheme.colors.Border.Interactive,
         )
 

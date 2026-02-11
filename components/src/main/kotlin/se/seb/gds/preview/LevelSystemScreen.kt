@@ -48,7 +48,9 @@ fun LevelSystemScreen() {
         GdsLevelledInformationCard(
             modifier = Modifier.padding(GdsTheme.dimensions.spacing.SpaceM),
             heading = "Level ${LocalLevel.current} (${LocalColorScheme.current})",
-            body = "This is an information card at level ${LocalLevel.current} with color scheme ${LocalColorScheme.current}. It demonstrates how the card adapts to different levels and color schemes",
+            body = "This is an information card at level ${LocalLevel.current} " +
+                "with color scheme ${LocalColorScheme.current}. " +
+                "It demonstrates how the card adapts to different levels and color schemes",
             button = CardButton(
                 title = "Doesn't matter",
                 onClick = { },
@@ -76,9 +78,7 @@ fun LevelSystemScreen() {
 }
 
 @Composable
-private fun CardSection(
-    title: String,
-) {
+private fun CardSection(title: String) {
     GdsLevelSurface(
         modifier = Modifier
             .fillMaxWidth()
@@ -131,7 +131,9 @@ private fun CardSection(
 
             GdsLevelledInformationCard(
                 heading = "Level ${LocalLevel.current} (${LocalColorScheme.current})",
-                body = "This is an information card at level ${LocalLevel.current} with color scheme ${LocalColorScheme.current}. It demonstrates how the card adapts to different levels and color schemes",
+                body = "This is an information card at level ${LocalLevel.current} with color " +
+                    "scheme ${LocalColorScheme.current}. It demonstrates how the card " +
+                    "adapts to different levels and color schemes",
                 button = CardButton(
                     title = "Doesn't matter",
                     onClick = { },
@@ -141,7 +143,9 @@ private fun CardSection(
             GdsLevelledInputDefault(
                 modifier = Modifier.padding(vertical = GdsTheme.dimensions.spacing.SpaceS),
                 style = GdsInputDefaults.defaultLevelledStyle(),
-                state = rememberTextFieldState("Level ${LocalLevel.current} (${LocalColorScheme.current})"),
+                state = rememberTextFieldState(
+                    initialText = "Level ${LocalLevel.current} (${LocalColorScheme.current})",
+                ),
                 label = "Label",
                 supportLabel = "Support Label",
                 inputState = BasicInputState(
