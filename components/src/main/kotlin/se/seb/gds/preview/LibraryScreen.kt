@@ -17,4 +17,5 @@ internal enum class LibraryScreen {
     LOADING_INDICATOR,
     DIALOGS,
     INFORMATION_CARD,
+    LEVEL_SYSTEM,
 }

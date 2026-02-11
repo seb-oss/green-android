@@ -6,10 +6,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import se.seb.gds.theme.GdsTheme
+import se.seb.gds.theme.LocalLevel
 
 /**
  * A foundational composable for building card-based UI elements within the GDS design system.
@@ -47,6 +49,11 @@ fun GdsCard(
         colors = CardDefaults.cardColors(containerColor = containerColor),
         shape = shape,
         border = border,
-        content = content,
-    )
+    ) {
+        CompositionLocalProvider(
+            LocalLevel provides LocalLevel.current.elevate(),
+        ) {
+            content()
+        }
+    }
 }
