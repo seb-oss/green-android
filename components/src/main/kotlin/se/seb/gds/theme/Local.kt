@@ -23,3 +23,11 @@ val LocalGdsTypography =
 val LocalGdsDimensions = staticCompositionLocalOf {
     GdsDimensions()
 }
+
+val LocalLevel = staticCompositionLocalOf {
+    Level.L1
+}
+
+val LocalColorScheme = staticCompositionLocalOf {
+    ColorScheme.Neutral01
+}

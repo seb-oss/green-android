@@ -12,6 +12,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import se.seb.gds.common.isLandscape
 import se.seb.gds.theme.GdsTheme
+import se.seb.gds.theme.getLevelContainerColor
+import se.seb.gds.theme.getLevelContentColor
 
 /**
  * Style configuration for [BasicInput], including sizes, colors, and text styles.
@@ -181,6 +183,14 @@ object GdsInputDefaults {
             supportLabelStyle = GdsTheme.typography.DetailRegularS,
         )
 
+    @Composable
+    fun defaultLevelledStyle() =
+        InputDefaultStyle(
+            basicInputStyle = basicLevelledContainerStyle(),
+            labelStyle = GdsTheme.typography.DetailBookM,
+            supportLabelStyle = GdsTheme.typography.DetailRegularS,
+        )
+
     /** Style for [GdsInputDefault] on grey background */
     @Composable
     fun defaultOnGreyStyle() =
@@ -236,6 +246,20 @@ object GdsInputDefaults {
             showBorder = true,
         )
 
+    @Composable
+    fun basicLevelledContainerStyle() =
+        BasicInputStyle(
+            containerShape = defaultInputContainer(),
+            colors = defaultLevelledInputColors(),
+            textSelectionColors = textSelectionColors(),
+            inputTextStyle = GdsTheme.typography.DetailBookM,
+            errorMessageStyle = GdsTheme.typography.DetailBookS,
+            characterCounter = GdsTheme.typography.DetailBookS,
+            unfocusedBorderThickness = 1.dp,
+            focusedBorderThickness = 2.dp,
+            showBorder = true,
+        )
+
     /**
      * Override default TextField colors to make container and indicator transparent
      * as we are using our own container and indicator in [GdsInputContained] and [GdsInputDefault]
@@ -282,6 +306,23 @@ object GdsInputDefaults {
             disabledContentColor = GdsTheme.colors.Content.Disabled01,
             focusedContainerColor = GdsTheme.colors.State.Neutral04,
             cursorColor = GdsTheme.colors.Content.Neutral01,
+            borderColor = GdsTheme.colors.Border.Interactive,
+        )
+
+    @Composable
+    fun defaultLevelledInputColors(): GdsInputColors =
+        GdsInputColors(
+            containerColor = getLevelContainerColor(),// GdsTheme.colors.L2.Neutral01,
+            floatingLabelColor = GdsTheme.colors.Content.Neutral02,
+            labelColor = getLevelContentColor(), //GdsTheme.colors.Content.Neutral01,
+            supportLabelColor = getLevelContentColor(), //GdsTheme.colors.Content.Neutral01,
+            inputTextColor = getLevelContentColor(), //GdsTheme.colors.Content.Neutral01,
+            errorTextColor = GdsTheme.colors.Content.Negative01,
+            errorIndicatorColor = GdsTheme.colors.Border.Negative01,
+            disabledContainerColor = GdsTheme.colors.L3.Disabled01,
+            disabledContentColor = GdsTheme.colors.Content.Disabled01,
+            focusedContainerColor = GdsTheme.colors.State.Neutral04,
+            cursorColor = getLevelContentColor(), //GdsTheme.colors.Content.Neutral01,
             borderColor = GdsTheme.colors.Border.Interactive,
         )
 

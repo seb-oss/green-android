@@ -138,6 +138,7 @@ internal fun DesignLibraryScreen(
                     LibraryScreen.BOTTOM_SHEET -> BottomSheetScreen()
 
                     LibraryScreen.INFORMATION_CARD -> InformationCardScreen()
+                    LibraryScreen.LEVEL_SYSTEM -> LevelSystemScreen()
 
                     else -> {}
                 }
@@ -192,6 +193,8 @@ private fun DesignLibrary(
             }
             HorizontalDivider()
             ListItem("Information Card") { onNavigateToSection(LibraryScreen.INFORMATION_CARD) }
+            HorizontalDivider()
+            ListItem("Level System") { onNavigateToSection(LibraryScreen.LEVEL_SYSTEM) }
         }
     }
 }
