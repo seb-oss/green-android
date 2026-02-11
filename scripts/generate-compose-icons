@@ -1,0 +1,50 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# Resolve paths relative to this script, no matter where it's executed from.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# We expect the old "green" monorepo to live next to this repo.
+# <parent>/green-android (this repo)
+# <parent>/green        (icon assets source)
+PARENT_DIR="$(cd "$REPO_ROOT/.." && pwd)"
+GREEN_REPO_DIR="$PARENT_DIR/green"
+
+if [[ ! -d "$GREEN_REPO_DIR" ]]; then
+  echo "Error: Expected sibling repository '$GREEN_REPO_DIR' to exist." >&2
+  echo "Make sure you have a checkout of the 'green' repo next to this repo." >&2
+  echo "(i.e. '$PARENT_DIR/green' and '$PARENT_DIR/green-android')" >&2
+  exit 1
+fi
+
+SOLID_SRC_DIR="$GREEN_REPO_DIR/libs/core/src/components/icon/assets/solid"
+REGULAR_SRC_DIR="$GREEN_REPO_DIR/libs/core/src/components/icon/assets/regular"
+
+if [[ ! -d "$SOLID_SRC_DIR" ]]; then
+  echo "Error: Solid icon assets not found at '$SOLID_SRC_DIR'" >&2
+  exit 1
+fi
+
+if [[ ! -d "$REGULAR_SRC_DIR" ]]; then
+  echo "Error: Regular icon assets not found at '$REGULAR_SRC_DIR'" >&2
+  exit 1
+fi
+
+# --- 1. Run the s2c conversion (which produces bad code) ---
+OUT_DIR="$REPO_ROOT/components/src/main/kotlin/se/seb/gds/icons"
+
+"$SCRIPT_DIR/s2c" --optimize false --make-internal --minified -o "$OUT_DIR/solid" -t se.seb.gds.theme.GdsTheme -p se.seb.gds.icons.solid "$SOLID_SRC_DIR/"
+"$SCRIPT_DIR/s2c" --optimize false --make-internal --minified -o "$OUT_DIR/regular" -t se.seb.gds.theme.GdsTheme -p se.seb.gds.icons.regular "$REGULAR_SRC_DIR/"
+
+# --- 2. Fix the generated Kotlin files (.kt) ---
+# For macOS:
+find "$OUT_DIR" -name "*.kt" -exec sed -i '' 's/0xCURRENTCOLOR/0xFF000000/g' {} +
+
+"$SCRIPT_DIR/generate-icon-manifest"
+# Generate a GdsIcons.kt file which can be moved to the BFF
+"$SCRIPT_DIR/generate-icon-enums"
+
+echo "Applying spotless"
+cd $REPO_ROOT && ./gradlew spotlessKotlinApply
