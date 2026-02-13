@@ -101,6 +101,21 @@ git clone git@github.com:seb-oss/green-android.git
 
 ## Development
 
+## Prerequisites
+
+This project uses [Git LFS](https://git-lfs.com/) to handle large files, such as screenshot test images. Before cloning the repository, you need to install Git LFS on your system.
+
+**Installation**
+
+1.  **Homebrew (macOS):**
+    ```bash
+    brew install git-lfs
+    ```
+
+After installation, run `git lfs install` once to set up the global Git hooks.
+
+---
+
 ### Building the Project
 
 To build the project locally:
