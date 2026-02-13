@@ -24,10 +24,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import se.seb.gds.atoms.GdsButtonDefaults.seb2016Shape
+import se.seb.gds.common.GdsUiPreview
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
@@ -237,20 +237,7 @@ private fun ButtonContent(
     }
 }
 
-@Preview(
-    name = "Light Mode",
-    group = "Themes",
-    showBackground = true,
-    backgroundColor = 0xFFFFFF,
-    uiMode = Configuration.UI_MODE_NIGHT_NO,
-)
-@Preview(
-    name = "Dark Mode",
-    group = "Themes",
-    showBackground = true,
-    backgroundColor = 0x000000,
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-)
+@GdsUiPreview
 @Composable
 private fun GdsButtonSecondaryOnWhitePreview() {
     GdsTheme {
@@ -263,20 +250,7 @@ private fun GdsButtonSecondaryOnWhitePreview() {
     }
 }
 
-@Preview(
-    name = "Light Mode",
-    group = "Themes",
-    showBackground = true,
-    backgroundColor = 0xFFFFFF,
-    uiMode = Configuration.UI_MODE_NIGHT_NO,
-)
-@Preview(
-    name = "Dark Mode",
-    group = "Themes",
-    showBackground = true,
-    backgroundColor = 0x000000,
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-)
+@GdsUiPreview
 @Composable
 private fun GdsButtonPrimaryPreview() {
     GdsTheme {
@@ -288,20 +262,7 @@ private fun GdsButtonPrimaryPreview() {
     }
 }
 
-@Preview(
-    name = "Light Mode",
-    group = "Themes",
-    showBackground = true,
-    backgroundColor = 0xFFFFFF,
-    uiMode = Configuration.UI_MODE_NIGHT_NO,
-)
-@Preview(
-    name = "Dark Mode",
-    group = "Themes",
-    showBackground = true,
-    backgroundColor = 0x000000,
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-)
+@GdsUiPreview
 @Composable
 private fun GdsIconButtonPrimaryPreview() {
     GdsTheme {
@@ -314,20 +275,7 @@ private fun GdsIconButtonPrimaryPreview() {
     }
 }
 
-@Preview(
-    name = "Light Mode",
-    group = "Themes",
-    showBackground = true,
-    backgroundColor = 0xFFFFFF,
-    uiMode = Configuration.UI_MODE_NIGHT_NO,
-)
-@Preview(
-    name = "Dark Mode",
-    group = "Themes",
-    showBackground = true,
-    backgroundColor = 0x000000,
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-)
+@GdsUiPreview
 @Composable
 private fun GdsButton2016PrimaryPreview() {
     GdsTheme {

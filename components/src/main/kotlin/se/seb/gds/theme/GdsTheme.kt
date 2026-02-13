@@ -14,13 +14,16 @@ import se.seb.gds.theme.colors.LocalLightModeColors
 import se.seb.gds.tokens.GdsTypographyTokens
 
 @Composable
-fun GdsTheme(content: @Composable () -> Unit) {
-    val colors = if (isSystemInDarkTheme()) {
+fun GdsTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit,
+) {
+    val colors = if (darkTheme) {
         LocalDarkModeColors
     } else {
         LocalLightModeColors
     }
-    val legacyColors = LegacyColors.defaultColors(isSystemDarkMode = isSystemInDarkTheme())
+    val legacyColors = LegacyColors.defaultColors(isSystemDarkMode = darkTheme)
     val rippleIndication = ripple(true, Dp.Unspecified, Color.Unspecified)
     CompositionLocalProvider(
         LocalGdsColors provides colors,
