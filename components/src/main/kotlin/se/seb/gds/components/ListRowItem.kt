@@ -31,6 +31,7 @@ object ListRowItem {
             Icon(
                 modifier = Modifier.size(24.dp),
                 imageVector = icon,
+                tint = GdsTheme.colors.Content.Neutral01,
                 contentDescription = contentDescription,
             )
         }
@@ -43,7 +44,7 @@ object ListRowItem {
             Icon(
                 modifier = Modifier.size(24.dp),
                 imageVector = icon,
-                tint = GdsTheme.colors.Content.Neutral04,
+                tint = GdsTheme.colors.Content.Neutral02,
                 contentDescription = contentDescription,
             )
         }
