@@ -1,4 +1,4 @@
-package atoms.button
+package se.seb.gds.atoms.button
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
