@@ -145,7 +145,7 @@ object GdsButtonDefaults {
         @Composable
         fun primaryColors() =
             ButtonDefaults.buttonColors(
-                containerColor = Color.Blue,
+                containerColor = GdsTheme.colors.L3.NeutralStrong,
                 contentColor = GdsTheme.colors.Content.Neutral03,
                 disabledContainerColor = GdsTheme.colors.L3.Disabled03,
                 disabledContentColor = GdsTheme.colors.Content.Disabled01,
