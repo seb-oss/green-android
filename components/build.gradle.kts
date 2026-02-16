@@ -35,6 +35,10 @@ android {
     buildFeatures {
         compose = true
     }
+
+    screenshotTests {
+        imageDifferenceThreshold = 0.002f // 0.2%
+    }
 }
 
 mavenPublishing {
