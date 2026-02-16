@@ -1,0 +1,47 @@
+name: Visual Regression Tests
+
+permissions:
+  contents: read
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  validate-screenshots:
+    name: Visual regression
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          lfs: true # Downloads the "Golden" images
+
+      - name: Checkout LFS Objects
+        run: git lfs pull
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'temurin'
+
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Run Screenshot Validation
+        run: ./gradlew validateDebugScreenshotTest
+
+      # If the previous step fails, this saves the diff images for you to see
+      - name: Upload Error Report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshot-test-report
+          path: components/build/reports/screenshotTest/
