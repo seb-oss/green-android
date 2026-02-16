@@ -1,15 +1,10 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package atoms.topbar
+package se.seb.gds.atoms.topbar
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import com.android.tools.screenshot.PreviewTest
-import se.seb.gds.atoms.topbar.GdsLargeTopAppBar
-import se.seb.gds.atoms.topbar.GdsMediumTopAppBar
-import se.seb.gds.atoms.topbar.GdsSmallTopAppBar
-import se.seb.gds.atoms.topbar.GdsTopBarAction
-import se.seb.gds.atoms.topbar.TopAppBarDefaults
 import se.seb.gds.common.GdsUiTestsPreview
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
@@ -92,7 +87,7 @@ private fun GdsMediumAppBarExpandedScreenshot() {
     // The default state is expanded, so no changes to scrollBehavior.state are needed.
     val scrollBehavior = TopAppBarDefaults.mediumLargeAppBarScrollBehavior()
     GdsTheme {
-        GdsLargeTopAppBar(
+        GdsMediumTopAppBar(
             title = "Medium Top Bar",
             subtitle = "Subtitle",
             scrollBehavior = scrollBehavior,
