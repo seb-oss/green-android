@@ -7,21 +7,31 @@ import androidx.compose.ui.tooling.preview.Preview
     name = "Light Mode",
     group = "Themes",
     uiMode = Configuration.UI_MODE_NIGHT_NO,
+    backgroundColor = 0xffffffff,
+    showBackground = true,
 )
 @Preview(
     name = "Dark Mode",
     group = "Themes",
     uiMode = Configuration.UI_MODE_NIGHT_YES,
+    backgroundColor = 0xff0a0b0b,
+    showBackground = true,
 )
 @Preview(
     name = "Small Font",
     group = "Font Scales",
     fontScale = 0.5f,
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    backgroundColor = 0xffffffff,
+    showBackground = true,
 )
 @Preview(
     name = "Large Font",
     group = "Font Scales",
     fontScale = 2.0f,
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    backgroundColor = 0xffffffff,
+    showBackground = true,
 )
 annotation class GdsUiPreview
 
