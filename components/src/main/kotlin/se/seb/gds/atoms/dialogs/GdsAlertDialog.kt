@@ -1,6 +1,5 @@
 package se.seb.gds.atoms.dialogs
 
-import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,11 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import se.seb.gds.atoms.ButtonWidthType
 import se.seb.gds.atoms.GdsButton
 import se.seb.gds.atoms.GdsButtonDefaults
 import se.seb.gds.atoms.GdsText
+import se.seb.gds.common.GdsUiPreview
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
@@ -109,20 +108,7 @@ fun GdsAlertDialog(
     )
 }
 
-@Preview(
-    name = "Light Mode",
-    group = "Themes",
-    showBackground = true,
-    backgroundColor = 0xFFFFFF,
-    uiMode = Configuration.UI_MODE_NIGHT_NO,
-)
-@Preview(
-    name = "Dark Mode",
-    group = "Themes",
-    showBackground = true,
-    backgroundColor = 0x000000,
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-)
+@GdsUiPreview
 @Composable
 private fun GdsAlertDialogPreview() {
     GdsTheme {
