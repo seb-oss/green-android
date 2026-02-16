@@ -1,6 +1,5 @@
 package se.seb.gds.preview
 
-import android.widget.Space
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
