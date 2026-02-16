@@ -1,4 +1,4 @@
-package atoms.button
+package se.seb.gds.atoms.button
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -61,7 +61,7 @@ private fun ButtonScreenshot(gdsButtonStyle: GdsButtonStyle) {
 @PreviewTest
 @GdsUiTestsPreview
 @Composable
-fun GdsButtonPrimaryScreenshot() {
+private fun GdsButtonPrimaryScreenshot() {
     GdsTheme {
         ButtonScreenshot(GdsButtonDefaults.TwentyThree.primary())
     }
@@ -70,7 +70,7 @@ fun GdsButtonPrimaryScreenshot() {
 @PreviewTest
 @GdsUiTestsPreview
 @Composable
-fun GdsButtonSecondaryScreenshot() {
+private fun GdsButtonSecondaryScreenshot() {
     GdsTheme {
         ButtonScreenshot(GdsButtonDefaults.TwentyThree.secondaryOnWhite())
     }
@@ -79,7 +79,7 @@ fun GdsButtonSecondaryScreenshot() {
 @PreviewTest
 @GdsUiTestsPreview
 @Composable
-fun GdsButtonTertiaryScreenshot() {
+private fun GdsButtonTertiaryScreenshot() {
     GdsTheme {
         ButtonScreenshot(GdsButtonDefaults.TwentyThree.tertiary())
     }
@@ -88,7 +88,7 @@ fun GdsButtonTertiaryScreenshot() {
 @PreviewTest
 @GdsUiTestsPreview
 @Composable
-fun GdsButtonOutlineScreenshot() {
+private fun GdsButtonOutlineScreenshot() {
     GdsTheme {
         ButtonScreenshot(GdsButtonDefaults.TwentyThree.outline())
     }
@@ -97,7 +97,7 @@ fun GdsButtonOutlineScreenshot() {
 @PreviewTest
 @GdsUiTestsPreview
 @Composable
-fun GdsButtonNegativeScreenshot() {
+private fun GdsButtonNegativeScreenshot() {
     GdsTheme {
         ButtonScreenshot(GdsButtonDefaults.TwentyThree.negative())
     }
