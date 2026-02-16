@@ -1,0 +1,55 @@
+name: Create and push new tag
+#Create and push a new tag when we update the VERSION_NAME on gradle.properties file
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'gradle.properties' ]
+
+  workflow_dispatch:
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    outputs:
+      tag_created: ${{ steps.check_tag.outputs.exists == 'false' }}
+      version: ${{ steps.get_version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get VERSION_NAME
+        id: get_version
+        run: |
+          VERSION=$(grep VERSION_NAME gradle.properties | cut -d'=' -f2 | tr -d '[:space:]')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Check if tag already exists
+        id: check_tag
+        run: |
+          TAG="v${{ steps.get_version.outputs.version }}"
+          if gh api repos/${{ github.repository }}/git/ref/tags/$TAG 2>/dev/null; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "Tag $TAG already exists"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "Tag $TAG does not exist, will create it"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create and push tag
+        if: steps.check_tag.outputs.exists == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "${{ steps.get_version.outputs.version }}"
+          git push origin "${{ steps.get_version.outputs.version }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    needs: tag
+    if: needs.tag.outputs.tag_created == 'true'
+    uses: ./.github/workflows/publish.yml
+    with:
+      version: ${{ needs.tag.outputs.version }}
