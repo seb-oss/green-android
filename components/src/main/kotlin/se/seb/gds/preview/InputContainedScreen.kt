@@ -32,12 +32,12 @@ import se.seb.gds.atoms.ButtonWidthType
 import se.seb.gds.atoms.GdsBottomSheet
 import se.seb.gds.atoms.GdsButton
 import se.seb.gds.atoms.GdsButtonDefaults
-import se.seb.gds.atoms.GdsSwitch
-import se.seb.gds.atoms.GdsSwitchDefaults
-import se.seb.gds.atoms.GdsSwitchStyle
 import se.seb.gds.atoms.input.BasicInputState
 import se.seb.gds.atoms.input.GdsInputContained
 import se.seb.gds.atoms.input.GdsInputDefaults
+import se.seb.gds.atoms.switch.GdsSwitch
+import se.seb.gds.atoms.switch.GdsSwitchDefaults
+import se.seb.gds.atoms.switch.GdsSwitchStyle
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 

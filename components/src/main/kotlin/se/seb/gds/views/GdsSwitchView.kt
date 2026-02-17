@@ -7,8 +7,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.AbstractComposeView
-import se.seb.gds.atoms.GdsSwitch
-import se.seb.gds.atoms.GdsSwitchDefaults
+import se.seb.gds.atoms.switch.GdsSwitch
+import se.seb.gds.atoms.switch.GdsSwitchDefaults
 
 /**
  * A custom switch view that provides a visually distinct green-themed switch using Jetpack Compose.
