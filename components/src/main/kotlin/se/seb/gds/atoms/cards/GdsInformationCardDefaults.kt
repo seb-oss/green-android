@@ -68,7 +68,7 @@ object GdsInformationCardDefaults {
         )
 
     @Composable
-    fun informationHd() =
+    fun loud() =
         CardStyle(
             colors = CardColors(
                 containerColor = GdsTheme.colors.L2.NeutralLoud,

@@ -163,10 +163,10 @@ private fun GdsInformationCardPreview() {
 
 @GdsUiPreview
 @Composable
-private fun GdsInformationCardHdPreview() {
+private fun GdsLoudPreview() {
     GdsTheme {
         GdsInformationCard(
-            style = GdsInformationCardDefaults.informationHd(),
+            style = GdsInformationCardDefaults.loud(),
             heading = "Spärra ditt kort snabbt i appen",
             body = "This information card displays important details and optional actions for the user.",
             button = CardButton(

@@ -42,7 +42,7 @@ fun InformationCardScreen() {
     var iconPosition by rememberSaveable { mutableStateOf("Left") }
 
     var isInfoCardVisible by rememberSaveable { mutableStateOf(true) }
-    var isInfoHdCardVisible by rememberSaveable { mutableStateOf(true) }
+    var isLoudInfoCardVisible by rememberSaveable { mutableStateOf(true) }
     var isInfoOnWhiteCardVisible by rememberSaveable { mutableStateOf(true) }
 
     val context = LocalContext.current
@@ -130,7 +130,7 @@ fun InformationCardScreen() {
                 hasIcon = true
                 iconPosition = "Left"
                 isInfoCardVisible = true
-                isInfoHdCardVisible = true
+                isLoudInfoCardVisible = true
                 isInfoOnWhiteCardVisible = true
             }
         }
@@ -166,11 +166,11 @@ fun InformationCardScreen() {
         )
 
         CardSection(
-            title = "Information Card HD",
-            style = GdsInformationCardDefaults.informationHd(),
+            title = "Loud Information Card",
+            style = GdsInformationCardDefaults.loud(),
             dismissButton = dismissButton,
-            isVisible = isInfoHdCardVisible,
-            onDismiss = { isInfoHdCardVisible = false },
+            isVisible = isLoudInfoCardVisible,
+            onDismiss = { isLoudInfoCardVisible = false },
             onClick = onCardClickAction,
             button = button,
         )
