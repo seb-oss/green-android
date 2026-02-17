@@ -19,7 +19,7 @@ import se.seb.gds.theme.GdsTheme
  *
  * @param modifier The [Modifier] to be applied to the card.
  * @param containerColor The background color of the card. Defaults to `GdsTheme.colors.L1.Neutral01`.
- * @param shape The shape of the card's corners. Defaults to [GdsCardDefaults.shape].
+ * @param shape The shape of the card's corners. Defaults to [GdsInformationCardDefaults.shape].
  * @param border An optional border to draw around the card.
  * @param content The content to be placed inside the card.
  *

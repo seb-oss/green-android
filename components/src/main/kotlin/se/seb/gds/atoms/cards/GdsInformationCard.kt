@@ -19,7 +19,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import se.seb.gds.atoms.GdsButton
 import se.seb.gds.atoms.GdsButtonDefaults
 import se.seb.gds.common.GdsUiPreview
@@ -32,13 +31,13 @@ import se.seb.gds.theme.GdsTheme
  * button, and an optional action button. The card can also be made clickable.
  *
  * This component is built on top of [GdsCard] and is styled using [CardStyle]. Default styles
- * are provided by [GdsCardDefaults].
+ * are provided by [GdsInformationCardDefaults].
  *
  * @param heading The heading of the card.
  * @param body The body text of the card.
  * @param modifier The [Modifier] to be applied to the card.
  * @param style The [CardStyle] to be applied to the card, defining its colors, shape, and border.
- * Defaults to [GdsCardDefaults.information].
+ * Defaults to [GdsInformationCardDefaults.information].
  * @param onDismiss A lambda to be executed when the dismiss icon is clicked. If null, the dismiss
  * icon is not shown.
  * @param onClick A lambda to be executed when the card is clicked. If null, the card will not be
@@ -67,7 +66,7 @@ fun GdsInformationCard(
     heading: String,
     body: String,
     modifier: Modifier = Modifier,
-    style: CardStyle = GdsCardDefaults.information(),
+    style: CardStyle = GdsInformationCardDefaults.information(),
     onDismiss: (() -> Unit)? = null,
     onClick: (() -> Unit)? = null,
     button: CardButton? = null,
@@ -101,7 +100,7 @@ fun GdsInformationCard(
                 )
                 Text(
                     text = body,
-                    style = GdsTheme.typography.DetailRegularS,
+                    style = GdsTheme.typography.BodyRegularS,
                     color = style.colors.contentColor,
                 )
             }
@@ -111,7 +110,7 @@ fun GdsInformationCard(
                     onClick = onDismiss,
                 ) {
                     Icon(
-                        modifier = Modifier.size(24.dp),
+                        modifier = Modifier.size(GdsTheme.dimensions.spacing.SpaceXl),
                         tint = style.colors.contentColor,
                         imageVector = GdsIcons.Regular.CrossSmall,
                         contentDescription = stringResource(R.string.common_action_close),
@@ -167,7 +166,7 @@ private fun GdsInformationCardPreview() {
 private fun GdsInformationCardHdPreview() {
     GdsTheme {
         GdsInformationCard(
-            style = GdsCardDefaults.informationHd(),
+            style = GdsInformationCardDefaults.informationHd(),
             heading = "Spärra ditt kort snabbt i appen",
             body = "This information card displays important details and optional actions for the user.",
             button = CardButton(
@@ -185,7 +184,7 @@ private fun GdsInformationCardHdPreview() {
 private fun GdsInformationCardWhitePreview() {
     GdsTheme {
         GdsInformationCard(
-            style = GdsCardDefaults.informationOnWhite(),
+            style = GdsInformationCardDefaults.informationOnWhite(),
             heading = "Information Card Heading",
             body = "This information card displays important details and optional actions for the user.",
             button = CardButton(

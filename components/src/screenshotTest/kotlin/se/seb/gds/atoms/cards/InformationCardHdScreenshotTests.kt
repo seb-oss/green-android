@@ -24,7 +24,7 @@ private fun GdsInfoCardHdScreenshot() {
         ) {
             // HD Information Card with action button and dismiss icon
             GdsInformationCard(
-                style = GdsCardDefaults.informationHd(),
+                style = GdsInformationCardDefaults.informationHd(),
                 heading = "Information Card HD",
                 body = "This is an information card used for testing screenshot functionality.",
                 onDismiss = {},
@@ -36,7 +36,7 @@ private fun GdsInfoCardHdScreenshot() {
 
             // HD Information Card without action button and dismiss icon
             GdsInformationCard(
-                style = GdsCardDefaults.informationHd(),
+                style = GdsInformationCardDefaults.informationHd(),
                 heading = "Information Card HD",
                 body = "This is an information card used for testing screenshot functionality.",
                 onDismiss = null,
