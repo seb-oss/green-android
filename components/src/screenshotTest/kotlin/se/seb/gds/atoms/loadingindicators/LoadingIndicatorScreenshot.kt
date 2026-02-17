@@ -26,7 +26,7 @@ private fun GdsLoadingIndicatorScreenshot() {
         ) {
             // Default loading indicator
             GdsLoadingIndicator()
-            
+
             // Loading indicator with custom size
             GdsLoadingIndicator(size = 60.dp)
         }
