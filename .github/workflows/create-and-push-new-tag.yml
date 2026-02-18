@@ -56,3 +56,4 @@ jobs:
     uses: ./.github/workflows/publish.yml
     with:
       version: ${{ needs.tag.outputs.version }}
+    secrets: inherit
