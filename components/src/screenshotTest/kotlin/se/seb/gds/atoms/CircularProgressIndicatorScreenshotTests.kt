@@ -1,10 +1,8 @@
 package se.seb.gds.atoms
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.android.tools.screenshot.PreviewTest
@@ -17,17 +15,40 @@ import se.seb.gds.theme.GdsTheme
 @PreviewTest
 @GdsUiTestsPreview
 @Composable
-private fun GdsCircularProgressIndicatorScreenshot() {
+private fun GdsCircularProgressIndicatorDefaultScreenshot() {
     GdsTheme {
         Column(
             modifier = Modifier.padding(GdsTheme.dimensions.spacing.SpaceM),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            // Default circular progress indicator
             GdsCircularProgressIndicator()
+        }
+    }
+}
 
-            // Circular progress indicator with custom size
+@PreviewTest
+@GdsUiTestsPreview
+@Composable
+private fun GdsCircularProgressIndicatorWithCustomColorScreenshot() {
+    GdsTheme {
+        Column(
+            modifier = Modifier.padding(GdsTheme.dimensions.spacing.SpaceM),
+        ) {
+            GdsCircularProgressIndicator(
+                color = GdsTheme.colors.Border.Subtle01,
+                trackColor = GdsTheme.colors.Border.Strong,
+            )
+        }
+    }
+}
+
+@PreviewTest
+@GdsUiTestsPreview
+@Composable
+private fun GdsCircularProgressIndicatorWithCustomSize60DpScreenshot() {
+    GdsTheme {
+        Column(
+            modifier = Modifier.padding(GdsTheme.dimensions.spacing.SpaceM),
+        ) {
             GdsCircularProgressIndicator(size = 60.dp)
         }
     }
