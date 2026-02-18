@@ -28,8 +28,8 @@ import se.seb.gds.atoms.GdsText
 import se.seb.gds.atoms.cards.CardButton
 import se.seb.gds.atoms.cards.CardStyle
 import se.seb.gds.atoms.cards.GdsCardAnimated
-import se.seb.gds.atoms.cards.GdsCardDefaults
 import se.seb.gds.atoms.cards.GdsInformationCard
+import se.seb.gds.atoms.cards.GdsInformationCardDefaults
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
@@ -42,7 +42,7 @@ fun InformationCardScreen() {
     var iconPosition by rememberSaveable { mutableStateOf("Left") }
 
     var isInfoCardVisible by rememberSaveable { mutableStateOf(true) }
-    var isInfoHdCardVisible by rememberSaveable { mutableStateOf(true) }
+    var isLoudInfoCardVisible by rememberSaveable { mutableStateOf(true) }
     var isInfoOnWhiteCardVisible by rememberSaveable { mutableStateOf(true) }
 
     val context = LocalContext.current
@@ -71,9 +71,9 @@ fun InformationCardScreen() {
           heading = "Heading",
           body = "Body text",
           modifier = modifier,
-          style = GdsCardDefaults.information(),
-          button = GdsCardButton(,
-          title = "Action Button",
+          style = GdsInformationCardDefaults.information(),
+          button = GdsCardButton(
+              title = "Action Button",
               icon = GdsIcons.Regular.Arrow,
               onClick = { /* Action */ },
           ),
@@ -130,7 +130,7 @@ fun InformationCardScreen() {
                 hasIcon = true
                 iconPosition = "Left"
                 isInfoCardVisible = true
-                isInfoHdCardVisible = true
+                isLoudInfoCardVisible = true
                 isInfoOnWhiteCardVisible = true
             }
         }
@@ -157,7 +157,7 @@ fun InformationCardScreen() {
 
         CardSection(
             title = "Information Card",
-            style = GdsCardDefaults.information(),
+            style = GdsInformationCardDefaults.information(),
             dismissButton = dismissButton,
             isVisible = isInfoCardVisible,
             onDismiss = { isInfoCardVisible = false },
@@ -166,11 +166,11 @@ fun InformationCardScreen() {
         )
 
         CardSection(
-            title = "Information Card HD",
-            style = GdsCardDefaults.informationHd(),
+            title = "Loud Information Card",
+            style = GdsInformationCardDefaults.loud(),
             dismissButton = dismissButton,
-            isVisible = isInfoHdCardVisible,
-            onDismiss = { isInfoHdCardVisible = false },
+            isVisible = isLoudInfoCardVisible,
+            onDismiss = { isLoudInfoCardVisible = false },
             onClick = onCardClickAction,
             button = button,
         )
@@ -178,7 +178,7 @@ fun InformationCardScreen() {
         Column(modifier = Modifier.background(GdsTheme.colors.L1.Neutral01)) {
             CardSection(
                 title = "Information Card on White Background",
-                style = GdsCardDefaults.informationOnWhite(),
+                style = GdsInformationCardDefaults.informationOnWhite(),
                 dismissButton = dismissButton,
                 isVisible = isInfoOnWhiteCardVisible,
                 onDismiss = { isInfoOnWhiteCardVisible = false },
