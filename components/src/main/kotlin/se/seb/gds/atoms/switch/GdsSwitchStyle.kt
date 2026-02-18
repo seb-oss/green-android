@@ -1,4 +1,4 @@
-package se.seb.gds.atoms
+package se.seb.gds.atoms.switch
 
 import androidx.compose.material3.SwitchColors
 import androidx.compose.material3.SwitchDefaults

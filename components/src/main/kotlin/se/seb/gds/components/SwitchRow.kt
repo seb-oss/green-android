@@ -18,9 +18,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import se.seb.gds.atoms.GdsSwitch
-import se.seb.gds.atoms.GdsSwitchDefaults
-import se.seb.gds.atoms.GdsSwitchStyle
+import se.seb.gds.atoms.switch.GdsSwitch
+import se.seb.gds.atoms.switch.GdsSwitchDefaults
+import se.seb.gds.atoms.switch.GdsSwitchStyle
 import se.seb.gds.theme.GdsTheme
 
 @Composable
