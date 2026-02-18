@@ -1,11 +1,11 @@
 name: Publish to Maven Central
 
 on:
-  push:
-    tags:
-      - '*'  # This triggers the workflow on any tag push'
-  # This allows you to trigger the workflow manually from the Actions tab in GitHub
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
 
 jobs:
   publish-to-central:
@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.version }}
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -45,12 +47,11 @@ jobs:
         run: ./gradlew publish --no-configuration-cache --info
 
       - name: Create Github Release
-        if: startsWith(github.ref, 'refs/tags/')
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
+          tag_name: ${{ inputs.version }}
+          release_name: Release ${{ inputs.version }}
           draft: false
           prerelease: false
