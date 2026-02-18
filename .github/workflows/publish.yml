@@ -7,6 +7,7 @@ on:
         required: true
         type: string
 
+
 jobs:
   publish-to-central:
     name: Build and Publish to Maven Central
