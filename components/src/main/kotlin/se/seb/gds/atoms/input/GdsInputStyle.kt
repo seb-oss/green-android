@@ -308,7 +308,7 @@ object GdsInputDefaults {
     fun containedInputContainer(): InputContainerShape =
         InputContainerShape(
             landscape = ContainerShape(
-                height = 60.dp,
+                height = 64.dp,
                 shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
             ),
             portrait = ContainerShape(

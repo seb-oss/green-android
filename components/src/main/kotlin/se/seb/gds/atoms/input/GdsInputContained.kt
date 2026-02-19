@@ -48,7 +48,6 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.text.lerp
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import se.seb.gds.common.isLandscape
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
@@ -227,13 +226,13 @@ private fun InputContainedTrailing(
         Row(
             modifier = Modifier
                 .animateContentSizeIf(inputState.showInfoIcon)
-                .heightIn(min = 24.dp),
+                .heightIn(min = GdsTheme.dimensions.spacing.SpaceXl),
             horizontalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceS),
         ) {
             if (inputState.showInfoIcon) {
                 Icon(
                     modifier = Modifier
-                        .size(24.dp)
+                        .size(GdsTheme.dimensions.spacing.SpaceXl)
                         .clip(CircleShape)
                         .clearAndSetSemantics { role = Role.Button }
                         .clickable(onClick = onInfoIconClick),
@@ -261,7 +260,7 @@ private fun InputContainedTrailing(
             if (showErrorIcon) {
                 Icon(
                     modifier = Modifier
-                        .size(24.dp)
+                        .size(GdsTheme.dimensions.spacing.SpaceXl)
                         .align(Alignment.CenterVertically),
                     imageVector = GdsIcons.Solid.TriangleExclamation,
                     contentDescription = null,

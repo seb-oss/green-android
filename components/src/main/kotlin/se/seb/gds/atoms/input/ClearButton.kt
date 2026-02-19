@@ -30,7 +30,7 @@ fun ClearButton(
     val clearButtonDescription = stringResource(id = R.string.clear_button_description)
     Icon(
         modifier = modifier
-            .size(24.dp)
+            .size(GdsTheme.dimensions.spacing.SpaceXl)
             .clip(CircleShape)
             .clearAndSetSemantics {
                 contentDescription = clearButtonDescription

@@ -2,7 +2,7 @@
 <resources>
     <string name="common_action_close">Close</string>
     <string name="text_field">Text field</string>
-    <string name="text_field_error_in_field">There is an error in the field.</string>
+    <string name="text_field_error_in_field">There is an error in the textfield.</string>
     <string name="text_field_edit">edit</string>
     <string name="text_field_is_editing">is editing</string>
     <string name="text_field_characters_written">%d of %d possible characters written.</string>

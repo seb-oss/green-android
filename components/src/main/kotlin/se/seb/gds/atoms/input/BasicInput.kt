@@ -58,7 +58,6 @@ import androidx.compose.ui.semantics.hideFromAccessibility
 import androidx.compose.ui.semantics.onClick
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.flow.collectLatest
 import se.seb.gds.components.R
 import se.seb.gds.icons.GdsIcons
@@ -314,7 +313,7 @@ internal fun ErrorFooter(
     ) {
         Icon(
             modifier = Modifier
-                .size(20.dp)
+                .size(GdsTheme.dimensions.spacing.SpaceL)
                 .align(Alignment.CenterVertically),
             imageVector = GdsIcons.Solid.TriangleExclamation,
             contentDescription = null,
@@ -387,14 +386,18 @@ private fun getAccessibilityDescription(
 ): String {
     val descriptionBuilder = StringBuilder()
 
-    if (inputState.isError) {
-        descriptionBuilder.append(stringResource(id = R.string.text_field_error_in_field))
-        descriptionBuilder.append(", ")
-    }
-
     label?.let {
         if (it.isNotBlank()) {
             descriptionBuilder.append(label)
+            descriptionBuilder.append(", ")
+        }
+    }
+
+    if (inputState.isError) {
+        descriptionBuilder.append(stringResource(id = R.string.text_field_error_in_field))
+        descriptionBuilder.append(", ")
+        if (inputState.errorMessage != null) {
+            descriptionBuilder.append(inputState.errorMessage)
             descriptionBuilder.append(", ")
         }
     }
