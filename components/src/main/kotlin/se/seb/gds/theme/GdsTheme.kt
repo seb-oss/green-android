@@ -31,6 +31,8 @@ fun GdsTheme(
         LocalLegacyColors provides legacyColors,
         LocalGdsTypography provides GdsTypographyTokens,
         LocalGdsDimensions provides GdsDimensions(),
+        LocalLevel provides Level.L1,
+        LocalColorScheme provides ColorScheme.Neutral01,
         content = content,
     )
 }
