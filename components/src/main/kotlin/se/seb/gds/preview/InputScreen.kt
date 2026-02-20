@@ -30,6 +30,8 @@ import se.seb.gds.atoms.GdsBottomSheet
 import se.seb.gds.atoms.GdsButton
 import se.seb.gds.atoms.GdsButtonDefaults
 import se.seb.gds.atoms.input.BasicInputState
+import se.seb.gds.atoms.input.CharacterLimit
+import se.seb.gds.atoms.input.CharacterLimitType
 import se.seb.gds.atoms.input.GdsInputDefault
 import se.seb.gds.atoms.input.GdsInputDefaults
 import se.seb.gds.icons.GdsIcons
@@ -42,6 +44,7 @@ fun InputScreen(scrollState: ScrollState) {
     var isError by rememberSaveable { mutableStateOf(false) }
     var clearable by rememberSaveable { mutableStateOf(true) }
     var maxChar by rememberSaveable { mutableStateOf(true) }
+    var limitType by rememberSaveable { mutableStateOf(CharacterLimitType.SOFT) }
     var infoIcon by rememberSaveable { mutableStateOf(true) }
     var supportLabel by rememberSaveable { mutableStateOf(true) }
 
@@ -94,11 +97,11 @@ fun InputScreen(scrollState: ScrollState) {
                 label = "Label",
                 supportLabel = if (supportLabel) "Support Label" else null,
                 inputState = BasicInputState(
-                    maxCharacters = if (maxChar) 50 else null,
                     errorMessage = "Error message",
                     clearable = clearable,
                     isError = isError,
                     showInfoIcon = infoIcon,
+                    characterLimit = CharacterLimit(50, limitType).takeIf { maxChar },
                 ),
                 onInfoIconClick = {
                     Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
@@ -110,11 +113,11 @@ fun InputScreen(scrollState: ScrollState) {
                 label = "Label",
                 supportLabel = if (supportLabel) "Support Label" else null,
                 inputState = BasicInputState(
-                    maxCharacters = if (maxChar) 50 else null,
                     errorMessage = "Error message",
                     clearable = clearable,
                     isError = isError,
                     showInfoIcon = infoIcon,
+                    characterLimit = CharacterLimit(50, limitType).takeIf { maxChar },
                 ),
                 onInfoIconClick = {
                     Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
@@ -144,6 +147,16 @@ fun InputScreen(scrollState: ScrollState) {
                 }
                 InputSwitchRow("Max characters", checked = maxChar) {
                     maxChar = it
+                }
+                if (maxChar) {
+                    SelectRow(
+                        selectedText = limitType.name,
+                        onItemSelected = { newValue ->
+                            limitType = CharacterLimitType.valueOf(newValue)
+                        },
+                        items = CharacterLimitType.entries.map { it.name },
+                        label = "Character limit: ",
+                    )
                 }
                 InputSwitchRow("Clearable", checked = clearable) {
                     clearable = it

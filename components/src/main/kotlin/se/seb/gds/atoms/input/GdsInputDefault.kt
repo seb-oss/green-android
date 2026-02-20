@@ -94,9 +94,12 @@ fun GdsInputDefault(
         inputState = inputState,
         interactionSource = interactionSource,
         onInfoIconClick = onInfoIconClick,
-        onValueChange = onValueChange,
+        onValueChange = {
+            validate(it, inputState.characterLimit)
+            onValueChange(it)
+        },
         onInteraction = onInteraction,
-    ) { textFieldIsFocused ->
+    ) { isTextFieldFocused, isCharacterLimitError ->
         InputDefaultHeader(
             label = label,
             supportLabel = supportLabel,
@@ -106,9 +109,10 @@ fun GdsInputDefault(
         )
         InputContainer(
             contentPadding = containerContentPadding,
-            textFieldIsFocused = textFieldIsFocused,
+            textFieldIsFocused = isTextFieldFocused,
             style = style.basicInputStyle,
             inputState = inputState,
+            characterLimitError = isCharacterLimitError,
             state = state,
             scrollState = scrollState,
             interactionSource = interactionSource,
@@ -119,7 +123,7 @@ fun GdsInputDefault(
             trailingContent = {
                 val isMultiLine = isMultiLine(inputState.lineLimits, textLineCount)
                 val trailingModifier = Modifier
-                    .alpha(if (textFieldIsFocused) 1f else 0f)
+                    .alpha(if (isTextFieldFocused) 1f else 0f)
                     .let {
                         if (isMultiLine) {
                             it.padding(containerContentPadding)
@@ -129,19 +133,22 @@ fun GdsInputDefault(
                     }
                 InputDefaultTrailing(
                     modifier = trailingModifier,
-                    textFieldIsFocused = textFieldIsFocused,
+                    textFieldIsFocused = isTextFieldFocused,
                     clearable = inputState.clearable,
                     style = style.basicInputStyle,
-                    maxCharacters = inputState.maxCharacters,
+                    maxCharacters = inputState.characterLimit?.maxCharacters,
                     state = state,
                     clearText = { clearText(state) },
                 )
             },
             onTextLayoutResult = { lineCount -> textLineCount = lineCount },
         )
-        if (inputState.isError && !inputState.errorMessage.isNullOrBlank()) {
-            ErrorFooter(errorMessage = inputState.errorMessage, style = style.basicInputStyle)
-        }
+
+        InputError(
+            isCharacterLimitError = isCharacterLimitError,
+            inputState = inputState,
+            style = style.basicInputStyle,
+        )
     }
 }
 
@@ -301,7 +308,7 @@ private fun TextFieldPreview() {
                     supportLabel = "Support Label",
                     inputState = BasicInputState(
                         showInfoIcon = true,
-                        maxCharacters = 50,
+                        characterLimit = CharacterLimit(50),
                     ),
                 )
                 Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
@@ -314,6 +321,7 @@ private fun TextFieldPreview() {
                     inputState = BasicInputState(
                         errorMessage = "Error message.",
                         isError = true,
+                        characterLimit = CharacterLimit(50, CharacterLimitType.HARD),
                     ),
                 )
             }

@@ -33,6 +33,8 @@ import se.seb.gds.atoms.GdsBottomSheet
 import se.seb.gds.atoms.GdsButton
 import se.seb.gds.atoms.GdsButtonDefaults
 import se.seb.gds.atoms.input.BasicInputState
+import se.seb.gds.atoms.input.CharacterLimit
+import se.seb.gds.atoms.input.CharacterLimitType
 import se.seb.gds.atoms.input.GdsInputContained
 import se.seb.gds.atoms.input.GdsInputDefaults
 import se.seb.gds.atoms.switch.GdsSwitch
@@ -49,6 +51,7 @@ fun InputContainedScreen(scrollState: ScrollState) {
     var errorOutside by rememberSaveable { mutableStateOf(false) }
     var clearable by rememberSaveable { mutableStateOf(true) }
     var maxChar by rememberSaveable { mutableStateOf(true) }
+    var limitType by rememberSaveable { mutableStateOf(CharacterLimitType.SOFT) }
     var infoIcon by rememberSaveable { mutableStateOf(true) }
 
     val sheetState = rememberModalBottomSheetState()
@@ -105,11 +108,11 @@ fun InputContainedScreen(scrollState: ScrollState) {
                     Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
                 },
                 inputState = BasicInputState(
-                    maxCharacters = if (maxChar) 50 else null,
                     errorMessage = errorMessage,
                     clearable = clearable,
                     isError = isError,
                     showInfoIcon = infoIcon,
+                    characterLimit = CharacterLimit(50, limitType).takeIf { maxChar },
                 ),
             )
             GdsInputContained(
@@ -120,11 +123,11 @@ fun InputContainedScreen(scrollState: ScrollState) {
                     Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
                 },
                 inputState = BasicInputState(
-                    maxCharacters = if (maxChar) 50 else null,
                     errorMessage = errorMessage,
                     clearable = clearable,
                     isError = isError,
                     showInfoIcon = infoIcon,
+                    characterLimit = CharacterLimit(50, limitType).takeIf { maxChar },
                 ),
             )
         }
@@ -160,6 +163,17 @@ fun InputContainedScreen(scrollState: ScrollState) {
                 }
                 InputSwitchRow("Max characters", checked = maxChar) {
                     maxChar = it
+                }
+
+                if (maxChar) {
+                    SelectRow(
+                        selectedText = limitType.name,
+                        onItemSelected = { newValue ->
+                            limitType = CharacterLimitType.valueOf(newValue)
+                        },
+                        items = CharacterLimitType.entries.map { it.name },
+                        label = "Character limit: ",
+                    )
                 }
                 InputSwitchRow("Clearable", checked = clearable) {
                     clearable = it

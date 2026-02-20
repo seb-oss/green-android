@@ -48,7 +48,6 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.text.lerp
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import se.seb.gds.common.isLandscape
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
@@ -110,12 +109,15 @@ fun GdsInputContained(
         label = label,
         inputState = inputState,
         interactionSource = interactionSource,
-        onValueChange = onValueChange,
+        onValueChange = {
+            validate(it, inputState.characterLimit)
+            onValueChange(it)
+        },
         onInteraction = onInteraction,
         onInfoIconClick = onInfoIconClick,
-    ) { textFieldIsFocused ->
+    ) { isTextFieldFocused, isCharacterLimitError ->
         val labelAnimationProgress by animateFloatAsState(
-            targetValue = if (textFieldIsFocused || state.text.isNotEmpty()) 1f else 0f,
+            targetValue = if (isTextFieldFocused || state.text.isNotEmpty()) 1f else 0f,
         )
 
         val labelTextStyle by remember(labelAnimationProgress) {
@@ -130,10 +132,11 @@ fun GdsInputContained(
 
         InputContainer(
             contentPadding = containerContentPadding(isLandscape()),
-            textFieldIsFocused = textFieldIsFocused,
+            textFieldIsFocused = isTextFieldFocused,
             style = style.basicInputStyle,
             state = state,
             inputState = inputState,
+            characterLimitError = isCharacterLimitError,
             scrollState = scrollState,
             interactionSource = interactionSource,
             inputTransformationChain = inputTransformation,
@@ -155,8 +158,8 @@ fun GdsInputContained(
             },
             trailingContent = {
                 val isMultiLine = isMultiLine(inputState.lineLimits, textLineCount)
-                val hasCounter = inputState.maxCharacters != null
-                val showCounterContainer = (hasCounter && (isMultiLine || textFieldIsFocused)) ||
+                val hasCounter = inputState.hasCharacterLimit()
+                val showCounterContainer = (hasCounter && (isMultiLine || isTextFieldFocused)) ||
                     (!hasCounter && isMultiLine)
 
                 val trailingModifier = if (showCounterContainer) {
@@ -169,7 +172,7 @@ fun GdsInputContained(
                     modifier = trailingModifier,
                     showCounterContainer = showCounterContainer,
                     inputState = inputState,
-                    textFieldIsFocused = textFieldIsFocused,
+                    textFieldIsFocused = isTextFieldFocused,
                     onInfoIconClick = onInfoIconClick,
                     style = style.basicInputStyle,
                     state = state,
@@ -178,9 +181,11 @@ fun GdsInputContained(
             },
             onTextLayoutResult = { lineCount -> textLineCount = lineCount },
         )
-        if (inputState.isError && !inputState.errorMessage.isNullOrBlank()) {
-            ErrorFooter(errorMessage = inputState.errorMessage, style = style.basicInputStyle)
-        }
+        InputError(
+            isCharacterLimitError = isCharacterLimitError,
+            inputState = inputState,
+            style = style.basicInputStyle,
+        )
     }
 }
 
@@ -215,25 +220,25 @@ private fun InputContainedTrailing(
         horizontalAlignment = Alignment.End,
     ) {
         if (showCounterContainer) {
-            val alpha = if (textFieldIsFocused && inputState.maxCharacters != null) 1f else 0f
+            val alpha = if (textFieldIsFocused && inputState.hasCharacterLimit()) 1f else 0f
             CharacterAmountIndicator(
                 modifier = Modifier.alpha(alpha = alpha),
                 textStyle = style.characterCounter,
                 color = style.colors.floatingLabelColor,
-                maxCharacters = inputState.maxCharacters,
+                maxCharacters = inputState.characterLimit?.maxCharacters,
                 currentCharacters = state.text.length,
             )
         }
         Row(
             modifier = Modifier
                 .animateContentSizeIf(inputState.showInfoIcon)
-                .heightIn(min = 24.dp),
+                .heightIn(min = GdsTheme.dimensions.spacing.SpaceXl),
             horizontalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceS),
         ) {
             if (inputState.showInfoIcon) {
                 Icon(
                     modifier = Modifier
-                        .size(24.dp)
+                        .size(GdsTheme.dimensions.spacing.SpaceXl)
                         .clip(CircleShape)
                         .clearAndSetSemantics { role = Role.Button }
                         .clickable(onClick = onInfoIconClick),
@@ -261,7 +266,7 @@ private fun InputContainedTrailing(
             if (showErrorIcon) {
                 Icon(
                     modifier = Modifier
-                        .size(24.dp)
+                        .size(GdsTheme.dimensions.spacing.SpaceXl)
                         .align(Alignment.CenterVertically),
                     imageVector = GdsIcons.Solid.TriangleExclamation,
                     contentDescription = null,
