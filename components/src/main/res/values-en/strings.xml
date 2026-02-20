@@ -3,10 +3,11 @@
     <string name="common_action_close">Close</string>
     <string name="text_field">Text field</string>
     <string name="text_field_error_in_field">There is an error in the textfield.</string>
+    <string name="text_field_character_limit_error">You can enter a maximum of %d characters.</string>
     <string name="text_field_edit">edit</string>
     <string name="text_field_is_editing">is editing</string>
     <string name="text_field_characters_written">%d of %d possible characters written.</string>
     <string name="text_field_disabled">disabled</string>
     <string name="clear_button_description">Clear text field</string>
-    <string name="input_info_icon_description">Information</string>
+    <string name="input_info_icon_description">Read Information</string>
 </resources>

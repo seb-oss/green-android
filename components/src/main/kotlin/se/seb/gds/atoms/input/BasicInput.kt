@@ -42,8 +42,11 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
@@ -70,23 +73,36 @@ import se.seb.gds.theme.GdsTheme
  * @property readOnly Whether the input field is read-only.
  * @property clearable Whether the input field includes a clear button to clear the text.
  * @property showInfoIcon Whether to display an info icon in the trailing content.
- * @property maxCharacters Optional maximum character limit for the input field.
  * @property isError Whether the input field is in an error state.
  * @property errorMessage Optional error message displayed below the input field.
  * @property overrideTextDescription Optional text description to override the default accessibility description.
  * @property lineLimits Line limits for the input field, such as single-line or multi-line.
+ * @property characterLimit Optional character limit configuration for the input field.
  */
 data class BasicInputState(
     val enabled: Boolean = true,
     val readOnly: Boolean = false,
     val clearable: Boolean = true,
     val showInfoIcon: Boolean = false,
-    val maxCharacters: Int? = null,
     val isError: Boolean = false,
     val errorMessage: String? = null,
     val overrideTextDescription: String? = null,
     val lineLimits: TextFieldLineLimits = TextFieldLineLimits.Default,
+    val characterLimit: CharacterLimit? = null,
+) {
+    fun hasCharacterLimit(): Boolean = characterLimit != null
+    fun hasHardCharacterLimit(): Boolean = characterLimit != null && characterLimit.type == CharacterLimitType.HARD
+}
+
+data class CharacterLimit(
+    val maxCharacters: Int,
+    val type: CharacterLimitType = CharacterLimitType.SOFT,
 )
+
+enum class CharacterLimitType {
+    SOFT,
+    HARD,
+}
 
 /**
  * A composable function that provides the basic structure for an input field. It provides accessibility description and focus management.
@@ -116,11 +132,12 @@ internal fun BasicInput(
     onInfoIconClick: () -> Unit = { },
     onValueChange: (String) -> Unit = {},
     onInteraction: (Interaction) -> Unit = {},
-    content: @Composable ((Boolean) -> Unit),
+    content: @Composable ((isTextFieldFocused: Boolean, isCharacterLimitError: Boolean) -> Unit),
 ) {
     val focusManager = LocalFocusManager.current
     val textFieldIsFocused by interactionSource.collectIsFocusedAsState()
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
+    var characterLimitError by rememberSaveable { mutableStateOf(false) }
 
     LaunchedEffect(interactionSource) {
         interactionSource.interactions.collectLatest { value ->
@@ -133,7 +150,9 @@ internal fun BasicInput(
     }
 
     LaunchedEffect(state.text) {
-        onValueChange(state.text.toString())
+        val text = state.text.toString()
+        characterLimitError = validate(text, inputState.characterLimit)
+        onValueChange(text)
     }
 
     val textFieldDescription = getAccessibilityDescription(
@@ -163,7 +182,7 @@ internal fun BasicInput(
                 onClick(doubleTapToEditText, null)
             },
     ) {
-        content(textFieldIsFocused)
+        content(textFieldIsFocused, characterLimitError)
     }
 }
 
@@ -209,25 +228,29 @@ fun InputContainer(
         CharSequence,
         CharSequence,
     ) -> Boolean = { _: CharSequence, _: CharSequence -> true },
+    characterLimitError: Boolean = false,
 ) {
     val containerSize = style.getCurrentContainerShape()
 
     val inputTransformationChain = inputTransformationChain
         .thenIfNotNull(
-            inputState.maxCharacters?.let { MaxCharacterInputTransformation(it) },
+            inputState.characterLimit?.takeIf { inputState.hasHardCharacterLimit() }?.let {
+                MaxCharacterInputTransformation(it.maxCharacters)
+            },
         )
         .thenIfNotNull(CharacterWhitelistInputTransformation(characterWhitelistPredicate))
 
+    val isError = inputState.isError || characterLimitError
     val borderStroke = animateBorderStrokeAsState(
         style,
-        inputState.isError,
+        isError,
         textFieldIsFocused,
     )
 
     Box(
         modifier = modifier
             .borderIf(
-                style.showBorder || inputState.isError,
+                style.showBorder || isError,
                 borderStroke.value,
                 containerSize.shape,
             )
@@ -287,6 +310,32 @@ fun InputContainer(
             }
             trailingContent?.invoke(this)
         }
+    }
+}
+
+/**
+ * Displays an error message below the input field if there is a character limit error or a general error state.
+ *
+ * @param isCharacterLimitError Whether the error is due to exceeding the character limit.
+ * @param inputState The state of the input field, including error information and character limit configuration.
+ * @param style The style configuration for the input field, including text styles and colors.
+ */
+@Composable
+internal fun InputError(
+    isCharacterLimitError: Boolean,
+    inputState: BasicInputState,
+    style: BasicInputStyle,
+) {
+    if (isCharacterLimitError) {
+        ErrorFooter(
+            errorMessage = stringResource(
+                R.string.text_field_character_limit_error,
+                inputState.characterLimit?.maxCharacters ?: 0,
+            ),
+            style = style,
+        )
+    } else if (inputState.isError && !inputState.errorMessage.isNullOrBlank()) {
+        ErrorFooter(errorMessage = inputState.errorMessage, style = style)
     }
 }
 
@@ -418,7 +467,7 @@ private fun getAccessibilityDescription(
     if (textFieldIsFocused && !inputState.readOnly) {
         descriptionBuilder.append(", ")
         descriptionBuilder.append(stringResource(id = R.string.text_field_is_editing))
-        inputState.maxCharacters?.let {
+        inputState.characterLimit?.maxCharacters?.let {
             descriptionBuilder.append(", ")
             descriptionBuilder.append(
                 stringResource(
@@ -477,6 +526,21 @@ fun clearText(state: TextFieldState) {
     state.edit {
         delete(0, state.text.length)
     }
+}
+
+/**
+ * Validates the input text against the provided character limit and updates the character limit error state.
+ *
+ * @param text The current text input to validate.
+ * @param characterLimit The character limit configuration to validate against.
+ * @return True if the text exceeds the character limit, false otherwise.
+ */
+fun validate(
+    text: CharSequence,
+    characterLimit: CharacterLimit?,
+): Boolean {
+    characterLimit ?: return false
+    return text.length > characterLimit.maxCharacters
 }
 
 /**

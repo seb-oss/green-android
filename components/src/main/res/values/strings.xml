@@ -3,10 +3,11 @@
     <string name="common_action_close">Stäng</string>
     <string name="text_field">Textfält</string>
     <string name="text_field_error_in_field">Det finns ett fel i Textfält.</string>
+    <string name="text_field_character_limit_error">Du kan skriva högst %d tecken.</string>
     <string name="text_field_edit">ändra</string>
     <string name="text_field_is_editing">ändrar</string>
     <string name="text_field_characters_written">%d av %d möjliga tecken skrivna.</string>
     <string name="text_field_disabled">inaktiverad</string>
     <string name="clear_button_description">Rensa textfältet</string>
-    <string name="input_info_icon_description">Information</string>
+    <string name="input_info_icon_description">Läs information</string>
 </resources>
