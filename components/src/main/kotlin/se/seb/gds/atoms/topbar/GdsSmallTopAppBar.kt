@@ -1,6 +1,7 @@
 package se.seb.gds.atoms.topbar
 
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Text
@@ -8,6 +9,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import se.seb.gds.theme.GdsTheme
 
 /**
  * A small top app bar that displays a title, subtitle, navigation icon, and actions.
@@ -44,8 +46,8 @@ import androidx.compose.ui.Modifier
 @Composable
 fun GdsSmallTopAppBar(
     modifier: Modifier = Modifier,
-    title: String,
     scrollBehavior: TopAppBarScrollBehavior,
+    title: String? = null,
     subtitle: String? = null,
     style: TopAppBarStyle = TopAppBarDefaults.small(),
     navigationIcon: @Composable (() -> Unit)? = null,
@@ -57,8 +59,16 @@ fun GdsSmallTopAppBar(
     TopAppBar(
         modifier = modifier,
         colors = style.colors,
-        title = { Text(text = title, style = textStyle) },
-        subtitle = { subtitle?.let { Text(text = it, style = subtitleStyle) } },
+        title = {
+            title?.let {
+                Text(text = title, style = textStyle)
+            }
+        },
+        subtitle = {
+            subtitle?.let {
+                Text(text = it, style = subtitleStyle)
+            }
+        },
         navigationIcon = { navigationIcon?.invoke() },
         actions = { rightActions?.invoke(this) },
         scrollBehavior = scrollBehavior,
