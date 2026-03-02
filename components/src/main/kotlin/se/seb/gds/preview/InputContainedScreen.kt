@@ -1,6 +1,5 @@
 package se.seb.gds.preview
 
-import android.widget.Toast
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,6 +14,7 @@ import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.input.TextFieldLineLimits
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -27,7 +27,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import se.seb.gds.atoms.ButtonWidthType
 import se.seb.gds.atoms.GdsBottomSheet
 import se.seb.gds.atoms.GdsButton
@@ -47,12 +46,10 @@ import se.seb.gds.theme.GdsTheme
 @Composable
 fun InputContainedScreen(scrollState: ScrollState) {
     var whiteBackground by rememberSaveable { mutableStateOf(false) }
-    var errorInside by rememberSaveable { mutableStateOf(false) }
-    var errorOutside by rememberSaveable { mutableStateOf(false) }
+    var error by rememberSaveable { mutableStateOf(false) }
     var clearable by rememberSaveable { mutableStateOf(true) }
     var maxChar by rememberSaveable { mutableStateOf(true) }
     var limitType by rememberSaveable { mutableStateOf(CharacterLimitType.SOFT) }
-    var infoIcon by rememberSaveable { mutableStateOf(true) }
 
     val sheetState = rememberModalBottomSheetState()
     var showBottomSheet by rememberSaveable { mutableStateOf(false) }
@@ -69,10 +66,8 @@ fun InputContainedScreen(scrollState: ScrollState) {
         GdsInputDefaults.containedOnGreyStyle()
     }
 
-    val isError = errorInside || errorOutside
-    val errorMessage = if (errorOutside && !errorInside) "Error message" else null
+    val errorMessage = if (error) "Error message." else null
 
-    val context = LocalContext.current
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -99,34 +94,26 @@ fun InputContainedScreen(scrollState: ScrollState) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceM),
         ) {
-            val text = rememberTextFieldState("Prefilled value")
             GdsInputContained(
                 style = containedStyle,
-                state = text,
+                state = rememberTextFieldState("Prefilled value"),
                 label = "Label",
-                onInfoIconClick = {
-                    Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
-                },
                 inputState = BasicInputState(
                     errorMessage = errorMessage,
                     clearable = clearable,
-                    isError = isError,
-                    showInfoIcon = infoIcon,
-                    characterLimit = CharacterLimit(50, limitType).takeIf { maxChar },
+                    isError = error,
+                    characterLimit = CharacterLimit(20, limitType).takeIf { maxChar },
                 ),
             )
             GdsInputContained(
                 style = containedStyle,
                 state = rememberTextFieldState(),
                 label = "Label",
-                onInfoIconClick = {
-                    Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
-                },
                 inputState = BasicInputState(
                     errorMessage = errorMessage,
                     clearable = clearable,
-                    isError = isError,
-                    showInfoIcon = infoIcon,
+                    lineLimits = TextFieldLineLimits.MultiLine(4, 5),
+                    isError = error,
                     characterLimit = CharacterLimit(50, limitType).takeIf { maxChar },
                 ),
             )
@@ -146,20 +133,8 @@ fun InputContainedScreen(scrollState: ScrollState) {
                 InputSwitchRow("White Background", checked = whiteBackground) {
                     whiteBackground = it
                 }
-                InputSwitchRow("Info icon", checked = infoIcon) {
-                    infoIcon = it
-                }
-                InputSwitchRow("Error outside", checked = errorOutside) {
-                    errorOutside = it
-                    if (errorOutside) {
-                        errorInside = false
-                    }
-                }
-                InputSwitchRow("Error inside", checked = errorInside) {
-                    errorInside = it
-                    if (errorInside) {
-                        errorOutside = false
-                    }
+                InputSwitchRow("Error", checked = error) {
+                    error = it
                 }
                 InputSwitchRow("Max characters", checked = maxChar) {
                     maxChar = it

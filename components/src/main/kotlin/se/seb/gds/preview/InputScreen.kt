@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.input.TextFieldLineLimits
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -93,19 +94,18 @@ fun InputScreen(scrollState: ScrollState) {
         ) {
             GdsInputDefault(
                 style = defaultStyle,
-                state = rememberTextFieldState(),
+                state = rememberTextFieldState("Prefilled value"),
                 label = "Label",
                 supportLabel = if (supportLabel) "Support Label" else null,
                 inputState = BasicInputState(
                     errorMessage = "Error message",
                     clearable = clearable,
                     isError = isError,
-                    showInfoIcon = infoIcon,
-                    characterLimit = CharacterLimit(50, limitType).takeIf { maxChar },
+                    characterLimit = CharacterLimit(20, limitType).takeIf { maxChar },
                 ),
                 onInfoIconClick = {
                     Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
-                },
+                }.takeIf { infoIcon },
             )
             GdsInputDefault(
                 style = defaultStyle,
@@ -113,15 +113,15 @@ fun InputScreen(scrollState: ScrollState) {
                 label = "Label",
                 supportLabel = if (supportLabel) "Support Label" else null,
                 inputState = BasicInputState(
+                    lineLimits = TextFieldLineLimits.MultiLine(4, 5),
                     errorMessage = "Error message",
                     clearable = clearable,
                     isError = isError,
-                    showInfoIcon = infoIcon,
                     characterLimit = CharacterLimit(50, limitType).takeIf { maxChar },
                 ),
                 onInfoIconClick = {
                     Toast.makeText(context, "Info icon clicked", Toast.LENGTH_SHORT).show()
-                },
+                }.takeIf { infoIcon },
             )
         }
     }
