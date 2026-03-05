@@ -5,7 +5,9 @@ import androidx.compose.material3.SwitchDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.Dp
 import se.seb.gds.icons.GdsIcons
+import se.seb.gds.icons.custom.SolidCheckmark12
 import se.seb.gds.theme.GdsTheme
 
 /**
@@ -40,7 +42,7 @@ object GdsSwitchDefaults {
         GdsSwitchStyle(
             colors = defaultColors(),
             alwaysShowThumb = false,
-            checkedIcon = GdsIcons.Solid.Checkmark,
+            checkedIcon = SolidCheckmark12,
         )
 
     // 2016
@@ -99,4 +101,8 @@ object GdsSwitchDefaults {
             checkedBorderColor = Color.Transparent,
             uncheckedBorderColor = Color.Transparent,
         )
+
+    val IconSize: Dp
+        @Composable
+        get() = GdsTheme.dimensions.spacing.SpaceS
 }
