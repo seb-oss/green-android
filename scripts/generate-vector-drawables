@@ -1,0 +1,201 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# Resolve paths relative to this script, no matter where it's executed from.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# We expect the old "green" monorepo to live next to this repo.
+# Structure: <parent>/green-android (this repo) and <parent>/green/green (icon assets source)
+# The green repository has a nested structure: green/green/libs/core/...
+PARENT_DIR="$(cd "$REPO_ROOT/.." && pwd)"
+
+SOLID_SRC_DIR="$PARENT_DIR/green/libs/core/src/components/icon/assets/solid"
+REGULAR_SRC_DIR="$PARENT_DIR/green/libs/core/src/components/icon/assets/regular"
+
+if [[ ! -d "$SOLID_SRC_DIR" ]]; then
+  echo "Error: Solid icon assets not found at '$SOLID_SRC_DIR'" >&2
+  exit 1
+fi
+
+if [[ ! -d "$REGULAR_SRC_DIR" ]]; then
+  echo "Error: Regular icon assets not found at '$REGULAR_SRC_DIR'" >&2
+  exit 1
+fi
+
+# Destination in this repo.
+# Assumption: these are library resources, so we put them in the components module.
+OUT_RES_DIR="$REPO_ROOT/components/src/main/res"
+
+# Android drawables are a flat namespace.
+DEST_DIR="$OUT_RES_DIR/drawable"
+mkdir -p "$DEST_DIR"
+
+# --- Conversion tooling ---
+#
+# We use a simple inline Kotlin script that leverages the already-available
+# Android SDK's VectorDrawable → XML facilities (through Android API docs) or
+# a fallback pure XML generator.
+#
+# Requirements:
+# - Java/Kotlin runtime (already available via the project's gradlew)
+
+sanitize_name() {
+  # Android resource: [a-z0-9_]. Ensure starts with a letter.
+  local raw="$1"
+  local name
+  name="${raw%.*}"
+  name="$(echo "$name" | tr '[:upper:]' '[:lower:]')"
+  name="$(echo "$name" | sed -E 's/[^a-z0-9]+/_/g; s/^_+//; s/_+$//')"
+  if [[ ! "$name" =~ ^[a-z] ]]; then
+    name="ic_$name"
+  fi
+  echo "$name"
+}
+
+convert_svg() {
+  local svg="$1"
+  local out_file="$2"
+
+  # Use our bash-based converter for simple SVG→VectorDrawable translation
+  generate_vector_drawable_xml "$svg" "$out_file"
+}
+
+generate_vector_drawable_xml() {
+  local svg="$1"
+  local out="$2"
+
+  # Extract viewBox or use width/height attributes, default to 24x24
+  local viewbox
+  viewbox=$(grep -oE 'viewBox="[^"]*"' "$svg" | head -n 1 | sed 's/viewBox="//;s/"//')
+
+  local vp_width vp_height
+  if [[ -n "$viewbox" ]]; then
+    vp_width=$(echo "$viewbox" | awk '{print $3}')
+    vp_height=$(echo "$viewbox" | awk '{print $4}')
+  else
+    # Try width/height attributes
+    local width_attr height_attr
+    width_attr=$(grep -oE 'width="[0-9]+"' "$svg" | head -n 1 | sed 's/width="//;s/"//')
+    height_attr=$(grep -oE 'height="[0-9]+"' "$svg" | head -n 1 | sed 's/height="//;s/"//')
+    vp_width=${width_attr:-24}
+    vp_height=${height_attr:-24}
+  fi
+
+  # Extract all path elements (we need the full element to get stroke/fill attributes)
+  local path_elements
+  path_elements=$(grep -oE '<path[^>]*>' "$svg")
+
+  if [[ -z "$path_elements" ]]; then
+    echo "Warning: No path elements found in $svg, skipping." >&2
+    return
+  fi
+
+  # Generate VectorDrawable XML
+  mkdir -p "$(dirname "$out")"
+
+  # Write header
+  cat > "$out" <<'HEADER'
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+HEADER
+
+  echo "    android:width=\"${vp_width}dp\"" >> "$out"
+  echo "    android:height=\"${vp_height}dp\"" >> "$out"
+  echo "    android:viewportWidth=\"$vp_width\"" >> "$out"
+  echo "    android:viewportHeight=\"$vp_height\">" >> "$out"
+
+  # Write each path
+  echo "$path_elements" | while IFS= read -r path_elem; do
+    # Extract path data
+    local pathdata
+    pathdata=$(echo "$path_elem" | grep -oE 'd="[^"]*"' | sed 's/d="//;s/"//')
+
+    if [[ -z "$pathdata" ]]; then
+      continue
+    fi
+
+    echo "  <path" >> "$out"
+    echo "      android:pathData=\"$pathdata\"" >> "$out"
+
+    # Check if this is a stroke-based or fill-based path
+    local has_stroke
+    has_stroke=$(echo "$path_elem" | grep -oE 'stroke="[^"]*"' || true)
+
+    if [[ -n "$has_stroke" ]]; then
+      # Stroke-based path (like regular icons)
+      # Extract stroke width
+      local stroke_width
+      stroke_width=$(echo "$path_elem" | grep -oE 'stroke-width="[^"]*"' | sed 's/stroke-width="//;s/"//' || echo "1.5")
+
+      # Extract stroke linecap
+      local stroke_linecap
+      stroke_linecap=$(echo "$path_elem" | grep -oE 'stroke-linecap="[^"]*"' | sed 's/stroke-linecap="//;s/"//' || echo "round")
+
+      # Extract stroke linejoin
+      local stroke_linejoin
+      stroke_linejoin=$(echo "$path_elem" | grep -oE 'stroke-linejoin="[^"]*"' | sed 's/stroke-linejoin="//;s/"//' || echo "round")
+
+      echo "      android:strokeWidth=\"$stroke_width\"" >> "$out"
+      echo "      android:strokeColor=\"#FF000000\"" >> "$out"
+      echo "      android:strokeLineCap=\"$stroke_linecap\"" >> "$out"
+      echo "      android:strokeLineJoin=\"$stroke_linejoin\"/>" >> "$out"
+    else
+      # Fill-based path (like solid icons)
+      local fill
+      fill=$(echo "$path_elem" | grep -oE 'fill="[^"]*"' | sed 's/fill="//;s/"//' || echo "currentColor")
+
+      local android_fill="#FF000000"
+      if [[ "$fill" == "none" ]]; then
+        android_fill="#00000000"
+      fi
+
+      echo "      android:fillColor=\"$android_fill\"" >> "$out"
+
+      # Check for fill-rule or clip-rule attributes
+      local fill_rule
+      fill_rule=$(echo "$path_elem" | grep -oE 'fill-rule="[^"]*"' | sed 's/fill-rule="//;s/"//' || true)
+      if [[ -z "$fill_rule" ]]; then
+        fill_rule=$(echo "$path_elem" | grep -oE 'clip-rule="[^"]*"' | sed 's/clip-rule="//;s/"//' || true)
+      fi
+
+      if [[ "$fill_rule" == "evenodd" ]]; then
+        echo "      android:fillType=\"evenOdd\"/>" >> "$out"
+      else
+        echo "/>" >> "$out"
+      fi
+    fi
+  done
+
+  echo "</vector>" >> "$out"
+}
+
+convert_dir() {
+  local src_dir="$1"
+  local prefix="$2" # e.g. gds_solid_ or gds_regular_
+
+  find "$src_dir" -type f -name "*.svg" | while IFS= read -r svg; do
+    local base
+    base="$(basename "$svg")"
+
+    local out_name
+    out_name="$(sanitize_name "$base")"
+    out_name="${prefix}${out_name}"
+
+    local out_file="$DEST_DIR/${out_name}.xml"
+
+    # Skip unchanged (basic optimization).
+    if [[ -f "$out_file" && "$out_file" -nt "$svg" ]]; then
+      continue
+    fi
+
+    convert_svg "$svg" "$out_file"
+  done
+}
+
+echo "Generating VectorDrawable XMLs into: $DEST_DIR"
+convert_dir "$SOLID_SRC_DIR" "gds_solid_"
+convert_dir "$REGULAR_SRC_DIR" "gds_regular_"
+
+echo "Done. Generated VectorDrawable XMLs in: $DEST_DIR"
+

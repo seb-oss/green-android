@@ -6,7 +6,7 @@ This folder contains small helper scripts used to generate source code and resou
 
 ### Sibling `green` repository checkout (required for icon generation)
 
-Some scripts (notably `generate-compose-icons`) source SVG assets from the **Green** repository.
+Some scripts (notably `generate-compose-icons` and `generate-vector-drawables`) source SVG assets from the **Green** repository.
 
 These scripts assume you have both repositories checked out next to each other:
 
@@ -99,6 +99,46 @@ Usage:
 cd scripts
 ./generate-icon-enums
 ```
+
+### `generate-vector-drawables`
+
+Generates **Android VectorDrawable** XML files from the SVG icons maintained in the **Green** repository.
+
+This is useful if a consuming app (or a legacy View-based screen) wants to use the same icon set via `@drawable/...` resources.
+
+What it does:
+
+1. Reads all SVG assets from the Green repository (solid + regular icon sets).
+2. Converts them into Android VectorDrawable XML resources.
+
+Output:
+
+- Generated VectorDrawables under:
+  - `components/src/main/res/drawable/`
+
+Resource naming:
+
+- The output is prefixed to avoid collisions between icon sets:
+  - `gds_solid_<icon>.xml`
+  - `gds_regular_<icon>.xml`
+
+Notes:
+
+- These resources are intended to be **tinted** by the caller (for example via `android:tint`, `ImageView.setColorFilter`, or Compose `Icon(tint = ...)`).
+- Conversion uses a simple bash-based parser that extracts SVG path data and wraps it in VectorDrawable XML format.
+- Works best for icon-style SVGs (simple paths). Complex SVGs with gradients, masks, or filters may not convert perfectly.
+
+Usage:
+
+```bash
+cd scripts
+./generate-vector-drawables
+```
+
+Requirements:
+
+- A sibling checkout of the `green/` repository (see prerequisites above).
+- Standard Unix tools (`bash`, `sed`, `grep`) — available by default on macOS/Linux.
 
 ### `s2c`
 
