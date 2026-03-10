@@ -41,6 +41,18 @@ android {
     }
 }
 
+signing {
+    isRequired = false
+    val signingKey = findProperty("signingInMemoryKey") as? String
+    val signingKeyId = findProperty("signingInMemoryKeyId") as? String
+    val signingPassword = findProperty("signingInMemoryKeyPassword") as? String
+
+    if (signingKey != null && signingKeyId != null && signingPassword != null) {
+        useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+        sign(publishing.publications)
+    }
+}
+
 mavenPublishing {
     configure(
         AndroidSingleVariantLibrary(
