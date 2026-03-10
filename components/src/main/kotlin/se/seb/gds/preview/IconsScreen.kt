@@ -95,8 +95,8 @@ fun IconsScreen() {
                 }
             }
 
-            items(filteredIconList) { (name, imageVector) ->
-                IconPreviewCard(name, imageVector)
+            items(filteredIconList) { (name, imageVectorProvider) ->
+                IconPreviewCard(name, imageVectorProvider())
             }
         }
     }
