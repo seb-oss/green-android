@@ -1,0 +1,103 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# Resolve paths relative to this script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+DRAWABLE_DIR="$REPO_ROOT/components/src/main/res/drawable"
+OUT_DIR="$REPO_ROOT/components/src/main/kotlin/se/seb/gds/icons"
+
+if [[ ! -d "$DRAWABLE_DIR" ]]; then
+  echo "Error: Drawable directory not found at '$DRAWABLE_DIR'" >&2
+  exit 1
+fi
+
+echo "Generating Compose ImageVector wrappers from XML drawables..."
+
+# Create output directories
+mkdir -p "$OUT_DIR/solid"
+mkdir -p "$OUT_DIR/regular"
+
+# Function to convert snake_case to PascalCase
+to_pascal_case() {
+  local input="$1"
+  # Split by underscores, capitalize first letter of each word, join together
+  echo "$input" | awk -F_ '{for(i=1;i<=NF;i++){$i=toupper(substr($i,1,1)) substr($i,2)}} 1' OFS=''
+}
+
+# Function to generate Kotlin file for an icon
+generate_icon_wrapper() {
+  local drawable_name="$1"
+  local type="$2"  # solid or regular
+
+  # Remove gds_solid_ or gds_regular_ prefix
+  local icon_name="${drawable_name#gds_${type}_}"
+
+  # Convert to PascalCase
+  local class_name=$(to_pascal_case "$icon_name")
+
+  local out_file="$OUT_DIR/$type/$class_name.kt"
+
+  cat > "$out_file" <<EOF
+package se.seb.gds.icons.${type}
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.material3.Icon
+import se.seb.gds.components.R
+import se.seb.gds.theme.GdsTheme
+
+/**
+ * GDS icon: ${class_name} (${type})
+ *
+ * This icon loads from the vector drawable resource.
+ */
+internal val ${class_name}: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.${drawable_name})
+
+@Preview
+@Composable
+private fun ${class_name}Preview() {
+    GdsTheme {
+        Icon(
+            imageVector = ${class_name},
+            contentDescription = "${class_name} icon",
+            tint = GdsTheme.colors.Content.Neutral01
+        )
+    }
+}
+EOF
+
+  echo "Generated: $type/$class_name.kt"
+}
+
+# Process solid icons
+echo "Processing solid icons..."
+for xml_file in "$DRAWABLE_DIR"/gds_solid_*.xml; do
+  if [[ -f "$xml_file" ]]; then
+    drawable_name=$(basename "$xml_file" .xml)
+    generate_icon_wrapper "$drawable_name" "solid"
+  fi
+done
+
+# Process regular icons
+echo "Processing regular icons..."
+for xml_file in "$DRAWABLE_DIR"/gds_regular_*.xml; do
+  if [[ -f "$xml_file" ]]; then
+    drawable_name=$(basename "$xml_file" .xml)
+    generate_icon_wrapper "$drawable_name" "regular"
+  fi
+done
+
+echo ""
+echo "Done! Generated Compose ImageVector wrappers."
+echo "Next steps:"
+echo "  1. Run: ./scripts/generate-icon-manifest"
+echo "  2. Run: ./gradlew spotlessKotlinApply"
+
+
