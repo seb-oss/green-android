@@ -1,75 +1,30 @@
 package se.seb.gds.icons.regular
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.graphics.vector.path
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import androidx.compose.material3.Icon
+import se.seb.gds.components.R
+import se.seb.gds.theme.GdsTheme
 
+/**
+ * GDS icon: ZoomIn (regular)
+ *
+ * This icon loads from the vector drawable resource.
+ */
 internal val ZoomIn: ImageVector
-    get() {
-        val current = _zoomIn
-        if (current != null) return current
-
-        return ImageVector.Builder(
-            name = "se.seb.gds.theme.GdsTheme.ZoomIn",
-            defaultWidth = 24.0.dp,
-            defaultHeight = 24.0.dp,
-            viewportWidth = 24.0f,
-            viewportHeight = 24.0f,
-        ).apply {
-            path(
-                stroke = SolidColor(Color(0xFF000000)),
-                strokeLineCap = StrokeCap.Round,
-                strokeLineJoin = StrokeJoin.Round,
-                strokeLineWidth = 1.5f,
-            ) {
-                moveTo(x = 20.0f, y = 20.0f)
-                lineTo(x = 16.1265f, y = 16.1265f)
-                moveTo(x = 16.1265f, y = 16.1265f)
-                curveTo(x1 = 17.4385f, y1 = 14.8145f, x2 = 18.25f, y2 = 13.002f, x3 = 18.25f, y3 = 11.0f)
-                curveTo(x1 = 18.25f, y1 = 6.99594f, x2 = 15.0041f, y2 = 3.75f, x3 = 11.0f, y3 = 3.75f)
-                curveTo(x1 = 6.99594f, y1 = 3.75f, x2 = 3.75f, y2 = 6.99594f, x3 = 3.75f, y3 = 11.0f)
-                curveTo(x1 = 3.75f, y1 = 15.0041f, x2 = 6.99594f, y2 = 18.25f, x3 = 11.0f, y3 = 18.25f)
-                curveTo(x1 = 13.002f, y1 = 18.25f, x2 = 14.8145f, y2 = 17.4385f, x3 = 16.1265f, y3 = 16.1265f)
-                close()
-                moveTo(x = 11.0f, y = 7.75f)
-                verticalLineTo(y = 14.25f)
-                moveTo(x = 14.25f, y = 11.0f)
-                lineTo(x = 7.75f, y = 11.0f)
-            }
-        }.build().also { _zoomIn = it }
-    }
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.gds_regular_zoom_in)
 
 @Preview
 @Composable
-private fun IconPreview() {
-    se.seb.gds.theme.GdsTheme {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Image(
-                imageVector = ZoomIn,
-                contentDescription = null,
-                modifier = Modifier
-                    .width((24.0).dp)
-                    .height((24.0).dp),
-            )
-        }
+private fun ZoomInPreview() {
+    GdsTheme {
+        Icon(
+            imageVector = ZoomIn,
+            contentDescription = "ZoomIn icon",
+            tint = GdsTheme.colors.Content.Neutral01
+        )
     }
 }
-
-@Suppress("ObjectPropertyName")
-private var _zoomIn: ImageVector? = null
