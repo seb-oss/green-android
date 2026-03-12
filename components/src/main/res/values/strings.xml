@@ -2,7 +2,7 @@
 <resources>
     <string name="common_action_close">Stäng</string>
     <string name="text_field">Textfält</string>
-    <string name="text_field_error_in_field">Det finns ett fel i Textfält.</string>
+    <string name="text_field_error_in_field">Det finns ett fel i textfältet.</string>
     <string name="text_field_character_limit_error">Du kan skriva högst %d tecken.</string>
     <string name="text_field_edit">ändra</string>
     <string name="text_field_is_editing">ändrar</string>
