@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.input.InputTransformation
 import androidx.compose.foundation.text.input.TextFieldLineLimits
 import androidx.compose.foundation.text.input.TextFieldState
-import androidx.compose.foundation.text.input.delete
 import androidx.compose.foundation.text.input.then
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -252,6 +251,21 @@ internal fun getAccessibilityDescription(
     if (textFieldIsFocused && !inputState.readOnly) {
         descriptionBuilder.append(", ")
         descriptionBuilder.append(stringResource(id = R.string.text_field_is_editing))
+    }
+
+    // Announce character count if the text field is valid. If not valid, the error message will
+    // include the character limit information, so it would be redundant to announce it here as well.
+    val isCharacterLimitValid =
+        inputState.characterLimit != null && state.text.length <= inputState.characterLimit.maxCharacters
+    if (textFieldIsFocused && isCharacterLimitValid) {
+        descriptionBuilder.append(", ")
+        descriptionBuilder.append(
+            stringResource(
+                id = R.string.text_field_characters_written,
+                state.text.length,
+                inputState.characterLimit.maxCharacters,
+            ),
+        )
     }
 
     return descriptionBuilder.toString().replace(" ,", ",").trim()
