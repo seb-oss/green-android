@@ -13,7 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import se.seb.gds.atoms.switch.GdsSwitchDefaults
 import se.seb.gds.components.SwitchRow
 
 @Composable
@@ -25,27 +24,25 @@ internal fun SwitchesScreen(scrollState: ScrollState) {
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        var checked by remember { mutableStateOf(false) }
+        var checked by remember { mutableStateOf(true) }
         SwitchRow(
-            title = "Green 2023",
+            title = "Enabled",
             checked = checked,
             onCheckedChanged = { checked = it },
         )
 
-        var legacyChecked by remember { mutableStateOf(false) }
         SwitchRow(
-            title = "Green 2016",
-            checked = legacyChecked,
-            style = GdsSwitchDefaults.legacyStyle(),
-            onCheckedChanged = { legacyChecked = it },
+            title = "Disabled - Checked",
+            checked = true,
+            enabled = false,
+            onCheckedChanged = { checked = it },
         )
 
-        var neoChecked by remember { mutableStateOf(false) }
         SwitchRow(
-            title = "Neo",
-            checked = neoChecked,
-            style = GdsSwitchDefaults.neoStyle(),
-            onCheckedChanged = { neoChecked = it },
+            title = "Disabled - Unchecked",
+            checked = false,
+            enabled = false,
+            onCheckedChanged = { checked = it },
         )
     }
 }
