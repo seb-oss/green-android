@@ -49,7 +49,7 @@ object GdsSwitchDefaults {
             alwaysShowThumb = false,
             checkedIcon = SolidCheckmark12,
             disabledOpacity = 0.5f,
-            rippleColor = GdsTheme.colors.State.Positive03
+            rippleColor = GdsTheme.colors.State.Positive03,
         )
 
     // 2016
