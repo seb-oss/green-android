@@ -112,3 +112,17 @@ private fun GdsSmallAppBarScreenshot() {
         )
     }
 }
+
+@PreviewTest
+@GdsUiTestsPreview
+@Composable
+private fun GdsSmallAppBarNoTitleScreenshot() {
+    val scrollBehavior = TopAppBarDefaults.smallAppBarScrollBehavior()
+    GdsTheme {
+        GdsSmallTopAppBar(
+            scrollBehavior = scrollBehavior,
+            navigationIcon = { LeftIcon() },
+            rightActions = { RightIcon() },
+        )
+    }
+}

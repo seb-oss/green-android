@@ -83,20 +83,24 @@ fun IconsScreen() {
                 Column {
                     ComponentHeaderSection(
                         title = "GDS Icons",
-                        body =
-                        "Include icons from the provided ImageVectors in Solid or Regular style." +
-                            " Example usage:",
+                        body = "Include icons from the provided ImageVectors in Solid or Regular style, " +
+                            "or use the XML drawable resources. Example usage:",
                         code = """
+                            // Composable ImageVectors
                             GdsIcons.Solid.Checkmark
                             GdsIcons.Regular.Checkmark
+                            
+                            // XML Drawable Resources
+                            R.drawable.gds_solid_checkmark
+                            R.drawable.gds_regular_checkmark
                         """.trimIndent(),
                     )
                     Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
                 }
             }
 
-            items(filteredIconList) { (name, imageVector) ->
-                IconPreviewCard(name, imageVector)
+            items(filteredIconList) { (name, imageVectorProvider) ->
+                IconPreviewCard(name, imageVectorProvider())
             }
         }
     }

@@ -32,19 +32,24 @@ if [[ ! -d "$REGULAR_SRC_DIR" ]]; then
   exit 1
 fi
 
-# --- 1. Run the s2c conversion (which produces bad code) ---
-OUT_DIR="$REPO_ROOT/components/src/main/kotlin/se/seb/gds/icons"
+echo "=== Step 1: Generate VectorDrawable XMLs from SVGs ==="
+"$SCRIPT_DIR/generate-vector-drawables"
 
-"$SCRIPT_DIR/s2c" --optimize false --make-internal --minified -o "$OUT_DIR/solid" -t se.seb.gds.theme.GdsTheme -p se.seb.gds.icons.solid "$SOLID_SRC_DIR/"
-"$SCRIPT_DIR/s2c" --optimize false --make-internal --minified -o "$OUT_DIR/regular" -t se.seb.gds.theme.GdsTheme -p se.seb.gds.icons.regular "$REGULAR_SRC_DIR/"
+echo ""
+echo "=== Step 2: Generate Compose icon wrappers from drawables ==="
+"$SCRIPT_DIR/generate-compose-from-drawables"
 
-# --- 2. Fix the generated Kotlin files (.kt) ---
-# For macOS:
-find "$OUT_DIR" -name "*.kt" -exec sed -i '' 's/0xCURRENTCOLOR/0xFF000000/g' {} +
-
+echo ""
+echo "=== Step 3: Generate GdsIcons manifest ==="
 "$SCRIPT_DIR/generate-icon-manifest"
-# Generate a GdsIcons.kt file which can be moved to the BFF
+
+echo ""
+echo "=== Step 4: Generate icon enums for backend ==="
 "$SCRIPT_DIR/generate-icon-enums"
 
-echo "Applying spotless"
-cd $REPO_ROOT && ./gradlew spotlessKotlinApply
+echo ""
+echo "=== Step 5: Apply code formatting ==="
+cd "$REPO_ROOT" && ./gradlew spotlessKotlinApply
+
+echo ""
+echo "✅ All icons generated successfully!"

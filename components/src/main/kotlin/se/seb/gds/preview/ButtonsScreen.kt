@@ -288,55 +288,6 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
     }
 }
 
-@Composable
-fun SelectRow(
-    selectedText: String,
-    onItemSelected: (String) -> Unit,
-    items: List<String>,
-    label: String,
-) {
-    Row(
-        modifier = Modifier
-            .padding(
-                horizontal = GdsTheme.dimensions.spacing.SpaceM,
-                vertical = GdsTheme.dimensions.spacing.SpaceS,
-            )
-            .fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        var expanded by remember { mutableStateOf(false) }
-
-        Text(
-            modifier = Modifier.weight(1f),
-            style = GdsTheme.typography.DetailBookM,
-            text = label,
-        )
-
-        Box(modifier = Modifier.wrapContentSize()) {
-            Text(
-                modifier = Modifier.clickable(onClick = { expanded = true }),
-                style = GdsTheme.typography.DetailBookM,
-                text = selectedText,
-            )
-
-            DropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false },
-            ) {
-                items.forEach { item ->
-                    DropdownMenuItem(
-                        text = { Text(item) },
-                        onClick = {
-                            onItemSelected(item)
-                            expanded = false
-                        },
-                    )
-                }
-            }
-        }
-    }
-}
-
 @Preview
 @Composable
 private fun ButtonsScreenPreview() {
