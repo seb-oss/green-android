@@ -24,6 +24,18 @@ internal fun SwitchesScreen(scrollState: ScrollState) {
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
+        ComponentHeaderSection(
+            title = "GdsSwitch",
+            body = "Example usage:",
+            code = """
+            GdsSwitch(
+              checked = true,
+              onCheckedChanged = { },
+              enabled = true,
+            )
+            """.trimIndent(),
+        )
+
         var checked by remember { mutableStateOf(true) }
         SwitchRow(
             title = "Enabled",
