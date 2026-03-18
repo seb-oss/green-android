@@ -17,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.tooling.preview.Preview
 import se.seb.gds.theme.GdsTheme
 
@@ -51,12 +52,12 @@ fun GdsSwitch(
     GdsTheme {
         CompositionLocalProvider(
             LocalRippleConfiguration provides RippleConfiguration(
-                color = GdsTheme.colors.State.Positive03,
+                color = style.rippleColor,
                 rippleAlpha = RippleAlpha(0.16f, 0.1f, 0.08f, 0.1f),
             ),
         ) {
             Switch(
-                modifier = modifier,
+                modifier = modifier.alpha(if (enabled) 1f else style.disabledOpacity),
                 checked = checked,
                 enabled = enabled,
                 onCheckedChange = onCheckedChanged,
