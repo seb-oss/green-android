@@ -152,11 +152,64 @@ This library is now in **production mode** (version 1.0.0+), which means we foll
 4. Update documentation and add usage examples for new components.
 5. Add any new components to the DesignLibraryScreen.
 6. Test your changes thoroughly with the companion app.
-7. Submit a pull request with a detailed description of your changes, including:
+7. If you added or changed a component, create or update the screenshot tests under `components/src/screenshotTest/kotlin` and update the reference images.
+   Commit the updated reference images alongside your changes. See the [Screenshot Testing](#screenshot-testing) section for more details.
+8. Submit a pull request with a detailed description of your changes, including:
    - What the change does
    - Why it's needed
    - Whether it includes any deprecations
    - Screenshots or examples (if applicable)
+
+---
+
+## Screenshot Testing
+
+This project uses the `com.android.tools.screenshot` library to perform screenshot testing on its components. 
+These tests capture images of composables in different states and compare them against reference ("golden") images to detect unintended UI changes.
+
+### How to Create a Screenshot Test
+
+1. Create a new Kotlin file under the `components/src/screenshotTest/kotlin` directory.
+2. Define a `@Composable` function for the test case.
+3. Annotate the function with `@PreviewTest`. This annotation indicates that the function is a screenshot test and should be executed during the test phase.
+4. Annotate the function with `@GdsUiTestsPreview` or `@GdsUiPreview` to apply the default theme and styles used in the tests.
+5. Inside the function, render the component with the specific state you want to test.
+
+**Example (`SwitchScreenshotTests.kt`):**
+
+```kotlin
+@PreviewTest
+@GdsUiTestsPreview
+@Composable
+private fun GdsSwitchUncheckedScreenshot() {
+    GdsTheme {
+        GdsSwitch(
+            checked = false,
+            onCheckedChanged = { },
+        )
+    }
+}
+```
+
+### How to Validate Tests
+
+To run the tests and compare the generated screenshots with the reference images, execute the following Gradle command:
+
+```bash
+./gradlew :components:validateDebugScreenshotTest
+```
+
+If there are any visual differences, the test will fail. The generated report will show the differences between the reference and the new image.
+
+### How to Update Reference Images
+
+If a component's appearance has changed intentionally, you need to update the reference images. To do this, run the "update" command:
+
+```bash
+./gradlew :components:updateDebugScreenshotTest
+```
+
+This will replace the old reference images with the newly generated ones. After running the command, you must commit the updated images.
 
 ---
 
