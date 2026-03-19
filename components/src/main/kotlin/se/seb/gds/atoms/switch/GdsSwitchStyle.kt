@@ -5,7 +5,9 @@ import androidx.compose.material3.SwitchDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.Dp
 import se.seb.gds.icons.GdsIcons
+import se.seb.gds.icons.custom.SolidCheckmark12
 import se.seb.gds.theme.GdsTheme
 
 /**
@@ -26,11 +28,16 @@ import se.seb.gds.theme.GdsTheme
  * @property checkedIcon An optional icon to display inside the thumb when the switch is
  *   in the checked state. If `null`, no icon will be displayed in the checked thumb.
  *   This should be a [ImageVector].
+ *  @property disabledOpacity The opacity to apply to the entire switch when it is in a disabled
+ *  state.
+ *  @property rippleColor The color to use for the ripple effect when the switch is interacted with.
  */
 data class GdsSwitchStyle(
     val colors: SwitchColors,
     val alwaysShowThumb: Boolean,
     val checkedIcon: ImageVector?,
+    val disabledOpacity: Float = 1f,
+    val rippleColor: Color,
 )
 
 object GdsSwitchDefaults {
@@ -40,7 +47,9 @@ object GdsSwitchDefaults {
         GdsSwitchStyle(
             colors = defaultColors(),
             alwaysShowThumb = false,
-            checkedIcon = GdsIcons.Solid.Checkmark,
+            checkedIcon = SolidCheckmark12,
+            disabledOpacity = 0.5f,
+            rippleColor = GdsTheme.colors.State.Positive03,
         )
 
     // 2016
@@ -50,6 +59,7 @@ object GdsSwitchDefaults {
             colors = legacyColors(),
             alwaysShowThumb = false,
             checkedIcon = GdsIcons.Solid.Checkmark,
+            rippleColor = GdsTheme.legacyColors.DarkBlue1,
         )
 
     @Composable
@@ -58,6 +68,7 @@ object GdsSwitchDefaults {
             colors = neoColors(),
             alwaysShowThumb = true,
             checkedIcon = null,
+            rippleColor = Color(0xFF26BD3F),
         )
 
     @Composable
@@ -65,16 +76,17 @@ object GdsSwitchDefaults {
         SwitchDefaults.colors(
             checkedThumbColor = GdsTheme.colors.L3.Neutral05,
             checkedTrackColor = GdsTheme.colors.L3.Positive04,
+            checkedIconColor = GdsTheme.colors.Content.Positive01,
             uncheckedThumbColor = GdsTheme.colors.Content.Neutral02,
             uncheckedTrackColor = Color.Transparent,
             uncheckedBorderColor = GdsTheme.colors.Border.Interactive,
-            checkedIconColor = GdsTheme.colors.Content.Positive01,
-            disabledCheckedIconColor = GdsTheme.colors.Content.Disabled01,
-            disabledCheckedTrackColor = GdsTheme.colors.L3.Disabled02,
-            disabledCheckedThumbColor = GdsTheme.colors.L3.Disabled03,
-            disabledUncheckedThumbColor = GdsTheme.colors.Content.Disabled01,
+            // The same colors are used for disabled states, but with reduced opacity applied to the entire switch
+            disabledCheckedThumbColor = GdsTheme.colors.L3.Neutral05,
+            disabledCheckedTrackColor = GdsTheme.colors.L3.Positive04,
+            disabledCheckedIconColor = GdsTheme.colors.Content.Positive01,
+            disabledUncheckedThumbColor = GdsTheme.colors.Content.Neutral02,
             disabledUncheckedTrackColor = Color.Transparent,
-            disabledUncheckedBorderColor = GdsTheme.colors.L3.Disabled03,
+            disabledUncheckedBorderColor = GdsTheme.colors.Border.Interactive,
         )
 
     @Composable
@@ -99,4 +111,8 @@ object GdsSwitchDefaults {
             checkedBorderColor = Color.Transparent,
             uncheckedBorderColor = Color.Transparent,
         )
+
+    val IconSize: Dp
+        @Composable
+        get() = GdsTheme.dimensions.spacing.SpaceS
 }
