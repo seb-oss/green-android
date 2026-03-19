@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -72,13 +73,8 @@ fun GdsInformationCard(
     button: CardButton? = null,
 ) {
     GdsCard(
-        modifier = modifier
-            .clickable(
-                enabled = onClick != null,
-                onClick = { onClick?.invoke() },
-                interactionSource = remember { MutableInteractionSource() },
-                indication = ripple(),
-            ),
+        modifier = modifier,
+        onClick = onClick,
         containerColor = style.colors.containerColor,
         shape = style.shape,
         border = style.border,
