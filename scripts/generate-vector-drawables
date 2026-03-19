@@ -118,11 +118,41 @@ HEADER
     echo "  <path" >> "$out"
     echo "      android:pathData=\"$pathdata\"" >> "$out"
 
-    # Check if this is a stroke-based or fill-based path
-    local has_stroke
+    # Check for both fill and stroke attributes
+    local has_stroke has_fill
     has_stroke=$(echo "$path_elem" | grep -oE 'stroke="[^"]*"' || true)
+    has_fill=$(echo "$path_elem" | grep -oE 'fill="[^"]*"' | sed 's/fill="//;s/"//' || echo "")
 
-    if [[ -n "$has_stroke" ]]; then
+    # Determine if this is primarily a fill or stroke path
+    # If fill is explicitly set to something other than "none", treat as fill-based
+    # If fill is "none" or not set, and stroke exists, treat as stroke-based
+    local is_fill_based=false
+    if [[ -n "$has_fill" && "$has_fill" != "none" ]]; then
+      is_fill_based=true
+    fi
+
+    if [[ "$is_fill_based" == true ]]; then
+      # Fill-based path (like solid icons or filled shapes)
+      local android_fill="#FF000000"
+      if [[ "$has_fill" == "none" ]]; then
+        android_fill="#00000000"
+      fi
+
+      echo "      android:fillColor=\"$android_fill\"" >> "$out"
+
+      # Check for fill-rule or clip-rule attributes
+      local fill_rule
+      fill_rule=$(echo "$path_elem" | grep -oE 'fill-rule="[^"]*"' | sed 's/fill-rule="//;s/"//' || true)
+      if [[ -z "$fill_rule" ]]; then
+        fill_rule=$(echo "$path_elem" | grep -oE 'clip-rule="[^"]*"' | sed 's/clip-rule="//;s/"//' || true)
+      fi
+
+      if [[ "$fill_rule" == "evenodd" ]]; then
+        echo "      android:fillType=\"evenOdd\"/>" >> "$out"
+      else
+        echo "/>" >> "$out"
+      fi
+    elif [[ -n "$has_stroke" ]]; then
       # Stroke-based path (like regular icons)
       # Extract stroke width
       local stroke_width
@@ -141,29 +171,8 @@ HEADER
       echo "      android:strokeLineCap=\"$stroke_linecap\"" >> "$out"
       echo "      android:strokeLineJoin=\"$stroke_linejoin\"/>" >> "$out"
     else
-      # Fill-based path (like solid icons)
-      local fill
-      fill=$(echo "$path_elem" | grep -oE 'fill="[^"]*"' | sed 's/fill="//;s/"//' || echo "currentColor")
-
-      local android_fill="#FF000000"
-      if [[ "$fill" == "none" ]]; then
-        android_fill="#00000000"
-      fi
-
-      echo "      android:fillColor=\"$android_fill\"" >> "$out"
-
-      # Check for fill-rule or clip-rule attributes
-      local fill_rule
-      fill_rule=$(echo "$path_elem" | grep -oE 'fill-rule="[^"]*"' | sed 's/fill-rule="//;s/"//' || true)
-      if [[ -z "$fill_rule" ]]; then
-        fill_rule=$(echo "$path_elem" | grep -oE 'clip-rule="[^"]*"' | sed 's/clip-rule="//;s/"//' || true)
-      fi
-
-      if [[ "$fill_rule" == "evenodd" ]]; then
-        echo "      android:fillType=\"evenOdd\"/>" >> "$out"
-      else
-        echo "/>" >> "$out"
-      fi
+      # No stroke and no fill - shouldn't happen, but close tag anyway
+      echo "/>" >> "$out"
     fi
   done
 
