@@ -1,7 +1,6 @@
 package se.seb.gds.preview
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -30,11 +29,8 @@ fun ExpandableCard(
 
     GdsCard(
         containerColor = GdsTheme.colors.L2.Neutral02,
-        modifier = modifier
-            .fillMaxWidth()
-            .clickable {
-                expanded = !expanded
-            },
+        modifier = modifier,
+        onClick = { expanded = !expanded },
     ) {
         Column {
             Row(

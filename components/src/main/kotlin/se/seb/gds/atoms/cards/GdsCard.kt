@@ -19,7 +19,7 @@ import se.seb.gds.theme.GdsTheme
  *
  * @param modifier The [Modifier] to be applied to the card.
  * @param containerColor The background color of the card. Defaults to `GdsTheme.colors.L1.Neutral01`.
- * @param shape The shape of the card's corners. Defaults to [GdsInformationCardDefaults.shape].
+ * @param shape The shape of the card's corners. Defaults to [GdsCardDefaults.shape].
  * @param border An optional border to draw around the card.
  * @param content The content to be placed inside the card.
  *
@@ -35,18 +35,32 @@ import se.seb.gds.theme.GdsTheme
 @Composable
 fun GdsCard(
     modifier: Modifier = Modifier,
+    onClick: (() -> Unit)? = null,
     containerColor: Color = GdsTheme.colors.L1.Neutral01,
     shape: Shape = GdsCardDefaults.shape,
     border: BorderStroke? = GdsCardDefaults.border,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .then(modifier),
-        colors = CardDefaults.cardColors(containerColor = containerColor),
-        shape = shape,
-        border = border,
-        content = content,
-    )
+    val cardModifier = Modifier
+        .fillMaxWidth()
+        .then(modifier)
+
+    if (onClick != null) {
+        Card(
+            onClick = onClick,
+            modifier = cardModifier,
+            colors = CardDefaults.cardColors(containerColor = containerColor),
+            shape = shape,
+            border = border,
+            content = content,
+        )
+    } else {
+        Card(
+            modifier = cardModifier,
+            colors = CardDefaults.cardColors(containerColor = containerColor),
+            shape = shape,
+            border = border,
+            content = content,
+        )
+    }
 }
