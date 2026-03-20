@@ -243,7 +243,7 @@ fun InputContainedCore(
         LocalTextSelectionColors provides style.basicInputStyle.textSelectionColors,
     ) {
         BasicTextField(
-            modifier = Modifier
+            modifier = modifier
                 .bringIntoViewRequester(bringIntoViewRequester)
                 .focusRequester(focusRequester)
                 .clearAndSetSemantics {
