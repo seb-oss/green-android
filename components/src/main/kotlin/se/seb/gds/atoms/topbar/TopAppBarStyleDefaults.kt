@@ -10,6 +10,15 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import se.seb.gds.theme.GdsTheme
 
+/**
+ * Style configuration for top app bars, including colors and text styles for different scroll states.
+ *
+ * @property colors The colors used by the top app bar in different states.
+ * @property titleStyle The text style for the title when the top app bar is expanded.
+ * @property collapsedTitleStyle The text style for the title when the top app bar is collapsed.
+ * @property subtitleStyle The text style for the subtitle when the top app bar is expanded.
+ * @property collapsedSubtitleStyle The text style for the subtitle when the top app bar is collapsed.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 data class TopAppBarStyle(
     val colors: TopAppBarColors,
