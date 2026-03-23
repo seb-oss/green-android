@@ -7,6 +7,7 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import se.seb.gds.theme.GdsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -30,6 +31,15 @@ data class TopAppBarStyle(
             subtitleStyle
         } else {
             collapsedSubtitleStyle
+        }
+    }
+
+    @Composable
+    fun getEndPadding(scrollBehavior: TopAppBarScrollBehavior): Dp {
+        return if (scrollBehavior.state.collapsedFraction == 1f) {
+            GdsTheme.dimensions.spacing.Space0
+        } else {
+            GdsTheme.dimensions.spacing.SpaceM
         }
     }
 }
