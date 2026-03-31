@@ -52,6 +52,12 @@ data class BasicInputState(
     fun hasHardCharacterLimit(): Boolean = characterLimit != null && characterLimit.type == CharacterLimitType.HARD
 }
 
+/**
+ * Configuration for character limit in the input field, including the maximum number of characters allowed and the type of limit (soft or hard).
+ *
+ * @property maxCharacters The maximum number of characters allowed in the input field.
+ * @property type The type of character limit, either soft (allows input but shows error) or hard (prevents input beyond the limit).
+ */
 data class CharacterLimit(
     val maxCharacters: Int,
     val type: CharacterLimitType = CharacterLimitType.SOFT,

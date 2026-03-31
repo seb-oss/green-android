@@ -9,7 +9,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import se.seb.gds.theme.GdsTheme
 
 /**
  * A large top app bar that displays a title, subtitle, navigation icon, and actions.
@@ -55,13 +54,14 @@ fun GdsLargeTopAppBar(
 ) {
     val textStyle = style.getTitleStyle(scrollBehavior)
     val subtitleStyle = style.getSubtitleStyle(scrollBehavior)
+    val endPadding = style.getEndPadding(scrollBehavior)
 
     LargeFlexibleTopAppBar(
         modifier = modifier,
         colors = style.colors,
         title = {
             Text(
-                modifier = Modifier.padding(end = GdsTheme.dimensions.spacing.Space3Xs),
+                modifier = Modifier.padding(end = endPadding),
                 text = title,
                 style = textStyle,
             )
@@ -69,7 +69,7 @@ fun GdsLargeTopAppBar(
         subtitle = subtitle?.let {
             {
                 Text(
-                    modifier = Modifier.padding(end = GdsTheme.dimensions.spacing.Space3Xs),
+                    modifier = Modifier.padding(end = endPadding),
                     text = it,
                     style = subtitleStyle,
                 )
