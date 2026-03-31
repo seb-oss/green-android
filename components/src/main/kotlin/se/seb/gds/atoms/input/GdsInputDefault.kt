@@ -47,7 +47,9 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.CustomAccessibilityAction
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -213,6 +215,7 @@ internal fun InputDefaultCore(
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
     val focusRequester = remember { FocusRequester() }
     var isCharacterLimitError by rememberSaveable { mutableStateOf(false) }
+    val haptics = LocalHapticFeedback.current
 
     LaunchedEffect(interactionSource) {
         interactionSource.interactions.collectLatest { value ->
@@ -227,6 +230,9 @@ internal fun InputDefaultCore(
     LaunchedEffect(state.text) {
         val text = state.text.toString()
         isCharacterLimitError = validate(text, inputState.characterLimit)
+        if (isCharacterLimitError) {
+            haptics.performHapticFeedback(HapticFeedbackType.Reject)
+        }
         onValueChange(text)
     }
 
@@ -278,6 +284,7 @@ internal fun InputDefaultCore(
                     inputTransformation,
                     inputState,
                     characterWhitelistPredicate,
+                    onInputRejected = { haptics.performHapticFeedback(HapticFeedbackType.Reject) },
                 ),
                 outputTransformation = outputTransformation,
                 interactionSource = interactionSource,

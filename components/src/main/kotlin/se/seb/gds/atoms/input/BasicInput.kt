@@ -170,26 +170,28 @@ internal fun animateBorderStrokeAsState(
 }
 
 /**
- * Chains the provided InputTransformation with additional transformations based on the input state, such as character limit and character whitelist.
+ * Chains the provided InputTransformation with additional transformations based on the input state,
+ * such as hard character limit and character whitelist.
  *
  * @param inputTransformation The initial InputTransformation to chain with.
  * @param inputState The state of the input field, including character limit configuration.
  * @param characterWhitelistPredicate Predicate function to filter allowed characters in the input.
+ * @param onInputRejected Callback invoked when input is rejected by any of the transformations (e.g., character limit exceeded or invalid character).
  * @return The chained InputTransformation or null if the initial transformation is null and no additional transformations are added.
  */
-@Composable
 internal fun basicTransformation(
     inputTransformation: InputTransformation?,
     inputState: BasicInputState,
     characterWhitelistPredicate: (CharSequence, CharSequence) -> Boolean,
+    onInputRejected: () -> Unit = {},
 ): InputTransformation? =
     inputTransformation
         .thenIfNotNull(
             inputState.characterLimit?.takeIf { inputState.hasHardCharacterLimit() }?.let {
-                MaxCharacterInputTransformation(it.maxCharacters)
+                MaxCharacterInputTransformation(it.maxCharacters, onInputRejected)
             },
         )
-        .thenIfNotNull(CharacterWhitelistInputTransformation(characterWhitelistPredicate))
+        .thenIfNotNull(CharacterWhitelistInputTransformation(characterWhitelistPredicate, onInputRejected))
 
 /**
  * Chains two InputTransformation objects if both are not null.

@@ -10,6 +10,7 @@ open class CharacterWhitelistInputTransformation(
         original: CharSequence,
         newCharSequence: CharSequence,
     ) -> (Boolean),
+    private val onInputRejected: () -> Unit = {},
 ) : InputTransformation {
     @OptIn(ExperimentalFoundationApi::class)
     override fun TextFieldBuffer.transformInput() {
@@ -20,6 +21,7 @@ open class CharacterWhitelistInputTransformation(
             }
             if (!characterWhitelistPredicate(this.originalText, newString)) {
                 revertAllChanges()
+                onInputRejected()
             }
         }
     }
