@@ -139,6 +139,8 @@ internal fun DesignLibraryScreen(
 
                     LibraryScreen.INFORMATION_CARD -> InformationCardScreen()
 
+                    LibraryScreen.COMMUNICATION_BANNER -> CommunicationBannerScreen()
+
                     else -> {}
                 }
             }
@@ -192,6 +194,8 @@ private fun DesignLibrary(
             }
             HorizontalDivider()
             ListItem("Information Card") { onNavigateToSection(LibraryScreen.INFORMATION_CARD) }
+            HorizontalDivider()
+            ListItem("Communication Banner") { onNavigateToSection(LibraryScreen.COMMUNICATION_BANNER) }
         }
     }
 }
