@@ -2,6 +2,8 @@ package se.seb.gds.atoms.cards
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
@@ -27,4 +29,7 @@ object GdsCardDefaults {
 
     val shape: Shape
         @Composable get() = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM)
+
+    val elevation: CardElevation
+        @Composable get() = CardDefaults.cardElevation()
 }
