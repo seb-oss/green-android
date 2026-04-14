@@ -1,13 +1,10 @@
 package se.seb.gds.atoms.cards
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -15,11 +12,14 @@ import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.CustomAccessibilityAction
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.customActions
+import androidx.compose.ui.semantics.onClick
+import androidx.compose.ui.semantics.semantics
 import se.seb.gds.atoms.GdsButton
 import se.seb.gds.atoms.GdsButtonDefaults
 import se.seb.gds.common.GdsUiPreview
@@ -43,6 +43,7 @@ import se.seb.gds.theme.GdsTheme
  * icon is not shown.
  * @param onClick A lambda to be executed when the card is clicked. If null, the card will not be
  * clickable.
+ * @param onClickDescription A description for the click action, used for accessibility.
  * @param button A [CardButton] object to define an action button at the bottom of the card. If
  * null, no button is shown.
  *
@@ -70,10 +71,16 @@ fun GdsInformationCard(
     style: CardStyle = GdsInformationCardDefaults.information(),
     onDismiss: (() -> Unit)? = null,
     onClick: (() -> Unit)? = null,
+    onClickDescription: String? = null,
     button: CardButton? = null,
 ) {
     GdsCard(
-        modifier = modifier,
+        modifier = modifier.informationCardSemantics(
+            onClick = onClick,
+            onClickDescription = onClickDescription,
+            button = button,
+            onDismiss = onDismiss,
+        ),
         onClick = onClick,
         containerColor = style.colors.containerColor,
         shape = style.shape,
@@ -103,6 +110,7 @@ fun GdsInformationCard(
 
             if (onDismiss != null) {
                 IconButton(
+                    modifier = Modifier.clearAndSetSemantics {},
                     onClick = onDismiss,
                 ) {
                     Icon(
@@ -126,6 +134,7 @@ fun GdsInformationCard(
                 ),
             ) {
                 GdsButton(
+                    modifier = Modifier.clearAndSetSemantics {},
                     title = button.title,
                     leadingIcon = button.leadingIcon,
                     trailingIcon = button.trailingIcon,
@@ -137,6 +146,63 @@ fun GdsInformationCard(
         } else {
             Spacer(Modifier.height(GdsTheme.dimensions.spacing.SpaceM))
         }
+    }
+}
+
+@Composable
+fun Modifier.informationCardSemantics(
+    onClick: (() -> Unit)?,
+    onClickDescription: String?,
+    button: CardButton?,
+    onDismiss: (() -> Unit)?,
+): Modifier {
+    val dismissLabel = stringResource(id = R.string.information_card_dismiss_description)
+
+    // Determine the primary action (activate / double-tap)
+    val primaryAction = onClick ?: button?.onClick ?: onDismiss
+    val primaryLabel = when {
+        onClick != null -> onClickDescription
+        button != null -> button.title
+        else -> dismissLabel
+    }
+
+    // Custom actions are only needed when there are two or more independent actions
+    val actions = buildList {
+        if (onClick != null) {
+            button?.let {
+                add(
+                    CustomAccessibilityAction(it.title) {
+                        it.onClick()
+                        true
+                    },
+                )
+            }
+            onDismiss?.let {
+                add(
+                    CustomAccessibilityAction(dismissLabel) {
+                        it()
+                        true
+                    },
+                )
+            }
+        } else if (button != null && onDismiss != null) {
+            add(
+                CustomAccessibilityAction(dismissLabel) {
+                    onDismiss()
+                    true
+                },
+            )
+        }
+    }
+
+    return this.semantics(mergeDescendants = true) {
+        primaryAction?.let { action ->
+            onClick(label = primaryLabel, action = {
+                action()
+                true
+            })
+        }
+        if (actions.isNotEmpty()) customActions = actions
     }
 }
 
