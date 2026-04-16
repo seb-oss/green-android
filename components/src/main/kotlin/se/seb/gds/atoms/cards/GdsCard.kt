@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -39,6 +40,7 @@ fun GdsCard(
     containerColor: Color = GdsTheme.colors.L1.Neutral01,
     shape: Shape = GdsCardDefaults.shape,
     border: BorderStroke? = GdsCardDefaults.border,
+    elevation: CardElevation = GdsCardDefaults.elevation,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val cardModifier = Modifier
@@ -52,6 +54,7 @@ fun GdsCard(
             colors = CardDefaults.cardColors(containerColor = containerColor),
             shape = shape,
             border = border,
+            elevation = elevation,
             content = content,
         )
     } else {
@@ -60,6 +63,7 @@ fun GdsCard(
             colors = CardDefaults.cardColors(containerColor = containerColor),
             shape = shape,
             border = border,
+            elevation = elevation,
             content = content,
         )
     }
