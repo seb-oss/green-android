@@ -137,10 +137,10 @@ object GdsButtonDefaults {
             )
 
         @Composable
-        fun negative() =
-            GdsButtonStyle(
-                colors = negativeColors(),
-            )
+        fun negative() = GdsButtonStyle(colors = negativeColors())
+
+        @Composable
+        fun notice() = GdsButtonStyle(colors = noticeColors())
 
         @Composable
         fun primaryColors() =
@@ -215,6 +215,15 @@ object GdsButtonDefaults {
             )
 
         @Composable
+        fun noticeColors() =
+            ButtonDefaults.buttonColors(
+                containerColor = GdsTheme.colors.L3.Notice01,
+                contentColor = GdsTheme.colors.Content.Inversed,
+                disabledContainerColor = GdsTheme.colors.L3.Disabled03,
+                disabledContentColor = GdsTheme.colors.Content.Disabled01,
+            )
+
+        @Composable
         fun xLarge() =
             GdsButtonSizeProfile(
                 height = 56.dp,
@@ -257,7 +266,7 @@ object GdsButtonDefaults {
                 widthType = ButtonWidthType.Full,
                 shape = RoundedCornerShape(GdsTheme.dimensions.radius.RadiusM),
                 horizontalPadding = GdsTheme.dimensions.spacing.SpaceM,
-                textStyle = GdsTheme.typography.DetailBookM,
+                textStyle = GdsTheme.typography.DetailBookS,
                 iconSize = 16.dp,
                 iconSpacing = GdsTheme.dimensions.spacing.Space2Xs,
             )

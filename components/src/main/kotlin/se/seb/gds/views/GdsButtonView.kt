@@ -78,6 +78,7 @@ class GdsButtonView @JvmOverloads constructor(
             ButtonStyle.TERTIARY -> GdsButtonDefaults.TwentyThree.tertiary()
             ButtonStyle.OUTLINE -> GdsButtonDefaults.TwentyThree.outline()
             ButtonStyle.NEGATIVE -> GdsButtonDefaults.TwentyThree.negative()
+            ButtonStyle.NOTICE -> GdsButtonDefaults.TwentyThree.notice()
             ButtonStyle.LEGACY_PRIMARY -> GdsButtonDefaults.primary()
             ButtonStyle.LEGACY_SECONDARY -> GdsButtonDefaults.secondary()
             ButtonStyle.LEGACY_TERTIARY -> GdsButtonDefaults.tertiary()
@@ -96,6 +97,7 @@ class GdsButtonView @JvmOverloads constructor(
             ButtonStyle.TERTIARY,
             ButtonStyle.OUTLINE,
             ButtonStyle.NEGATIVE,
+            ButtonStyle.NOTICE,
             -> {
                 when (_size) {
                     ButtonSize.SMALL -> GdsButtonDefaults.TwentyThree.small()
@@ -138,6 +140,7 @@ class GdsButtonView @JvmOverloads constructor(
         SECONDARY_ON_GREY_CARD,
         OUTLINE,
         NEGATIVE,
+        NOTICE,
         TERTIARY,
         LEGACY_PRIMARY,
         LEGACY_SECONDARY,
