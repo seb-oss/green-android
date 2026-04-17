@@ -102,3 +102,12 @@ private fun GdsButtonNegativeScreenshot() {
         ButtonScreenshot(GdsButtonDefaults.TwentyThree.negative())
     }
 }
+
+@PreviewTest
+@GdsUiTestsPreview
+@Composable
+private fun GdsButtonNoticeScreenshot() {
+    GdsTheme {
+        ButtonScreenshot(GdsButtonDefaults.TwentyThree.notice())
+    }
+}
