@@ -3,6 +3,7 @@ package se.seb.gds.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -72,6 +73,36 @@ private fun ListRowItemNoDescriptionScreenshot() {
                 endSlot = {
                     EndIcon(
                         icon = GdsIcons.Regular.ChevronRight,
+                    )
+                },
+            )
+        }
+    }
+}
+
+@GdsUiTestsPreview
+@PreviewTest
+@Composable
+private fun ListRowItemWithContentSlotScreenshot() {
+    GdsTheme {
+        Box(modifier = Modifier.background(color = GdsTheme.colors.L1.Neutral01)) {
+            ListRowItem(
+                contentSlot = {
+                    Text(
+                        text = "Title",
+                        style = GdsTheme.typography.DetailBookS,
+                        color = GdsTheme.colors.Content.Neutral02,
+                    )
+                    Text(
+                        text = "Subtitle",
+                        style = GdsTheme.typography.DetailBookXs,
+                        color = GdsTheme.colors.Content.Brand01,
+                    )
+                },
+                endSlot = {
+                    EndIcon(
+                        icon = GdsIcons.Regular.ChevronRight,
+                        contentDescription = "Chevron right icon",
                     )
                 },
             )
