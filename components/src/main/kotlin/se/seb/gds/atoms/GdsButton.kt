@@ -38,7 +38,25 @@ import se.seb.gds.theme.GdsTheme
  * @param modifier The modifier to be applied to the button.
  * @param title The text displayed on the button.
  * @param enabled Controls the enabled state of the button. When `false`, this button will not be clickable.
- * @param style The styling to be applied to the button, including colors, shape, and size. Defaults to `GdsButtonDefaults.defaultStyle()`.
+ * @param style The styling to be applied to the button, including colors, shape, and size. Defaults to `GdsButtonDefaults.TwentyThree.primary()`.
+ * Available TwentyThree styles:
+ * [GdsButtonDefaults.TwentyThree.primary],
+ * [GdsButtonDefaults.TwentyThree.secondaryOnWhite],
+ * [GdsButtonDefaults.TwentyThree.secondaryOnGrey],
+ * [GdsButtonDefaults.TwentyThree.secondaryOnWhiteCard],
+ * [GdsButtonDefaults.TwentyThree.secondaryOnGreyCard],
+ * [GdsButtonDefaults.TwentyThree.tertiary],
+ * [GdsButtonDefaults.TwentyThree.outline],
+ * [GdsButtonDefaults.TwentyThree.negative],
+ * [GdsButtonDefaults.TwentyThree.notice]
+ * @param sizeProfile The size profile to be applied to the button, defining its dimensions and typography. Defaults to `GdsButtonDefaults.TwentyThree.large()`.
+ * Available TwentyThree size profiles:
+ * [GdsButtonDefaults.TwentyThree.small],
+ * [GdsButtonDefaults.TwentyThree.medium],
+ * [GdsButtonDefaults.TwentyThree.large],
+ * [GdsButtonDefaults.TwentyThree.xLarge]
+ * @param leadingIcon An optional icon to be displayed at the start of the button.
+ * @param trailingIcon An optional icon to be displayed at the end of the button.
  * @param onClick The callback to be invoked when the button is clicked.
  *
  * Example usage:

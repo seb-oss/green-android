@@ -2,25 +2,17 @@ package se.seb.gds.preview
 
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -131,69 +123,27 @@ internal fun ButtonsScreen(scrollState: ScrollState) {
                 hasIcon && iconPosition == "Right"
             }
 
-            GdsButton(
-                title = "Primary",
-                style = GdsButtonDefaults.TwentyThree.primary(),
-                sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                leadingIcon = leadingIcon,
-                trailingIcon = trailingIcon,
-            ) { }
+            val buttons = listOf(
+                "Primary" to GdsButtonDefaults.TwentyThree.primary(),
+                "Secondary On White" to GdsButtonDefaults.TwentyThree.secondaryOnWhite(),
+                "Secondary On Grey" to GdsButtonDefaults.TwentyThree.secondaryOnGrey(),
+                "Secondary On White Card" to GdsButtonDefaults.TwentyThree.secondaryOnWhiteCard(),
+                "Secondary On Grey Card" to GdsButtonDefaults.TwentyThree.secondaryOnGreyCard(),
+                "Tertiary" to GdsButtonDefaults.TwentyThree.tertiary(),
+                "Outline" to GdsButtonDefaults.TwentyThree.outline(),
+                "Negative" to GdsButtonDefaults.TwentyThree.negative(),
+                "Notice" to GdsButtonDefaults.TwentyThree.notice(),
+            )
 
-            GdsButton(
-                title = "Secondary On White",
-                style = GdsButtonDefaults.TwentyThree.secondaryOnWhite(),
-                sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                leadingIcon = leadingIcon,
-                trailingIcon = trailingIcon,
-            ) { }
-
-            GdsButton(
-                title = "Secondary On Grey",
-                style = GdsButtonDefaults.TwentyThree.secondaryOnGrey(),
-                sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                leadingIcon = leadingIcon,
-                trailingIcon = trailingIcon,
-            ) { }
-
-            GdsButton(
-                title = "Secondary On White Card",
-                style = GdsButtonDefaults.TwentyThree.secondaryOnWhiteCard(),
-                sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                leadingIcon = leadingIcon,
-                trailingIcon = trailingIcon,
-            ) { }
-
-            GdsButton(
-                title = "Secondary On Grey Card",
-                style = GdsButtonDefaults.TwentyThree.secondaryOnGreyCard(),
-                sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                leadingIcon = leadingIcon,
-                trailingIcon = trailingIcon,
-            ) { }
-
-            GdsButton(
-                title = "Tertiary Button",
-                style = GdsButtonDefaults.TwentyThree.tertiary(),
-                sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                leadingIcon = leadingIcon,
-                trailingIcon = trailingIcon,
-            ) { }
-
-            GdsButton(
-                title = "Outline Button",
-                style = GdsButtonDefaults.TwentyThree.outline(),
-                sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                leadingIcon = leadingIcon,
-                trailingIcon = trailingIcon,
-            ) { }
-
-            GdsButton(
-                title = "Negative Button",
-                style = GdsButtonDefaults.TwentyThree.negative(),
-                sizeProfile = buttonSizeProfile.copy(widthType = widthType),
-                leadingIcon = leadingIcon,
-                trailingIcon = trailingIcon,
-            ) { }
+            buttons.forEach { (title, style) ->
+                GdsButton(
+                    title = title,
+                    style = style,
+                    sizeProfile = buttonSizeProfile.copy(widthType = widthType),
+                    leadingIcon = leadingIcon,
+                    trailingIcon = trailingIcon,
+                ) { }
+            }
         } else {
             GdsButton(
                 title = "Primary Large Button",
