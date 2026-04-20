@@ -75,8 +75,57 @@ object ListRowItem {
                 )
             }
         }
+
+        @Composable
+        fun DefaultContent(
+            title: String,
+            description: String? = null,
+        ) {
+            Text(
+                text = title,
+                style = GdsTheme.typography.DetailBookM,
+                color = GdsTheme.colors.Content.Neutral01,
+            )
+            description?.let {
+                Text(
+                    text = it,
+                    style = GdsTheme.typography.DetailRegularS,
+                    color = GdsTheme.colors.Content.Neutral02,
+                )
+            }
+        }
     }
 
+    /**
+     * A composable function that represents a row item in a list, with a title and an optional description.
+     *
+     * @param title The title text to be displayed in the row item.
+     * @param modifier The [Modifier] to be applied to the row item.
+     * @param description An optional description text to be displayed below the title.
+     * @param startSlot An optional composable lambda for content to be displayed at the start of the row.
+     * @param endSlot An optional composable lambda for content to be displayed at the end of the row.
+     * @param onClick A lambda function that will be invoked when the row item is clicked.
+     *
+     * Example usage:
+     * ```
+     * ListRowItem(
+     *  startSlot = {
+     *      StartIcon(
+     *          icon = GdsIcons.Regular.Bell,
+     *          contentDescription = "Bell icon",
+     *      )
+     *  },
+     *  title = "Konton",
+     *  description = "0213-1231412",
+     *  endSlot = {
+     *      EndIcon(
+     *          icon = GdsIcons.Regular.ChevronRight,
+     *          contentDescription = "Chevron right icon",
+     *      )
+     *  },
+     * )
+     * ```
+     */
     @Composable
     operator fun invoke(
         title: String,
@@ -86,7 +135,57 @@ object ListRowItem {
         endSlot: (@Composable RowItemScope.() -> Unit)? = null,
         onClick: () -> Unit = { },
     ) {
-        val iconScope = RowItemScope()
+        invoke(
+            modifier = modifier,
+            startSlot = startSlot,
+            contentSlot = { DefaultContent(title = title, description = description) },
+            endSlot = endSlot,
+            onClick = onClick,
+        )
+    }
+
+    /**
+     * A composable function that represents a row item in a list, with customizable content.
+     *
+     * @param modifier The [Modifier] to be applied to the row item.
+     * @param startSlot An optional composable lambda for content to be displayed at the start of the row.
+     * @param contentSlot A composable lambda for the main content of the row item.
+     * @param endSlot An optional composable lambda for content to be displayed at the end of the row.
+     * @param onClick A lambda function that will be invoked when the row item is clicked.
+     *
+     * Example usage:
+     * ```
+     * ListRowItem(
+     *  contentSlot = {
+     *      Text(
+     *          text = "Title",
+     *          style = GdsTheme.typography.DetailBookS,
+     *          color = GdsTheme.colors.Content.Neutral02,
+     *      )
+     *      Text(
+     *          text = "Subtitle",
+     *          style = GdsTheme.typography.DetailBookXs,
+     *          color = GdsTheme.colors.Content.Brand01,
+     *      )
+     *  },
+     *  endSlot = {
+     *      EndIcon(
+     *          icon = GdsIcons.Regular.ChevronRight,
+     *          contentDescription = "Chevron right icon",
+     *      )
+     *  },
+     * )
+     * ```
+     */
+    @Composable
+    operator fun invoke(
+        modifier: Modifier = Modifier,
+        startSlot: (@Composable RowItemScope.() -> Unit)? = null,
+        contentSlot: @Composable RowItemScope.() -> Unit,
+        endSlot: (@Composable RowItemScope.() -> Unit)? = null,
+        onClick: () -> Unit = { },
+    ) {
+        val itemScope = RowItemScope()
         Row(
             modifier = modifier
                 .clickable(onClick = onClick)
@@ -98,25 +197,14 @@ object ListRowItem {
             verticalAlignment = Alignment.CenterVertically,
         ) {
             startSlot?.let {
-                with(iconScope) { it() }
+                with(itemScope) { it() }
                 Spacer(modifier = Modifier.width(GdsTheme.dimensions.spacing.SpaceM))
             }
             Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = title,
-                    style = GdsTheme.typography.DetailBookM,
-                    color = GdsTheme.colors.Content.Neutral01,
-                )
-                description?.let {
-                    Text(
-                        text = it,
-                        style = GdsTheme.typography.DetailRegularS,
-                        color = GdsTheme.colors.Content.Neutral02,
-                    )
-                }
+                with(itemScope) { contentSlot() }
             }
             endSlot?.let {
-                with(iconScope) { it() }
+                with(itemScope) { it() }
             }
         }
     }
@@ -124,7 +212,7 @@ object ListRowItem {
 
 @Preview
 @Composable
-private fun ListRowItemPreview() {
+private fun ListRowItemWithTitleAndDescriptionPreview() {
     GdsTheme {
         Box(modifier = Modifier.background(color = GdsTheme.colors.L1.Neutral01)) {
             ListRowItem(
@@ -136,6 +224,35 @@ private fun ListRowItemPreview() {
                 },
                 title = "Konton",
                 description = "0213-1231412",
+                endSlot = {
+                    EndIcon(
+                        icon = GdsIcons.Regular.ChevronRight,
+                        contentDescription = "Chevron right icon",
+                    )
+                },
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun ListRowItemWithContentSlotPreview() {
+    GdsTheme {
+        Box(modifier = Modifier.background(color = GdsTheme.colors.L1.Neutral01)) {
+            ListRowItem(
+                contentSlot = {
+                    Text(
+                        text = "Title",
+                        style = GdsTheme.typography.DetailBookS,
+                        color = GdsTheme.colors.Content.Neutral02,
+                    )
+                    Text(
+                        text = "Subtitle",
+                        style = GdsTheme.typography.DetailBookXs,
+                        color = GdsTheme.colors.Content.Brand01,
+                    )
+                },
                 endSlot = {
                     EndIcon(
                         icon = GdsIcons.Regular.ChevronRight,
