@@ -16,7 +16,7 @@ import se.seb.gds.theme.GdsTheme
  * A foundational composable for building card-based UI elements within the GDS design system.
  *
  * This component wraps the Material 3 [Card] and applies default GDS styling. It is intended
- * to be a generic building block for more specific card components, such as [GdsInformationCard].
+ * to be a generic building block for more specific card components, such as [GdsCallout].
  *
  * @param modifier The [Modifier] to be applied to the card.
  * @param containerColor The background color of the card. Defaults to `GdsTheme.colors.L1.Neutral01`.

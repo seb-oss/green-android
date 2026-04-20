@@ -137,7 +137,7 @@ internal fun DesignLibraryScreen(
 
                     LibraryScreen.BOTTOM_SHEET -> BottomSheetScreen()
 
-                    LibraryScreen.INFORMATION_CARD -> InformationCardScreen()
+                    LibraryScreen.CALLOUT -> CalloutScreen()
 
                     LibraryScreen.COMMUNICATION_BANNER -> CommunicationBannerScreen()
 
@@ -193,7 +193,7 @@ private fun DesignLibrary(
                 ListItem("Bottom sheets") { onNavigateToSection(LibraryScreen.BOTTOM_SHEET) }
             }
             HorizontalDivider()
-            ListItem("Information Card") { onNavigateToSection(LibraryScreen.INFORMATION_CARD) }
+            ListItem("Callout") { onNavigateToSection(LibraryScreen.CALLOUT) }
             HorizontalDivider()
             ListItem("Communication Banner") { onNavigateToSection(LibraryScreen.COMMUNICATION_BANNER) }
         }

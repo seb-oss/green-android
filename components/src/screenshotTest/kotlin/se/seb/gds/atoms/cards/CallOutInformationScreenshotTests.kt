@@ -11,21 +11,21 @@ import se.seb.gds.common.GdsUiPreview
 import se.seb.gds.theme.GdsTheme
 
 /**
- * Screenshot tests for the Loud style of the [GdsInformationCard] component.
+ * Screenshot tests for the Loud style of the [GdsCallout] component.
  */
 @PreviewTest
 @GdsUiPreview
 @Composable
-private fun GdsLoudInfoCardScreenshot() {
+private fun GdsCalloutInformationScreenshot() {
     GdsTheme {
         Column(
             modifier = Modifier.padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            // Loud Information Card with action button and dismiss icon
-            GdsInformationCard(
-                style = GdsInformationCardDefaults.loud(),
-                heading = "Loud Information Card",
+            // Information Call out with action button and dismiss icon
+            GdsCallout(
+                style = GdsCalloutDefaults.information(),
+                heading = "Information Call out",
                 body = "This is an information card used for testing screenshot functionality.",
                 onDismiss = {},
                 button = CardButton(
@@ -34,10 +34,10 @@ private fun GdsLoudInfoCardScreenshot() {
                 ),
             )
 
-            // Loud Information Card without action button and dismiss icon
-            GdsInformationCard(
-                style = GdsInformationCardDefaults.loud(),
-                heading = "Loud Information Card",
+            // Information Call out without action button and dismiss icon
+            GdsCallout(
+                style = GdsCalloutDefaults.information(),
+                heading = "Information Call out",
                 body = "This is an information card used for testing screenshot functionality.",
                 onDismiss = null,
                 button = null,

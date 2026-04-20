@@ -29,7 +29,7 @@ import androidx.compose.ui.Modifier
  * Example usage:
  * ```
  * GdsCardAnimated(visible = isVisible) {
- *     GdsInformationCard(
+ *     GdsCallout(
  *         heading = "Hello",
  *         body = "This is an animated information card."
  *     )
