@@ -11,7 +11,7 @@ import se.seb.gds.common.GdsUiPreview
 import se.seb.gds.theme.GdsTheme
 
 /**
- * Screenshot tests for the default information style of the [GdsInformationCard] component.
+ * Screenshot tests for the default information style of the [GdsCallout] component.
  */
 @PreviewTest
 @GdsUiPreview
@@ -22,20 +22,26 @@ private fun GdsInfoCardScreenshot() {
             modifier = Modifier.padding(horizontal = GdsTheme.dimensions.spacing.SpaceM),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            // Default Information Card with action button and dismiss icon
-            GdsInformationCard(
-                heading = "Information Card",
+            GdsCallout(
+                heading = "Information Subtle",
+                style = GdsCalloutDefaults.informationSubtle(),
                 body = "This is an information card used for testing screenshot functionality.",
-                onDismiss = {},
-                button = CardButton(
-                    title = "Action",
-                    onClick = {},
-                ),
             )
-
-            // Information Card without action button and dismiss icon
-            GdsInformationCard(
-                heading = "Information Card",
+            GdsCallout(
+                heading = "Warning",
+                style = GdsCalloutDefaults.warning(),
+                body = "This is an information card used for testing screenshot functionality.",
+            )
+            GdsCallout(
+                heading = "Notice",
+                style = GdsCalloutDefaults.notice(),
+                body = "This is an information card used for testing screenshot functionality.",
+                onDismiss = null,
+                button = null,
+            )
+            GdsCallout(
+                heading = "Critical",
+                style = GdsCalloutDefaults.critical(),
                 body = "This is an information card used for testing screenshot functionality.",
                 onDismiss = null,
                 button = null,

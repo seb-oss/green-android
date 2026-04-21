@@ -27,14 +27,14 @@ import se.seb.gds.atoms.GdsButtonDefaults
 import se.seb.gds.atoms.GdsText
 import se.seb.gds.atoms.cards.CardButton
 import se.seb.gds.atoms.cards.CardStyle
+import se.seb.gds.atoms.cards.GdsCallout
+import se.seb.gds.atoms.cards.GdsCalloutDefaults
 import se.seb.gds.atoms.cards.GdsCardAnimated
-import se.seb.gds.atoms.cards.GdsInformationCard
-import se.seb.gds.atoms.cards.GdsInformationCardDefaults
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
 
 @Composable
-fun InformationCardScreen() {
+fun CalloutScreen() {
     var dismissButton by rememberSaveable { mutableStateOf(true) }
     var showActionButton by rememberSaveable { mutableStateOf(true) }
     var showActionCard by rememberSaveable { mutableStateOf(true) }
@@ -44,6 +44,9 @@ fun InformationCardScreen() {
     var isInfoCardVisible by rememberSaveable { mutableStateOf(true) }
     var isLoudInfoCardVisible by rememberSaveable { mutableStateOf(true) }
     var isInfoOnWhiteCardVisible by rememberSaveable { mutableStateOf(true) }
+    var isCriticalInfoCardVisible by rememberSaveable { mutableStateOf(true) }
+    var isNoticeInfoCardVisible by rememberSaveable { mutableStateOf(true) }
+    var isWarningInfoCardVisible by rememberSaveable { mutableStateOf(true) }
 
     val context = LocalContext.current
 
@@ -64,14 +67,14 @@ fun InformationCardScreen() {
     ) {
         ComponentHeaderSection(
             modifier = Modifier.padding(GdsTheme.dimensions.spacing.SpaceM),
-            title = "GdsInformationCard",
+            title = "GdsCallout",
             body = "Example usage:",
             code = """
-        GdsInformationCard(
+        GdsCallout(
           heading = "Heading",
           body = "Body text",
           modifier = modifier,
-          style = GdsInformationCardDefaults.information(),
+          style = GdsCalloutDefaults.information(),
           button = GdsCardButton(
               title = "Action Button",
               icon = GdsIcons.Regular.Arrow,
@@ -132,6 +135,9 @@ fun InformationCardScreen() {
                 isInfoCardVisible = true
                 isLoudInfoCardVisible = true
                 isInfoOnWhiteCardVisible = true
+                isCriticalInfoCardVisible = true
+                isNoticeInfoCardVisible = true
+                isWarningInfoCardVisible = true
             }
         }
 
@@ -156,8 +162,8 @@ fun InformationCardScreen() {
         val onCardClickAction = onCardClick.takeIf { showActionCard }
 
         CardSection(
-            title = "Information Card",
-            style = GdsInformationCardDefaults.information(),
+            title = "Information Subtle",
+            style = GdsCalloutDefaults.informationSubtle(),
             dismissButton = dismissButton,
             isVisible = isInfoCardVisible,
             onDismiss = { isInfoCardVisible = false },
@@ -166,8 +172,8 @@ fun InformationCardScreen() {
         )
 
         CardSection(
-            title = "Loud Information Card",
-            style = GdsInformationCardDefaults.loud(),
+            title = "Information",
+            style = GdsCalloutDefaults.information(),
             dismissButton = dismissButton,
             isVisible = isLoudInfoCardVisible,
             onDismiss = { isLoudInfoCardVisible = false },
@@ -175,10 +181,40 @@ fun InformationCardScreen() {
             button = button,
         )
 
+        CardSection(
+            title = "Critical",
+            style = GdsCalloutDefaults.critical(),
+            dismissButton = dismissButton,
+            isVisible = isCriticalInfoCardVisible,
+            onDismiss = { isCriticalInfoCardVisible = false },
+            onClick = onCardClickAction,
+            button = button,
+        )
+
+        CardSection(
+            title = "Notice",
+            style = GdsCalloutDefaults.notice(),
+            dismissButton = dismissButton,
+            isVisible = isNoticeInfoCardVisible,
+            onDismiss = { isNoticeInfoCardVisible = false },
+            onClick = onCardClickAction,
+            button = button,
+        )
+
+        CardSection(
+            title = "Warning",
+            style = GdsCalloutDefaults.warning(),
+            dismissButton = dismissButton,
+            isVisible = isWarningInfoCardVisible,
+            onDismiss = { isWarningInfoCardVisible = false },
+            onClick = onCardClickAction,
+            button = button,
+        )
+
         Column(modifier = Modifier.background(GdsTheme.colors.L1.Neutral01)) {
             CardSection(
-                title = "Information Card on White Background",
-                style = GdsInformationCardDefaults.informationOnWhite(),
+                title = "Information Subtle on White Background",
+                style = GdsCalloutDefaults.informationSubtleOnWhite(),
                 dismissButton = dismissButton,
                 isVisible = isInfoOnWhiteCardVisible,
                 onDismiss = { isInfoOnWhiteCardVisible = false },
@@ -207,10 +243,10 @@ private fun CardSection(
     ) {
         GdsText(label = title, style = GdsTheme.typography.HeadingM)
         GdsCardAnimated(visible = isVisible) {
-            GdsInformationCard(
+            GdsCallout(
                 style = style,
-                heading = "Information Card Heading",
-                body = "This information card displays important details and optional actions for the user.",
+                heading = "Heading",
+                body = "This card displays important details and optional actions for the user.",
                 button = button,
                 onClick = onClick,
                 onDismiss = onDismiss.takeIf { dismissButton },

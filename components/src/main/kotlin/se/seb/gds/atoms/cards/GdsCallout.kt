@@ -29,16 +29,53 @@ import se.seb.gds.theme.GdsTheme
 
 /**
  * A component that displays an information card with a heading, body text, an optional dismiss
+ */
+@Deprecated(
+    message = "Use GdsCallout instead.",
+    replaceWith = ReplaceWith(
+        expression = "GdsCallout(heading, body, modifier, style, onDismiss, onClick, onClickDescription, button)",
+        imports = ["se.seb.gds.atoms.cards.GdsCallout"],
+    ),
+)
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+fun GdsInformationCard(
+    heading: String,
+    body: String,
+    modifier: Modifier = Modifier,
+    style: CardStyle = GdsInformationCardDefaults.information(),
+    onDismiss: (() -> Unit)? = null,
+    onClick: (() -> Unit)? = null,
+    onClickDescription: String? = null,
+    button: CardButton? = null,
+) {
+    GdsCallout(
+        heading = heading,
+        body = body,
+        modifier = modifier,
+        style = style,
+        onDismiss = onDismiss,
+        onClick = onClick,
+        onClickDescription = onClickDescription,
+        button = button,
+    )
+}
+
+/**
+ * A component that displays a call-out card with a heading, body text, an optional dismiss
  * button, and an optional action button. The card can also be made clickable.
  *
  * This component is built on top of [GdsCard] and is styled using [CardStyle]. Default styles
- * are provided by [GdsInformationCardDefaults].
+ * are provided by [GdsCalloutDefaults].
  *
  * @param heading The heading of the card.
  * @param body The body text of the card.
  * @param modifier The [Modifier] to be applied to the card.
  * @param style The [CardStyle] to be applied to the card, defining its colors, shape, and border.
- * Defaults to [GdsInformationCardDefaults.information].
+ * Styles: [GdsCalloutDefaults.informationSubtle], [GdsCalloutDefaults.informationSubtleOnWhite],
+ * [GdsCalloutDefaults.information], [GdsCalloutDefaults.critical],
+ * [GdsCalloutDefaults.notice], [GdsCalloutDefaults.warning].
+ * Defaults to [GdsCalloutDefaults.informationSubtle].
  * @param onDismiss A lambda to be executed when the dismiss icon is clicked. If null, the dismiss
  * icon is not shown.
  * @param onClick A lambda to be executed when the card is clicked. If null, the card will not be
@@ -49,7 +86,7 @@ import se.seb.gds.theme.GdsTheme
  *
  * Example usage:
  * ```
- * GdsInformationCard(
+ * GdsCallout(
  *    heading = "Important Update",
  *    body = "Please read the following information carefully.",
  *    onDismiss = { /* Handle dismiss */ },
@@ -61,14 +98,16 @@ import se.seb.gds.theme.GdsTheme
  *    onClick = { /* Handle card click */ }
  * )
  * ```
+ *
+ * See [GdsCardAnimated] for animating the appearance and disappearance of the card.
  */
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-fun GdsInformationCard(
+fun GdsCallout(
     heading: String,
     body: String,
     modifier: Modifier = Modifier,
-    style: CardStyle = GdsInformationCardDefaults.information(),
+    style: CardStyle = GdsCalloutDefaults.informationSubtle(),
     onDismiss: (() -> Unit)? = null,
     onClick: (() -> Unit)? = null,
     onClickDescription: String? = null,
@@ -94,13 +133,26 @@ fun GdsInformationCard(
                         start = GdsTheme.dimensions.spacing.SpaceM,
                         top = GdsTheme.dimensions.spacing.SpaceM,
                     ),
-                verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.Space3Xs),
+                verticalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceXs),
             ) {
-                Text(
-                    text = heading,
-                    style = GdsTheme.typography.HeadingXs,
-                    color = style.colors.contentColor,
-                )
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(GdsTheme.dimensions.spacing.SpaceXs),
+                    verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+                ) {
+                    style.icon?.let { icon ->
+                        Icon(
+                            modifier = Modifier.size(GdsTheme.dimensions.spacing.SpaceL),
+                            tint = style.colors.contentColor,
+                            imageVector = icon,
+                            contentDescription = null,
+                        )
+                    }
+                    Text(
+                        text = heading,
+                        style = GdsTheme.typography.HeadingXs,
+                        color = style.colors.contentColor,
+                    )
+                }
                 Text(
                     text = body,
                     style = GdsTheme.typography.BodyRegularS,
@@ -208,9 +260,9 @@ fun Modifier.informationCardSemantics(
 
 @GdsUiPreview
 @Composable
-private fun GdsInformationCardPreview() {
+private fun GdsCalloutPreview() {
     GdsTheme {
-        GdsInformationCard(
+        GdsCallout(
             heading = "Spärra ditt kort snabbt i appen",
             body = "This information card displays important details and optional actions for the user.",
             button = CardButton(
@@ -225,10 +277,10 @@ private fun GdsInformationCardPreview() {
 
 @GdsUiPreview
 @Composable
-private fun GdsLoudPreview() {
+private fun GdsCalloutInformationSubtlePreview() {
     GdsTheme {
-        GdsInformationCard(
-            style = GdsInformationCardDefaults.loud(),
+        GdsCallout(
+            style = GdsCalloutDefaults.informationSubtle(),
             heading = "Spärra ditt kort snabbt i appen",
             body = "This information card displays important details and optional actions for the user.",
             button = CardButton(
@@ -243,10 +295,46 @@ private fun GdsLoudPreview() {
 
 @GdsUiPreview
 @Composable
-private fun GdsInformationCardWhitePreview() {
+private fun GdsCalloutCriticalPreview() {
     GdsTheme {
-        GdsInformationCard(
-            style = GdsInformationCardDefaults.informationOnWhite(),
+        GdsCallout(
+            style = GdsCalloutDefaults.critical(),
+            heading = "Spärra ditt kort snabbt i appen",
+            body = "This information card displays important details and optional actions for the user.",
+            button = CardButton(
+                title = "Action Button",
+                leadingIcon = GdsIcons.Regular.ArrowRight,
+                onClick = {},
+            ),
+            onDismiss = {},
+        )
+    }
+}
+
+@GdsUiPreview
+@Composable
+private fun GdsCalloutWarningPreview() {
+    GdsTheme {
+        GdsCallout(
+            style = GdsCalloutDefaults.warning(),
+            heading = "Spärra ditt kort snabbt i appen",
+            body = "This information card displays important details and optional actions for the user.",
+            button = CardButton(
+                title = "Action Button",
+                leadingIcon = GdsIcons.Regular.ArrowRight,
+                onClick = {},
+            ),
+            onDismiss = {},
+        )
+    }
+}
+
+@GdsUiPreview
+@Composable
+private fun GdsCalloutInformationSubtleOnWhitePreview() {
+    GdsTheme {
+        GdsCallout(
+            style = GdsCalloutDefaults.informationSubtleOnWhite(),
             heading = "Information Card Heading",
             body = "This information card displays important details and optional actions for the user.",
             button = CardButton(

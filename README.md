@@ -9,6 +9,7 @@ Green Design System Android is a project that consists of two main parts:
 
 ## Table of Contents
 
+- [Resources](#resources)
 - [Component Library](#component-library)
   - [Features](#features)
   - [Installation](#installation)
@@ -22,6 +23,11 @@ Green Design System Android is a project that consists of two main parts:
 - [License](#license)
 
 ---
+
+## Resources
+
+- [Changelog](CHANGELOG.md) — version history and what changed in each release
+- [Migration Guide](MIGRATION.md) — step-by-step instructions for upgrading between versions
 
 ## Component Library
 
@@ -159,6 +165,7 @@ This library is now in **production mode** (version 1.0.0+), which means we foll
    - Why it's needed
    - Whether it includes any deprecations
    - Screenshots or examples (if applicable)
+   - An entry in [CHANGELOG.md](CHANGELOG.md) under `[Unreleased]`
 
 ---
 
