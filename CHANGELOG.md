@@ -10,6 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+
+## [1.1.0] - 2026-04-22
+
+### Added
 - `GdsCallOut` — new component replacing `GdsInformationCard`. Same functionality and API,
   renamed to better reflect its purpose as a contextual call-out message rather than a generic
   information card.
@@ -47,4 +55,5 @@ See [MIGRATION.md](MIGRATION.md) for step-by-step migration instructions.
 ---
 
 <!-- Links -->
+[1.1.0]: https://github.com/seb-oss/green-android/releases/tag/1.1.0
 [1.0.2]: https://github.com/seb-oss/green-android/releases/tag/1.0.2

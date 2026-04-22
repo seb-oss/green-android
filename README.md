@@ -28,6 +28,7 @@ Green Design System Android is a project that consists of two main parts:
 
 - [Changelog](CHANGELOG.md) — version history and what changed in each release
 - [Migration Guide](MIGRATION.md) — step-by-step instructions for upgrading between versions
+- [Release Process](RELEASING.md) — steps for maintainers to publish a new release
 
 ## Component Library
 

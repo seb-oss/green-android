@@ -1,6 +1,6 @@
 # Migration Guide
 
-## 1.0.2 → 1.0.3: `GdsInformationCard` → `GdsCallOut`
+## 1.0.2 → 1.1.0: `GdsInformationCard` → `GdsCallOut`
 
 ### Why
 
