@@ -22,6 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `notice()` — notice/informational style
   - `warning()` — warning style
 
+### Changed
+-  Update `onClick` parameter to be nullable in `ListRowItem` to allow for non-clickable rows.
+
 ### Deprecated
 - `GdsInformationCard` — use `GdsCallOut` instead. The IDE will offer an automatic
   quick-fix migration via `ReplaceWith`.

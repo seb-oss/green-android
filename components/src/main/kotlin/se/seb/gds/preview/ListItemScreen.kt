@@ -52,7 +52,8 @@ fun ListItemScreen() {
             containerColor = GdsTheme.colors.L2.Neutral02,
         ) {
             ListRowItem(
-                title = "Label 01",
+                title = "Label 01 clickable",
+                onClick = { },
             )
             HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
             ListRowItem(
@@ -81,7 +82,8 @@ fun ListItemScreen() {
         )
         HorizontalDivider(color = GdsTheme.colors.Border.Subtle01, thickness = 0.5.dp)
         ListRowItem(
-            title = "Label 01",
+            title = "Label 01 clickable",
+            onClick = { },
             startSlot = {
                 StartIcon(
                     icon = GdsIcons.Regular.Bell,

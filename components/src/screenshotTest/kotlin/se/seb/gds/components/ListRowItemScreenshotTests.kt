@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.android.tools.screenshot.PreviewTest
 import se.seb.gds.atoms.cards.GdsCard
-import se.seb.gds.common.GdsUiPreview
 import se.seb.gds.common.GdsUiTestsPreview
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
@@ -129,7 +128,7 @@ private fun ListRowItemNoEndSlotScreenshot() {
     }
 }
 
-@GdsUiPreview
+@GdsUiTestsPreview
 @PreviewTest
 @Composable
 private fun ListRowItemWithCardScreenshot() {
@@ -165,31 +164,6 @@ private fun ListRowItemWithCardScreenshot() {
                             icon = GdsIcons.Regular.ChevronRight,
                         )
                     },
-                )
-                ListRowItem(
-                    startSlot = {
-                        StartIcon(
-                            icon = GdsIcons.Regular.Bell,
-                        )
-                    },
-                    title = "No description",
-                    endSlot = {
-                        EndIcon(
-                            icon = GdsIcons.Regular.ChevronRight,
-                        )
-                    },
-                )
-                ListRowItem(
-                    startSlot = {
-                        StartIcon(
-                            icon = GdsIcons.Regular.Bell,
-                        )
-                    },
-                    title = "No end slot",
-                    description = "Description",
-                )
-                ListRowItem(
-                    title = "Only title",
                 )
             }
         }
