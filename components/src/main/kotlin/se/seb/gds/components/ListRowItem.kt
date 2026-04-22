@@ -104,7 +104,7 @@ object ListRowItem {
      * @param description An optional description text to be displayed below the title.
      * @param startSlot An optional composable lambda for content to be displayed at the start of the row.
      * @param endSlot An optional composable lambda for content to be displayed at the end of the row.
-     * @param onClick A lambda function that will be invoked when the row item is clicked.
+     * @param onClick An optional lambda function that will be invoked when the row item is clicked.
      *
      * Example usage:
      * ```
@@ -133,7 +133,7 @@ object ListRowItem {
         description: String? = null,
         startSlot: (@Composable RowItemScope.() -> Unit)? = null,
         endSlot: (@Composable RowItemScope.() -> Unit)? = null,
-        onClick: () -> Unit = { },
+        onClick: (() -> Unit)? = null,
     ) {
         invoke(
             modifier = modifier,
@@ -151,7 +151,7 @@ object ListRowItem {
      * @param startSlot An optional composable lambda for content to be displayed at the start of the row.
      * @param contentSlot A composable lambda for the main content of the row item.
      * @param endSlot An optional composable lambda for content to be displayed at the end of the row.
-     * @param onClick A lambda function that will be invoked when the row item is clicked.
+     * @param onClick An optional lambda function that will be invoked when the row item is clicked.
      *
      * Example usage:
      * ```
@@ -183,12 +183,12 @@ object ListRowItem {
         startSlot: (@Composable RowItemScope.() -> Unit)? = null,
         contentSlot: @Composable RowItemScope.() -> Unit,
         endSlot: (@Composable RowItemScope.() -> Unit)? = null,
-        onClick: () -> Unit = { },
+        onClick: (() -> Unit)? = null,
     ) {
         val itemScope = RowItemScope()
         Row(
             modifier = modifier
-                .clickable(onClick = onClick)
+                .then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier)
                 .fillMaxWidth()
                 .padding(
                     horizontal = GdsTheme.dimensions.spacing.SpaceL,
