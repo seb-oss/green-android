@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.android.tools.screenshot.PreviewTest
 import se.seb.gds.atoms.cards.GdsCard
-import se.seb.gds.common.GdsUiPreview
 import se.seb.gds.common.GdsUiTestsPreview
 import se.seb.gds.icons.GdsIcons
 import se.seb.gds.theme.GdsTheme
