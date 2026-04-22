@@ -129,7 +129,7 @@ private fun ListRowItemNoEndSlotScreenshot() {
     }
 }
 
-@GdsUiPreview
+@GdsUiTestsPreview
 @PreviewTest
 @Composable
 private fun ListRowItemWithCardScreenshot() {
@@ -165,31 +165,6 @@ private fun ListRowItemWithCardScreenshot() {
                             icon = GdsIcons.Regular.ChevronRight,
                         )
                     },
-                )
-                ListRowItem(
-                    startSlot = {
-                        StartIcon(
-                            icon = GdsIcons.Regular.Bell,
-                        )
-                    },
-                    title = "No description",
-                    endSlot = {
-                        EndIcon(
-                            icon = GdsIcons.Regular.ChevronRight,
-                        )
-                    },
-                )
-                ListRowItem(
-                    startSlot = {
-                        StartIcon(
-                            icon = GdsIcons.Regular.Bell,
-                        )
-                    },
-                    title = "No end slot",
-                    description = "Description",
-                )
-                ListRowItem(
-                    title = "Only title",
                 )
             }
         }
