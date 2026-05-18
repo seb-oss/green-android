@@ -18,4 +18,5 @@ internal enum class LibraryScreen {
     DIALOGS,
     CALLOUT,
     COMMUNICATION_BANNER,
+    CHECKBOX,
 }

@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `GdsCheckbox` — new checkbox component with checked/unchecked states and error styling.
+- `GdsTriStateCheckbox` — new tri-state checkbox component supporting checked, unchecked, and indeterminate states.
+- `GdsCheckboxRow` — new component combining a checkbox with a label in a row layout, with support for custom label content.
+- `GdsTriStateCheckboxRow` — new component combining a tri-state checkbox with a label in a row layout.
+- `GdsCheckboxDefaults` — new defaults object providing styling constants for checkbox components.
+
 ### Changed
 ### Deprecated
 ### Removed
