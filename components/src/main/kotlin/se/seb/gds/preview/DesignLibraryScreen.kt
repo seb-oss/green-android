@@ -141,6 +141,8 @@ internal fun DesignLibraryScreen(
 
                     LibraryScreen.COMMUNICATION_BANNER -> CommunicationBannerScreen()
 
+                    LibraryScreen.CHECKBOX -> CheckboxScreen()
+
                     else -> {}
                 }
             }
@@ -196,6 +198,8 @@ private fun DesignLibrary(
             ListItem("Callout") { onNavigateToSection(LibraryScreen.CALLOUT) }
             HorizontalDivider()
             ListItem("Communication Banner") { onNavigateToSection(LibraryScreen.COMMUNICATION_BANNER) }
+            HorizontalDivider()
+            ListItem("Checkbox") { onNavigateToSection(LibraryScreen.CHECKBOX) }
         }
     }
 }
